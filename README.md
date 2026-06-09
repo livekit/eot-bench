@@ -52,7 +52,12 @@ evaluated, in English and across all 14 languages. Explore the full
 latency or false-cutoff budget and watch every model re-rank on the Pareto
 frontier and the per-language heatmap.
 
-[![End-of-turn detection leaderboard: Pareto frontier, ranking, and per-language heatmap](assets/leaderboard.png)](https://livekit.com/benchmarks/eot-bench)
+<a href="https://livekit.com/benchmarks/eot-bench">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/leaderboard_dark.png">
+    <img alt="End-of-turn detection leaderboard: Pareto frontier, ranking, and per-language heatmap" src="assets/leaderboard_light.png">
+  </picture>
+</a>
 
 The clearest single view is how much dead air each model leaves at a fixed
 interruption budget. Tuned to interrupt the user no more than 5% of the time,
@@ -60,7 +65,10 @@ how long after the user has actually finished does the agent wait before
 responding? Lower means a snappier conversation. (This is endpointing delay, not
 model inference time.)
 
-![End-of-turn delay at a 5% false-cutoff budget, English](assets/headline_latency_en.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/headline_latency_en_dark.png">
+  <img alt="End-of-turn delay at a 5% false-cutoff budget, English" src="assets/headline_latency_en_light.png">
+</picture>
 
 English models at four operating points, ordered by false cutoffs at a 300 ms
 latency budget (best first). Lower is better on every metric:

@@ -8,7 +8,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "gen-data": "python ../scripts/export_web_data.py --output-root ../output/livekit__eot-bench-data__validation__min_silence_100ms --out src/turn-detector/data.ts --max-points-en 100000 --max-points-lang 100000"
+    "gen-data": "python ../scripts/export_web_data.py --output-root ../output/livekit__eot-bench-data__validation__min_silence_100ms --out src/turn-detector/data.ts --max-points-en 100000 --max-points-lang 100000",
+    "gen-assets": "vite build && node scripts/screenshot-assets.mjs"
   },
   "dependencies": {
     "@visx/axis": "^3.12.0",
@@ -28,6 +29,7 @@
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",
+    "playwright": "^1.49.0",
     "tailwindcss": "^4.0.0",
     "typescript": "^5.6.3",
     "vite": "^6.0.5"

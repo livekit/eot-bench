@@ -1,9 +1,62 @@
 @import 'tailwindcss';
 
+/* LiveKit Bytes brand fonts (see DESIGN.md): Public Sans for UI/body, TWK Everett
+   for display headings (≥ 3xl), CommitMono for numbers/code. Vendored as woff2 and
+   referenced relatively so Vite fingerprints them and they resolve under the site's
+   relative base path. */
+@font-face {
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('./fonts/public-sans-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'CommitMono';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('./fonts/commit-mono-variable-font.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'TWK Everett';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('./fonts/everett-light.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'TWK Everett';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./fonts/everett-regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'TWK Everett';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('./fonts/everett-medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'TWK Everett';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./fonts/everett-bold.woff2') format('woff2');
+}
+
 /* Register the LiveKit design tokens the vendored components reference as Tailwind
    color utilities (text-fg1, bg-bg1, border-separator1, fill-fg2, accent-accent, …).
    Each maps to an --lk-color-* triple defined below, which switches with the theme. */
 @theme {
+  /* Brand type families — drive font-sans / font-mono / font-display utilities. */
+  --font-sans: 'Public Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Helvetica,
+    Arial, sans-serif;
+  --font-mono: 'CommitMono', ui-monospace, 'SF Mono', 'Cascadia Mono', Menlo, monospace;
+  --font-display: 'TWK Everett', 'Public Sans', ui-sans-serif, system-ui, sans-serif;
+
   --color-fg0: oklch(var(--lk-color-fg0));
   --color-fg1: oklch(var(--lk-color-fg1));
   --color-fg2: oklch(var(--lk-color-fg2));
@@ -113,7 +166,6 @@ body {
   margin: 0;
   background-color: oklch(var(--lk-color-bg0));
   color: oklch(var(--lk-color-fg1));
-  font-family:
-    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
 }

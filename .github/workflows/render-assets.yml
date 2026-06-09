@@ -1,0 +1,72 @@
+name: Render README assets
+
+# Regenerates the README PNG assets (headline chart + leaderboard composite, each
+# in light and dark) from the site components and commits them back. CI is the
+# source of truth for these pixels — headless Chromium renders text differently
+# per-platform, so don't hand-commit locally-generated copies; let this workflow
+# own them. Runs only when the inputs that affect the rendered output change.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site/src/**' # chart components, fonts, and the generated data.ts
+      - 'site/scripts/**' # the screenshot script
+      - 'site/package.json'
+      - 'site/pnpm-lock.yaml'
+      - '.github/workflows/render-assets.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write # push the regenerated assets to a bot branch
+  pull-requests: write # open/update the PR into protected main
+
+# One render at a time; a newer push supersedes an in-flight run.
+concurrency:
+  group: render-assets
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      # Reads the pnpm version from site/package.json "packageManager" (pnpm@11.5.2).
+      - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4.3.0
+        with:
+          package_json_file: site/package.json
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: site/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+        working-directory: site
+      # Install the Chromium build pinned by the playwright version in the lockfile,
+      # plus its OS dependencies, so renders are reproducible run-to-run.
+      - run: pnpm exec playwright install --with-deps chromium
+        working-directory: site
+      - run: pnpm gen-assets
+        working-directory: site
+      # main is protected, so push to a dedicated bot branch and open/update a PR
+      # rather than committing to main directly. The branch is rebuilt from the
+      # current main each run, so the PR always shows "latest main + fresh assets".
+      - name: Open/update PR with regenerated assets
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [[ -z "$(git status --porcelain assets)" ]]; then
+            echo "Assets already up to date — nothing to PR."
+            exit 0
+          fi
+          BRANCH="bot/render-assets"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$BRANCH"
+          git add assets/*.png
+          git commit -m "chore: regenerate README assets"
+          git push --force origin "$BRANCH"
+          if [[ -z "$(gh pr list --head "$BRANCH" --state open --json number --jq '.[].number')" ]]; then
+            gh pr create --head "$BRANCH" --base main \
+              --title "chore: regenerate README assets" \
+              --body "Automated regeneration of the README PNG assets (headline chart + leaderboard composite, light/dark) from the site components. Rendered on CI Chromium."
+          fi

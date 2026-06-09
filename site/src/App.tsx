@@ -11,7 +11,7 @@ export default function App() {
           <p className="text-fg3 mb-3 font-mono text-xs tracking-wider uppercase">
             LiveKit · End-of-Turn Detection Benchmark
           </p>
-          <h1 className="text-fg0 text-3xl font-semibold tracking-tight sm:text-4xl">
+          <h1 className="text-fg0 font-display text-3xl font-medium tracking-tight sm:text-4xl">
             End-of-Turn Detection Leaderboard
           </h1>
           <p className="text-fg2 mt-4 max-w-3xl text-base leading-relaxed">

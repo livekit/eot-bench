@@ -33,12 +33,20 @@ interface TurnDetectorChartsProps {
   data?: TurnDetectorData;
   /** Initial budget (defaults to a 300 ms latency target). */
   initialBudget?: Budget;
+  /**
+   * `'snapshot'` renders a static composite for the README screenshot pipeline:
+   * the interactive chrome (budget controls, drag hint) is hidden and the outer
+   * margin dropped, leaving caption + legend + Pareto + ranking + heatmap.
+   */
+  variant?: 'default' | 'snapshot';
 }
 
 export function TurnDetectorCharts({
   data = TURN_DETECTOR_DATA,
   initialBudget = DEFAULT_LATENCY,
+  variant = 'default',
 }: TurnDetectorChartsProps) {
+  const isSnapshot = variant === 'snapshot';
   const [budget, setBudget] = useState<Budget>(initialBudget);
   const [activeModelKey, setActiveModelKey] = useState<string | null>(null);
 
@@ -53,9 +61,10 @@ export function TurnDetectorCharts({
   const leader = rankingForBudget(data, budget).find((r) => r.value !== null);
 
   return (
-    <div className="text-fg1 my-10">
+    <div className={cn('text-fg1', !isSnapshot && 'my-10')}>
       <div className="border-separator1 bg-bg1 rounded-lg border p-4 sm:p-6">
         {/* Controls */}
+        {!isSnapshot && (
         <div className="mb-4 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <span className="text-fg3 mb-2 block font-mono text-xs tracking-wider uppercase">
@@ -137,6 +146,7 @@ export function TurnDetectorCharts({
             </div>
           </div>
         </div>
+        )}
 
         {/* Readout — dynamic numbers sit in fixed-width slots so the sentence doesn't reflow. */}
         {leader && (
@@ -195,9 +205,11 @@ export function TurnDetectorCharts({
               onBudgetChange={setBudget}
               activeModelKey={activeModelKey}
             />
-            <p className="text-fg3 mt-3 text-center text-xs">
-              Drag the dashed line, or use the slider, to set the budget.
-            </p>
+            {!isSnapshot && (
+              <p className="text-fg3 mt-3 text-center text-xs">
+                Drag the dashed line, or use the slider, to set the budget.
+              </p>
+            )}
           </div>
           <div>
             <h4 className="text-fg2 mb-2 text-sm font-semibold">Ranking</h4>

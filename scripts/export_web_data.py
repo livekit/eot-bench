@@ -22,7 +22,20 @@ import json
 import os
 from typing import Optional
 
+import numpy as np
 import pandas as pd
+
+EPS = 1e-9
+
+# Fine silence-timeout sweep for the VAD baseline, matching the harness report
+# (eot_harness/comparison.py: _fine_vad_baseline_from_span_set). The coarse
+# `policy_type == 'vad'` rows in the tradeoff sweep only land on a few discrete
+# timeouts, so they overstate the latency needed to hit a given cut-off budget
+# (e.g. 2000 ms vs the published 1600 ms at 5%). These constants are the harness
+# `compare-models` defaults the committed output was generated with.
+VAD_MIN_HOLD = 0.2
+VAD_MAX_HOLD = 5.0
+VAD_TABLE_STEP = 0.01
 
 # Display name (manifest.json `display_name`) -> stable key, label, color token.
 MODEL_CONFIG: dict[str, dict] = {
@@ -110,15 +123,40 @@ def read_frontier(tradeoff_path: str, max_points: int) -> Optional[list[list[flo
     return _to_rows(pts, max_points)
 
 
-def read_vad_frontier(tradeoff_path: str, max_points: int) -> Optional[list[list[float]]]:
-    """Compute the silence-only VAD baseline frontier from `policy_type == 'vad'` rows."""
-    df = pd.read_parquet(tradeoff_path)
-    if "policy_type" not in df.columns:
+def _fine_vad_points(span_set_path: str) -> Optional[list[tuple[float, float]]]:
+    """Fine VAD baseline from hold-span durations: a fixed silence timeout `delay`
+    fires after `delay` of silence, so its latency on a true EoT is `delay` and its
+    cut-off rate is the fraction of mid-turn hold pauses longer than `delay`. Sweeping
+    `delay` reconstructs the same curve the harness report/table use."""
+    spans = pd.read_parquet(span_set_path)
+    if "label" not in spans.columns or "duration" not in spans.columns:
         return None
-    df = df[df["policy_type"] == "vad"].dropna(subset=["mean_latency", "cutoff_rate"])
-    if df.empty:
+    hold = pd.to_numeric(spans.loc[spans["label"] == "hold", "duration"], errors="coerce").dropna()
+    hold = hold[(hold >= VAD_MIN_HOLD - EPS) & (hold <= VAD_MAX_HOLD + EPS)].to_numpy(dtype=float)
+    if hold.size == 0:
         return None
-    pts = [(float(r.mean_latency), float(r.cutoff_rate)) for r in df.itertuples()]
+    grid = np.round(np.arange(VAD_MIN_HOLD, VAD_MAX_HOLD + VAD_TABLE_STEP / 2.0, VAD_TABLE_STEP), 6)
+    return [(float(delay), float((hold > float(delay) + EPS).mean())) for delay in grid]
+
+
+def read_vad_frontier(
+    lang_dir: str, tradeoff_path: str, max_points: int
+) -> Optional[list[list[float]]]:
+    """Silence-only VAD baseline frontier. Prefer the fine span_set sweep (matches the
+    harness report); fall back to the coarse `policy_type == 'vad'` rows if the span set
+    is unavailable for a language."""
+    span_set_path = os.path.join(lang_dir, "span_set.parquet")
+    pts: Optional[list[tuple[float, float]]] = None
+    if os.path.exists(span_set_path):
+        pts = _fine_vad_points(span_set_path)
+    if pts is None:
+        df = pd.read_parquet(tradeoff_path)
+        if "policy_type" not in df.columns:
+            return None
+        df = df[df["policy_type"] == "vad"].dropna(subset=["mean_latency", "cutoff_rate"])
+        if df.empty:
+            return None
+        pts = [(float(r.mean_latency), float(r.cutoff_rate)) for r in df.itertuples()]
     env = pareto_envelope(pts)
     if not env:
         return None
@@ -192,7 +230,7 @@ def main() -> None:
             seen_keys.setdefault(cfg["key"], cfg)
         # Silence-only VAD baseline, extracted once per language from any sweep.
         if a_tradeoff is not None:
-            vad_frontier = read_vad_frontier(a_tradeoff, max_points)
+            vad_frontier = read_vad_frontier(lang_dir, a_tradeoff, max_points)
             if vad_frontier is not None:
                 per_model[VAD_CONFIG["key"]] = vad_frontier
                 seen_keys.setdefault(VAD_CONFIG["key"], VAD_CONFIG)
