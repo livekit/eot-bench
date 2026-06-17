@@ -53,7 +53,7 @@ export function TurnDetectorCharts({
   const bounds = useMemo(() => {
     const points = data.models.flatMap((m) => data.frontiers[m.key] ?? []);
     return {
-      minCut: points.length ? Math.min(...points.map((p) => p[1])) : 0.01,
+      minCut: points.length ? Math.max(0.01, Math.min(...points.map((p) => p[1]))) : 0.01,
     };
   }, [data]);
 
@@ -91,7 +91,7 @@ export function TurnDetectorCharts({
           <div className="flex flex-col gap-2">
             <div className="flex items-center justify-between gap-4">
               <label htmlFor="td-budget-slider" className="text-fg2 text-sm">
-                {budget.kind === 'latency' ? 'Max latency' : 'Max false cut-off rate'}
+                {budget.kind === 'latency' ? 'Latency budget' : 'False cut-off rate budget'}
               </label>
               <span className="text-fg0 font-mono text-sm tabular-nums">
                 {budget.kind === 'latency'
