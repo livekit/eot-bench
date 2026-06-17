@@ -39,9 +39,14 @@ const MIME = {
   '.json': 'application/json',
 };
 
+// Must match `base` in vite.config.ts: the built index.html requests assets at
+// absolute /benchmarks/eot-bench/… URLs, but we serve dist from root here.
+const BASE_PREFIX = '/benchmarks/eot-bench';
+
 function startServer() {
   const server = createServer(async (req, res) => {
-    const urlPath = decodeURIComponent((req.url ?? '/').split('?')[0]);
+    let urlPath = decodeURIComponent((req.url ?? '/').split('?')[0]);
+    if (urlPath.startsWith(BASE_PREFIX)) urlPath = urlPath.slice(BASE_PREFIX.length) || '/';
     let filePath = join(DIST_DIR, urlPath === '/' ? 'index.html' : urlPath);
     if (!existsSync(filePath)) filePath = join(DIST_DIR, 'index.html'); // SPA fallback
     try {
