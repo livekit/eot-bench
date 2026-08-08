@@ -61,6 +61,11 @@ MODEL_CONFIG: dict[str, dict] = {
         "label": "OpenAI GPT Realtime 2",
         "colorToken": "chart8",
     },
+    "Cartesia Ink 2": {
+        "key": "cartesia-ink-2",
+        "label": "Cartesia Ink 2",
+        "colorToken": "chart9",
+    },
 }
 
 # Silence-only VAD baseline. It is not a model directory — it lives as the

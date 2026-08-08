@@ -82,6 +82,7 @@ latency budget (best first). Lower is better on every metric:
 | SmartTurn v3.2 | 35.2% | 14.8% | 1051 ms | 739 ms |
 | AssemblyAI | 49.4% | 14.6% | 1049 ms | 713 ms |
 | Soniox | – | 5.5% | 647 ms | 512 ms |
+| Cartesia Ink 2 | – | – | 1056 ms | 911 ms |
 | OpenAI GPT Realtime 2 | – | – | 1143 ms | 824 ms |
 | VAD baseline | 55.6% | 21.7% | 1600 ms | 1000 ms |
 
@@ -124,7 +125,7 @@ See [Evaluation Model](#evaluation-model) for the full methodology.
   real human-to-agent turns with audio and text context in 14 languages.
 - Batch and streaming adapter interfaces for local models and provider APIs,
   with reference adapters for LiveKit Turn Detector v1 / v1-mini, Deepgram Flux,
-  AssemblyAI, Soniox, OpenAI GPT Realtime, SmartTurn, and ultraVAD.
+  AssemblyAI, Cartesia Ink 2, Soniox, OpenAI GPT Realtime, SmartTurn, and ultraVAD.
 - Reproducible prediction artifacts, policy-sweep metrics, Pareto frontiers,
   operating-point tables, and multilingual heatmaps committed under `output/`.
 - CLI commands for running a new adapter against one language or every supported
@@ -287,6 +288,7 @@ LIVEKIT_API_SECRET=...
 # LIVEKIT_INFERENCE_URL=http://localhost:8080/v1
 DEEPGRAM_API_KEY=...
 ASSEMBLYAI_API_KEY=...
+CARTESIA_API_KEY=...
 SONIOX_API_KEY=...
 XAI_API_KEY=...
 SPEECHMATICS_API_KEY=...
@@ -414,8 +416,8 @@ layout as batch prediction and skips complete existing language artifacts when
 Streaming API adapters require their provider-specific credentials in
 `eot_harness/.env`, such as `LIVEKIT_API_KEY`/`LIVEKIT_API_SECRET`,
 `DEEPGRAM_API_KEY`, `ASSEMBLYAI_API_KEY`,
-`SONIOX_API_KEY`, `XAI_API_KEY`, `SPEECHMATICS_API_KEY`, `OPENAI_API_KEY`, or
-`GRADIUM_API_KEY`.
+`CARTESIA_API_KEY`, `SONIOX_API_KEY`, `XAI_API_KEY`, `SPEECHMATICS_API_KEY`,
+`OPENAI_API_KEY`, or `GRADIUM_API_KEY`.
 The AssemblyAI adapter also accepts `ASSEMBLY_API_KEY` and `ASSEMBLY_AI_KEY` as
 local aliases.
 
@@ -605,14 +607,17 @@ Built-in adapter examples:
 - `eot_harness.ultravad_adapter:UltraVADAdapter`
 - `eot_harness.deepgram_flux_adapter:DeepgramFluxStreamingAdapter`
 - `eot_harness.assemblyai_adapter:AssemblyAIStreamingAdapter`
+- `eot_harness.cartesia_adapter:CartesiaStreamingAdapter`
 - `eot_harness.soniox_adapter:SonioxStreamingAdapter`
 - `eot_harness.openai_realtime_adapter:OpenAIRealtime2Adapter`
 - `eot_harness.gradium_adapter:GradiumStreamingAdapter`
 
 Streaming STT adapters produce `p_eot` from the provider's native endpointing
 surface. Deepgram Flux and AssemblyAI expose confidence-style scores. Soniox,
-and OpenAI Realtime semantic VAD currently map endpoint events to binary scores:
+Cartesia Ink 2, and OpenAI Realtime semantic VAD currently map endpoint events to binary scores:
 `0.0` before the provider endpoint event has fired and `1.0` after it has fired.
+The Cartesia adapter uses definitive `turn.end` events from the English-only
+`ink-2` automatic-turn endpoint and reads `CARTESIA_API_KEY` from the environment.
 The AssemblyAI adapter defaults to `universal-streaming-multilingual` with
 `min_turn_silence=100`, `max_turn_silence=3000`, and
 `end_of_turn_confidence_threshold=0.1` so the harness receives probability-valued
