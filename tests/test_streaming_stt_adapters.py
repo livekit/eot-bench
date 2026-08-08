@@ -3,6 +3,7 @@ from __future__ import annotations
 import pytest
 
 from eot_harness.assemblyai_adapter import AssemblyAIStreamingAdapter, _assemblyai_event_from_turn
+from eot_harness.cartesia_adapter import CartesiaStreamingAdapter, _cartesia_endpoint_event
 from eot_harness.openai_realtime_adapter import OpenAIRealtime2Adapter, _openai_speech_stopped_event
 from eot_harness.soniox_adapter import SonioxStreamingAdapter, _soniox_endpoint_event
 from eot_harness.streaming_stt import build_event_prediction_rows, resolve_api_key
@@ -120,6 +121,51 @@ def test_assemblyai_turn_silence_validation():
         AssemblyAIStreamingAdapter(max_turn_silence=-1)
     with pytest.raises(ValueError, match="max_turn_silence must be >= min_turn_silence"):
         AssemblyAIStreamingAdapter(min_turn_silence=500, max_turn_silence=100)
+
+
+def test_cartesia_turn_end_event_uses_realtime_receive_position():
+    event = _cartesia_endpoint_event(
+        {
+            "type": "turn.end",
+            "transcript": "done",
+            "request_id": "request-1",
+        },
+        received_audio_sec=1.35,
+    )
+
+    assert event == {
+        "event": "TurnEnd",
+        "timestamp": 1.35,
+        "p_eot": 1.0,
+        "transcript": "done",
+        "request_id": "request-1",
+    }
+
+
+def test_cartesia_ignores_eager_end_until_turn_is_definitive():
+    event = _cartesia_endpoint_event(
+        {"type": "turn.eager_end", "transcript": "maybe done"},
+        received_audio_sec=1.1,
+    )
+
+    assert event is None
+
+
+def test_cartesia_defaults_and_key(monkeypatch):
+    monkeypatch.setenv("CARTESIA_API_KEY", "cartesia-test-key")
+    adapter = CartesiaStreamingAdapter()
+
+    assert adapter.adapter_id == "cartesia/ink-2"
+    assert adapter.display_name == "Cartesia Ink 2"
+    assert not hasattr(adapter, "score_point")
+    assert adapter.supports_language("en")
+    assert not adapter.supports_language("es")
+    assert resolve_api_key("CARTESIA_API_KEY") == "cartesia-test-key"
+    assert adapter._connection_params() == {
+        "model": "ink-2",
+        "encoding": "pcm_s16le",
+        "sample_rate": "16000",
+    }
 
 
 def test_soniox_endpoint_event_detects_final_end_token():
