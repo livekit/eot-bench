@@ -293,6 +293,7 @@ SONIOX_API_KEY=...
 XAI_API_KEY=...
 SPEECHMATICS_API_KEY=...
 OPENAI_API_KEY=...
+GRADIUM_API_KEY=...
 ```
 
 <details>
@@ -416,7 +417,7 @@ Streaming API adapters require their provider-specific credentials in
 `eot_harness/.env`, such as `LIVEKIT_API_KEY`/`LIVEKIT_API_SECRET`,
 `DEEPGRAM_API_KEY`, `ASSEMBLYAI_API_KEY`,
 `CARTESIA_API_KEY`, `SONIOX_API_KEY`, `XAI_API_KEY`, `SPEECHMATICS_API_KEY`,
-or `OPENAI_API_KEY`.
+`OPENAI_API_KEY`, or `GRADIUM_API_KEY`.
 The AssemblyAI adapter also accepts `ASSEMBLY_API_KEY` and `ASSEMBLY_AI_KEY` as
 local aliases.
 
@@ -609,6 +610,7 @@ Built-in adapter examples:
 - `eot_harness.cartesia_adapter:CartesiaStreamingAdapter`
 - `eot_harness.soniox_adapter:SonioxStreamingAdapter`
 - `eot_harness.openai_realtime_adapter:OpenAIRealtime2Adapter`
+- `eot_harness.gradium_adapter:GradiumStreamingAdapter`
 
 Streaming STT adapters produce `p_eot` from the provider's native endpointing
 surface. Deepgram Flux and AssemblyAI expose confidence-style scores. Soniox,
@@ -620,6 +622,15 @@ The AssemblyAI adapter defaults to `universal-streaming-multilingual` with
 `min_turn_silence=100`, `max_turn_silence=3000`, and
 `end_of_turn_confidence_threshold=0.1` so the harness receives probability-valued
 `end_of_turn_confidence` events across AssemblyAI's supported dataset languages.
+
+`GradiumStreamingAdapter` streams 24kHz PCM turns through the Gradium
+`stt_streaming` API (`gradium` PyPI package, imported lazily; `pip install
+gradium`) and records the VAD inactivity probability
+(`msg["vad"][3]["inactivity_prob"]`) from each 80ms `step` message as a
+probability-valued `p_eot` score. The recommended end-of-turn condition is
+`inactivity_prob > 0.5`, which corresponds to the `0.5` threshold operating
+point in the harness metrics. It requires `GRADIUM_API_KEY` and targets
+`https://api.gradium.ai/api` by default.
 
 `LiveKitTurnDetectorAdapter` is a streaming adapter that scores each turn
 with the LiveKit Turn Detector v1 (`turn-detector-v1`) cloud model over the

@@ -77,7 +77,7 @@ def build_parser() -> argparse.ArgumentParser:
     predict_streaming.add_argument("--concurrency", type=int)
     predict_streaming.add_argument("--model", help="Optional adapter model override")
     predict_streaming.add_argument("--chunk-ms", type=int, help="Optional streaming chunk size override")
-    predict_streaming.add_argument("--eot-threshold", type=float, help="Optional Deepgram Flux EoT threshold override")
+    predict_streaming.add_argument("--eot-threshold", type=float, help="Optional EoT threshold override (Deepgram Flux, Gradium)")
     predict_streaming.add_argument("--limit", type=int, help="Only score the first N dataset rows.")
     predict_streaming.add_argument("--overwrite", action="store_true", help="Overwrite existing model run directories")
     predict_streaming.add_argument(
