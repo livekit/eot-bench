@@ -1,0 +1,43 @@
+{
+  "harness_version": "0.1.0",
+  "span_set_id": "0d36e9e5e419",
+  "model_run_id": "gradium_streaming_adapter__default",
+  "dataset": {
+    "path": "livekit/eot-bench-data",
+    "split": "validation",
+    "min_silence_span": 0.1,
+    "language": "es"
+  },
+  "load_dataset": {
+    "path": "livekit/eot-bench-data",
+    "name": "es",
+    "split": "validation"
+  },
+  "path": "livekit/eot-bench-data",
+  "name": "es",
+  "repo_id": "livekit/eot-bench-data",
+  "subset": "es",
+  "split": "validation",
+  "language": "es",
+  "min_silence_span": 0.1,
+  "adapter_id": "gradium/default",
+  "adapter": "eot_harness.gradium_adapter:GradiumStreamingAdapter",
+  "streaming": true,
+  "inference_interval": 0.1,
+  "concurrency": 3,
+  "n_dataset_rows": 400,
+  "n_scored_turns": 400,
+  "n_skipped_turns": 0,
+  "n_rows": 10475,
+  "n_spans": 1236,
+  "n_event_rows": 70122,
+  "total_audio_sec": 5177.613249999997,
+  "wall_clock_sec": 855.9328708749999,
+  "audio_x_realtime": 6.049087990635346,
+  "skip_errors": false,
+  "model": "default",
+  "chunk_ms": 80,
+  "eot_threshold": 0.5,
+  "url": "https://api.gradium.ai/api",
+  "display_name": "Gradium"
+}

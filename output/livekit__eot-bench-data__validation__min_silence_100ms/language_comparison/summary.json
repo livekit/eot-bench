@@ -11,7 +11,7 @@
     "best_mean_latency_at_5pct_cutoff": "Best mean latency @ 5% cutoff",
     "best_mean_latency_at_10pct_cutoff": "Best mean latency @ 10% cutoff"
   },
-  "span_set_root": "/Users/chenghao/.t3/worktrees/eot-bench/t3code-637520f8/output/livekit__eot-bench-data__validation__min_silence_100ms",
+  "span_set_root": "/Users/chenghao/.t3/worktrees/eot-bench/t3code-c249b464/output/livekit__eot-bench-data__validation__min_silence_100ms",
   "languages": [
     "ar",
     "de",
@@ -38,6 +38,7 @@
     "Soniox",
     "OpenAI GPT Realtime 2",
     "Cartesia Ink 2",
+    "Gradium",
     "VAD baseline"
   ],
   "values": {
@@ -52,6 +53,7 @@
         "Soniox": null,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "Gradium": 0.5481099656357389,
         "VAD baseline": 0.5481099656357389
       },
       "de": {
@@ -64,6 +66,7 @@
         "Soniox": null,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "Gradium": 0.5355285961871751,
         "VAD baseline": 0.5355285961871751
       },
       "en": {
@@ -76,6 +79,7 @@
         "Soniox": null,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "Gradium": 0.5560283687943263,
         "VAD baseline": 0.5560283687943263
       },
       "es": {
@@ -88,6 +92,7 @@
         "Soniox": null,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "Gradium": 0.5894428152492669,
         "VAD baseline": 0.5894428152492669
       },
       "fr": {
@@ -100,6 +105,7 @@
         "Soniox": null,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "Gradium": 0.5663082437275986,
         "VAD baseline": 0.5663082437275986
       },
       "hi": {
@@ -112,6 +118,7 @@
         "Soniox": null,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "Gradium": 0.4945652173913043,
         "VAD baseline": 0.4945652173913043
       },
       "id": {
@@ -124,6 +131,7 @@
         "Soniox": null,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "Gradium": 0.595460614152203,
         "VAD baseline": 0.595460614152203
       },
       "it": {
@@ -136,6 +144,7 @@
         "Soniox": null,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "Gradium": 0.5496535796766744,
         "VAD baseline": 0.5496535796766744
       },
       "ja": {
@@ -148,6 +157,7 @@
         "Soniox": null,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "Gradium": 0.4884726224783862,
         "VAD baseline": 0.4884726224783862
       },
       "ko": {
@@ -160,6 +170,7 @@
         "Soniox": null,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "Gradium": 0.5863874345549738,
         "VAD baseline": 0.5863874345549738
       },
       "nl": {
@@ -172,6 +183,7 @@
         "Soniox": null,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "Gradium": 0.4966442953020134,
         "VAD baseline": 0.4966442953020134
       },
       "pt": {
@@ -184,6 +196,7 @@
         "Soniox": null,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "Gradium": 0.5425038639876353,
         "VAD baseline": 0.598145285935085
       },
       "tr": {
@@ -196,6 +209,7 @@
         "Soniox": null,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "Gradium": 0.48760330578512395,
         "VAD baseline": 0.5564738292011019
       },
       "zh": {
@@ -208,6 +222,7 @@
         "Soniox": null,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "Gradium": 0.5115131578947368,
         "VAD baseline": 0.5115131578947368
       }
     },
@@ -222,6 +237,7 @@
         "Soniox": 0.06013745704467354,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "Gradium": 0.140893470790378,
         "VAD baseline": 0.14776632302405499
       },
       "de": {
@@ -234,6 +250,7 @@
         "Soniox": 0.060658578856152515,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "Gradium": 0.12998266897746968,
         "VAD baseline": 0.21490467937608318
       },
       "en": {
@@ -246,6 +263,7 @@
         "Soniox": 0.05531914893617021,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "Gradium": 0.12624113475177304,
         "VAD baseline": 0.2170212765957447
       },
       "es": {
@@ -258,6 +276,7 @@
         "Soniox": 0.11436950146627566,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "Gradium": 0.15249266862170088,
         "VAD baseline": 0.24486803519061584
       },
       "fr": {
@@ -270,6 +289,7 @@
         "Soniox": 0.03942652329749104,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "Gradium": 0.08243727598566308,
         "VAD baseline": 0.18458781362007168
       },
       "hi": {
@@ -282,6 +302,7 @@
         "Soniox": 0.034420289855072464,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "Gradium": 0.057971014492753624,
         "VAD baseline": 0.07427536231884058
       },
       "id": {
@@ -294,6 +315,7 @@
         "Soniox": 0.10146862483311081,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "Gradium": 0.22296395193591456,
         "VAD baseline": 0.22296395193591456
       },
       "it": {
@@ -306,6 +328,7 @@
         "Soniox": 0.07621247113163972,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "Gradium": 0.14318706697459585,
         "VAD baseline": 0.20554272517321015
       },
       "ja": {
@@ -318,6 +341,7 @@
         "Soniox": 0.06628242074927954,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "Gradium": 0.13544668587896252,
         "VAD baseline": 0.17579250720461095
       },
       "ko": {
@@ -330,6 +354,7 @@
         "Soniox": null,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "Gradium": 0.1518324607329843,
         "VAD baseline": 0.1518324607329843
       },
       "nl": {
@@ -342,6 +367,7 @@
         "Soniox": 0.06040268456375839,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "Gradium": 0.13870246085011187,
         "VAD baseline": 0.17002237136465326
       },
       "pt": {
@@ -354,6 +380,7 @@
         "Soniox": 0.06027820710973725,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "Gradium": 0.09582689335394126,
         "VAD baseline": 0.1777434312210201
       },
       "tr": {
@@ -366,6 +393,7 @@
         "Soniox": 0.09090909090909091,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "Gradium": 0.162534435261708,
         "VAD baseline": 0.21763085399449036
       },
       "zh": {
@@ -378,6 +406,7 @@
         "Soniox": 0.08717105263157894,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "Gradium": 0.15460526315789475,
         "VAD baseline": 0.16282894736842105
       }
     },
@@ -392,6 +421,7 @@
         "Soniox": 0.7125984251968503,
         "OpenAI GPT Realtime 2": 0.87304019160105,
         "Cartesia Ink 2": null,
+        "Gradium": 0.8404724409448819,
         "VAD baseline": 0.9
       },
       "de": {
@@ -404,6 +434,7 @@
         "Soniox": 0.7683500000000001,
         "OpenAI GPT Realtime 2": 0.9817471900000001,
         "Cartesia Ink 2": null,
+        "Gradium": 0.8808731249999999,
         "VAD baseline": 1.1
       },
       "en": {
@@ -416,6 +447,7 @@
         "Soniox": 0.647,
         "OpenAI GPT Realtime 2": 1.1425000000000003,
         "Cartesia Ink 2": 1.0565,
+        "Gradium": 0.91275,
         "VAD baseline": 1.6
       },
       "es": {
@@ -428,6 +460,7 @@
         "Soniox": 0.7997500000000001,
         "OpenAI GPT Realtime 2": 1.04425,
         "Cartesia Ink 2": null,
+        "Gradium": 0.9339973475,
         "VAD baseline": 1.2
       },
       "fr": {
@@ -440,6 +473,7 @@
         "Soniox": 0.557,
         "OpenAI GPT Realtime 2": 0.8373075,
         "Cartesia Ink 2": null,
+        "Gradium": 0.7497629699999999,
         "VAD baseline": 1.0
       },
       "hi": {
@@ -452,6 +486,7 @@
         "Soniox": 0.5529245325000001,
         "OpenAI GPT Realtime 2": 0.640646095,
         "Cartesia Ink 2": null,
+        "Gradium": 0.6181798424999999,
         "VAD baseline": 0.7
       },
       "id": {
@@ -464,6 +499,7 @@
         "Soniox": 0.9515151515151514,
         "OpenAI GPT Realtime 2": 0.9824763257575759,
         "Cartesia Ink 2": null,
+        "Gradium": 1.042415563131313,
         "VAD baseline": 1.1
       },
       "it": {
@@ -476,6 +512,7 @@
         "Soniox": 0.85075,
         "OpenAI GPT Realtime 2": 1.0093360925000001,
         "Cartesia Ink 2": null,
+        "Gradium": 0.9345882799999999,
         "VAD baseline": 1.1
       },
       "ja": {
@@ -488,6 +525,7 @@
         "Soniox": 0.7921348314606742,
         "OpenAI GPT Realtime 2": 0.7358923735955055,
         "Cartesia Ink 2": null,
+        "Gradium": 0.9029385533707863,
         "VAD baseline": 1.2
       },
       "ko": {
@@ -500,6 +538,7 @@
         "Soniox": 0.7864721485411139,
         "OpenAI GPT Realtime 2": 0.8235739389920422,
         "Cartesia Ink 2": null,
+        "Gradium": 0.830238726790451,
         "VAD baseline": 0.9
       },
       "nl": {
@@ -512,6 +551,7 @@
         "Soniox": 0.70575,
         "OpenAI GPT Realtime 2": 0.9123967225000001,
         "Cartesia Ink 2": null,
+        "Gradium": 0.91295625,
         "VAD baseline": 1.1
       },
       "pt": {
@@ -524,6 +564,7 @@
         "Soniox": 0.7015,
         "OpenAI GPT Realtime 2": 0.8876037500000001,
         "Cartesia Ink 2": null,
+        "Gradium": 0.72770516,
         "VAD baseline": 1.0
       },
       "tr": {
@@ -536,6 +577,7 @@
         "Soniox": 0.9134999999999998,
         "OpenAI GPT Realtime 2": 1.0940367175,
         "Cartesia Ink 2": null,
+        "Gradium": 1.13714,
         "VAD baseline": 1.2
       },
       "zh": {
@@ -548,6 +590,7 @@
         "Soniox": 0.8864645726744186,
         "OpenAI GPT Realtime 2": 0.9413650087209304,
         "Cartesia Ink 2": null,
+        "Gradium": 1.0116279069767442,
         "VAD baseline": 1.1
       }
     },
@@ -562,6 +605,7 @@
         "Soniox": 0.4887823175853019,
         "OpenAI GPT Realtime 2": 0.6822967585301836,
         "Cartesia Ink 2": null,
+        "Gradium": 0.6427693569553806,
         "VAD baseline": 0.7
       },
       "de": {
@@ -574,6 +618,7 @@
         "Soniox": 0.46302171999999997,
         "OpenAI GPT Realtime 2": 0.6961809375,
         "Cartesia Ink 2": null,
+        "Gradium": 0.679712345,
         "VAD baseline": 0.8
       },
       "en": {
@@ -586,6 +631,7 @@
         "Soniox": 0.512,
         "OpenAI GPT Realtime 2": 0.8244999999999999,
         "Cartesia Ink 2": 0.91125,
+        "Gradium": 0.65625,
         "VAD baseline": 1.0
       },
       "es": {
@@ -598,6 +644,7 @@
         "Soniox": 0.6109095325,
         "OpenAI GPT Realtime 2": 0.7546489049999999,
         "Cartesia Ink 2": null,
+        "Gradium": 0.7089318775,
         "VAD baseline": 1.0
       },
       "fr": {
@@ -610,6 +657,7 @@
         "Soniox": 0.46275000000000005,
         "OpenAI GPT Realtime 2": 0.6520365625,
         "Cartesia Ink 2": null,
+        "Gradium": 0.5626825,
         "VAD baseline": 0.8
       },
       "hi": {
@@ -622,6 +670,7 @@
         "Soniox": 0.5529245325000001,
         "OpenAI GPT Realtime 2": 0.640646095,
         "Cartesia Ink 2": null,
+        "Gradium": 0.529618905,
         "VAD baseline": 0.6
       },
       "id": {
@@ -634,6 +683,7 @@
         "Soniox": 0.6007575757575758,
         "OpenAI GPT Realtime 2": 0.7534870606060607,
         "Cartesia Ink 2": null,
+        "Gradium": 0.7831130050505051,
         "VAD baseline": 0.8
       },
       "it": {
@@ -646,6 +696,7 @@
         "Soniox": 0.47265874999999996,
         "OpenAI GPT Realtime 2": 0.7505031249999999,
         "Cartesia Ink 2": null,
+        "Gradium": 0.6964400000000001,
         "VAD baseline": 0.9
       },
       "ja": {
@@ -658,6 +709,7 @@
         "Soniox": 0.5828651685393258,
         "OpenAI GPT Realtime 2": 0.6720821573033707,
         "Cartesia Ink 2": null,
+        "Gradium": 0.6709752443820224,
         "VAD baseline": 0.9
       },
       "ko": {
@@ -670,6 +722,7 @@
         "Soniox": 0.6147790132625995,
         "OpenAI GPT Realtime 2": 0.6675809045092838,
         "Cartesia Ink 2": null,
+        "Gradium": 0.6854466180371352,
         "VAD baseline": 0.7
       },
       "nl": {
@@ -682,6 +735,7 @@
         "Soniox": 0.45108750000000003,
         "OpenAI GPT Realtime 2": 0.7425142199999999,
         "Cartesia Ink 2": null,
+        "Gradium": 0.67885875,
         "VAD baseline": 0.8
       },
       "pt": {
@@ -694,6 +748,7 @@
         "Soniox": 0.4534557825,
         "OpenAI GPT Realtime 2": 0.7494207799999998,
         "Cartesia Ink 2": null,
+        "Gradium": 0.596321095,
         "VAD baseline": 0.8
       },
       "tr": {
@@ -706,6 +761,7 @@
         "Soniox": 0.58362,
         "OpenAI GPT Realtime 2": 0.8768564075,
         "Cartesia Ink 2": null,
+        "Gradium": 0.7676815649999998,
         "VAD baseline": 0.9
       },
       "zh": {
@@ -718,11 +774,23 @@
         "Soniox": 0.5476491656976745,
         "OpenAI GPT Realtime 2": 0.6657623488372093,
         "Cartesia Ink 2": null,
+        "Gradium": 0.7475993837209303,
         "VAD baseline": 0.8
       }
     }
   },
   "rows": [
+    {
+      "language": "ar",
+      "model": "Gradium",
+      "best_cutoff_rate_at_0_3s_latency": 0.5481099656357389,
+      "best_cutoff_rate_at_0_6s_latency": 0.140893470790378,
+      "best_mean_latency_at_5pct_cutoff": 0.8404724409448819,
+      "best_mean_latency_at_10pct_cutoff": 0.6427693569553806,
+      "run_dir": "ar/gradium_streaming_adapter__default",
+      "metrics_dir": "ar/gradium_streaming_adapter__default/metrics",
+      "n_spans": 963
+    },
     {
       "language": "ar",
       "model": "LiveKit Turn Detector v1",
@@ -820,6 +888,17 @@
       "best_mean_latency_at_10pct_cutoff": 0.40286187500000004,
       "run_dir": "de/deepgram_flux_streaming_adapter__flux_general_multi",
       "metrics_dir": "de/deepgram_flux_streaming_adapter__flux_general_multi/metrics",
+      "n_spans": 977
+    },
+    {
+      "language": "de",
+      "model": "Gradium",
+      "best_cutoff_rate_at_0_3s_latency": 0.5355285961871751,
+      "best_cutoff_rate_at_0_6s_latency": 0.12998266897746968,
+      "best_mean_latency_at_5pct_cutoff": 0.8808731249999999,
+      "best_mean_latency_at_10pct_cutoff": 0.679712345,
+      "run_dir": "de/gradium_streaming_adapter__default",
+      "metrics_dir": "de/gradium_streaming_adapter__default/metrics",
       "n_spans": 977
     },
     {
@@ -934,6 +1013,17 @@
     },
     {
       "language": "en",
+      "model": "Gradium",
+      "best_cutoff_rate_at_0_3s_latency": 0.5560283687943263,
+      "best_cutoff_rate_at_0_6s_latency": 0.12624113475177304,
+      "best_mean_latency_at_5pct_cutoff": 0.91275,
+      "best_mean_latency_at_10pct_cutoff": 0.65625,
+      "run_dir": "en/gradium_streaming_adapter__default",
+      "metrics_dir": "en/gradium_streaming_adapter__default/metrics",
+      "n_spans": 1105
+    },
+    {
+      "language": "en",
       "model": "LiveKit Turn Detector v1",
       "best_cutoff_rate_at_0_3s_latency": 0.09929078014184398,
       "best_cutoff_rate_at_0_6s_latency": 0.04539007092198582,
@@ -1029,6 +1119,17 @@
       "best_mean_latency_at_10pct_cutoff": 0.53564375,
       "run_dir": "es/deepgram_flux_streaming_adapter__flux_general_multi",
       "metrics_dir": "es/deepgram_flux_streaming_adapter__flux_general_multi/metrics",
+      "n_spans": 1082
+    },
+    {
+      "language": "es",
+      "model": "Gradium",
+      "best_cutoff_rate_at_0_3s_latency": 0.5894428152492669,
+      "best_cutoff_rate_at_0_6s_latency": 0.15249266862170088,
+      "best_mean_latency_at_5pct_cutoff": 0.9339973475,
+      "best_mean_latency_at_10pct_cutoff": 0.7089318775,
+      "run_dir": "es/gradium_streaming_adapter__default",
+      "metrics_dir": "es/gradium_streaming_adapter__default/metrics",
       "n_spans": 1082
     },
     {
@@ -1132,6 +1233,17 @@
     },
     {
       "language": "fr",
+      "model": "Gradium",
+      "best_cutoff_rate_at_0_3s_latency": 0.5663082437275986,
+      "best_cutoff_rate_at_0_6s_latency": 0.08243727598566308,
+      "best_mean_latency_at_5pct_cutoff": 0.7497629699999999,
+      "best_mean_latency_at_10pct_cutoff": 0.5626825,
+      "run_dir": "fr/gradium_streaming_adapter__default",
+      "metrics_dir": "fr/gradium_streaming_adapter__default/metrics",
+      "n_spans": 958
+    },
+    {
+      "language": "fr",
       "model": "LiveKit Turn Detector v1",
       "best_cutoff_rate_at_0_3s_latency": 0.12724014336917563,
       "best_cutoff_rate_at_0_6s_latency": 0.053763440860215055,
@@ -1220,6 +1332,17 @@
     },
     {
       "language": "hi",
+      "model": "Gradium",
+      "best_cutoff_rate_at_0_3s_latency": 0.4945652173913043,
+      "best_cutoff_rate_at_0_6s_latency": 0.057971014492753624,
+      "best_mean_latency_at_5pct_cutoff": 0.6181798424999999,
+      "best_mean_latency_at_10pct_cutoff": 0.529618905,
+      "run_dir": "hi/gradium_streaming_adapter__default",
+      "metrics_dir": "hi/gradium_streaming_adapter__default/metrics",
+      "n_spans": 952
+    },
+    {
+      "language": "hi",
       "model": "LiveKit Turn Detector v1",
       "best_cutoff_rate_at_0_3s_latency": 0.10507246376811594,
       "best_cutoff_rate_at_0_6s_latency": 0.019927536231884056,
@@ -1294,6 +1417,17 @@
       "run_dir": null,
       "metrics_dir": null,
       "n_spans": 1074
+    },
+    {
+      "language": "id",
+      "model": "Gradium",
+      "best_cutoff_rate_at_0_3s_latency": 0.595460614152203,
+      "best_cutoff_rate_at_0_6s_latency": 0.22296395193591456,
+      "best_mean_latency_at_5pct_cutoff": 1.042415563131313,
+      "best_mean_latency_at_10pct_cutoff": 0.7831130050505051,
+      "run_dir": "id/gradium_streaming_adapter__default",
+      "metrics_dir": "id/gradium_streaming_adapter__default/metrics",
+      "n_spans": 1145
     },
     {
       "language": "id",
@@ -1396,6 +1530,17 @@
     },
     {
       "language": "it",
+      "model": "Gradium",
+      "best_cutoff_rate_at_0_3s_latency": 0.5496535796766744,
+      "best_cutoff_rate_at_0_6s_latency": 0.14318706697459585,
+      "best_mean_latency_at_5pct_cutoff": 0.9345882799999999,
+      "best_mean_latency_at_10pct_cutoff": 0.6964400000000001,
+      "run_dir": "it/gradium_streaming_adapter__default",
+      "metrics_dir": "it/gradium_streaming_adapter__default/metrics",
+      "n_spans": 833
+    },
+    {
+      "language": "it",
       "model": "LiveKit Turn Detector v1",
       "best_cutoff_rate_at_0_3s_latency": 0.16859122401847576,
       "best_cutoff_rate_at_0_6s_latency": 0.07852193995381063,
@@ -1484,6 +1629,17 @@
     },
     {
       "language": "ja",
+      "model": "Gradium",
+      "best_cutoff_rate_at_0_3s_latency": 0.4884726224783862,
+      "best_cutoff_rate_at_0_6s_latency": 0.13544668587896252,
+      "best_mean_latency_at_5pct_cutoff": 0.9029385533707863,
+      "best_mean_latency_at_10pct_cutoff": 0.6709752443820224,
+      "run_dir": "ja/gradium_streaming_adapter__default",
+      "metrics_dir": "ja/gradium_streaming_adapter__default/metrics",
+      "n_spans": 1050
+    },
+    {
+      "language": "ja",
       "model": "LiveKit Turn Detector v1",
       "best_cutoff_rate_at_0_3s_latency": 0.056195965417867436,
       "best_cutoff_rate_at_0_6s_latency": 0.012968299711815562,
@@ -1558,6 +1714,17 @@
       "run_dir": null,
       "metrics_dir": null,
       "n_spans": 1230
+    },
+    {
+      "language": "ko",
+      "model": "Gradium",
+      "best_cutoff_rate_at_0_3s_latency": 0.5863874345549738,
+      "best_cutoff_rate_at_0_6s_latency": 0.1518324607329843,
+      "best_mean_latency_at_5pct_cutoff": 0.830238726790451,
+      "best_mean_latency_at_10pct_cutoff": 0.6854466180371352,
+      "run_dir": "ko/gradium_streaming_adapter__default",
+      "metrics_dir": "ko/gradium_streaming_adapter__default/metrics",
+      "n_spans": 759
     },
     {
       "language": "ko",
@@ -1645,6 +1812,17 @@
       "best_mean_latency_at_10pct_cutoff": 0.48494578000000005,
       "run_dir": "nl/deepgram_flux_streaming_adapter__flux_general_multi",
       "metrics_dir": "nl/deepgram_flux_streaming_adapter__flux_general_multi/metrics",
+      "n_spans": 847
+    },
+    {
+      "language": "nl",
+      "model": "Gradium",
+      "best_cutoff_rate_at_0_3s_latency": 0.4966442953020134,
+      "best_cutoff_rate_at_0_6s_latency": 0.13870246085011187,
+      "best_mean_latency_at_5pct_cutoff": 0.91295625,
+      "best_mean_latency_at_10pct_cutoff": 0.67885875,
+      "run_dir": "nl/gradium_streaming_adapter__default",
+      "metrics_dir": "nl/gradium_streaming_adapter__default/metrics",
       "n_spans": 847
     },
     {
@@ -1748,6 +1926,17 @@
     },
     {
       "language": "pt",
+      "model": "Gradium",
+      "best_cutoff_rate_at_0_3s_latency": 0.5425038639876353,
+      "best_cutoff_rate_at_0_6s_latency": 0.09582689335394126,
+      "best_mean_latency_at_5pct_cutoff": 0.72770516,
+      "best_mean_latency_at_10pct_cutoff": 0.596321095,
+      "run_dir": "pt/gradium_streaming_adapter__default",
+      "metrics_dir": "pt/gradium_streaming_adapter__default/metrics",
+      "n_spans": 1047
+    },
+    {
+      "language": "pt",
       "model": "LiveKit Turn Detector v1",
       "best_cutoff_rate_at_0_3s_latency": 0.2009273570324575,
       "best_cutoff_rate_at_0_6s_latency": 0.07264296754250386,
@@ -1825,6 +2014,17 @@
     },
     {
       "language": "tr",
+      "model": "Gradium",
+      "best_cutoff_rate_at_0_3s_latency": 0.48760330578512395,
+      "best_cutoff_rate_at_0_6s_latency": 0.162534435261708,
+      "best_mean_latency_at_5pct_cutoff": 1.13714,
+      "best_mean_latency_at_10pct_cutoff": 0.7676815649999998,
+      "run_dir": "tr/gradium_streaming_adapter__default",
+      "metrics_dir": "tr/gradium_streaming_adapter__default/metrics",
+      "n_spans": 763
+    },
+    {
+      "language": "tr",
       "model": "LiveKit Turn Detector v1",
       "best_cutoff_rate_at_0_3s_latency": 0.15702479338842976,
       "best_cutoff_rate_at_0_6s_latency": 0.06887052341597796,
@@ -1899,6 +2099,17 @@
       "run_dir": null,
       "metrics_dir": null,
       "n_spans": 834
+    },
+    {
+      "language": "zh",
+      "model": "Gradium",
+      "best_cutoff_rate_at_0_3s_latency": 0.5115131578947368,
+      "best_cutoff_rate_at_0_6s_latency": 0.15460526315789475,
+      "best_mean_latency_at_5pct_cutoff": 1.0116279069767442,
+      "best_mean_latency_at_10pct_cutoff": 0.7475993837209303,
+      "run_dir": "zh/gradium_streaming_adapter__default",
+      "metrics_dir": "zh/gradium_streaming_adapter__default/metrics",
+      "n_spans": 952
     },
     {
       "language": "zh",

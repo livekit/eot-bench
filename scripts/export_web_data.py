@@ -66,6 +66,7 @@ MODEL_CONFIG: dict[str, dict] = {
         "label": "Cartesia Ink 2",
         "colorToken": "chart9",
     },
+    "Gradium": {"key": "gradium", "label": "Gradium", "colorToken": "chart10"},
 }
 
 # Silence-only VAD baseline. It is not a model directory — it lives as the
