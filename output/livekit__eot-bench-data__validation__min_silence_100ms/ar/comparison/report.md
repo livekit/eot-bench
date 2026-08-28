@@ -1,57 +1,68 @@
 # EoT Model Comparison
 
-## Classification Metrics Bar Charts
+## Pareto Frontier
 
-![Classification metrics bar charts](metrics.png)
+![Pareto frontier](pareto_frontier.png)
 
-## Classification Metrics Table
+## Best Cutoff Rate at Latency Budget
 
-| Model | Score Summary | Spans | AUC | AP | Mean Frontier Latency 0-10% |
-| --- | --- | --- | --- | --- | --- |
-| LiveKit Turn Detector v1 | 0.200 | 963 | 0.930 | 0.883 | 0.749 |
-| OpenAI GPT Realtime 2 | max | 963 | 0.879 | 0.762 | 1.021 |
-| Soniox | max | 963 | 0.865 | 0.785 | 0.805 |
-| LiveKit Turn Detector v1-mini | 0.200 | 963 | 0.853 | 0.747 | 0.885 |
-| SmartTurn v3.2 | 0.200 | 963 | 0.760 | 0.620 | 0.931 |
-| ultraVAD | 0.200 | 963 | 0.753 | 0.634 | 0.882 |
+![Best cutoff rate at latency budgets](cutoff_rate_at_latency_budget_300_600ms.png)
 
-## Pareto Curve
+| Model | Best cutoff rate @ 0.3s latency | Best cutoff rate @ 0.6s latency |
+| --- | --- | --- |
+| LiveKit Turn Detector v1 | **16.2%** | 6.9% |
+| Soniox | - | **6.0%** |
+| ultraVAD | 45.5% | 12.9% |
+| LiveKit Turn Detector v1-mini | 24.4% | 10.3% |
+| SmartTurn v3.2 | 39.2% | 13.2% |
+| Gradium | 54.8% | 14.1% |
+| OpenAI GPT Realtime 2 | - | - |
+| VAD baseline | 54.8% | 14.8% |
 
-![Pareto curve](pareto_frontier.png)
+## Best Latency at Cutoff Budget
 
-## Cutoff Budgets 5%, 15%
+![Best latency at cutoff budgets](latency_at_cutoff_budget_5_10pct.png)
 
-![Cutoff budget bar chart](cutoff_budget_compare_5_15pct.png)
-
-## Latency Budgets 400ms, 600ms
-
-![Latency budget bar chart](latency_budget_compare_400_600ms.png)
+| Model | Best mean latency @ 5% cutoff | Best mean latency @ 10% cutoff |
+| --- | --- | --- |
+| LiveKit Turn Detector v1 | **706 ms** | **444 ms** |
+| Soniox | 713 ms | 489 ms |
+| ultraVAD | 807 ms | 654 ms |
+| LiveKit Turn Detector v1-mini | 811 ms | 610 ms |
+| SmartTurn v3.2 | 814 ms | 636 ms |
+| Gradium | 840 ms | 643 ms |
+| OpenAI GPT Realtime 2 | 873 ms | 682 ms |
+| VAD baseline | 900 ms | 700 ms |
 
 ## Operating Points
 
 | Type | Budget | Model | Mean Latency | Cutoff | Detect | Threshold | Action Delay | Timeout |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Cutoff | 5.0% | LiveKit Turn Detector v1 | 0.706 | 5.0% | 72.2% | 0.790 | 0.400 | 1.500 |
-| Cutoff | 5.0% | OpenAI GPT Realtime 2 | 0.873 | 4.1% | 90.8% | 0.990 | 0.800 | 1.500 |
 | Cutoff | 5.0% | Soniox | 0.713 | 4.5% | 79.3% | 0.990 | 0.500 | 1.500 |
+| Cutoff | 5.0% | ultraVAD | 0.807 | 5.0% | 86.6% | 0.070 | 0.700 | 1.500 |
 | Cutoff | 5.0% | LiveKit Turn Detector v1-mini | 0.811 | 5.0% | 98.4% | 0.120 | 0.800 | 1.500 |
 | Cutoff | 5.0% | SmartTurn v3.2 | 0.814 | 5.0% | 92.9% | 0.090 | 0.800 | 1.000 |
-| Cutoff | 5.0% | ultraVAD | 0.807 | 5.0% | 86.6% | 0.070 | 0.700 | 1.500 |
-| Cutoff | 15.0% | LiveKit Turn Detector v1 | 0.315 | 14.9% | 85.6% | 0.610 | 0.200 | 1.000 |
-| Cutoff | 15.0% | OpenAI GPT Realtime 2 | 0.633 | 11.2% | 90.0% | 0.990 | 0.200 | 1.000 |
-| Cutoff | 15.0% | Soniox | 0.489 | 8.4% | 79.3% | 0.990 | 0.200 | 1.000 |
-| Cutoff | 15.0% | LiveKit Turn Detector v1-mini | 0.430 | 14.6% | 81.4% | 0.380 | 0.300 | 1.000 |
-| Cutoff | 15.0% | SmartTurn v3.2 | 0.560 | 14.9% | 87.9% | 0.250 | 0.500 | 1.000 |
-| Cutoff | 15.0% | ultraVAD | 0.580 | 14.4% | 70.1% | 0.140 | 0.400 | 1.000 |
-| Latency | 400ms | LiveKit Turn Detector v1 | 0.393 | 11.3% | 75.9% | 0.750 | 0.200 | 1.000 |
-| Latency | 400ms | OpenAI GPT Realtime 2 | - | - | - | - | - | - |
-| Latency | 400ms | Soniox | - | - | - | - | - | - |
-| Latency | 400ms | LiveKit Turn Detector v1-mini | 0.399 | 16.5% | 85.8% | 0.310 | 0.300 | 1.000 |
-| Latency | 400ms | SmartTurn v3.2 | 0.399 | 29.9% | 75.1% | 0.670 | 0.200 | 1.000 |
-| Latency | 400ms | ultraVAD | 0.395 | 32.3% | 75.6% | 0.120 | 0.200 | 1.000 |
+| Cutoff | 5.0% | Gradium | 0.840 | 5.0% | 63.8% | 0.280 | 0.700 | 1.000 |
+| Cutoff | 5.0% | OpenAI GPT Realtime 2 | 0.873 | 4.1% | 90.8% | 0.990 | 0.800 | 1.500 |
+| Cutoff | 10.0% | LiveKit Turn Detector v1 | 0.444 | 9.6% | 69.6% | 0.800 | 0.200 | 1.000 |
+| Cutoff | 10.0% | Soniox | 0.489 | 8.4% | 79.3% | 0.990 | 0.200 | 1.000 |
+| Cutoff | 10.0% | ultraVAD | 0.654 | 10.0% | 94.0% | 0.040 | 0.600 | 1.500 |
+| Cutoff | 10.0% | LiveKit Turn Detector v1-mini | 0.610 | 10.0% | 97.4% | 0.140 | 0.600 | 1.000 |
+| Cutoff | 10.0% | SmartTurn v3.2 | 0.636 | 10.0% | 91.1% | 0.150 | 0.600 | 1.000 |
+| Cutoff | 10.0% | Gradium | 0.643 | 9.6% | 89.8% | 0.140 | 0.500 | 1.000 |
+| Cutoff | 10.0% | OpenAI GPT Realtime 2 | 0.682 | 9.5% | 90.0% | 0.990 | 0.600 | 1.000 |
+| Latency | 300ms | LiveKit Turn Detector v1 | 0.296 | 16.2% | 92.7% | 0.460 | 0.200 | 1.500 |
+| Latency | 300ms | Soniox | - | - | - | - | - | - |
+| Latency | 300ms | ultraVAD | 0.292 | 45.5% | 88.5% | 0.060 | 0.200 | 1.000 |
+| Latency | 300ms | LiveKit Turn Detector v1-mini | 0.297 | 24.4% | 87.9% | 0.270 | 0.200 | 1.000 |
+| Latency | 300ms | SmartTurn v3.2 | 0.299 | 39.2% | 87.7% | 0.260 | 0.200 | 1.000 |
+| Latency | 300ms | Gradium | 0.300 | 54.8% | 100.0% | 0.000 | 0.300 | 1.000 |
+| Latency | 300ms | OpenAI GPT Realtime 2 | - | - | - | - | - | - |
 | Latency | 600ms | LiveKit Turn Detector v1 | 0.596 | 6.9% | 69.6% | 0.800 | 0.200 | 1.500 |
-| Latency | 600ms | OpenAI GPT Realtime 2 | - | - | - | - | - | - |
 | Latency | 600ms | Soniox | 0.592 | 6.0% | 79.3% | 0.990 | 0.200 | 1.500 |
+| Latency | 600ms | ultraVAD | 0.597 | 12.9% | 80.6% | 0.100 | 0.500 | 1.000 |
 | Latency | 600ms | LiveKit Turn Detector v1-mini | 0.596 | 10.3% | 80.8% | 0.390 | 0.500 | 1.000 |
 | Latency | 600ms | SmartTurn v3.2 | 0.600 | 13.2% | 80.1% | 0.510 | 0.500 | 1.000 |
-| Latency | 600ms | ultraVAD | 0.597 | 12.9% | 80.6% | 0.100 | 0.500 | 1.000 |
+| Latency | 600ms | Gradium | 0.592 | 14.1% | 92.7% | 0.090 | 0.500 | 1.000 |
+| Latency | 600ms | OpenAI GPT Realtime 2 | - | - | - | - | - | - |

@@ -1,67 +1,80 @@
 # EoT Model Comparison
 
-## Classification Metrics Bar Charts
+## Pareto Frontier
 
-![Classification metrics bar charts](metrics.png)
+![Pareto frontier](pareto_frontier.png)
 
-## Classification Metrics Table
+## Best Cutoff Rate at Latency Budget
 
-| Model | Score Summary | Spans | AUC | AP | Mean Frontier Latency 0-10% |
-| --- | --- | --- | --- | --- | --- |
-| LiveKit Turn Detector v1 | 0.200 | 833 | 0.924 | 0.901 | 0.906 |
-| OpenAI GPT Realtime 2 | max | 833 | 0.897 | 0.844 | 1.279 |
-| Deepgram Flux | max | 833 | 0.896 | 0.857 | 1.132 |
-| Soniox | max | 833 | 0.857 | 0.819 | 1.070 |
-| AssemblyAI | max | 833 | 0.841 | 0.797 | 1.117 |
-| LiveKit Turn Detector v1-mini | 0.200 | 833 | 0.813 | 0.757 | 1.136 |
-| SmartTurn v3.2 | 0.200 | 833 | 0.763 | 0.726 | 1.207 |
-| ultraVAD | 0.200 | 833 | 0.759 | 0.719 | 1.169 |
+![Best cutoff rate at latency budgets](cutoff_rate_at_latency_budget_300_600ms.png)
 
-## Pareto Curve
+| Model | Best cutoff rate @ 0.3s latency | Best cutoff rate @ 0.6s latency |
+| --- | --- | --- |
+| LiveKit Turn Detector v1 | **16.9%** | 7.9% |
+| Soniox | - | **7.6%** |
+| Gradium | 55.0% | 14.3% |
+| LiveKit Turn Detector v1-mini | 33.7% | 14.8% |
+| SmartTurn v3.2 | 44.1% | 15.2% |
+| AssemblyAI | - | 13.9% |
+| ultraVAD | 40.4% | 15.5% |
+| OpenAI GPT Realtime 2 | - | - |
+| Deepgram Flux | 27.3% | 12.2% |
+| VAD baseline | 55.0% | 20.6% |
 
-![Pareto curve](pareto_frontier.png)
+## Best Latency at Cutoff Budget
 
-## Cutoff Budgets 5%, 15%
+![Best latency at cutoff budgets](latency_at_cutoff_budget_5_10pct.png)
 
-![Cutoff budget bar chart](cutoff_budget_compare_5_15pct.png)
-
-## Latency Budgets 400ms, 600ms
-
-![Latency budget bar chart](latency_budget_compare_400_600ms.png)
+| Model | Best mean latency @ 5% cutoff | Best mean latency @ 10% cutoff |
+| --- | --- | --- |
+| LiveKit Turn Detector v1 | **784 ms** | 494 ms |
+| Soniox | 851 ms | **473 ms** |
+| Gradium | 935 ms | 696 ms |
+| LiveKit Turn Detector v1-mini | 966 ms | 744 ms |
+| SmartTurn v3.2 | 980 ms | 746 ms |
+| AssemblyAI | 994 ms | 717 ms |
+| ultraVAD | 1005 ms | 729 ms |
+| OpenAI GPT Realtime 2 | 1009 ms | 751 ms |
+| Deepgram Flux | 1022 ms | 672 ms |
+| VAD baseline | 1100 ms | 900 ms |
 
 ## Operating Points
 
 | Type | Budget | Model | Mean Latency | Cutoff | Detect | Threshold | Action Delay | Timeout |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Cutoff | 5.0% | LiveKit Turn Detector v1 | 0.784 | 4.8% | 93.5% | 0.640 | 0.700 | 2.000 |
-| Cutoff | 5.0% | OpenAI GPT Realtime 2 | 1.009 | 4.4% | 90.8% | 0.990 | 0.900 | 2.000 |
-| Cutoff | 5.0% | Deepgram Flux | 1.022 | 4.8% | 95.8% | 0.520 | 1.000 | 1.500 |
 | Cutoff | 5.0% | Soniox | 0.851 | 4.2% | 77.0% | 0.990 | 0.500 | 2.000 |
-| Cutoff | 5.0% | AssemblyAI | 0.994 | 4.8% | 91.8% | 0.020 | 0.900 | 2.000 |
+| Cutoff | 5.0% | Gradium | 0.935 | 4.8% | 76.0% | 0.510 | 0.600 | 1.500 |
 | Cutoff | 5.0% | LiveKit Turn Detector v1-mini | 0.966 | 4.8% | 94.0% | 0.180 | 0.900 | 2.000 |
 | Cutoff | 5.0% | SmartTurn v3.2 | 0.980 | 4.8% | 92.8% | 0.050 | 0.900 | 2.000 |
+| Cutoff | 5.0% | AssemblyAI | 0.994 | 4.8% | 91.8% | 0.020 | 0.900 | 2.000 |
 | Cutoff | 5.0% | ultraVAD | 1.005 | 4.8% | 99.5% | 0.010 | 1.000 | 2.000 |
-| Cutoff | 15.0% | LiveKit Turn Detector v1 | 0.340 | 14.8% | 82.5% | 0.870 | 0.200 | 1.000 |
-| Cutoff | 15.0% | OpenAI GPT Realtime 2 | 0.665 | 11.5% | 89.2% | 0.990 | 0.200 | 1.000 |
-| Cutoff | 15.0% | Deepgram Flux | 0.522 | 14.5% | 71.0% | 0.730 | 0.200 | 1.000 |
-| Cutoff | 15.0% | Soniox | 0.473 | 9.5% | 76.5% | 0.990 | 0.200 | 1.000 |
-| Cutoff | 15.0% | AssemblyAI | 0.581 | 14.8% | 89.0% | 0.060 | 0.500 | 1.000 |
-| Cutoff | 15.0% | LiveKit Turn Detector v1-mini | 0.591 | 14.8% | 58.5% | 0.390 | 0.300 | 1.000 |
-| Cutoff | 15.0% | SmartTurn v3.2 | 0.620 | 14.5% | 76.0% | 0.680 | 0.500 | 1.000 |
-| Cutoff | 15.0% | ultraVAD | 0.626 | 14.5% | 74.8% | 0.270 | 0.500 | 1.000 |
-| Latency | 400ms | LiveKit Turn Detector v1 | 0.396 | 12.2% | 75.5% | 0.920 | 0.200 | 1.000 |
-| Latency | 400ms | OpenAI GPT Realtime 2 | - | - | - | - | - | - |
-| Latency | 400ms | Deepgram Flux | 0.394 | 17.3% | 91.5% | 0.690 | 0.200 | 1.000 |
-| Latency | 400ms | Soniox | - | - | - | - | - | - |
-| Latency | 400ms | AssemblyAI | 0.389 | 32.8% | 96.2% | 0.000 | 0.300 | 1.500 |
-| Latency | 400ms | LiveKit Turn Detector v1-mini | 0.394 | 25.4% | 75.8% | 0.310 | 0.200 | 1.000 |
-| Latency | 400ms | SmartTurn v3.2 | 0.400 | 30.9% | 75.0% | 0.710 | 0.200 | 1.000 |
-| Latency | 400ms | ultraVAD | 0.394 | 29.8% | 86.5% | 0.180 | 0.300 | 1.000 |
+| Cutoff | 5.0% | OpenAI GPT Realtime 2 | 1.009 | 4.4% | 90.8% | 0.990 | 0.900 | 2.000 |
+| Cutoff | 5.0% | Deepgram Flux | 1.022 | 4.8% | 95.8% | 0.520 | 1.000 | 1.500 |
+| Cutoff | 10.0% | LiveKit Turn Detector v1 | 0.494 | 9.9% | 72.2% | 0.930 | 0.300 | 1.000 |
+| Cutoff | 10.0% | Soniox | 0.473 | 9.5% | 76.5% | 0.990 | 0.200 | 1.000 |
+| Cutoff | 10.0% | Gradium | 0.696 | 9.9% | 83.8% | 0.370 | 0.500 | 1.000 |
+| Cutoff | 10.0% | LiveKit Turn Detector v1-mini | 0.744 | 9.9% | 85.2% | 0.260 | 0.700 | 1.000 |
+| Cutoff | 10.0% | SmartTurn v3.2 | 0.746 | 9.7% | 84.5% | 0.260 | 0.700 | 1.000 |
+| Cutoff | 10.0% | AssemblyAI | 0.717 | 9.9% | 74.2% | 0.650 | 0.600 | 1.000 |
+| Cutoff | 10.0% | ultraVAD | 0.729 | 9.7% | 54.2% | 0.430 | 0.500 | 1.000 |
+| Cutoff | 10.0% | OpenAI GPT Realtime 2 | 0.751 | 9.7% | 90.8% | 0.990 | 0.600 | 1.500 |
+| Cutoff | 10.0% | Deepgram Flux | 0.672 | 9.9% | 94.5% | 0.640 | 0.600 | 1.500 |
+| Latency | 300ms | LiveKit Turn Detector v1 | 0.294 | 16.9% | 88.2% | 0.790 | 0.200 | 1.000 |
+| Latency | 300ms | Soniox | - | - | - | - | - | - |
+| Latency | 300ms | Gradium | 0.300 | 55.0% | 100.0% | 0.000 | 0.300 | 1.000 |
+| Latency | 300ms | LiveKit Turn Detector v1-mini | 0.300 | 33.7% | 87.5% | 0.240 | 0.200 | 1.000 |
+| Latency | 300ms | SmartTurn v3.2 | 0.298 | 44.1% | 87.8% | 0.140 | 0.200 | 1.000 |
+| Latency | 300ms | AssemblyAI | - | - | - | - | - | - |
+| Latency | 300ms | ultraVAD | 0.300 | 40.4% | 87.5% | 0.170 | 0.200 | 1.000 |
+| Latency | 300ms | OpenAI GPT Realtime 2 | - | - | - | - | - | - |
+| Latency | 300ms | Deepgram Flux | 0.299 | 27.3% | 96.0% | 0.470 | 0.200 | 1.000 |
 | Latency | 600ms | LiveKit Turn Detector v1 | 0.598 | 7.9% | 93.5% | 0.640 | 0.500 | 2.000 |
-| Latency | 600ms | OpenAI GPT Realtime 2 | - | - | - | - | - | - |
-| Latency | 600ms | Deepgram Flux | 0.593 | 12.2% | 94.5% | 0.640 | 0.500 | 1.500 |
 | Latency | 600ms | Soniox | 0.589 | 7.6% | 76.8% | 0.990 | 0.200 | 1.500 |
-| Latency | 600ms | AssemblyAI | 0.597 | 13.9% | 86.2% | 0.220 | 0.500 | 1.000 |
+| Latency | 600ms | Gradium | 0.600 | 14.3% | 95.2% | 0.170 | 0.500 | 1.500 |
 | Latency | 600ms | LiveKit Turn Detector v1-mini | 0.591 | 14.8% | 58.5% | 0.390 | 0.300 | 1.000 |
 | Latency | 600ms | SmartTurn v3.2 | 0.598 | 15.2% | 67.0% | 0.890 | 0.400 | 1.000 |
+| Latency | 600ms | AssemblyAI | 0.597 | 13.9% | 86.2% | 0.220 | 0.500 | 1.000 |
 | Latency | 600ms | ultraVAD | 0.594 | 15.5% | 81.2% | 0.220 | 0.500 | 1.000 |
+| Latency | 600ms | OpenAI GPT Realtime 2 | - | - | - | - | - | - |
+| Latency | 600ms | Deepgram Flux | 0.593 | 12.2% | 94.5% | 0.640 | 0.500 | 1.500 |
