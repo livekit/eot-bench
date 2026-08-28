@@ -78,6 +78,7 @@ latency budget (best first). Lower is better on every metric:
 | **LiveKit Turn Detector v1** | **9.9%** | **4.5%** | **543 ms** | **295 ms** |
 | Deepgram Flux | 12.9% | 9.9% | 1151 ms | 548 ms |
 | ultraVAD | 27.7% | 11.9% | 899 ms | 663 ms |
+| Gradium | 55.6% | 12.6% | 913 ms | 656 ms |
 | LiveKit Turn Detector v1-mini | 27.8% | 12.1% | 1070 ms | 698 ms |
 | SmartTurn v3.2 | 35.2% | 14.8% | 1051 ms | 739 ms |
 | AssemblyAI | 49.4% | 14.6% | 1049 ms | 713 ms |
@@ -125,7 +126,8 @@ See [Evaluation Model](#evaluation-model) for the full methodology.
   real human-to-agent turns with audio and text context in 14 languages.
 - Batch and streaming adapter interfaces for local models and provider APIs,
   with reference adapters for LiveKit Turn Detector v1 / v1-mini, Deepgram Flux,
-  AssemblyAI, Cartesia Ink 2, Soniox, OpenAI GPT Realtime, SmartTurn, and ultraVAD.
+  AssemblyAI, Cartesia Ink 2, Gradium, Soniox, OpenAI GPT Realtime, SmartTurn,
+  and ultraVAD.
 - Reproducible prediction artifacts, policy-sweep metrics, Pareto frontiers,
   operating-point tables, and multilingual heatmaps committed under `output/`.
 - CLI commands for running a new adapter against one language or every supported
