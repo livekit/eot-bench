@@ -18,6 +18,7 @@
 | LiveKit Turn Detector v1-mini | 27.4% | 5.4% |
 | SmartTurn v3.2 | 42.6% | 6.5% |
 | OpenAI GPT Realtime 2 | - | - |
+| VAP (silent agent) | 49.5% | 7.4% |
 | VAD baseline | 49.5% | 7.4% |
 
 ## Best Latency at Cutoff Budget
@@ -34,6 +35,7 @@
 | LiveKit Turn Detector v1-mini | 624 ms | 505 ms |
 | SmartTurn v3.2 | 639 ms | 532 ms |
 | OpenAI GPT Realtime 2 | 641 ms | 641 ms |
+| VAP (silent agent) | 655 ms | 539 ms |
 | VAD baseline | 700 ms | 600 ms |
 
 ## Operating Points
@@ -48,6 +50,7 @@
 | Cutoff | 5.0% | LiveKit Turn Detector v1-mini | 0.624 | 4.9% | 75.2% | 0.360 | 0.500 | 1.000 |
 | Cutoff | 5.0% | SmartTurn v3.2 | 0.639 | 4.7% | 90.2% | 0.040 | 0.600 | 1.000 |
 | Cutoff | 5.0% | OpenAI GPT Realtime 2 | 0.641 | 4.9% | 89.8% | 0.990 | 0.200 | 1.000 |
+| Cutoff | 5.0% | VAP (silent agent) | 0.655 | 4.9% | 80.5% | 0.080 | 0.500 | 1.000 |
 | Cutoff | 10.0% | LiveKit Turn Detector v1 | 0.306 | 9.8% | 86.8% | 0.720 | 0.200 | 1.000 |
 | Cutoff | 10.0% | Soniox | 0.553 | 3.6% | 70.5% | 0.990 | 0.200 | 1.000 |
 | Cutoff | 10.0% | Deepgram Flux | 0.459 | 9.6% | 92.5% | 0.470 | 0.200 | 1.000 |
@@ -56,6 +59,7 @@
 | Cutoff | 10.0% | LiveKit Turn Detector v1-mini | 0.505 | 9.8% | 82.5% | 0.300 | 0.400 | 1.000 |
 | Cutoff | 10.0% | SmartTurn v3.2 | 0.532 | 9.2% | 93.5% | 0.020 | 0.500 | 1.000 |
 | Cutoff | 10.0% | OpenAI GPT Realtime 2 | 0.641 | 4.9% | 89.8% | 0.990 | 0.200 | 1.000 |
+| Cutoff | 10.0% | VAP (silent agent) | 0.539 | 9.2% | 96.0% | 0.030 | 0.500 | 1.000 |
 | Latency | 300ms | LiveKit Turn Detector v1 | 0.296 | 10.5% | 88.0% | 0.700 | 0.200 | 1.000 |
 | Latency | 300ms | Soniox | - | - | - | - | - | - |
 | Latency | 300ms | Deepgram Flux | 0.294 | 19.2% | 97.8% | 0.240 | 0.200 | 1.000 |
@@ -64,6 +68,7 @@
 | Latency | 300ms | LiveKit Turn Detector v1-mini | 0.296 | 27.4% | 88.0% | 0.270 | 0.200 | 1.000 |
 | Latency | 300ms | SmartTurn v3.2 | 0.294 | 42.6% | 88.2% | 0.050 | 0.200 | 1.000 |
 | Latency | 300ms | OpenAI GPT Realtime 2 | - | - | - | - | - | - |
+| Latency | 300ms | VAP (silent agent) | 0.300 | 49.5% | 100.0% | 0.000 | 0.300 | 1.000 |
 | Latency | 600ms | LiveKit Turn Detector v1 | 0.580 | 2.0% | 70.0% | 0.870 | 0.400 | 1.000 |
 | Latency | 600ms | Soniox | 0.570 | 3.4% | 70.5% | 0.990 | 0.300 | 1.000 |
 | Latency | 600ms | Deepgram Flux | 0.598 | 4.5% | 89.5% | 0.550 | 0.500 | 1.000 |
@@ -72,3 +77,4 @@
 | Latency | 600ms | LiveKit Turn Detector v1-mini | 0.598 | 5.4% | 80.5% | 0.320 | 0.500 | 1.000 |
 | Latency | 600ms | SmartTurn v3.2 | 0.589 | 6.5% | 82.2% | 0.110 | 0.500 | 1.000 |
 | Latency | 600ms | OpenAI GPT Realtime 2 | - | - | - | - | - | - |
+| Latency | 600ms | VAP (silent agent) | 0.579 | 7.4% | 90.8% | 0.050 | 0.500 | 1.000 |

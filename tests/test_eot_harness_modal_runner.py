@@ -83,6 +83,7 @@ def test_read_prediction_payload_requires_both_artifacts(tmp_path: Path) -> None
 def test_select_remote_preset_honors_config_override() -> None:
     assert _select_remote_preset({}, "default") == "default"
     assert _select_remote_preset({"modal_preset": "audio"}, "default") == "audio"
+    assert _select_remote_preset({"modal_preset": "vap"}, "default") == "vap"
 
     with pytest.raises(ValueError, match="unknown Modal preset"):
         _select_remote_preset({}, "missing")

@@ -31,6 +31,12 @@ dependencies = [
 dev = [
     "pytest>=8.0.0",
 ]
+vap = [
+    "einops==0.8.1",
+    "torch==2.7.0",
+    "torchaudio==2.7.0",
+    "vap @ git+https://github.com/ErikEkstedt/VoiceActivityProjection.git@f39a78b23a6dccdbedd106e00b48c410b8739f5d",
+]
 
 [project.scripts]
 eot-harness = "eot_harness.cli:main"

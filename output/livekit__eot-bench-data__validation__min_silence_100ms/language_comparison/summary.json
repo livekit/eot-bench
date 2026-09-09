@@ -11,7 +11,7 @@
     "best_mean_latency_at_5pct_cutoff": "Best mean latency @ 5% cutoff",
     "best_mean_latency_at_10pct_cutoff": "Best mean latency @ 10% cutoff"
   },
-  "span_set_root": "/Users/chenghao/.t3/worktrees/eot-bench/t3code-c249b464/output/livekit__eot-bench-data__validation__min_silence_100ms",
+  "span_set_root": "output/livekit__eot-bench-data__validation__min_silence_100ms",
   "languages": [
     "ar",
     "de",
@@ -39,6 +39,7 @@
     "OpenAI GPT Realtime 2",
     "Cartesia Ink 2",
     "Gradium",
+    "VAP (silent agent)",
     "VAD baseline"
   ],
   "values": {
@@ -54,6 +55,7 @@
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
         "Gradium": 0.5481099656357389,
+        "VAP (silent agent)": 0.5463917525773195,
         "VAD baseline": 0.5481099656357389
       },
       "de": {
@@ -67,6 +69,7 @@
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
         "Gradium": 0.5355285961871751,
+        "VAP (silent agent)": 0.5355285961871751,
         "VAD baseline": 0.5355285961871751
       },
       "en": {
@@ -80,6 +83,7 @@
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
         "Gradium": 0.5560283687943263,
+        "VAP (silent agent)": 0.4695035460992908,
         "VAD baseline": 0.5560283687943263
       },
       "es": {
@@ -93,6 +97,7 @@
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
         "Gradium": 0.5894428152492669,
+        "VAP (silent agent)": 0.5263929618768328,
         "VAD baseline": 0.5894428152492669
       },
       "fr": {
@@ -106,6 +111,7 @@
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
         "Gradium": 0.5663082437275986,
+        "VAP (silent agent)": 0.5448028673835126,
         "VAD baseline": 0.5663082437275986
       },
       "hi": {
@@ -119,6 +125,7 @@
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
         "Gradium": 0.4945652173913043,
+        "VAP (silent agent)": 0.4945652173913043,
         "VAD baseline": 0.4945652173913043
       },
       "id": {
@@ -132,6 +139,7 @@
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
         "Gradium": 0.595460614152203,
+        "VAP (silent agent)": 0.5527369826435247,
         "VAD baseline": 0.595460614152203
       },
       "it": {
@@ -145,6 +153,7 @@
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
         "Gradium": 0.5496535796766744,
+        "VAP (silent agent)": 0.5034642032332564,
         "VAD baseline": 0.5496535796766744
       },
       "ja": {
@@ -158,6 +167,7 @@
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
         "Gradium": 0.4884726224783862,
+        "VAP (silent agent)": 0.4884726224783862,
         "VAD baseline": 0.4884726224783862
       },
       "ko": {
@@ -171,6 +181,7 @@
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
         "Gradium": 0.5863874345549738,
+        "VAP (silent agent)": 0.43455497382198954,
         "VAD baseline": 0.5863874345549738
       },
       "nl": {
@@ -184,6 +195,7 @@
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
         "Gradium": 0.4966442953020134,
+        "VAP (silent agent)": 0.4228187919463087,
         "VAD baseline": 0.4966442953020134
       },
       "pt": {
@@ -197,6 +209,7 @@
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
         "Gradium": 0.5425038639876353,
+        "VAP (silent agent)": 0.5533230293663061,
         "VAD baseline": 0.598145285935085
       },
       "tr": {
@@ -210,6 +223,7 @@
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
         "Gradium": 0.48760330578512395,
+        "VAP (silent agent)": 0.5041322314049587,
         "VAD baseline": 0.5564738292011019
       },
       "zh": {
@@ -223,6 +237,7 @@
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
         "Gradium": 0.5115131578947368,
+        "VAP (silent agent)": 0.5115131578947368,
         "VAD baseline": 0.5115131578947368
       }
     },
@@ -238,6 +253,7 @@
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
         "Gradium": 0.140893470790378,
+        "VAP (silent agent)": 0.14776632302405499,
         "VAD baseline": 0.14776632302405499
       },
       "de": {
@@ -251,6 +267,7 @@
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
         "Gradium": 0.12998266897746968,
+        "VAP (silent agent)": 0.21490467937608318,
         "VAD baseline": 0.21490467937608318
       },
       "en": {
@@ -264,6 +281,7 @@
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
         "Gradium": 0.12624113475177304,
+        "VAP (silent agent)": 0.14609929078014183,
         "VAD baseline": 0.2170212765957447
       },
       "es": {
@@ -277,6 +295,7 @@
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
         "Gradium": 0.15249266862170088,
+        "VAP (silent agent)": 0.187683284457478,
         "VAD baseline": 0.24486803519061584
       },
       "fr": {
@@ -290,6 +309,7 @@
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
         "Gradium": 0.08243727598566308,
+        "VAP (silent agent)": 0.16666666666666666,
         "VAD baseline": 0.18458781362007168
       },
       "hi": {
@@ -303,6 +323,7 @@
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
         "Gradium": 0.057971014492753624,
+        "VAP (silent agent)": 0.07427536231884058,
         "VAD baseline": 0.07427536231884058
       },
       "id": {
@@ -316,6 +337,7 @@
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
         "Gradium": 0.22296395193591456,
+        "VAP (silent agent)": 0.18691588785046728,
         "VAD baseline": 0.22296395193591456
       },
       "it": {
@@ -329,6 +351,7 @@
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
         "Gradium": 0.14318706697459585,
+        "VAP (silent agent)": 0.15473441108545036,
         "VAD baseline": 0.20554272517321015
       },
       "ja": {
@@ -342,6 +365,7 @@
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
         "Gradium": 0.13544668587896252,
+        "VAP (silent agent)": 0.10230547550432277,
         "VAD baseline": 0.17579250720461095
       },
       "ko": {
@@ -355,6 +379,7 @@
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
         "Gradium": 0.1518324607329843,
+        "VAP (silent agent)": 0.11780104712041885,
         "VAD baseline": 0.1518324607329843
       },
       "nl": {
@@ -368,6 +393,7 @@
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
         "Gradium": 0.13870246085011187,
+        "VAP (silent agent)": 0.13646532438478748,
         "VAD baseline": 0.17002237136465326
       },
       "pt": {
@@ -381,6 +407,7 @@
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
         "Gradium": 0.09582689335394126,
+        "VAP (silent agent)": 0.1777434312210201,
         "VAD baseline": 0.1777434312210201
       },
       "tr": {
@@ -394,6 +421,7 @@
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
         "Gradium": 0.162534435261708,
+        "VAP (silent agent)": 0.20385674931129477,
         "VAD baseline": 0.21763085399449036
       },
       "zh": {
@@ -407,6 +435,7 @@
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
         "Gradium": 0.15460526315789475,
+        "VAP (silent agent)": 0.13486842105263158,
         "VAD baseline": 0.16282894736842105
       }
     },
@@ -422,6 +451,7 @@
         "OpenAI GPT Realtime 2": 0.87304019160105,
         "Cartesia Ink 2": null,
         "Gradium": 0.8404724409448819,
+        "VAP (silent agent)": 0.8390139501312336,
         "VAD baseline": 0.9
       },
       "de": {
@@ -435,6 +465,7 @@
         "OpenAI GPT Realtime 2": 0.9817471900000001,
         "Cartesia Ink 2": null,
         "Gradium": 0.8808731249999999,
+        "VAP (silent agent)": 1.0681795299999999,
         "VAD baseline": 1.1
       },
       "en": {
@@ -448,6 +479,7 @@
         "OpenAI GPT Realtime 2": 1.1425000000000003,
         "Cartesia Ink 2": 1.0565,
         "Gradium": 0.91275,
+        "VAP (silent agent)": 1.131,
         "VAD baseline": 1.6
       },
       "es": {
@@ -461,6 +493,7 @@
         "OpenAI GPT Realtime 2": 1.04425,
         "Cartesia Ink 2": null,
         "Gradium": 0.9339973475,
+        "VAP (silent agent)": 1.0665990650000001,
         "VAD baseline": 1.2
       },
       "fr": {
@@ -474,6 +507,7 @@
         "OpenAI GPT Realtime 2": 0.8373075,
         "Cartesia Ink 2": null,
         "Gradium": 0.7497629699999999,
+        "VAP (silent agent)": 0.9171590575,
         "VAD baseline": 1.0
       },
       "hi": {
@@ -487,6 +521,7 @@
         "OpenAI GPT Realtime 2": 0.640646095,
         "Cartesia Ink 2": null,
         "Gradium": 0.6181798424999999,
+        "VAP (silent agent)": 0.6545931300000001,
         "VAD baseline": 0.7
       },
       "id": {
@@ -500,6 +535,7 @@
         "OpenAI GPT Realtime 2": 0.9824763257575759,
         "Cartesia Ink 2": null,
         "Gradium": 1.042415563131313,
+        "VAP (silent agent)": 1.009090909090909,
         "VAD baseline": 1.1
       },
       "it": {
@@ -513,6 +549,7 @@
         "OpenAI GPT Realtime 2": 1.0093360925000001,
         "Cartesia Ink 2": null,
         "Gradium": 0.9345882799999999,
+        "VAP (silent agent)": 1.0117310925,
         "VAD baseline": 1.1
       },
       "ja": {
@@ -526,6 +563,7 @@
         "OpenAI GPT Realtime 2": 0.7358923735955055,
         "Cartesia Ink 2": null,
         "Gradium": 0.9029385533707863,
+        "VAP (silent agent)": 0.7963423398876405,
         "VAD baseline": 1.2
       },
       "ko": {
@@ -539,6 +577,7 @@
         "OpenAI GPT Realtime 2": 0.8235739389920422,
         "Cartesia Ink 2": null,
         "Gradium": 0.830238726790451,
+        "VAP (silent agent)": 0.8002194933687001,
         "VAD baseline": 0.9
       },
       "nl": {
@@ -552,6 +591,7 @@
         "OpenAI GPT Realtime 2": 0.9123967225000001,
         "Cartesia Ink 2": null,
         "Gradium": 0.91295625,
+        "VAP (silent agent)": 0.8836904675000001,
         "VAD baseline": 1.1
       },
       "pt": {
@@ -565,6 +605,7 @@
         "OpenAI GPT Realtime 2": 0.8876037500000001,
         "Cartesia Ink 2": null,
         "Gradium": 0.72770516,
+        "VAP (silent agent)": 0.8986775025,
         "VAD baseline": 1.0
       },
       "tr": {
@@ -578,6 +619,7 @@
         "OpenAI GPT Realtime 2": 1.0940367175,
         "Cartesia Ink 2": null,
         "Gradium": 1.13714,
+        "VAP (silent agent)": 1.120094525,
         "VAD baseline": 1.2
       },
       "zh": {
@@ -591,6 +633,7 @@
         "OpenAI GPT Realtime 2": 0.9413650087209304,
         "Cartesia Ink 2": null,
         "Gradium": 1.0116279069767442,
+        "VAP (silent agent)": 0.9414989040697673,
         "VAD baseline": 1.1
       }
     },
@@ -606,6 +649,7 @@
         "OpenAI GPT Realtime 2": 0.6822967585301836,
         "Cartesia Ink 2": null,
         "Gradium": 0.6427693569553806,
+        "VAP (silent agent)": 0.6776998031496061,
         "VAD baseline": 0.7
       },
       "de": {
@@ -619,6 +663,7 @@
         "OpenAI GPT Realtime 2": 0.6961809375,
         "Cartesia Ink 2": null,
         "Gradium": 0.679712345,
+        "VAP (silent agent)": 0.7948159425,
         "VAD baseline": 0.8
       },
       "en": {
@@ -632,6 +677,7 @@
         "OpenAI GPT Realtime 2": 0.8244999999999999,
         "Cartesia Ink 2": 0.91125,
         "Gradium": 0.65625,
+        "VAP (silent agent)": 0.7490000000000001,
         "VAD baseline": 1.0
       },
       "es": {
@@ -645,6 +691,7 @@
         "OpenAI GPT Realtime 2": 0.7546489049999999,
         "Cartesia Ink 2": null,
         "Gradium": 0.7089318775,
+        "VAP (silent agent)": 0.8407239099999998,
         "VAD baseline": 1.0
       },
       "fr": {
@@ -658,6 +705,7 @@
         "OpenAI GPT Realtime 2": 0.6520365625,
         "Cartesia Ink 2": null,
         "Gradium": 0.5626825,
+        "VAP (silent agent)": 0.7150759374999999,
         "VAD baseline": 0.8
       },
       "hi": {
@@ -671,6 +719,7 @@
         "OpenAI GPT Realtime 2": 0.640646095,
         "Cartesia Ink 2": null,
         "Gradium": 0.529618905,
+        "VAP (silent agent)": 0.538922345,
         "VAD baseline": 0.6
       },
       "id": {
@@ -684,6 +733,7 @@
         "OpenAI GPT Realtime 2": 0.7534870606060607,
         "Cartesia Ink 2": null,
         "Gradium": 0.7831130050505051,
+        "VAP (silent agent)": 0.7749646439393939,
         "VAD baseline": 0.8
       },
       "it": {
@@ -697,6 +747,7 @@
         "OpenAI GPT Realtime 2": 0.7505031249999999,
         "Cartesia Ink 2": null,
         "Gradium": 0.6964400000000001,
+        "VAP (silent agent)": 0.71756797,
         "VAD baseline": 0.9
       },
       "ja": {
@@ -710,6 +761,7 @@
         "OpenAI GPT Realtime 2": 0.6720821573033707,
         "Cartesia Ink 2": null,
         "Gradium": 0.6709752443820224,
+        "VAP (silent agent)": 0.6188086292134831,
         "VAD baseline": 0.9
       },
       "ko": {
@@ -723,6 +775,7 @@
         "OpenAI GPT Realtime 2": 0.6675809045092838,
         "Cartesia Ink 2": null,
         "Gradium": 0.6854466180371352,
+        "VAP (silent agent)": 0.6422080583554375,
         "VAD baseline": 0.7
       },
       "nl": {
@@ -736,6 +789,7 @@
         "OpenAI GPT Realtime 2": 0.7425142199999999,
         "Cartesia Ink 2": null,
         "Gradium": 0.67885875,
+        "VAP (silent agent)": 0.6841354675,
         "VAD baseline": 0.8
       },
       "pt": {
@@ -749,6 +803,7 @@
         "OpenAI GPT Realtime 2": 0.7494207799999998,
         "Cartesia Ink 2": null,
         "Gradium": 0.596321095,
+        "VAP (silent agent)": 0.7306740625,
         "VAD baseline": 0.8
       },
       "tr": {
@@ -762,6 +817,7 @@
         "OpenAI GPT Realtime 2": 0.8768564075,
         "Cartesia Ink 2": null,
         "Gradium": 0.7676815649999998,
+        "VAP (silent agent)": 0.818770315,
         "VAD baseline": 0.9
       },
       "zh": {
@@ -775,6 +831,7 @@
         "OpenAI GPT Realtime 2": 0.6657623488372093,
         "Cartesia Ink 2": null,
         "Gradium": 0.7475993837209303,
+        "VAP (silent agent)": 0.6887149389534883,
         "VAD baseline": 0.8
       }
     }
@@ -855,6 +912,17 @@
       "best_mean_latency_at_10pct_cutoff": 0.6543307086614172,
       "run_dir": "ar/ultra_vad_adapter__920c72c9d9",
       "metrics_dir": "ar/ultra_vad_adapter__920c72c9d9/metrics",
+      "n_spans": 963
+    },
+    {
+      "language": "ar",
+      "model": "VAP (silent agent)",
+      "best_cutoff_rate_at_0_3s_latency": 0.5463917525773195,
+      "best_cutoff_rate_at_0_6s_latency": 0.14776632302405499,
+      "best_mean_latency_at_5pct_cutoff": 0.8390139501312336,
+      "best_mean_latency_at_10pct_cutoff": 0.6776998031496061,
+      "run_dir": "ar/vap_adapter__d8cef83e57",
+      "metrics_dir": "ar/vap_adapter__d8cef83e57/metrics",
       "n_spans": 963
     },
     {
@@ -965,6 +1033,17 @@
       "best_mean_latency_at_10pct_cutoff": 0.70325,
       "run_dir": "de/ultra_vad_adapter__920c72c9d9",
       "metrics_dir": "de/ultra_vad_adapter__920c72c9d9/metrics",
+      "n_spans": 977
+    },
+    {
+      "language": "de",
+      "model": "VAP (silent agent)",
+      "best_cutoff_rate_at_0_3s_latency": 0.5355285961871751,
+      "best_cutoff_rate_at_0_6s_latency": 0.21490467937608318,
+      "best_mean_latency_at_5pct_cutoff": 1.0681795299999999,
+      "best_mean_latency_at_10pct_cutoff": 0.7948159425,
+      "run_dir": "de/vap_adapter__d8cef83e57",
+      "metrics_dir": "de/vap_adapter__d8cef83e57/metrics",
       "n_spans": 977
     },
     {
@@ -1090,6 +1169,17 @@
     },
     {
       "language": "en",
+      "model": "VAP (silent agent)",
+      "best_cutoff_rate_at_0_3s_latency": 0.4695035460992908,
+      "best_cutoff_rate_at_0_6s_latency": 0.14609929078014183,
+      "best_mean_latency_at_5pct_cutoff": 1.131,
+      "best_mean_latency_at_10pct_cutoff": 0.7490000000000001,
+      "run_dir": "en/vap_adapter__d8cef83e57",
+      "metrics_dir": "en/vap_adapter__d8cef83e57/metrics",
+      "n_spans": 1105
+    },
+    {
+      "language": "en",
       "model": "VAD baseline",
       "best_cutoff_rate_at_0_3s_latency": 0.5560283687943263,
       "best_cutoff_rate_at_0_6s_latency": 0.2170212765957447,
@@ -1196,6 +1286,17 @@
       "best_mean_latency_at_10pct_cutoff": 0.7642499999999999,
       "run_dir": "es/ultra_vad_adapter__920c72c9d9",
       "metrics_dir": "es/ultra_vad_adapter__920c72c9d9/metrics",
+      "n_spans": 1082
+    },
+    {
+      "language": "es",
+      "model": "VAP (silent agent)",
+      "best_cutoff_rate_at_0_3s_latency": 0.5263929618768328,
+      "best_cutoff_rate_at_0_6s_latency": 0.187683284457478,
+      "best_mean_latency_at_5pct_cutoff": 1.0665990650000001,
+      "best_mean_latency_at_10pct_cutoff": 0.8407239099999998,
+      "run_dir": "es/vap_adapter__d8cef83e57",
+      "metrics_dir": "es/vap_adapter__d8cef83e57/metrics",
       "n_spans": 1082
     },
     {
@@ -1310,6 +1411,17 @@
     },
     {
       "language": "fr",
+      "model": "VAP (silent agent)",
+      "best_cutoff_rate_at_0_3s_latency": 0.5448028673835126,
+      "best_cutoff_rate_at_0_6s_latency": 0.16666666666666666,
+      "best_mean_latency_at_5pct_cutoff": 0.9171590575,
+      "best_mean_latency_at_10pct_cutoff": 0.7150759374999999,
+      "run_dir": "fr/vap_adapter__d8cef83e57",
+      "metrics_dir": "fr/vap_adapter__d8cef83e57/metrics",
+      "n_spans": 958
+    },
+    {
+      "language": "fr",
       "model": "VAD baseline",
       "best_cutoff_rate_at_0_3s_latency": 0.5663082437275986,
       "best_cutoff_rate_at_0_6s_latency": 0.18458781362007168,
@@ -1409,6 +1521,17 @@
     },
     {
       "language": "hi",
+      "model": "VAP (silent agent)",
+      "best_cutoff_rate_at_0_3s_latency": 0.4945652173913043,
+      "best_cutoff_rate_at_0_6s_latency": 0.07427536231884058,
+      "best_mean_latency_at_5pct_cutoff": 0.6545931300000001,
+      "best_mean_latency_at_10pct_cutoff": 0.538922345,
+      "run_dir": "hi/vap_adapter__d8cef83e57",
+      "metrics_dir": "hi/vap_adapter__d8cef83e57/metrics",
+      "n_spans": 952
+    },
+    {
+      "language": "hi",
       "model": "VAD baseline",
       "best_cutoff_rate_at_0_3s_latency": 0.4945652173913043,
       "best_cutoff_rate_at_0_6s_latency": 0.07427536231884058,
@@ -1493,6 +1616,17 @@
       "best_mean_latency_at_10pct_cutoff": 0.7409090909090909,
       "run_dir": "id/ultra_vad_adapter__920c72c9d9",
       "metrics_dir": "id/ultra_vad_adapter__920c72c9d9/metrics",
+      "n_spans": 1145
+    },
+    {
+      "language": "id",
+      "model": "VAP (silent agent)",
+      "best_cutoff_rate_at_0_3s_latency": 0.5527369826435247,
+      "best_cutoff_rate_at_0_6s_latency": 0.18691588785046728,
+      "best_mean_latency_at_5pct_cutoff": 1.009090909090909,
+      "best_mean_latency_at_10pct_cutoff": 0.7749646439393939,
+      "run_dir": "id/vap_adapter__d8cef83e57",
+      "metrics_dir": "id/vap_adapter__d8cef83e57/metrics",
       "n_spans": 1145
     },
     {
@@ -1607,6 +1741,17 @@
     },
     {
       "language": "it",
+      "model": "VAP (silent agent)",
+      "best_cutoff_rate_at_0_3s_latency": 0.5034642032332564,
+      "best_cutoff_rate_at_0_6s_latency": 0.15473441108545036,
+      "best_mean_latency_at_5pct_cutoff": 1.0117310925,
+      "best_mean_latency_at_10pct_cutoff": 0.71756797,
+      "run_dir": "it/vap_adapter__d8cef83e57",
+      "metrics_dir": "it/vap_adapter__d8cef83e57/metrics",
+      "n_spans": 833
+    },
+    {
+      "language": "it",
       "model": "VAD baseline",
       "best_cutoff_rate_at_0_3s_latency": 0.5496535796766744,
       "best_cutoff_rate_at_0_6s_latency": 0.20554272517321015,
@@ -1706,6 +1851,17 @@
     },
     {
       "language": "ja",
+      "model": "VAP (silent agent)",
+      "best_cutoff_rate_at_0_3s_latency": 0.4884726224783862,
+      "best_cutoff_rate_at_0_6s_latency": 0.10230547550432277,
+      "best_mean_latency_at_5pct_cutoff": 0.7963423398876405,
+      "best_mean_latency_at_10pct_cutoff": 0.6188086292134831,
+      "run_dir": "ja/vap_adapter__d8cef83e57",
+      "metrics_dir": "ja/vap_adapter__d8cef83e57/metrics",
+      "n_spans": 1050
+    },
+    {
+      "language": "ja",
       "model": "VAD baseline",
       "best_cutoff_rate_at_0_3s_latency": 0.4884726224783862,
       "best_cutoff_rate_at_0_6s_latency": 0.17579250720461095,
@@ -1790,6 +1946,17 @@
       "best_mean_latency_at_10pct_cutoff": 0.636074270557029,
       "run_dir": "ko/ultra_vad_adapter__920c72c9d9",
       "metrics_dir": "ko/ultra_vad_adapter__920c72c9d9/metrics",
+      "n_spans": 759
+    },
+    {
+      "language": "ko",
+      "model": "VAP (silent agent)",
+      "best_cutoff_rate_at_0_3s_latency": 0.43455497382198954,
+      "best_cutoff_rate_at_0_6s_latency": 0.11780104712041885,
+      "best_mean_latency_at_5pct_cutoff": 0.8002194933687001,
+      "best_mean_latency_at_10pct_cutoff": 0.6422080583554375,
+      "run_dir": "ko/vap_adapter__d8cef83e57",
+      "metrics_dir": "ko/vap_adapter__d8cef83e57/metrics",
       "n_spans": 759
     },
     {
@@ -1889,6 +2056,17 @@
       "best_mean_latency_at_10pct_cutoff": 0.706,
       "run_dir": "nl/ultra_vad_adapter__920c72c9d9",
       "metrics_dir": "nl/ultra_vad_adapter__920c72c9d9/metrics",
+      "n_spans": 847
+    },
+    {
+      "language": "nl",
+      "model": "VAP (silent agent)",
+      "best_cutoff_rate_at_0_3s_latency": 0.4228187919463087,
+      "best_cutoff_rate_at_0_6s_latency": 0.13646532438478748,
+      "best_mean_latency_at_5pct_cutoff": 0.8836904675000001,
+      "best_mean_latency_at_10pct_cutoff": 0.6841354675,
+      "run_dir": "nl/vap_adapter__d8cef83e57",
+      "metrics_dir": "nl/vap_adapter__d8cef83e57/metrics",
       "n_spans": 847
     },
     {
@@ -2003,6 +2181,17 @@
     },
     {
       "language": "pt",
+      "model": "VAP (silent agent)",
+      "best_cutoff_rate_at_0_3s_latency": 0.5533230293663061,
+      "best_cutoff_rate_at_0_6s_latency": 0.1777434312210201,
+      "best_mean_latency_at_5pct_cutoff": 0.8986775025,
+      "best_mean_latency_at_10pct_cutoff": 0.7306740625,
+      "run_dir": "pt/vap_adapter__d8cef83e57",
+      "metrics_dir": "pt/vap_adapter__d8cef83e57/metrics",
+      "n_spans": 1047
+    },
+    {
+      "language": "pt",
       "model": "VAD baseline",
       "best_cutoff_rate_at_0_3s_latency": 0.598145285935085,
       "best_cutoff_rate_at_0_6s_latency": 0.1777434312210201,
@@ -2091,6 +2280,17 @@
     },
     {
       "language": "tr",
+      "model": "VAP (silent agent)",
+      "best_cutoff_rate_at_0_3s_latency": 0.5041322314049587,
+      "best_cutoff_rate_at_0_6s_latency": 0.20385674931129477,
+      "best_mean_latency_at_5pct_cutoff": 1.120094525,
+      "best_mean_latency_at_10pct_cutoff": 0.818770315,
+      "run_dir": "tr/vap_adapter__d8cef83e57",
+      "metrics_dir": "tr/vap_adapter__d8cef83e57/metrics",
+      "n_spans": 763
+    },
+    {
+      "language": "tr",
       "model": "VAD baseline",
       "best_cutoff_rate_at_0_3s_latency": 0.5564738292011019,
       "best_cutoff_rate_at_0_6s_latency": 0.21763085399449036,
@@ -2175,6 +2375,17 @@
       "best_mean_latency_at_10pct_cutoff": 0.6883720930232556,
       "run_dir": "zh/ultra_vad_adapter__920c72c9d9",
       "metrics_dir": "zh/ultra_vad_adapter__920c72c9d9/metrics",
+      "n_spans": 952
+    },
+    {
+      "language": "zh",
+      "model": "VAP (silent agent)",
+      "best_cutoff_rate_at_0_3s_latency": 0.5115131578947368,
+      "best_cutoff_rate_at_0_6s_latency": 0.13486842105263158,
+      "best_mean_latency_at_5pct_cutoff": 0.9414989040697673,
+      "best_mean_latency_at_10pct_cutoff": 0.6887149389534883,
+      "run_dir": "zh/vap_adapter__d8cef83e57",
+      "metrics_dir": "zh/vap_adapter__d8cef83e57/metrics",
       "n_spans": 952
     },
     {
