@@ -76,6 +76,7 @@ latency budget (best first). Lower is better on every metric:
 | Model | False cutoffs @ 300 ms | False cutoffs @ 600 ms | Latency @ 5% cutoff | Latency @ 10% cutoff |
 | --- | ---: | ---: | ---: | ---: |
 | **LiveKit Turn Detector v1** | **9.9%** | **4.5%** | **543 ms** | **295 ms** |
+| Baton | 12.3% | 4.8% | 577 ms | 350 ms |
 | Deepgram Flux | 12.9% | 9.9% | 1151 ms | 548 ms |
 | ultraVAD | 27.7% | 11.9% | 899 ms | 663 ms |
 | Gradium | 55.6% | 12.6% | 913 ms | 656 ms |
