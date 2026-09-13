@@ -87,7 +87,7 @@ def test_adapter_id_tracks_model_override():
 
 def test_score_point_matches_published_basis():
     assert BatonAdapter.score_point == 0.2
-    assert BatonAdapter.display_name == "Baton"
+    assert BatonAdapter.display_name == "JoinIn AI Baton"
 
 
 def test_supports_every_benchmark_language():

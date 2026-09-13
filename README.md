@@ -76,7 +76,7 @@ latency budget (best first). Lower is better on every metric:
 | Model | False cutoffs @ 300 ms | False cutoffs @ 600 ms | Latency @ 5% cutoff | Latency @ 10% cutoff |
 | --- | ---: | ---: | ---: | ---: |
 | **LiveKit Turn Detector v1** | **9.9%** | **4.5%** | **543 ms** | **295 ms** |
-| Baton | 12.3% | 4.8% | 577 ms | 350 ms |
+| JoinIn AI Baton | 12.3% | 4.8% | 577 ms | 350 ms |
 | Deepgram Flux | 12.9% | 9.9% | 1151 ms | 548 ms |
 | ultraVAD | 27.7% | 11.9% | 899 ms | 663 ms |
 | LiveKit Turn Detector v1-mini | 27.8% | 12.1% | 1070 ms | 698 ms |
@@ -128,8 +128,8 @@ See [Evaluation Model](#evaluation-model) for the full methodology.
   real human-to-agent turns with audio and text context in 14 languages.
 - Batch and streaming adapter interfaces for local models and provider APIs,
   with reference adapters for LiveKit Turn Detector v1 / v1-mini, Deepgram Flux,
-  AssemblyAI, Baton, Cartesia Ink 2, Gradium, Soniox, OpenAI GPT Realtime,
-  SmartTurn, ultraVAD, and VAP.
+  AssemblyAI, Cartesia Ink 2, Gradium, JoinIn AI Baton, Soniox, OpenAI GPT
+  Realtime, SmartTurn, ultraVAD, and VAP.
 - Reproducible prediction artifacts, policy-sweep metrics, Pareto frontiers,
   operating-point tables, and multilingual heatmaps committed under `output/`.
 - CLI commands for running a new adapter against one language or every supported
@@ -641,8 +641,8 @@ probability-valued `p_eot` score. The recommended end-of-turn condition is
 point in the harness metrics. It requires `GRADIUM_API_KEY` and targets
 `https://api.gradium.ai/api` by default.
 
-`BatonAdapter` scores each turn with one stateless `POST /v1/turn` to the
-Baton hosted end-of-turn model from JoinIn AI. It sends the 16kHz PCM16 audio
+`BatonAdapter` scores each turn with one stateless `POST /v1/turn` to
+JoinIn AI Baton, a hosted end-of-turn model. It sends the 16kHz PCM16 audio
 and the prior `messages` as context, never the words of the turn under
 judgement, and receives the full `p_eot` grid for the turn in one response.
 Scores are read at the 0.2s silence point, the same basis as the LiveKit and

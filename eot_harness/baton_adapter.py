@@ -55,7 +55,7 @@ class BatonHTTPError(RuntimeError):
 class BatonAdapter:
     """Scores a turn with one stateless POST to the Baton hosted API."""
 
-    display_name = "Baton"
+    display_name = "JoinIn AI Baton"
     score_point = 0.2
 
     def __init__(
