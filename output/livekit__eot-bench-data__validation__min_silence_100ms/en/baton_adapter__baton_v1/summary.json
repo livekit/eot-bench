@@ -1,0 +1,41 @@
+{
+  "harness_version": "0.1.0",
+  "span_set_id": "658fbba0ab37",
+  "model_run_id": "baton_adapter__baton_v1",
+  "dataset": {
+    "path": "livekit/eot-bench-data",
+    "split": "validation",
+    "min_silence_span": 0.1,
+    "language": "en"
+  },
+  "load_dataset": {
+    "path": "livekit/eot-bench-data",
+    "name": "en",
+    "split": "validation"
+  },
+  "path": "livekit/eot-bench-data",
+  "name": "en",
+  "repo_id": "livekit/eot-bench-data",
+  "subset": "en",
+  "split": "validation",
+  "language": "en",
+  "min_silence_span": 0.1,
+  "adapter_id": "joinin/baton-v1",
+  "adapter": "eot_harness.baton_adapter:BatonAdapter",
+  "streaming": true,
+  "inference_interval": 0.1,
+  "concurrency": 8,
+  "n_dataset_rows": 400,
+  "n_scored_turns": 400,
+  "n_skipped_turns": 0,
+  "n_rows": 11191,
+  "n_spans": 1250,
+  "n_event_rows": 50156,
+  "total_audio_sec": 5040.900375000001,
+  "wall_clock_sec": 2727.201650500001,
+  "audio_x_realtime": 1.8483783089804928,
+  "skip_errors": false,
+  "model": "baton-v1",
+  "display_name": "Baton",
+  "score_point": 0.2
+}

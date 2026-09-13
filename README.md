@@ -128,8 +128,8 @@ See [Evaluation Model](#evaluation-model) for the full methodology.
   real human-to-agent turns with audio and text context in 14 languages.
 - Batch and streaming adapter interfaces for local models and provider APIs,
   with reference adapters for LiveKit Turn Detector v1 / v1-mini, Deepgram Flux,
-  AssemblyAI, Cartesia Ink 2, Gradium, Soniox, OpenAI GPT Realtime, SmartTurn,
-  ultraVAD, and VAP.
+  AssemblyAI, Baton, Cartesia Ink 2, Gradium, Soniox, OpenAI GPT Realtime,
+  SmartTurn, ultraVAD, and VAP.
 - Reproducible prediction artifacts, policy-sweep metrics, Pareto frontiers,
   operating-point tables, and multilingual heatmaps committed under `output/`.
 - CLI commands for running a new adapter against one language or every supported
@@ -298,6 +298,9 @@ XAI_API_KEY=...
 SPEECHMATICS_API_KEY=...
 OPENAI_API_KEY=...
 GRADIUM_API_KEY=...
+BATON_API_KEY=...
+# Optional: override the Baton endpoint (e.g. a local server).
+# BATON_BASE_URL=https://baton.joinin.ai
 ```
 
 <details>
@@ -421,7 +424,7 @@ Streaming API adapters require their provider-specific credentials in
 `eot_harness/.env`, such as `LIVEKIT_API_KEY`/`LIVEKIT_API_SECRET`,
 `DEEPGRAM_API_KEY`, `ASSEMBLYAI_API_KEY`,
 `CARTESIA_API_KEY`, `SONIOX_API_KEY`, `XAI_API_KEY`, `SPEECHMATICS_API_KEY`,
-`OPENAI_API_KEY`, or `GRADIUM_API_KEY`.
+`OPENAI_API_KEY`, `GRADIUM_API_KEY`, or `BATON_API_KEY`.
 The AssemblyAI adapter also accepts `ASSEMBLY_API_KEY` and `ASSEMBLY_AI_KEY` as
 local aliases.
 
@@ -616,6 +619,7 @@ Built-in adapter examples:
 - `eot_harness.soniox_adapter:SonioxStreamingAdapter`
 - `eot_harness.openai_realtime_adapter:OpenAIRealtime2Adapter`
 - `eot_harness.gradium_adapter:GradiumStreamingAdapter`
+- `eot_harness.baton_adapter:BatonAdapter`
 
 Streaming STT adapters produce `p_eot` from the provider's native endpointing
 surface. Deepgram Flux and AssemblyAI expose confidence-style scores. Soniox,
@@ -636,6 +640,14 @@ probability-valued `p_eot` score. The recommended end-of-turn condition is
 `inactivity_prob > 0.5`, which corresponds to the `0.5` threshold operating
 point in the harness metrics. It requires `GRADIUM_API_KEY` and targets
 `https://api.gradium.ai/api` by default.
+
+`BatonAdapter` scores each turn with one stateless `POST /v1/turn` to the
+Baton hosted end-of-turn model from JoinIn AI. It sends the 16kHz PCM16 audio
+and the prior `messages` as context, never the words of the turn under
+judgement, and receives the full `p_eot` grid for the turn in one response.
+Scores are read at the 0.2s silence point, the same basis as the LiveKit and
+SmartTurn adapters. It requires `BATON_API_KEY` and targets
+`https://baton.joinin.ai` by default; set `BATON_BASE_URL` to override.
 
 `LiveKitTurnDetectorAdapter` is a streaming adapter that scores each turn
 with the LiveKit Turn Detector v1 (`turn-detector-v1`) cloud model over the
