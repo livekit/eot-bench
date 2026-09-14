@@ -79,10 +79,11 @@ latency budget (best first). Lower is better on every metric:
 | Baton | 12.3% | 4.8% | 577 ms | 350 ms |
 | Deepgram Flux | 12.9% | 9.9% | 1151 ms | 548 ms |
 | ultraVAD | 27.7% | 11.9% | 899 ms | 663 ms |
-| Gradium | 55.6% | 12.6% | 913 ms | 656 ms |
 | LiveKit Turn Detector v1-mini | 27.8% | 12.1% | 1070 ms | 698 ms |
 | SmartTurn v3.2 | 35.2% | 14.8% | 1051 ms | 739 ms |
+| VAP (silent agent) | 46.9% | 14.6% | 1131 ms | 749 ms |
 | AssemblyAI | 49.4% | 14.6% | 1049 ms | 713 ms |
+| Gradium | 55.6% | 12.6% | 913 ms | 656 ms |
 | Soniox | – | 5.5% | 647 ms | 512 ms |
 | Cartesia Ink 2 | – | – | 1056 ms | 911 ms |
 | OpenAI GPT Realtime 2 | – | – | 1143 ms | 824 ms |
@@ -128,7 +129,7 @@ See [Evaluation Model](#evaluation-model) for the full methodology.
 - Batch and streaming adapter interfaces for local models and provider APIs,
   with reference adapters for LiveKit Turn Detector v1 / v1-mini, Deepgram Flux,
   AssemblyAI, Cartesia Ink 2, Gradium, Soniox, OpenAI GPT Realtime, SmartTurn,
-  and ultraVAD.
+  ultraVAD, and VAP.
 - Reproducible prediction artifacts, policy-sweep metrics, Pareto frontiers,
   operating-point tables, and multilingual heatmaps committed under `output/`.
 - CLI commands for running a new adapter against one language or every supported
@@ -273,11 +274,11 @@ python -m pip install -e ".[dev]"
 Runtime dependencies cover the core harness, Hugging Face dataset I/O, the
 Modal runner, plotting, and the Deepgram streaming client. `requirements.txt`
 mirrors those runtime dependencies for environments that prefer requirements
-files. The local LiveKit, Smart Turn, and UltraVAD model adapters import heavier
+files. The local LiveKit, Smart Turn, UltraVAD, and VAP model adapters import heavier
 model runtimes lazily, such as `livekit-local-inference`, `transformers`,
 `onnxruntime`, `torch`, and `torchaudio`. Install those separately for local
 model runs, or use the Modal runner presets, which build images with the needed
-model dependencies.
+model dependencies. VAP also has a `vap` install extra; see [VAP](#vap-silent-agent).
 
 The CLI and Modal runner load auth from `eot_harness/.env` with
 `python-dotenv`. Copy `eot_harness/.env.example` to `eot_harness/.env` and use
@@ -608,6 +609,7 @@ Built-in adapter examples:
 - `eot_harness.livekit_turn_detector_mini_adapter:LiveKitTurnDetectorMiniAdapter`
 - `eot_harness.smart_turn_adapter:SmartTurnAudioAdapter`
 - `eot_harness.ultravad_adapter:UltraVADAdapter`
+- `eot_harness.vap_adapter:VAPAdapter`
 - `eot_harness.deepgram_flux_adapter:DeepgramFluxStreamingAdapter`
 - `eot_harness.assemblyai_adapter:AssemblyAIStreamingAdapter`
 - `eot_harness.cartesia_adapter:CartesiaStreamingAdapter`
@@ -656,6 +658,50 @@ LiveKit text adapters need transcript text from `words` and/or `messages`.
 
 </details>
 
+### VAP (silent agent)
+
+`VAPAdapter` uses the `oto.ckpt` checkpoint from
+[`viks66/VAP_checkpoints`](https://huggingface.co/viks66/VAP_checkpoints/tree/b9aa0ba1718221153e04ef343c7f3b8cf84bfbc3),
+the default checkpoint in [TurnBench's VAP baseline](https://github.com/SesameAILabs/turnbench/tree/e02d547803fd0e45221afcaeb1cd24b61ae7568e/baselines/vap).
+The adapter runs the two-speaker model with user audio in channel 0 and zeros
+in channel 1. It ignores text history. The score is `1 - p_now[user]` at the
+last model frame, using the same probability aggregation as TurnBench.
+
+Each prediction uses only the audio available at its timestamp. The adapter
+resamples to 16 kHz and keeps up to 20 seconds of recent user audio. It adds
+no silence after the audio. Prefixes shorter than one 20 ms frame receive
+silence on the left. Inputs are scored individually, so other items in the
+batch do not change their padding or scores. Metrics sweep the full score
+trace; the adapter does not set a fixed `score_point` or reuse TurnBench's
+tuned threshold.
+
+The committed validation run covers all 14 languages: 125,703 prediction
+points across 5,454 turns. It uses dataset revision
+`ca9d98a9686b920a2d8c9eb984224ba9be74e4dd`; its span sets match the existing
+benchmark. See the [English comparison](output/livekit__eot-bench-data__validation__min_silence_100ms/en/comparison/report.md)
+and [language comparison](output/livekit__eot-bench-data__validation__min_silence_100ms/language_comparison/report.md).
+
+In a Python 3.11 environment, install the pinned model runtime and run English
+predictions:
+
+```bash
+python -m pip install -e ".[vap]"
+eot-harness predict \
+  --path livekit/eot-bench-data \
+  --name en \
+  --split validation \
+  --adapter eot_harness.vap_adapter:VAPAdapter \
+  --revision ca9d98a9686b920a2d8c9eb984224ba9be74e4dd \
+  --batch-size 1 \
+  --output-dir output
+```
+
+The first run downloads the VAP and CPC checkpoints. CUDA is used when
+available; otherwise inference runs on the CPU. Use `--name all` to evaluate
+all benchmark languages. The code revision and default checkpoint revision
+are pinned. Python callers can override `checkpoint_filename`, `revision`,
+`max_audio_sec`, or `device` in the adapter constructor.
+
 <details>
 <summary><b>Modal Batch Prediction</b></summary>
 
@@ -669,8 +715,15 @@ modal run eot_harness.modal_runner::run_predict \
 The Modal runner writes the same `predictions.parquet` and `manifest.json` as
 local `predict`, including the same span-set/model-run directory layout under
 `--output-dir`, which defaults to `output`. Supported presets are `default`,
-`audio`, and `ultravad`; choose one with `--preset` or by adding
+`audio`, `ultravad`, and `vap`; choose one with `--preset` or by adding
 `"modal_preset": "audio"` to the config JSON.
+
+Run VAP on an L4 GPU with its own dependency image:
+
+```bash
+modal run eot_harness.modal_runner::run_predict \
+  --config-json '{"path":"livekit/eot-bench-data","name":"en","split":"validation","adapter":"eot_harness.vap_adapter:VAPAdapter","batch_size":1,"modal_preset":"vap"}'
+```
 
 The Modal runner currently calls the batch `predict` path, not
 `predict-streaming`.

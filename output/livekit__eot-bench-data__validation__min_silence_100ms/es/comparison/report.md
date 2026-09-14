@@ -19,6 +19,7 @@
 | ultraVAD | 41.6% | 17.6% |
 | AssemblyAI | 52.5% | 18.3% |
 | OpenAI GPT Realtime 2 | - | - |
+| VAP (silent agent) | 52.6% | 18.8% |
 | VAD baseline | 58.9% | 24.5% |
 
 ## Best Latency at Cutoff Budget
@@ -36,6 +37,7 @@
 | ultraVAD | 986 ms | 764 ms |
 | AssemblyAI | 1031 ms | 792 ms |
 | OpenAI GPT Realtime 2 | 1044 ms | 755 ms |
+| VAP (silent agent) | 1067 ms | 841 ms |
 | VAD baseline | 1200 ms | 1000 ms |
 
 ## Operating Points
@@ -51,6 +53,7 @@
 | Cutoff | 5.0% | ultraVAD | 0.986 | 5.0% | 84.5% | 0.210 | 0.800 | 2.000 |
 | Cutoff | 5.0% | AssemblyAI | 1.031 | 5.0% | 89.2% | 0.300 | 0.900 | 2.000 |
 | Cutoff | 5.0% | OpenAI GPT Realtime 2 | 1.044 | 4.8% | 91.2% | 0.990 | 1.000 | 1.500 |
+| Cutoff | 5.0% | VAP (silent agent) | 1.067 | 5.0% | 90.2% | 0.070 | 1.000 | 1.500 |
 | Cutoff | 10.0% | LiveKit Turn Detector v1 | 0.439 | 10.0% | 86.8% | 0.710 | 0.200 | 2.000 |
 | Cutoff | 10.0% | Soniox | 0.611 | 7.5% | 75.8% | 0.990 | 0.200 | 1.500 |
 | Cutoff | 10.0% | Deepgram Flux | 0.536 | 9.8% | 98.5% | 0.700 | 0.500 | 1.500 |
@@ -60,6 +63,7 @@
 | Cutoff | 10.0% | ultraVAD | 0.764 | 10.0% | 81.8% | 0.250 | 0.600 | 1.500 |
 | Cutoff | 10.0% | AssemblyAI | 0.792 | 9.8% | 91.5% | 0.030 | 0.700 | 1.500 |
 | Cutoff | 10.0% | OpenAI GPT Realtime 2 | 0.755 | 10.0% | 91.2% | 0.990 | 0.600 | 2.000 |
+| Cutoff | 10.0% | VAP (silent agent) | 0.841 | 9.5% | 90.2% | 0.070 | 0.700 | 1.500 |
 | Latency | 300ms | LiveKit Turn Detector v1 | 0.297 | 15.5% | 92.5% | 0.540 | 0.200 | 1.500 |
 | Latency | 300ms | Soniox | - | - | - | - | - | - |
 | Latency | 300ms | Deepgram Flux | 0.300 | 16.4% | 98.5% | 0.610 | 0.200 | 2.000 |
@@ -69,6 +73,7 @@
 | Latency | 300ms | ultraVAD | 0.296 | 41.6% | 88.0% | 0.170 | 0.200 | 1.000 |
 | Latency | 300ms | AssemblyAI | 0.294 | 52.5% | 97.0% | 0.000 | 0.200 | 1.000 |
 | Latency | 300ms | OpenAI GPT Realtime 2 | - | - | - | - | - | - |
+| Latency | 300ms | VAP (silent agent) | 0.262 | 52.6% | 99.2% | 0.020 | 0.200 | 1.500 |
 | Latency | 600ms | LiveKit Turn Detector v1 | 0.588 | 6.0% | 88.2% | 0.670 | 0.400 | 2.000 |
 | Latency | 600ms | Soniox | 0.557 | 11.4% | 75.8% | 0.990 | 0.400 | 1.000 |
 | Latency | 600ms | Deepgram Flux | 0.543 | 8.7% | 98.5% | 0.700 | 0.500 | 2.000 |
@@ -78,3 +83,4 @@
 | Latency | 600ms | ultraVAD | 0.592 | 17.6% | 58.2% | 0.460 | 0.300 | 1.000 |
 | Latency | 600ms | AssemblyAI | 0.598 | 18.3% | 88.0% | 0.100 | 0.500 | 1.000 |
 | Latency | 600ms | OpenAI GPT Realtime 2 | - | - | - | - | - | - |
+| Latency | 600ms | VAP (silent agent) | 0.599 | 18.8% | 90.2% | 0.070 | 0.200 | 1.500 |

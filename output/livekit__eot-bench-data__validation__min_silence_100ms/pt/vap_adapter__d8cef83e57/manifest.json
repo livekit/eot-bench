@@ -1,0 +1,45 @@
+{
+  "harness_version": "0.1.0",
+  "span_set_id": "6042794606f9",
+  "model_run_id": "vap_adapter__d8cef83e57",
+  "dataset": {
+    "path": "livekit/eot-bench-data",
+    "split": "validation",
+    "min_silence_span": 0.1,
+    "revision": "ca9d98a9686b920a2d8c9eb984224ba9be74e4dd",
+    "language": "pt"
+  },
+  "load_dataset": {
+    "path": "livekit/eot-bench-data",
+    "name": "pt",
+    "split": "validation",
+    "revision": "ca9d98a9686b920a2d8c9eb984224ba9be74e4dd"
+  },
+  "model": {
+    "adapter": "eot_harness.vap_adapter:VAPAdapter",
+    "adapter_id": "viks66/VAP_checkpoints/oto.ckpt-silent-agent-b9aa0ba1718221153e04ef343c7f3b8cf84bfbc3",
+    "inference_interval": 0.1,
+    "transcript_lag": 0.5,
+    "display_name": "VAP (silent agent)",
+    "max_audio_sec": 20.0
+  },
+  "runtime": {
+    "batch_size": 1
+  },
+  "path": "livekit/eot-bench-data",
+  "name": "pt",
+  "repo_id": "livekit/eot-bench-data",
+  "subset": "pt",
+  "split": "validation",
+  "language": "pt",
+  "min_silence_span": 0.1,
+  "adapter_id": "viks66/VAP_checkpoints/oto.ckpt-silent-agent-b9aa0ba1718221153e04ef343c7f3b8cf84bfbc3",
+  "adapter": "eot_harness.vap_adapter:VAPAdapter",
+  "batch_size": 1,
+  "inference_interval": 0.1,
+  "transcript_lag": 0.5,
+  "n_rows": 9311,
+  "n_spans": 1143,
+  "revision": "ca9d98a9686b920a2d8c9eb984224ba9be74e4dd",
+  "display_name": "VAP (silent agent)"
+}

@@ -18,6 +18,7 @@
 | SmartTurn v3.2 | 35.2% | 14.8% |
 | Cartesia Ink 2 | - | - |
 | LiveKit Turn Detector v1-mini | 27.8% | 12.1% |
+| VAP (silent agent) | 47.0% | 14.6% |
 | OpenAI GPT Realtime 2 | - | - |
 | Deepgram Flux | 12.9% | 9.9% |
 | VAD baseline | 55.6% | 21.7% |
@@ -36,6 +37,7 @@
 | SmartTurn v3.2 | 1051 ms | 739 ms |
 | Cartesia Ink 2 | 1056 ms | 911 ms |
 | LiveKit Turn Detector v1-mini | 1070 ms | 698 ms |
+| VAP (silent agent) | 1131 ms | 749 ms |
 | OpenAI GPT Realtime 2 | 1143 ms | 824 ms |
 | Deepgram Flux | 1151 ms | 548 ms |
 | VAD baseline | 1600 ms | 1000 ms |
@@ -52,6 +54,7 @@
 | Cutoff | 5.0% | SmartTurn v3.2 | 1.051 | 4.8% | 84.8% | 0.090 | 0.700 | 3.000 |
 | Cutoff | 5.0% | Cartesia Ink 2 | 1.056 | 4.5% | 94.2% | 0.990 | 0.200 | 2.000 |
 | Cutoff | 5.0% | LiveKit Turn Detector v1-mini | 1.070 | 5.0% | 71.5% | 0.430 | 0.700 | 2.000 |
+| Cutoff | 5.0% | VAP (silent agent) | 1.131 | 5.0% | 76.2% | 0.100 | 0.700 | 2.000 |
 | Cutoff | 5.0% | OpenAI GPT Realtime 2 | 1.143 | 4.7% | 80.8% | 0.990 | 0.800 | 2.500 |
 | Cutoff | 5.0% | Deepgram Flux | 1.151 | 5.0% | 50.7% | 0.790 | 0.300 | 2.000 |
 | Cutoff | 10.0% | LiveKit Turn Detector v1 | 0.295 | 9.9% | 94.8% | 0.570 | 0.200 | 2.000 |
@@ -62,6 +65,7 @@
 | Cutoff | 10.0% | SmartTurn v3.2 | 0.739 | 9.6% | 97.0% | 0.010 | 0.700 | 2.000 |
 | Cutoff | 10.0% | Cartesia Ink 2 | 0.911 | 9.9% | 53.2% | 0.990 | 0.200 | 1.000 |
 | Cutoff | 10.0% | LiveKit Turn Detector v1-mini | 0.698 | 9.8% | 80.2% | 0.360 | 0.500 | 1.500 |
+| Cutoff | 10.0% | VAP (silent agent) | 0.749 | 9.8% | 99.0% | 0.040 | 0.700 | 2.000 |
 | Cutoff | 10.0% | OpenAI GPT Realtime 2 | 0.824 | 9.9% | 80.8% | 0.990 | 0.600 | 1.500 |
 | Cutoff | 10.0% | Deepgram Flux | 0.548 | 9.9% | 98.8% | 0.680 | 0.500 | 3.000 |
 | Latency | 300ms | LiveKit Turn Detector v1 | 0.295 | 9.9% | 94.8% | 0.570 | 0.200 | 2.000 |
@@ -72,6 +76,7 @@
 | Latency | 300ms | SmartTurn v3.2 | 0.294 | 35.2% | 88.2% | 0.050 | 0.200 | 1.000 |
 | Latency | 300ms | Cartesia Ink 2 | - | - | - | - | - | - |
 | Latency | 300ms | LiveKit Turn Detector v1-mini | 0.288 | 27.8% | 89.0% | 0.250 | 0.200 | 1.000 |
+| Latency | 300ms | VAP (silent agent) | 0.268 | 47.0% | 99.8% | 0.020 | 0.200 | 2.000 |
 | Latency | 300ms | OpenAI GPT Realtime 2 | - | - | - | - | - | - |
 | Latency | 300ms | Deepgram Flux | 0.298 | 12.9% | 98.8% | 0.700 | 0.200 | 2.500 |
 | Latency | 600ms | LiveKit Turn Detector v1 | 0.588 | 4.5% | 91.0% | 0.720 | 0.300 | 3.500 |
@@ -82,5 +87,6 @@
 | Latency | 600ms | SmartTurn v3.2 | 0.599 | 14.8% | 80.2% | 0.210 | 0.500 | 1.000 |
 | Latency | 600ms | Cartesia Ink 2 | - | - | - | - | - | - |
 | Latency | 600ms | LiveKit Turn Detector v1-mini | 0.585 | 12.1% | 76.2% | 0.390 | 0.300 | 1.500 |
+| Latency | 600ms | VAP (silent agent) | 0.589 | 14.6% | 99.0% | 0.040 | 0.500 | 2.000 |
 | Latency | 600ms | OpenAI GPT Realtime 2 | - | - | - | - | - | - |
 | Latency | 600ms | Deepgram Flux | 0.548 | 9.9% | 98.8% | 0.680 | 0.500 | 3.000 |

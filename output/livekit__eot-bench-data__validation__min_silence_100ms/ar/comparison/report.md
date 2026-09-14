@@ -15,6 +15,7 @@
 | ultraVAD | 45.5% | 12.9% |
 | LiveKit Turn Detector v1-mini | 24.4% | 10.3% |
 | SmartTurn v3.2 | 39.2% | 13.2% |
+| VAP (silent agent) | 54.6% | 14.8% |
 | Gradium | 54.8% | 14.1% |
 | OpenAI GPT Realtime 2 | - | - |
 | VAD baseline | 54.8% | 14.8% |
@@ -30,6 +31,7 @@
 | ultraVAD | 807 ms | 654 ms |
 | LiveKit Turn Detector v1-mini | 811 ms | 610 ms |
 | SmartTurn v3.2 | 814 ms | 636 ms |
+| VAP (silent agent) | 839 ms | 678 ms |
 | Gradium | 840 ms | 643 ms |
 | OpenAI GPT Realtime 2 | 873 ms | 682 ms |
 | VAD baseline | 900 ms | 700 ms |
@@ -43,6 +45,7 @@
 | Cutoff | 5.0% | ultraVAD | 0.807 | 5.0% | 86.6% | 0.070 | 0.700 | 1.500 |
 | Cutoff | 5.0% | LiveKit Turn Detector v1-mini | 0.811 | 5.0% | 98.4% | 0.120 | 0.800 | 1.500 |
 | Cutoff | 5.0% | SmartTurn v3.2 | 0.814 | 5.0% | 92.9% | 0.090 | 0.800 | 1.000 |
+| Cutoff | 5.0% | VAP (silent agent) | 0.839 | 4.8% | 50.4% | 0.130 | 0.600 | 1.000 |
 | Cutoff | 5.0% | Gradium | 0.840 | 5.0% | 63.8% | 0.280 | 0.700 | 1.000 |
 | Cutoff | 5.0% | OpenAI GPT Realtime 2 | 0.873 | 4.1% | 90.8% | 0.990 | 0.800 | 1.500 |
 | Cutoff | 10.0% | LiveKit Turn Detector v1 | 0.444 | 9.6% | 69.6% | 0.800 | 0.200 | 1.000 |
@@ -50,6 +53,7 @@
 | Cutoff | 10.0% | ultraVAD | 0.654 | 10.0% | 94.0% | 0.040 | 0.600 | 1.500 |
 | Cutoff | 10.0% | LiveKit Turn Detector v1-mini | 0.610 | 10.0% | 97.4% | 0.140 | 0.600 | 1.000 |
 | Cutoff | 10.0% | SmartTurn v3.2 | 0.636 | 10.0% | 91.1% | 0.150 | 0.600 | 1.000 |
+| Cutoff | 10.0% | VAP (silent agent) | 0.678 | 8.9% | 88.7% | 0.050 | 0.600 | 1.000 |
 | Cutoff | 10.0% | Gradium | 0.643 | 9.6% | 89.8% | 0.140 | 0.500 | 1.000 |
 | Cutoff | 10.0% | OpenAI GPT Realtime 2 | 0.682 | 9.5% | 90.0% | 0.990 | 0.600 | 1.000 |
 | Latency | 300ms | LiveKit Turn Detector v1 | 0.296 | 16.2% | 92.7% | 0.460 | 0.200 | 1.500 |
@@ -57,6 +61,7 @@
 | Latency | 300ms | ultraVAD | 0.292 | 45.5% | 88.5% | 0.060 | 0.200 | 1.000 |
 | Latency | 300ms | LiveKit Turn Detector v1-mini | 0.297 | 24.4% | 87.9% | 0.270 | 0.200 | 1.000 |
 | Latency | 300ms | SmartTurn v3.2 | 0.299 | 39.2% | 87.7% | 0.260 | 0.200 | 1.000 |
+| Latency | 300ms | VAP (silent agent) | 0.272 | 54.6% | 98.7% | 0.020 | 0.200 | 1.000 |
 | Latency | 300ms | Gradium | 0.300 | 54.8% | 100.0% | 0.000 | 0.300 | 1.000 |
 | Latency | 300ms | OpenAI GPT Realtime 2 | - | - | - | - | - | - |
 | Latency | 600ms | LiveKit Turn Detector v1 | 0.596 | 6.9% | 69.6% | 0.800 | 0.200 | 1.500 |
@@ -64,5 +69,6 @@
 | Latency | 600ms | ultraVAD | 0.597 | 12.9% | 80.6% | 0.100 | 0.500 | 1.000 |
 | Latency | 600ms | LiveKit Turn Detector v1-mini | 0.596 | 10.3% | 80.8% | 0.390 | 0.500 | 1.000 |
 | Latency | 600ms | SmartTurn v3.2 | 0.600 | 13.2% | 80.1% | 0.510 | 0.500 | 1.000 |
+| Latency | 600ms | VAP (silent agent) | 0.600 | 14.8% | 100.0% | 0.000 | 0.600 | 1.000 |
 | Latency | 600ms | Gradium | 0.592 | 14.1% | 92.7% | 0.090 | 0.500 | 1.000 |
 | Latency | 600ms | OpenAI GPT Realtime 2 | - | - | - | - | - | - |

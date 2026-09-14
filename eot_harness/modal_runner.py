@@ -86,6 +86,25 @@ ULTRAVAD_IMAGE = (
     .add_local_python_source("eot_harness", ignore=_ignore_local_python_source)
 )
 
+VAP_IMAGE = (
+    modal.Image.debian_slim(python_version="3.11")
+    .apt_install("git")
+    .pip_install(
+        "datasets>=3.2.0",
+        "huggingface_hub>=0.30.0",
+        "numpy<2",
+        "pandas>=2.2.0",
+        "pyarrow>=18.0.0",
+        "python-dotenv>=1.0.0",
+        "soundfile>=0.12.1",
+        "einops==0.8.1",
+        "torch==2.7.0",
+        "torchaudio==2.7.0",
+        "vap @ git+https://github.com/ErikEkstedt/VoiceActivityProjection.git@f39a78b23a6dccdbedd106e00b48c410b8739f5d",
+    )
+    .add_local_python_source("eot_harness", ignore=_ignore_local_python_source)
+)
+
 HF_VOLUME = modal.Volume.from_name("eot-harness-hf-cache", create_if_missing=True)
 VOLUMES = {
     "/root/.cache/huggingface": HF_VOLUME,
@@ -109,10 +128,16 @@ def predict_remote_ultravad(config: dict[str, Any]) -> dict[str, Any]:
     return _predict_remote_impl(config)
 
 
+@app.function(image=VAP_IMAGE, gpu="L4", volumes=VOLUMES, timeout=15 * 60 * 60)
+def predict_remote_vap(config: dict[str, Any]) -> dict[str, Any]:
+    return _predict_remote_impl(config)
+
+
 REMOTE_PRESETS = {
     "default": predict_remote_default,
     "audio": predict_remote_audio,
     "ultravad": predict_remote_ultravad,
+    "vap": predict_remote_vap,
 }
 
 
