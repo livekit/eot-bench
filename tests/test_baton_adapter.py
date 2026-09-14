@@ -15,7 +15,7 @@ class FakeHTTP:
     """Minimal aiohttp double: records the request, replays a scripted response."""
 
     def __init__(self, body=None, *, status=200, text=""):
-        self._body = body if body is not None else {"events": []}
+        self._body = body if body is not None else {"events": [{"timestamp": 0.1, "p_eot": 0.1}]}
         self._status = status
         self._text = text
         self.url = None
@@ -87,7 +87,7 @@ def test_adapter_id_tracks_model_override():
 
 def test_score_point_matches_published_basis():
     assert BatonAdapter.score_point == 0.2
-    assert BatonAdapter.display_name == "Baton"
+    assert BatonAdapter.display_name == "JoinIn AI Baton"
 
 
 def test_supports_every_benchmark_language():
@@ -151,9 +151,10 @@ def test_non_200_raises_with_detail(monkeypatch):
 
 
 def test_prediction_rows_are_built(monkeypatch):
-    _install(monkeypatch, FakeHTTP({"events": [{"timestamp": 0.6, "p_eot": 0.4}]}))
+    _install(monkeypatch, FakeHTTP({"events": [{"timestamp": 0.5, "p_eot": 0.4}]}))
     out = _run(BatonAdapter(api_key="k"), _row())
-    assert isinstance(out["prediction_rows"], list)
+    assert out["prediction_rows"], "one row per silence-span grid point expected"
+    assert all(r["p_eot"] == pytest.approx(0.4) for r in out["prediction_rows"])
 
 
 # ---- the contract that matters -------------------------------------------
@@ -185,14 +186,17 @@ def test_inference_interval_is_forwarded(monkeypatch):
 def test_missing_api_key_raises(monkeypatch):
     monkeypatch.delenv("BATON_API_KEY", raising=False)
     _install(monkeypatch, FakeHTTP())
-    with pytest.raises(Exception):
+    with pytest.raises(RuntimeError, match="BATON_API_KEY"):
         _run(BatonAdapter(), _row())
 
 
 def test_transient_errors_are_classified():
     assert _is_transient_error(asyncio.TimeoutError())
     assert _is_transient_error(ConnectionError("reset by peer"))
-    assert _is_transient_error(RuntimeError("503 unavailable"))
+    assert _is_transient_error(mod.BatonHTTPError(502, "bad gateway"))
+    assert not _is_transient_error(mod.BatonHTTPError(503, "busy"))  # capacity, not transient
+    assert not _is_transient_error(mod.BatonHTTPError(401, "invalid key"))
+    assert not _is_transient_error(RuntimeError("HTTP 503 mentioned in a message"))
     assert not _is_transient_error(ValueError("bad audio"))
 
 
@@ -223,12 +227,14 @@ def test_capacity_errors_are_retried_until_they_succeed(monkeypatch):
 def test_capacity_retries_are_separate_from_transient_retries():
     a = BatonAdapter()
     assert a.capacity_retries > a.max_retries, "429 needs a more patient budget"
-    assert mod._is_capacity_error(RuntimeError("Baton returned HTTP 429: busy"))
-    assert mod._is_capacity_error(RuntimeError("HTTP 503"))
-    assert not mod._is_capacity_error(RuntimeError("HTTP 401 invalid key"))
+    assert mod._is_capacity_error(mod.BatonHTTPError(429, "busy"))
+    assert mod._is_capacity_error(mod.BatonHTTPError(503, "scaling"))
+    assert not mod._is_capacity_error(mod.BatonHTTPError(401, "invalid key"))
+    # Classification is by status code, never by digits in the response body.
+    assert not mod._is_capacity_error(mod.BatonHTTPError(422, "expected 16000 samples, got 4290"))
+    assert not mod._is_capacity_error(RuntimeError("HTTP 429"))
 
 
-@pytest.mark.skipif(not hasattr(mod, "decode_audio"), reason="harness io not importable")
 def test_accepts_the_raw_undecoded_audio_shape(monkeypatch):
     """Streaming adapters get Audio(decode=False): {bytes, path}, not {array, ...}.
 
@@ -244,3 +250,61 @@ def test_accepts_the_raw_undecoded_audio_shape(monkeypatch):
     pcm, secs = mod._prepare_pcm16_audio({"audio": raw})
     assert len(pcm) == 3200
     assert secs == pytest.approx(0.1, abs=0.01)
+
+
+def test_empty_events_raise_instead_of_scoring_zero(monkeypatch):
+    """An empty grid must fail loudly, not score every span as p_eot=0."""
+    _install(monkeypatch, FakeHTTP({"events": []}))
+    with pytest.raises(RuntimeError, match="No Baton events"):
+        _run(BatonAdapter(api_key="k"), _row())
+
+
+def test_malformed_body_raises_clearly(monkeypatch):
+    _install(monkeypatch, FakeHTTP({"events": None}))
+    with pytest.raises(RuntimeError, match="no 'events' list"):
+        _run(BatonAdapter(api_key="k"), _row())
+
+
+def test_permanent_errors_are_not_retried(monkeypatch):
+    calls = {"n": 0}
+
+    class Bad(FakeHTTP):
+        def post(self, url, *, json=None, headers=None):
+            calls["n"] += 1
+            return super().post(url, json=json, headers=headers)
+
+    _install(monkeypatch, Bad(status=422, text="expected 16000 samples, got 4290 (see 503 docs)"))
+    with pytest.raises(mod.BatonHTTPError, match="422"):
+        _run(BatonAdapter(api_key="k", retry_backoff=0.0), _row())
+    assert calls["n"] == 1
+
+
+def test_capacity_budget_is_exhausted_without_falling_into_transient_budget(monkeypatch):
+    calls = {"n": 0}
+
+    class Busy(FakeHTTP):
+        def post(self, url, *, json=None, headers=None):
+            calls["n"] += 1
+            return super().post(url, json=json, headers=headers)
+
+    _install(monkeypatch, Busy(status=503, text="scaling"))
+    with pytest.raises(mod.BatonHTTPError, match="503"):
+        _run(BatonAdapter(api_key="k", retry_backoff=0.0, capacity_retries=2, max_retries=4), _row())
+    assert calls["n"] == 3  # 1 + capacity_retries, transient budget untouched
+
+
+def test_stereo_audio_is_downmixed_at_native_rate():
+    stereo = np.stack([np.full(1600, 0.5, dtype=np.float32), np.full(1600, -0.5, dtype=np.float32)], axis=1)
+    pcm, secs = _prepare_pcm16_audio({"audio": {"array": stereo, "sampling_rate": 16000}})
+    assert len(pcm) == 3200  # mono frames, not interleaved stereo
+    assert secs == pytest.approx(0.1)
+    assert np.frombuffer(pcm, dtype=np.int16).max() == 0
+
+
+def test_concurrency_is_exposed_to_the_harness():
+    assert BatonAdapter().concurrency == mod.DEFAULT_CONCURRENCY
+    assert BatonAdapter(concurrency=2).concurrency == 2
+    with pytest.raises(ValueError):
+        BatonAdapter(concurrency=0)
+    with pytest.raises(ValueError):
+        BatonAdapter(timeout=0)
