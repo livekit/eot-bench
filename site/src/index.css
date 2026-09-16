@@ -80,6 +80,7 @@
   --color-chart9: oklch(var(--lk-color-chart9));
   --color-chart10: oklch(var(--lk-color-chart10));
   --color-chart11: oklch(var(--lk-color-chart11));
+  --color-chart12: oklch(var(--lk-color-chart12));
   --color-chartSuccess: oklch(var(--lk-color-chartSuccess));
   --color-chartModerate: oklch(var(--lk-color-chartModerate));
 }
@@ -110,6 +111,7 @@
   --lk-color-chart9: 0.56 0.14 185;
   --lk-color-chart10: 0.61 0.2 350;
   --lk-color-chart11: 0.56 0.12 125;
+  --lk-color-chart12: 0.52 0.07 250;
   --lk-color-chartSuccess: 0.493 0.128 152.53;
   --lk-color-chartModerate: 0.511 0.128 52.64;
 }
@@ -140,6 +142,7 @@
     --lk-color-chart9: 0.77 0.13 185;
     --lk-color-chart10: 0.74 0.18 350;
     --lk-color-chart11: 0.76 0.14 125;
+    --lk-color-chart12: 0.74 0.07 250;
     --lk-color-chartSuccess: 0.685 0.163 154.55;
     --lk-color-chartModerate: 0.829 0.142 72.57;
   }
@@ -169,6 +172,7 @@
   --lk-color-chart9: 0.77 0.13 185;
   --lk-color-chart10: 0.74 0.18 350;
   --lk-color-chart11: 0.76 0.14 125;
+  --lk-color-chart12: 0.74 0.07 250;
   --lk-color-chartSuccess: 0.685 0.163 154.55;
   --lk-color-chartModerate: 0.829 0.142 72.57;
 }

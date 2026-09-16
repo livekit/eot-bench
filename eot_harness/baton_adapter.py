@@ -20,13 +20,15 @@ from __future__ import annotations
 import asyncio
 import base64
 import os
+import random
 from typing import Any
 
 import numpy as np
 
+from .io import DEFAULT_INFERENCE_INTERVAL, decode_audio
 from .languages import supports_any_benchmark_language
-from .io import decode_audio
 from .streaming_stt import (
+    SAMPLE_RATE,
     build_event_prediction_rows,
     resample_audio,
     resolve_api_key,
@@ -34,14 +36,26 @@ from .streaming_stt import (
 
 DEFAULT_BASE_URL = "https://baton.joinin.ai"
 TURN_PATH = "/v1/turn"
-DEFAULT_INFERENCE_INTERVAL = 0.1
-SAMPLE_RATE = 16000
+DEFAULT_CONCURRENCY = 8
+
+# 429 / 503: the server is busy or scaling, not broken. Always worth waiting for.
+_CAPACITY_STATUS_CODES = (429, 503)
+# Other server-side conditions where a fresh request may succeed.
+_TRANSIENT_STATUS_CODES = (408, 500, 502, 504)
+
+
+class BatonHTTPError(RuntimeError):
+    """A non-200 response from Baton, tagged with its HTTP status."""
+
+    def __init__(self, status: int, detail: str) -> None:
+        super().__init__(f"Baton returned HTTP {status}: {detail[:400]}")
+        self.status = status
 
 
 class BatonAdapter:
     """Scores a turn with one stateless POST to the Baton hosted API."""
 
-    display_name = "Baton"
+    display_name = "JoinIn AI Baton"
     score_point = 0.2
 
     def __init__(
@@ -50,23 +64,31 @@ class BatonAdapter:
         api_key: str | None = None,
         base_url: str | None = None,
         model: str = "baton-v1",
+        concurrency: int = DEFAULT_CONCURRENCY,
         # A cold instance can take minutes to become ready, so a request arriving
-        # during a scale-up may wait. Retrying past that is the difference between a
-        # warm-up blip and a silently dropped turn -- the harness is often invoked
-        # with --skip-errors, which would quietly shrink the eval set rather than
-        # fail loudly.
+        # during a scale-up may wait. Retrying past that keeps a warm-up blip from
+        # becoming a skipped turn under --skip-errors.
         max_retries: int = 4,
         retry_backoff: float = 5.0,
-        # A 429 is not a failure, it is "come back later" -- capacity, not breakage.
-        # It WILL succeed given time, so it gets its own far more patient budget:
-        # a dropped turn silently shrinks the eval set, which is worse than a slow run.
+        # A 429 is "come back later", not a failure. It gets its own, more patient
+        # budget. The two budgets are disjoint: an error is either capacity or
+        # transient, never both.
         capacity_retries: int = 20,
         capacity_backoff_cap: float = 30.0,
         timeout: float = 300.0,
     ) -> None:
+        if not model:
+            raise ValueError("model must be a non-empty string")
+        if concurrency <= 0:
+            raise ValueError("concurrency must be positive")
+        if timeout <= 0:
+            raise ValueError("timeout must be positive")
+        if retry_backoff < 0 or max_retries < 0 or capacity_retries < 0:
+            raise ValueError("retry settings must be non-negative")
         self._api_key = api_key
         self._base_url = (base_url or os.environ.get("BATON_BASE_URL") or DEFAULT_BASE_URL).rstrip("/")
         self.model = model
+        self.concurrency = int(concurrency)
         self.max_retries = int(max_retries)
         self.retry_backoff = float(retry_backoff)
         self.capacity_retries = int(capacity_retries)
@@ -90,40 +112,40 @@ class BatonAdapter:
     ) -> dict[str, Any]:
         api_key = self._api_key or resolve_api_key("BATON_API_KEY")
         pcm_bytes, audio_sec = _prepare_pcm16_audio(row, sample_rate=SAMPLE_RATE)
+        # Prior turns only. Sending anything about the turn under judgement would
+        # leak the future. Normalised client-side because the non-English splits
+        # carry content: None, which a strict schema rejects with 422.
+        messages = _clean_messages(row.get("messages"))
 
-        events: list[dict[str, Any]] = []
         attempt = capacity_attempt = 0
         while True:
             try:
                 events = await self._score_events(
                     api_key=api_key,
                     pcm_bytes=pcm_bytes,
-                    # Prior turns only. Sending anything about the turn under
-                    # judgement would leak the future and flatter every number.
-                    # Normalised here as well as server-side: the benchmark's
-                    # non-English splits carry content: None, which a strict schema
-                    # rejects with 422. Doing it client-side means the run works
-                    # against a server that has not been updated yet.
-                    messages=_clean_messages(row.get("messages")),
+                    messages=messages,
                     inference_interval=inference_interval,
                 )
                 break
             except Exception as exc:
-                # Capacity gets its own budget. Every turn must be scored: a turn
-                # dropped here vanishes from the metrics with nothing in the output
-                # saying so, and would read as the model failing rather than the
-                # server being busy.
-                if _is_capacity_error(exc) and capacity_attempt < self.capacity_retries:
-                    delay = min(self.capacity_backoff_cap,
-                                self.retry_backoff * (2 ** capacity_attempt))
+                if _is_capacity_error(exc):
+                    if capacity_attempt >= self.capacity_retries:
+                        raise
+                    delay = min(self.capacity_backoff_cap, self.retry_backoff * (2**capacity_attempt))
                     capacity_attempt += 1
-                    await asyncio.sleep(delay)
-                    continue
-                if _is_transient_error(exc) and attempt < self.max_retries:
+                elif _is_transient_error(exc):
+                    if attempt >= self.max_retries:
+                        raise
                     attempt += 1
-                    await asyncio.sleep(self.retry_backoff * attempt)
-                    continue
-                raise
+                    delay = self.retry_backoff * attempt
+                else:
+                    raise
+                # Full jitter so concurrent workers that were rejected together do
+                # not retry in lockstep.
+                await asyncio.sleep(random.uniform(0.0, delay))
+
+        if not events:
+            raise RuntimeError(f"No Baton events received for row {row['id']!r}.")
 
         return {
             "id": row["id"],
@@ -156,13 +178,17 @@ class BatonAdapter:
         async with aiohttp.ClientSession(timeout=timeout) as session:
             async with session.post(url, json=payload, headers={"X-API-Key": api_key}) as resp:
                 if resp.status != 200:
-                    detail = await resp.text()
-                    raise RuntimeError(f"Baton returned HTTP {resp.status}: {detail[:400]}")
-                body = await resp.json()
+                    raise BatonHTTPError(resp.status, await resp.text())
+                try:
+                    body = await resp.json()
+                except Exception as exc:
+                    raise RuntimeError(f"Baton returned a non-JSON 200 response: {exc}") from exc
+        if not isinstance(body, dict) or not isinstance(body.get("events"), list):
+            raise RuntimeError(f"Baton response has no 'events' list: {str(body)[:400]}")
         return [
             {"timestamp": float(e["timestamp"]), "p_eot": float(e["p_eot"])}
-            for e in body.get("events", [])
-            if e.get("timestamp") is not None and e.get("p_eot") is not None
+            for e in body["events"]
+            if isinstance(e, dict) and e.get("timestamp") is not None and e.get("p_eot") is not None
         ]
 
 
@@ -177,27 +203,12 @@ def _import_aiohttp():
 def _prepare_pcm16_audio(row: dict[str, Any], *, sample_rate: int = SAMPLE_RATE) -> tuple[bytes, float]:
     """PCM16-encode a row's audio using Baton's scale convention.
 
-    Deliberately not ``streaming_stt.prepare_pcm16_audio``: that helper scales
-    by 32767, which shifts every sample by one LSB. That is tolerable for some
-    consumers, but it is a measurable quality cost for anything sensitive to exact
-    sample values. Encoding as round(x * 32768) clipped into int16 range is what
-    Baton's API contract specifies.
+    Baton's API contract specifies ``round(x * 32768)`` clipped into int16 range,
+    while ``streaming_stt.pcm16le_bytes`` truncates ``x * 32767``. Decoding and
+    resampling (including stereo down-mix) go through the shared helpers.
     """
-    audio = row.get("audio") or {}
-    if "array" in audio:
-        # already-decoded shape (the batch path, and hand-built test rows)
-        array = np.asarray(audio["array"], dtype=np.float32)
-        orig_sr = int(audio["sampling_rate"])
-    else:
-        # A STREAMING adapter is handed the raw row, and the harness loads the
-        # dataset with Audio(decode=False) -- so `audio` is {bytes, path} and must
-        # be decoded here. Assuming the decoded shape passes every unit test built
-        # on synthetic rows and then KeyErrors on the first real turn.
-        array, orig_sr = decode_audio(audio)
-        array = np.asarray(array, dtype=np.float32)
-        orig_sr = int(orig_sr)
-    if orig_sr != sample_rate:
-        array = resample_audio(array, orig_sr, sample_rate)
+    array, orig_sr = decode_audio(row["audio"])
+    array = resample_audio(array, orig_sr, sample_rate)
     scaled = np.rint(np.clip(array, -1.0, 1.0) * 32768.0)
     pcm = np.clip(scaled, -32768.0, 32767.0).astype(np.int16)
     return pcm.tobytes(), float(len(array) / sample_rate)
@@ -212,13 +223,19 @@ def _clean_messages(messages) -> list[dict[str, str]]:
 
 
 def _is_capacity_error(exc: BaseException) -> bool:
-    """429 / 503: the server is busy or scaling, not broken. Always worth waiting for."""
-    m = str(exc)
-    return "429" in m or "503" in m
+    return isinstance(exc, BatonHTTPError) and exc.status in _CAPACITY_STATUS_CODES
 
 
 def _is_transient_error(exc: BaseException) -> bool:
+    if isinstance(exc, BatonHTTPError):
+        return exc.status in _TRANSIENT_STATUS_CODES
     if isinstance(exc, (asyncio.TimeoutError, ConnectionError, OSError)):
         return True
-    message = str(exc).lower()
-    return any(token in message for token in ("timeout", "temporarily", "502", "503", "504", "429", "reset"))
+    try:
+        import aiohttp
+
+        if isinstance(exc, aiohttp.ClientError):
+            return True
+    except ImportError:  # pragma: no cover
+        pass
+    return False
