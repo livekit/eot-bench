@@ -76,8 +76,10 @@ latency budget (best first). Lower is better on every metric:
 | Model | False cutoffs @ 300 ms | False cutoffs @ 600 ms | Latency @ 5% cutoff | Latency @ 10% cutoff |
 | --- | ---: | ---: | ---: | ---: |
 | **LiveKit Turn Detector v1** | **9.9%** | **4.5%** | **543 ms** | **295 ms** |
+| p99lab turn-1 | 10.6% | 4.5% | 553 ms | 322 ms |
 | JoinIn AI Baton | 12.3% | 4.8% | 577 ms | 350 ms |
 | Deepgram Flux | 12.9% | 9.9% | 1151 ms | 548 ms |
+| p99lab turn-1-mini | 22.6% | 9.6% | 849 ms | 581 ms |
 | ultraVAD | 27.7% | 11.9% | 899 ms | 663 ms |
 | LiveKit Turn Detector v1-mini | 27.8% | 12.1% | 1070 ms | 698 ms |
 | SmartTurn v3.2 | 35.2% | 14.8% | 1051 ms | 739 ms |
@@ -620,6 +622,8 @@ Built-in adapter examples:
 - `eot_harness.openai_realtime_adapter:OpenAIRealtime2Adapter`
 - `eot_harness.gradium_adapter:GradiumStreamingAdapter`
 - `eot_harness.baton_adapter:BatonAdapter`
+- `eot_harness.p99lab_turn_adapter:P99LabTurn1Adapter`
+- `eot_harness.p99lab_turn_adapter:P99LabTurn1MiniAdapter`
 
 Streaming STT adapters produce `p_eot` from the provider's native endpointing
 surface. Deepgram Flux and AssemblyAI expose confidence-style scores. Soniox,
@@ -648,6 +652,9 @@ judgement, and receives the full `p_eot` grid for the turn in one response.
 Scores are read at the 0.2s silence point, the same basis as the LiveKit and
 SmartTurn adapters. It requires `BATON_API_KEY` and targets
 `https://baton.joinin.ai` by default; set `BATON_BASE_URL` to override.
+
+`P99LabTurn1Adapter` and `P99LabTurn1MiniAdapter` score each prediction with
+the open-weight p99lab models; see [p99lab turn-1 and turn-1-mini](#p99lab-turn-1-and-turn-1-mini).
 
 `LiveKitTurnDetectorAdapter` is a streaming adapter that scores each turn
 with the LiveKit Turn Detector v1 (`turn-detector-v1`) cloud model over the
@@ -713,6 +720,56 @@ available; otherwise inference runs on the CPU. Use `--name all` to evaluate
 all benchmark languages. The code revision and default checkpoint revision
 are pinned. Python callers can override `checkpoint_filename`, `revision`,
 `max_audio_sec`, or `device` in the adapter constructor.
+
+### p99lab turn-1 and turn-1-mini
+
+Both models are English-only batch adapters with open weights on Hugging Face
+(Apache-2.0). Neither sets a fixed `score_point`: metrics sweep the full score
+trace. Both low-pass the audio at 4 kHz inside their packages.
+
+`P99LabTurn1MiniAdapter` scores with
+[`p99lab/turn-1-mini`](https://huggingface.co/p99lab/turn-1-mini), a
+5.3M-parameter audio-only streaming model. It ignores text history. Each causal
+prefix (up to 40 seconds) is scored on its own from a zero state, so other items
+in the batch do not change its score.
+
+`P99LabTurn1Adapter` scores with
+[`p99lab/turn-1`](https://huggingface.co/p99lab/turn-1), which averages two
+estimates built on two open speech encoders (Apache-2.0, downloaded from
+their own repositories). It uses up to 8 seconds of recent audio
+and the last assistant message from `messages`, never the words of the turn
+under judgement. It runs in float32; use a CUDA GPU with 20 GB.
+
+Install the model packages and run English predictions:
+
+```bash
+python -m pip install "p99turn[torch] @ https://huggingface.co/p99lab/turn-1-mini/resolve/main/dist/p99turn-1.2.3-py3-none-any.whl"
+python -m pip install "p99turn1 @ https://huggingface.co/p99lab/turn-1/resolve/main/dist/p99turn1-1.0.0-py3-none-any.whl"
+python -m pip install --no-deps qwen-asr==0.0.6
+
+eot-harness predict \
+  --path livekit/eot-bench-data \
+  --name en \
+  --split validation \
+  --revision ca9d98a9686b920a2d8c9eb984224ba9be74e4dd \
+  --adapter eot_harness.p99lab_turn_adapter:P99LabTurn1MiniAdapter \
+  --batch-size 64 \
+  --output-dir output
+
+eot-harness predict \
+  --path livekit/eot-bench-data \
+  --name en \
+  --split validation \
+  --revision ca9d98a9686b920a2d8c9eb984224ba9be74e4dd \
+  --adapter eot_harness.p99lab_turn_adapter:P99LabTurn1Adapter \
+  --batch-size 64 \
+  --output-dir output
+```
+
+`qwen-asr` is installed without its dependencies because only its model code is
+needed. turn-1-mini runs on a CPU in about 25 minutes. Set `P99TURN_WEIGHTS`,
+`P99TURN1_WEIGHTS`, `P99TURN1_BACKBONE` or `P99TURN1_BACKBONE_SMALL` to local
+directories to run without downloads.
 
 <details>
 <summary><b>Modal Batch Prediction</b></summary>
