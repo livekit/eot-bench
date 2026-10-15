@@ -15,6 +15,7 @@
 | Deepgram Flux | 13.1% | 5.7% |
 | Gradium | 56.6% | 8.2% |
 | LiveKit Turn Detector v1-mini | 22.4% | 8.4% |
+| DuplexJev-32B-Para v1.2 | 23.1% | 9.1% |
 | AssemblyAI | 41.8% | 9.7% |
 | OpenAI GPT Realtime 2 | - | - |
 | ultraVAD | 34.4% | 10.8% |
@@ -33,6 +34,7 @@
 | Deepgram Flux | 676 ms | **353 ms** |
 | Gradium | 750 ms | 563 ms |
 | LiveKit Turn Detector v1-mini | 798 ms | 541 ms |
+| DuplexJev-32B-Para v1.2 | 806 ms | 575 ms |
 | AssemblyAI | 822 ms | 598 ms |
 | OpenAI GPT Realtime 2 | 837 ms | 652 ms |
 | ultraVAD | 846 ms | 613 ms |
@@ -49,6 +51,7 @@
 | Cutoff | 5.0% | Deepgram Flux | 0.676 | 4.8% | 78.0% | 0.730 | 0.400 | 1.500 |
 | Cutoff | 5.0% | Gradium | 0.750 | 4.8% | 94.5% | 0.370 | 0.600 | 1.500 |
 | Cutoff | 5.0% | LiveKit Turn Detector v1-mini | 0.798 | 4.7% | 78.0% | 0.380 | 0.600 | 1.500 |
+| Cutoff | 5.0% | DuplexJev-32B-Para v1.2 | 0.805 | 4.8% | 99.8% | 0.020 | 0.800 | 3.000 |
 | Cutoff | 5.0% | AssemblyAI | 0.822 | 4.8% | 87.2% | 0.630 | 0.700 | 1.500 |
 | Cutoff | 5.0% | OpenAI GPT Realtime 2 | 0.837 | 3.9% | 95.5% | 0.990 | 0.800 | 1.500 |
 | Cutoff | 5.0% | ultraVAD | 0.846 | 4.8% | 51.2% | 0.450 | 0.700 | 1.000 |
@@ -59,6 +62,7 @@
 | Cutoff | 10.0% | Deepgram Flux | 0.353 | 9.9% | 97.2% | 0.700 | 0.200 | 1.500 |
 | Cutoff | 10.0% | Gradium | 0.563 | 9.9% | 98.5% | 0.180 | 0.400 | 1.500 |
 | Cutoff | 10.0% | LiveKit Turn Detector v1-mini | 0.541 | 9.7% | 76.5% | 0.390 | 0.400 | 1.000 |
+| Cutoff | 10.0% | DuplexJev-32B-Para v1.2 | 0.575 | 9.5% | 92.5% | 0.220 | 0.500 | 1.500 |
 | Cutoff | 10.0% | AssemblyAI | 0.598 | 9.9% | 77.0% | 0.740 | 0.400 | 1.000 |
 | Cutoff | 10.0% | OpenAI GPT Realtime 2 | 0.652 | 9.1% | 95.5% | 0.990 | 0.200 | 1.500 |
 | Cutoff | 10.0% | ultraVAD | 0.613 | 9.9% | 55.2% | 0.430 | 0.300 | 1.000 |
@@ -69,6 +73,7 @@
 | Latency | 300ms | Deepgram Flux | 0.299 | 13.1% | 98.5% | 0.560 | 0.200 | 2.000 |
 | Latency | 300ms | Gradium | 0.300 | 56.6% | 100.0% | 0.000 | 0.300 | 1.000 |
 | Latency | 300ms | LiveKit Turn Detector v1-mini | 0.298 | 22.4% | 87.8% | 0.280 | 0.200 | 1.000 |
+| Latency | 300ms | DuplexJev-32B-Para v1.2 | 0.290 | 23.1% | 88.8% | 0.290 | 0.200 | 1.000 |
 | Latency | 300ms | AssemblyAI | 0.297 | 41.8% | 98.0% | 0.000 | 0.200 | 1.000 |
 | Latency | 300ms | OpenAI GPT Realtime 2 | - | - | - | - | - | - |
 | Latency | 300ms | ultraVAD | 0.298 | 34.4% | 87.8% | 0.160 | 0.200 | 1.000 |
@@ -79,6 +84,7 @@
 | Latency | 600ms | Deepgram Flux | 0.570 | 5.7% | 97.2% | 0.690 | 0.500 | 2.000 |
 | Latency | 600ms | Gradium | 0.592 | 8.2% | 98.5% | 0.200 | 0.500 | 1.500 |
 | Latency | 600ms | LiveKit Turn Detector v1-mini | 0.597 | 8.4% | 67.2% | 0.470 | 0.400 | 1.000 |
+| Latency | 600ms | DuplexJev-32B-Para v1.2 | 0.583 | 9.1% | 91.8% | 0.240 | 0.500 | 1.500 |
 | Latency | 600ms | AssemblyAI | 0.598 | 9.7% | 77.0% | 0.750 | 0.400 | 1.000 |
 | Latency | 600ms | OpenAI GPT Realtime 2 | - | - | - | - | - | - |
 | Latency | 600ms | ultraVAD | 0.597 | 10.8% | 67.2% | 0.330 | 0.400 | 1.000 |

@@ -78,6 +78,7 @@ latency budget (best first). Lower is better on every metric:
 | **LiveKit Turn Detector v1** | **9.9%** | **4.5%** | **543 ms** | **295 ms** |
 | JoinIn AI Baton | 12.3% | 4.8% | 577 ms | 350 ms |
 | Deepgram Flux | 12.9% | 9.9% | 1151 ms | 548 ms |
+| DuplexJev-32B-Para v1.2 | 20.0% | 9.4% | 821 ms | 569 ms |
 | ultraVAD | 27.7% | 11.9% | 899 ms | 663 ms |
 | LiveKit Turn Detector v1-mini | 27.8% | 12.1% | 1070 ms | 698 ms |
 | SmartTurn v3.2 | 35.2% | 14.8% | 1051 ms | 739 ms |
