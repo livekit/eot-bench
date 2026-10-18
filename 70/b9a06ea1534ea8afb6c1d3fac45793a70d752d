@@ -1,0 +1,56 @@
+output/livekit__eot-bench-data__validation__min_silence_100ms/en/gpt_live_adapter__gpt_live_1/metrics/summary.json
+  s_acbe558f264496::t_8f404008189650 2-9,17-20,29-32,41-44,51
+  s_acbe558f264496::t_0b6e7df23ce4ac 22,28,40,45-46
+  s_acbe558f264496::t_bbbdeb3e517c24 1,10-16,21,23-27,33-39,47-50,52-91
+output/livekit__eot-bench-data__validation__min_silence_100ms/en/gpt_live_adapter__gpt_live_1/manifest.json
+  s_acbe558f264496::t_58c8fbb4eaa4b4 1-23,25-44
+  s_acbe558f264496::t_bbbdeb3e517c24 24,58
+  s_acbe558f264496::t_8f404008189650 47-49
+  s_acbe558f264496::t_0b6e7df23ce4ac 45-46,50-57
+README.md
+  s_acbe558f264496::t_106a7583013587 653-655
+  s_acbe558f264496::t_9d32c47582e954 623,656-660,662-664
+  s_acbe558f264496::t_8984dbc82e0d4b 661,665-687
+  s_acbe558f264496::t_0d7ab61241ad5a 688
+eot_harness/livekit_inference.py
+  s_acbe558f264496::t_34a6a17c8fe9e4 1-35
+tests/test_livekit_inference.py
+  s_acbe558f264496::t_3f687a7699781e 11-12
+  s_acbe558f264496::t_106a7583013587 1-10,13-28
+eot_harness/gpt_live_adapter.py
+  s_acbe558f264496::t_92f74e576ac7ad 1-11,14-176,178,180,185-202,204-212,216-296,311,313-328,331,340-343,345,347,349,351-353,372-373,377,383-384,386-388
+  s_acbe558f264496::t_170ae847624f42 12-13,297-310,312,329-330,332-339,344,346,348,350,354-371
+  s_acbe558f264496::t_9edd6d44220bb1 177,179,181-184,203,213-215,374-376,378-382,385,389-390
+output/livekit__eot-bench-data__validation__min_silence_100ms/en/gpt_live_adapter__gpt_live_1/summary.json
+  s_acbe558f264496::t_8f404008189650 47-49
+  s_acbe558f264496::t_0b6e7df23ce4ac 45-46,50-57
+  s_acbe558f264496::t_58c8fbb4eaa4b4 1-23,25-44
+  s_acbe558f264496::t_bbbdeb3e517c24 24,58
+tests/test_gpt_live_adapter.py
+  s_acbe558f264496::t_7849ef034dfc78 1-10,12-63,65-67,69-73,76,78,81-83,86,88-89,97-98,101-110,131-149,151-154
+  s_acbe558f264496::t_e377423f330732 11,64,68,74-75,77,79-80,84-85,87,90-96,99-100,111-130,150
+scripts/rescore_gpt_live.py
+  s_acbe558f264496::t_8f404008189650 40-42
+  s_acbe558f264496::t_1af663b1e66f0e 1-39,43-111
+eot_harness/cli.py
+  s_acbe558f264496::t_4313ff01e659b6 473-477
+output/livekit__eot-bench-data__validation__min_silence_100ms/en/comparison/report.md
+  s_acbe558f264496::t_0b6e7df23ce4ac 16,82,95
+  s_acbe558f264496::t_8f404008189650 37,56,69
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "70b9a06ea1534ea8afb6c1d3fac45793a70d752d",
+  "prompts": {},
+  "sessions": {
+    "s_acbe558f264496": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "be99eb4d-5c45-44f6-a811-afd0ee1f02c4",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Chenghao Mou <chenghao.mou@livekit.io>"
+    }
+  }
+}
