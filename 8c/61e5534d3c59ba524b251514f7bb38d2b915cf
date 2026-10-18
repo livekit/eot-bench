@@ -1,0 +1,38 @@
+README.md
+  s_8c1b8aec8c5b7f::t_daefaabfebe048 659-660
+  s_8c1b8aec8c5b7f::t_a651aa3474ff3a 130,397-398,653,661-664
+tests/test_livekit_turn_detector_adapter.py
+  s_8c1b8aec8c5b7f::t_2cd05227a67d04 15,24
+eot_harness/livekit_turn_detector_mini_adapter.py
+  s_8c1b8aec8c5b7f::t_a7f15ed492a241 13,15,21-28
+  s_8c1b8aec8c5b7f::t_df0600aeb9a906 42-43,50
+  s_8c1b8aec8c5b7f::t_210f0cb60d6149 88,93
+  s_8c1b8aec8c5b7f::t_cc738954603280 136,141
+  s_8c1b8aec8c5b7f::t_a94394e19d9693 152,158-165
+  s_8c1b8aec8c5b7f::t_e676ed56eddc17 121-124
+tests/test_livekit_turn_detector_mini_adapter.py
+  s_8c1b8aec8c5b7f::t_093e8d928cfba9 81,83
+  s_8c1b8aec8c5b7f::t_2cd05227a67d04 3,5,8,17,20,22,36-37,40-42,44,71,125,140-171
+eot_harness/livekit_turn_detector_adapter.py
+  s_8c1b8aec8c5b7f::t_8881067750e3c5 1,38-40,53,55
+eot_harness/comparison.py
+  s_8c1b8aec8c5b7f::t_7316b454ad7589 86-87
+scripts/export_web_data.py
+  s_8c1b8aec8c5b7f::t_c9d94771fe7a2d 42,44,48,50
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "8c61e5534d3c59ba524b251514f7bb38d2b915cf",
+  "prompts": {},
+  "sessions": {
+    "s_8c1b8aec8c5b7f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "57a7bcb1-42ff-4d9e-b687-bd9d33617023",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Chenghao Mou <chenghao.mou@livekit.io>"
+    }
+  }
+}
