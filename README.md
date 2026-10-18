@@ -620,6 +620,7 @@ Built-in adapter examples:
 - `eot_harness.openai_realtime_adapter:OpenAIRealtime2Adapter`
 - `eot_harness.gradium_adapter:GradiumStreamingAdapter`
 - `eot_harness.baton_adapter:BatonAdapter`
+- `eot_harness.gpt_live_adapter:GPTLiveAdapter`
 
 Streaming STT adapters produce `p_eot` from the provider's native endpointing
 surface. Deepgram Flux and AssemblyAI expose confidence-style scores. Soniox,
@@ -648,6 +649,42 @@ judgement, and receives the full `p_eot` grid for the turn in one response.
 Scores are read at the 0.2s silence point, the same basis as the LiveKit and
 SmartTurn adapters. It requires `BATON_API_KEY` and targets
 `https://baton.joinin.ai` by default; set `BATON_BASE_URL` to override.
+
+`GPTLiveAdapter` runs full-duplex `openai/gpt-live-1` through LiveKit
+Inference, so it needs only `LIVEKIT_API_KEY` and `LIVEKIT_API_SECRET`. It
+streams 24kHz PCM16 turns in real time. GPT-Live has no
+turn-detection events: it decides when to speak on its own, so the adapter
+measures when the assistant starts speaking. Its output audio is continuous and
+real-time paced, with exact zeros for silence, so voiced output frames give the
+speech onset on the input audio clock. This onset includes the model's
+generation time, unlike the speech-stop events of the turn-based models. Each
+turn keeps three event types in `events.parquet`:
+
+- `OutputSpeech`: one voiced output segment, with `voiced_sec`.
+- `OutputTranscript`: one output transcript delta, with its receive time.
+- `OutputUtterance`: segments merged across gaps up to `merge_gap_s` (0.4s),
+  classified by what the model did.
+
+An utterance is classified as follows:
+
+- It starts in a silence span, or after the turn's audio: a `floor` utterance at
+  its onset.
+- It starts during user speech and is still going when the user pauses: a
+  `floor` utterance at the start of that pause, with `overlap_sec` recording how
+  long it overlapped the user.
+- It starts and ends during user speech: a `backchannel` if the model speaks
+  again later, or an `interruption` if it never does.
+
+Only `floor` utterances are scored. Their `p_eot` is voiced length divided by
+`voiced_cap_s` (2.0s), capped at `1.0`, so the threshold sweep separates short
+backchannels in a pause from replies. The leaderboard latency starts at the pause,
+so a reply that overlapped the user gets the earliest latency the policy allows.
+To keep the overlap visible, `scripts/rescore_gpt_live.py` writes `turn_taking`
+stats to the run manifest: the interruption rate, the share of replies that
+started before the user finished, and the signed reply offset from the user's end
+of turn. The script also rebuilds the utterances and predictions from the saved
+`OutputSpeech` events, without new API calls; run it after `predict-streaming`,
+then run `compute-metrics`.
 
 `LiveKitTurnDetectorAdapter` is a streaming adapter that scores each turn
 with the LiveKit Turn Detector v1 (`turn-detector-v1`) cloud model over the

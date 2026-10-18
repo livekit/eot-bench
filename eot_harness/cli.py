@@ -470,6 +470,11 @@ def _streaming_prediction_config(adapter, args) -> dict[str, Any]:
         "eagerness",
         "post_audio_wait_s",
         "url",
+        "voice",
+        "instructions",
+        "post_audio_silence_s",
+        "merge_gap_s",
+        "voiced_cap_s",
     ):
         if hasattr(adapter, attr):
             config[attr] = getattr(adapter, attr)
