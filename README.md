@@ -127,7 +127,7 @@ See [Evaluation Model](#evaluation-model) for the full methodology.
 - The public turn-level dataset [`livekit/eot-bench-data`](https://huggingface.co/datasets/livekit/eot-bench-data):
   real human-to-agent turns with audio and text context in 14 languages.
 - Batch and streaming adapter interfaces for local models and provider APIs,
-  with reference adapters for LiveKit Turn Detector v1 / v1-mini, Deepgram Flux,
+  with reference adapters for LiveKit Turn Detector v1.1 / v1.1-mini, Deepgram Flux,
   AssemblyAI, Cartesia Ink 2, Gradium, JoinIn AI Baton, Soniox, OpenAI GPT
   Realtime, SmartTurn, ultraVAD, and VAP.
 - Reproducible prediction artifacts, policy-sweep metrics, Pareto frontiers,
@@ -394,8 +394,8 @@ eot-harness predict-streaming \
   --output-dir output
 ```
 
-The LiveKit cloud audio adapter streams each turn to the LiveKit Turn Detector v1
-(`turn-detector-v1`) model over the agent-gateway EOT websocket protocol. For every scored silence-span grid
+The LiveKit cloud audio adapter streams each turn to LiveKit Turn Detector v1.1
+(the `turn-detector-v1` cloud model in the SDK) over the agent-gateway EOT websocket protocol. For every scored silence-span grid
 point it feeds audio up to that timestamp and issues an explicit inference
 request, so each `p_eot` reflects exactly the causal audio the harness exposes.
 It requires `LIVEKIT_API_KEY` and `LIVEKIT_API_SECRET`; set `LIVEKIT_INFERENCE_URL`
@@ -650,13 +650,18 @@ SmartTurn adapters. It requires `BATON_API_KEY` and targets
 `https://baton.joinin.ai` by default; set `BATON_BASE_URL` to override.
 
 `LiveKitTurnDetectorAdapter` is a streaming adapter that scores each turn
-with the LiveKit Turn Detector v1 (`turn-detector-v1`) cloud model over the
+with the LiveKit Turn Detector v1.1 cloud model (`turn-detector-v1` in the SDK) over the
 agent-gateway EOT websocket;
 run it with `predict-streaming` and `LIVEKIT_API_KEY`/`LIVEKIT_API_SECRET`.
 
 UltraVAD currently supports `--batch-size 1` only.
 
-`LiveKitTurnDetectorMiniAdapter` parallelizes calls to the public local-inference
+`LiveKitTurnDetectorMiniAdapter` scores LiveKit Turn Detector v1.1-mini
+(`turn-detector-v1-mini` in the SDK) on-device. It needs a `livekit-local-inference`
+release that bundles v1.1-mini (a 2.0 s window) and raises an error on older
+releases. For each timestamp it feeds the last 2.0 s of the turn plus the turn
+length so far as `turn_samples`, which the model uses as a duration feature.
+It parallelizes calls to the public local-inference
 interface with up to 8 worker threads by default. Set
 `LIVEKIT_TURN_DETECTOR_MINI_WORKERS=1` for single-threaded runs, or another positive
 integer to tune local throughput.

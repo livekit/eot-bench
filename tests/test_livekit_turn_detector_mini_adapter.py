@@ -1,8 +1,11 @@
 from __future__ import annotations
 
+import sys
 import time
+import types
 
 import numpy as np
+import pytest
 
 from eot_harness import livekit_turn_detector_mini_adapter as module
 from eot_harness.livekit_turn_detector_mini_adapter import LiveKitTurnDetectorMiniAdapter
@@ -11,10 +14,12 @@ from eot_harness.livekit_turn_detector_mini_adapter import LiveKitTurnDetectorMi
 class FakeEOT:
     def __init__(self) -> None:
         self.calls: list[np.ndarray] = []
+        self.turn_samples: list[int | None] = []
         self.closed = False
 
-    def predict(self, pcm: np.ndarray) -> float:
+    def predict(self, pcm: np.ndarray, turn_samples: int | None = None) -> float:
         self.calls.append(pcm.copy())
+        self.turn_samples.append(turn_samples)
         return float(len(pcm)) / 10.0
 
     def close(self) -> None:
@@ -24,20 +29,19 @@ class FakeEOT:
 def test_livekit_turn_detector_mini_adapter_defaults(monkeypatch) -> None:
     fake_model = FakeEOT()
     monkeypatch.setattr(module, "_load_local_eot_model", lambda: fake_model)
-    monkeypatch.setattr(module, "_local_inference_version", lambda: "0.2.5")
 
     adapter = LiveKitTurnDetectorMiniAdapter()
 
     assert adapter.score_point == 0.2
-    assert adapter.display_name == "LiveKit Turn Detector v1-mini"
-    assert adapter.model_id == "turn-detector-v1-mini"
+    assert adapter.display_name == "LiveKit Turn Detector v1.1-mini"
+    assert adapter.model_id == "turn-detector-v1.1-mini"
     assert adapter.revision == "livekit-local-inference"
     assert adapter.sample_rate == 16000
-    assert adapter.audio_sec == 1.2
-    assert adapter.max_audio_sec == 1.2
-    assert adapter.max_samples == 19200
+    assert adapter.audio_sec == 2.0
+    assert adapter.max_audio_sec is None
+    assert adapter.max_samples == 32000
     assert adapter.num_workers >= 1
-    assert adapter.adapter_id == "livekit/turn-detector-v1-mini-livekit-local-inference-0.2.5"
+    assert adapter.adapter_id == "livekit/turn-detector-v1.1-mini-livekit-local-inference"
     adapter.close()
 
 
@@ -45,7 +49,6 @@ def test_livekit_turn_detector_mini_adapter_predicts_pcm16_tail(monkeypatch) -> 
     monkeypatch.setenv(module.LIVEKIT_TURN_DETECTOR_MINI_WORKERS_ENV, "1")
     fake_model = FakeEOT()
     monkeypatch.setattr(module, "_load_local_eot_model", lambda: fake_model)
-    monkeypatch.setattr(module, "_local_inference_version", lambda: "0.2.5")
 
     adapter = LiveKitTurnDetectorMiniAdapter(sample_rate=10, audio_sec=0.3)
     scores = adapter.predict_batch(
@@ -65,6 +68,7 @@ def test_livekit_turn_detector_mini_adapter_predicts_pcm16_tail(monkeypatch) -> 
     assert fake_model.calls[0].dtype == np.int16
     assert fake_model.calls[0].flags.c_contiguous
     np.testing.assert_array_equal(fake_model.calls[0], np.asarray([0, 16383, 32767], dtype=np.int16))
+    assert fake_model.turn_samples == [5]
     adapter.close()
     assert fake_model.closed is True
 
@@ -74,9 +78,9 @@ def test_livekit_turn_detector_mini_adapter_can_predict_in_parallel(monkeypatch)
     fake_models: list[FakeEOT] = []
 
     class SlowFakeEOT(FakeEOT):
-        def predict(self, pcm: np.ndarray) -> float:
+        def predict(self, pcm: np.ndarray, turn_samples: int | None = None) -> float:
             time.sleep(0.02)
-            return super().predict(pcm)
+            return super().predict(pcm, turn_samples)
 
     def fake_load_model():
         model = SlowFakeEOT()
@@ -84,7 +88,6 @@ def test_livekit_turn_detector_mini_adapter_can_predict_in_parallel(monkeypatch)
         return model
 
     monkeypatch.setattr(module, "_load_local_eot_model", fake_load_model)
-    monkeypatch.setattr(module, "_local_inference_version", lambda: "0.2.5")
 
     adapter = LiveKitTurnDetectorMiniAdapter(sample_rate=10, audio_sec=0.3)
     batch = [
@@ -119,7 +122,7 @@ def test_prepare_pcm16_tail_resamples_and_mixes_channels(monkeypatch) -> None:
 
     monkeypatch.setattr(module, "resample_audio", fake_resample_audio)
 
-    pcm = module._prepare_pcm16_tail(
+    pcm, total_samples = module._prepare_pcm16_tail(
         {
             "audio": {
                 "array": np.asarray([[1.0, -1.0], [0.5, 0.0]], dtype=np.float32),
@@ -134,3 +137,35 @@ def test_prepare_pcm16_tail_resamples_and_mixes_channels(monkeypatch) -> None:
     assert captured["orig_sr"] == 20
     assert captured["new_sr"] == 10
     np.testing.assert_array_equal(pcm, np.asarray([8191, -8191], dtype=np.int16))
+    assert total_samples == 2
+
+
+def test_prepare_pcm16_tail_counts_samples_before_cropping() -> None:
+    pcm, total_samples = module._prepare_pcm16_tail(
+        {"audio": {"array": np.full(7, 0.5, dtype=np.float32), "sampling_rate": 10}},
+        sample_rate=10,
+        max_samples=3,
+    )
+
+    assert total_samples == 7
+    np.testing.assert_array_equal(pcm, np.full(3, 16383, dtype=np.int16))
+
+
+def _install_fake_local_inference(monkeypatch, *, max_samples: int) -> None:
+    fake = types.ModuleType("livekit.local_inference")
+    fake.EOT = FakeEOT
+    fake.EOT_MAX_SAMPLES = max_samples
+    monkeypatch.setitem(sys.modules, "livekit.local_inference", fake)
+
+
+def test_load_local_eot_model_accepts_the_v1_1_mini_window(monkeypatch) -> None:
+    _install_fake_local_inference(monkeypatch, max_samples=32000)
+
+    assert isinstance(module._load_local_eot_model(), FakeEOT)
+
+
+def test_load_local_eot_model_rejects_the_v1_mini_window(monkeypatch) -> None:
+    _install_fake_local_inference(monkeypatch, max_samples=19200)
+
+    with pytest.raises(RuntimeError, match="19200-sample EOT window"):
+        module._load_local_eot_model()
