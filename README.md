@@ -75,7 +75,7 @@ latency budget (best first). Lower is better on every metric:
 
 | Model | False cutoffs @ 300 ms | False cutoffs @ 600 ms | Latency @ 5% cutoff | Latency @ 10% cutoff |
 | --- | ---: | ---: | ---: | ---: |
-| **LiveKit Turn Detector v1.1** | **10.5%** | **4.0%** | **499 ms** | **308 ms** |
+| **LiveKit Turn Detector v1.1** | **11.3%** | **4.1%** | **505 ms** | **326 ms** |
 | JoinIn AI Baton | 12.3% | 4.8% | 577 ms | 350 ms |
 | Deepgram Flux | 12.9% | 9.9% | 1151 ms | 548 ms |
 | LiveKit Turn Detector v1.1-mini | 14.6% | 6.8% | 762 ms | 416 ms |

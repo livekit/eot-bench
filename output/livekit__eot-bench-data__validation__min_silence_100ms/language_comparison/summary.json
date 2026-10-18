@@ -46,7 +46,7 @@
   "values": {
     "best_cutoff_rate_at_0_3s_latency": {
       "ar": {
-        "LiveKit Turn Detector v1.1": 0.12886597938144329,
+        "LiveKit Turn Detector v1.1": 0.13573883161512026,
         "LiveKit Turn Detector v1.1-mini": 0.15120274914089346,
         "Deepgram Flux": null,
         "ultraVAD": 0.45532646048109965,
@@ -61,7 +61,7 @@
         "VAD baseline": 0.5481099656357389
       },
       "de": {
-        "LiveKit Turn Detector v1.1": 0.12478336221837089,
+        "LiveKit Turn Detector v1.1": 0.12131715771230503,
         "LiveKit Turn Detector v1.1-mini": 0.13344887348353554,
         "Deepgram Flux": 0.14558058925476602,
         "ultraVAD": 0.35528596187175043,
@@ -76,7 +76,7 @@
         "VAD baseline": 0.5355285961871751
       },
       "en": {
-        "LiveKit Turn Detector v1.1": 0.1049645390070922,
+        "LiveKit Turn Detector v1.1": 0.11347517730496454,
         "LiveKit Turn Detector v1.1-mini": 0.14609929078014183,
         "Deepgram Flux": 0.12907801418439716,
         "ultraVAD": 0.2765957446808511,
@@ -106,7 +106,7 @@
         "VAD baseline": 0.5894428152492669
       },
       "fr": {
-        "LiveKit Turn Detector v1.1": 0.11827956989247312,
+        "LiveKit Turn Detector v1.1": 0.12365591397849462,
         "LiveKit Turn Detector v1.1-mini": 0.13082437275985664,
         "Deepgram Flux": 0.13082437275985664,
         "ultraVAD": 0.34408602150537637,
@@ -121,7 +121,7 @@
         "VAD baseline": 0.5663082437275986
       },
       "hi": {
-        "LiveKit Turn Detector v1.1": 0.10869565217391304,
+        "LiveKit Turn Detector v1.1": 0.1068840579710145,
         "LiveKit Turn Detector v1.1-mini": 0.1503623188405797,
         "Deepgram Flux": 0.19202898550724637,
         "ultraVAD": 0.391304347826087,
@@ -136,7 +136,7 @@
         "VAD baseline": 0.4945652173913043
       },
       "id": {
-        "LiveKit Turn Detector v1.1": 0.21895861148197596,
+        "LiveKit Turn Detector v1.1": 0.22429906542056074,
         "LiveKit Turn Detector v1.1-mini": 0.2750333778371162,
         "Deepgram Flux": null,
         "ultraVAD": 0.4499332443257677,
@@ -151,7 +151,7 @@
         "VAD baseline": 0.595460614152203
       },
       "it": {
-        "LiveKit Turn Detector v1.1": 0.17090069284064666,
+        "LiveKit Turn Detector v1.1": 0.16859122401847576,
         "LiveKit Turn Detector v1.1-mini": 0.22632794457274827,
         "Deepgram Flux": 0.27251732101616627,
         "ultraVAD": 0.40415704387990764,
@@ -166,7 +166,7 @@
         "VAD baseline": 0.5496535796766744
       },
       "ja": {
-        "LiveKit Turn Detector v1.1": 0.04610951008645533,
+        "LiveKit Turn Detector v1.1": 0.04755043227665706,
         "LiveKit Turn Detector v1.1-mini": 0.1239193083573487,
         "Deepgram Flux": 0.20605187319884727,
         "ultraVAD": 0.11959654178674352,
@@ -181,7 +181,7 @@
         "VAD baseline": 0.4884726224783862
       },
       "ko": {
-        "LiveKit Turn Detector v1.1": 0.06544502617801047,
+        "LiveKit Turn Detector v1.1": 0.06806282722513089,
         "LiveKit Turn Detector v1.1-mini": 0.07853403141361257,
         "Deepgram Flux": null,
         "ultraVAD": 0.337696335078534,
@@ -196,7 +196,7 @@
         "VAD baseline": 0.5863874345549738
       },
       "nl": {
-        "LiveKit Turn Detector v1.1": 0.12304250559284116,
+        "LiveKit Turn Detector v1.1": 0.116331096196868,
         "LiveKit Turn Detector v1.1-mini": 0.1767337807606264,
         "Deepgram Flux": 0.1342281879194631,
         "ultraVAD": 0.4228187919463087,
@@ -211,7 +211,7 @@
         "VAD baseline": 0.4966442953020134
       },
       "pt": {
-        "LiveKit Turn Detector v1.1": 0.15765069551777433,
+        "LiveKit Turn Detector v1.1": 0.15301391035548687,
         "LiveKit Turn Detector v1.1-mini": 0.21483771251931993,
         "Deepgram Flux": 0.19319938176197837,
         "ultraVAD": 0.4281298299845441,
@@ -226,7 +226,7 @@
         "VAD baseline": 0.598145285935085
       },
       "tr": {
-        "LiveKit Turn Detector v1.1": 0.13774104683195593,
+        "LiveKit Turn Detector v1.1": 0.14049586776859505,
         "LiveKit Turn Detector v1.1-mini": 0.20385674931129477,
         "Deepgram Flux": null,
         "ultraVAD": 0.4490358126721763,
@@ -241,7 +241,7 @@
         "VAD baseline": 0.5564738292011019
       },
       "zh": {
-        "LiveKit Turn Detector v1.1": 0.1825657894736842,
+        "LiveKit Turn Detector v1.1": 0.18421052631578946,
         "LiveKit Turn Detector v1.1-mini": 0.22532894736842105,
         "Deepgram Flux": null,
         "ultraVAD": 0.3881578947368421,
@@ -258,7 +258,7 @@
     },
     "best_cutoff_rate_at_0_6s_latency": {
       "ar": {
-        "LiveKit Turn Detector v1.1": 0.054982817869415807,
+        "LiveKit Turn Detector v1.1": 0.05154639175257732,
         "LiveKit Turn Detector v1.1-mini": 0.070446735395189,
         "Deepgram Flux": null,
         "ultraVAD": 0.12886597938144329,
@@ -273,7 +273,7 @@
         "VAD baseline": 0.14776632302405499
       },
       "de": {
-        "LiveKit Turn Detector v1.1": 0.06239168110918544,
+        "LiveKit Turn Detector v1.1": 0.06412478336221837,
         "LiveKit Turn Detector v1.1-mini": 0.058925476603119586,
         "Deepgram Flux": 0.06932409012131716,
         "ultraVAD": 0.14904679376083188,
@@ -288,7 +288,7 @@
         "VAD baseline": 0.21490467937608318
       },
       "en": {
-        "LiveKit Turn Detector v1.1": 0.03971631205673759,
+        "LiveKit Turn Detector v1.1": 0.04113475177304964,
         "LiveKit Turn Detector v1.1-mini": 0.06808510638297872,
         "Deepgram Flux": 0.09929078014184398,
         "ultraVAD": 0.11914893617021277,
@@ -303,7 +303,7 @@
         "VAD baseline": 0.2170212765957447
       },
       "es": {
-        "LiveKit Turn Detector v1.1": 0.05865102639296188,
+        "LiveKit Turn Detector v1.1": 0.060117302052785926,
         "LiveKit Turn Detector v1.1-mini": 0.07331378299120235,
         "Deepgram Flux": 0.08651026392961877,
         "ultraVAD": 0.17595307917888564,
@@ -318,7 +318,7 @@
         "VAD baseline": 0.24486803519061584
       },
       "fr": {
-        "LiveKit Turn Detector v1.1": 0.05197132616487455,
+        "LiveKit Turn Detector v1.1": 0.053763440860215055,
         "LiveKit Turn Detector v1.1-mini": 0.05555555555555555,
         "Deepgram Flux": 0.05734767025089606,
         "ultraVAD": 0.10752688172043011,
@@ -363,7 +363,7 @@
         "VAD baseline": 0.22296395193591456
       },
       "it": {
-        "LiveKit Turn Detector v1.1": 0.06466512702078522,
+        "LiveKit Turn Detector v1.1": 0.06697459584295612,
         "LiveKit Turn Detector v1.1-mini": 0.10623556581986143,
         "Deepgram Flux": 0.12240184757505773,
         "ultraVAD": 0.15473441108545036,
@@ -408,7 +408,7 @@
         "VAD baseline": 0.1518324607329843
       },
       "nl": {
-        "LiveKit Turn Detector v1.1": 0.049217002237136466,
+        "LiveKit Turn Detector v1.1": 0.04697986577181208,
         "LiveKit Turn Detector v1.1-mini": 0.06263982102908278,
         "Deepgram Flux": 0.07829977628635347,
         "ultraVAD": 0.15212527964205816,
@@ -423,7 +423,7 @@
         "VAD baseline": 0.17002237136465326
       },
       "pt": {
-        "LiveKit Turn Detector v1.1": 0.05255023183925812,
+        "LiveKit Turn Detector v1.1": 0.05100463678516229,
         "LiveKit Turn Detector v1.1-mini": 0.080370942812983,
         "Deepgram Flux": 0.08809891808346214,
         "ultraVAD": 0.14528593508500773,
@@ -470,7 +470,7 @@
     },
     "best_mean_latency_at_5pct_cutoff": {
       "ar": {
-        "LiveKit Turn Detector v1.1": 0.6123359580052493,
+        "LiveKit Turn Detector v1.1": 0.6023622047244094,
         "LiveKit Turn Detector v1.1-mini": 0.7157480314960628,
         "Deepgram Flux": null,
         "ultraVAD": 0.8070866141732284,
@@ -485,7 +485,7 @@
         "VAD baseline": 0.9
       },
       "de": {
-        "LiveKit Turn Detector v1.1": 0.6842500000000001,
+        "LiveKit Turn Detector v1.1": 0.7380000000000001,
         "LiveKit Turn Detector v1.1-mini": 0.6720000000000002,
         "Deepgram Flux": 0.82625,
         "ultraVAD": 0.86375,
@@ -500,7 +500,7 @@
         "VAD baseline": 1.1
       },
       "en": {
-        "LiveKit Turn Detector v1.1": 0.49900000000000005,
+        "LiveKit Turn Detector v1.1": 0.50475,
         "LiveKit Turn Detector v1.1-mini": 0.7625,
         "Deepgram Flux": 1.15075,
         "ultraVAD": 0.899,
@@ -515,7 +515,7 @@
         "VAD baseline": 1.6
       },
       "es": {
-        "LiveKit Turn Detector v1.1": 0.628,
+        "LiveKit Turn Detector v1.1": 0.6080000000000001,
         "LiveKit Turn Detector v1.1-mini": 0.7465,
         "Deepgram Flux": 0.8201720299999999,
         "ultraVAD": 0.9860000000000002,
@@ -530,7 +530,7 @@
         "VAD baseline": 1.2
       },
       "fr": {
-        "LiveKit Turn Detector v1.1": 0.6062500000000001,
+        "LiveKit Turn Detector v1.1": 0.6035000000000001,
         "LiveKit Turn Detector v1.1-mini": 0.6225,
         "Deepgram Flux": 0.6762500000000001,
         "ultraVAD": 0.84625,
@@ -545,7 +545,7 @@
         "VAD baseline": 1.0
       },
       "hi": {
-        "LiveKit Turn Detector v1.1": 0.41600000000000004,
+        "LiveKit Turn Detector v1.1": 0.41200000000000003,
         "LiveKit Turn Detector v1.1-mini": 0.49000000000000005,
         "Deepgram Flux": 0.58313328,
         "ultraVAD": 0.6157499999999999,
@@ -560,7 +560,7 @@
         "VAD baseline": 0.7
       },
       "id": {
-        "LiveKit Turn Detector v1.1": 0.8484848484848485,
+        "LiveKit Turn Detector v1.1": 0.8477272727272727,
         "LiveKit Turn Detector v1.1-mini": 0.8636363636363636,
         "Deepgram Flux": null,
         "ultraVAD": 0.9388888888888891,
@@ -575,7 +575,7 @@
         "VAD baseline": 1.1
       },
       "it": {
-        "LiveKit Turn Detector v1.1": 0.74275,
+        "LiveKit Turn Detector v1.1": 0.7655,
         "LiveKit Turn Detector v1.1-mini": 0.9247500000000002,
         "Deepgram Flux": 1.022,
         "ultraVAD": 1.005,
@@ -590,7 +590,7 @@
         "VAD baseline": 1.1
       },
       "ja": {
-        "LiveKit Turn Detector v1.1": 0.2859550561797753,
+        "LiveKit Turn Detector v1.1": 0.2910112359550562,
         "LiveKit Turn Detector v1.1-mini": 0.48623595505617967,
         "Deepgram Flux": 1.002808988764045,
         "ultraVAD": 0.46235955056179767,
@@ -605,7 +605,7 @@
         "VAD baseline": 1.2
       },
       "ko": {
-        "LiveKit Turn Detector v1.1": 0.37241379310344835,
+        "LiveKit Turn Detector v1.1": 0.36710875331564996,
         "LiveKit Turn Detector v1.1-mini": 0.3896551724137932,
         "Deepgram Flux": null,
         "ultraVAD": 0.7310344827586207,
@@ -620,7 +620,7 @@
         "VAD baseline": 0.9
       },
       "nl": {
-        "LiveKit Turn Detector v1.1": 0.588,
+        "LiveKit Turn Detector v1.1": 0.57325,
         "LiveKit Turn Detector v1.1-mini": 0.6970000000000002,
         "Deepgram Flux": 0.7894999999999999,
         "ultraVAD": 0.9099999999999998,
@@ -635,7 +635,7 @@
         "VAD baseline": 1.1
       },
       "pt": {
-        "LiveKit Turn Detector v1.1": 0.6114999999999999,
+        "LiveKit Turn Detector v1.1": 0.618,
         "LiveKit Turn Detector v1.1-mini": 0.7349999999999999,
         "Deepgram Flux": 0.7655000000000001,
         "ultraVAD": 0.8492499999999998,
@@ -650,7 +650,7 @@
         "VAD baseline": 1.0
       },
       "tr": {
-        "LiveKit Turn Detector v1.1": 0.6409999999999999,
+        "LiveKit Turn Detector v1.1": 0.6005000000000001,
         "LiveKit Turn Detector v1.1-mini": 0.8375,
         "Deepgram Flux": null,
         "ultraVAD": 1.075,
@@ -665,7 +665,7 @@
         "VAD baseline": 1.2
       },
       "zh": {
-        "LiveKit Turn Detector v1.1": 0.7412790697674417,
+        "LiveKit Turn Detector v1.1": 0.7465116279069766,
         "LiveKit Turn Detector v1.1-mini": 0.8354651162790697,
         "Deepgram Flux": null,
         "ultraVAD": 0.9261627906976745,
@@ -682,7 +682,7 @@
     },
     "best_mean_latency_at_10pct_cutoff": {
       "ar": {
-        "LiveKit Turn Detector v1.1": 0.35118110236220473,
+        "LiveKit Turn Detector v1.1": 0.3637795275590552,
         "LiveKit Turn Detector v1.1-mini": 0.4561679790026247,
         "Deepgram Flux": null,
         "ultraVAD": 0.6543307086614172,
@@ -697,7 +697,7 @@
         "VAD baseline": 0.7
       },
       "de": {
-        "LiveKit Turn Detector v1.1": 0.38525000000000004,
+        "LiveKit Turn Detector v1.1": 0.382,
         "LiveKit Turn Detector v1.1-mini": 0.39175000000000004,
         "Deepgram Flux": 0.40286187500000004,
         "ultraVAD": 0.70325,
@@ -712,7 +712,7 @@
         "VAD baseline": 0.8
       },
       "en": {
-        "LiveKit Turn Detector v1.1": 0.30800000000000005,
+        "LiveKit Turn Detector v1.1": 0.32600000000000007,
         "LiveKit Turn Detector v1.1-mini": 0.4160000000000001,
         "Deepgram Flux": 0.54775,
         "ultraVAD": 0.6629999999999998,
@@ -727,7 +727,7 @@
         "VAD baseline": 1.0
       },
       "es": {
-        "LiveKit Turn Detector v1.1": 0.4015000000000001,
+        "LiveKit Turn Detector v1.1": 0.38850000000000007,
         "LiveKit Turn Detector v1.1-mini": 0.5069999999999999,
         "Deepgram Flux": 0.53564375,
         "ultraVAD": 0.7642499999999999,
@@ -742,7 +742,7 @@
         "VAD baseline": 1.0
       },
       "fr": {
-        "LiveKit Turn Detector v1.1": 0.34300000000000014,
+        "LiveKit Turn Detector v1.1": 0.3397500000000001,
         "LiveKit Turn Detector v1.1-mini": 0.37400000000000005,
         "Deepgram Flux": 0.3532050000000001,
         "ultraVAD": 0.61325,
@@ -757,7 +757,7 @@
         "VAD baseline": 0.8
       },
       "hi": {
-        "LiveKit Turn Detector v1.1": 0.32,
+        "LiveKit Turn Detector v1.1": 0.31000000000000005,
         "LiveKit Turn Detector v1.1-mini": 0.3440000000000001,
         "Deepgram Flux": 0.45920531249999996,
         "ultraVAD": 0.50875,
@@ -772,7 +772,7 @@
         "VAD baseline": 0.6
       },
       "id": {
-        "LiveKit Turn Detector v1.1": 0.5373737373737374,
+        "LiveKit Turn Detector v1.1": 0.5563131313131313,
         "LiveKit Turn Detector v1.1-mini": 0.5803030303030303,
         "Deepgram Flux": null,
         "ultraVAD": 0.7409090909090909,
@@ -787,7 +787,7 @@
         "VAD baseline": 0.8
       },
       "it": {
-        "LiveKit Turn Detector v1.1": 0.4660000000000001,
+        "LiveKit Turn Detector v1.1": 0.45,
         "LiveKit Turn Detector v1.1-mini": 0.6114999999999999,
         "Deepgram Flux": 0.6722087499999999,
         "ultraVAD": 0.72875,
@@ -802,7 +802,7 @@
         "VAD baseline": 0.9
       },
       "ja": {
-        "LiveKit Turn Detector v1.1": 0.24044943820224718,
+        "LiveKit Turn Detector v1.1": 0.2365168539325843,
         "LiveKit Turn Detector v1.1-mini": 0.33146067415730346,
         "Deepgram Flux": 0.7005617977528091,
         "ultraVAD": 0.34662921348314607,
@@ -817,7 +817,7 @@
         "VAD baseline": 0.9
       },
       "ko": {
-        "LiveKit Turn Detector v1.1": 0.25092838196286477,
+        "LiveKit Turn Detector v1.1": 0.24456233421750664,
         "LiveKit Turn Detector v1.1-mini": 0.27427055702917774,
         "Deepgram Flux": null,
         "ultraVAD": 0.636074270557029,
@@ -832,7 +832,7 @@
         "VAD baseline": 0.7
       },
       "nl": {
-        "LiveKit Turn Detector v1.1": 0.3397500000000001,
+        "LiveKit Turn Detector v1.1": 0.34950000000000003,
         "LiveKit Turn Detector v1.1-mini": 0.4730000000000001,
         "Deepgram Flux": 0.48494578000000005,
         "ultraVAD": 0.706,
@@ -847,7 +847,7 @@
         "VAD baseline": 0.8
       },
       "pt": {
-        "LiveKit Turn Detector v1.1": 0.4040000000000001,
+        "LiveKit Turn Detector v1.1": 0.41200000000000003,
         "LiveKit Turn Detector v1.1-mini": 0.538,
         "Deepgram Flux": 0.5708723450000001,
         "ultraVAD": 0.6789999999999998,
@@ -862,7 +862,7 @@
         "VAD baseline": 0.8
       },
       "tr": {
-        "LiveKit Turn Detector v1.1": 0.38850000000000007,
+        "LiveKit Turn Detector v1.1": 0.3982500000000001,
         "LiveKit Turn Detector v1.1-mini": 0.5380000000000001,
         "Deepgram Flux": null,
         "ultraVAD": 0.7982499999999999,
@@ -877,7 +877,7 @@
         "VAD baseline": 0.9
       },
       "zh": {
-        "LiveKit Turn Detector v1.1": 0.48837209302325574,
+        "LiveKit Turn Detector v1.1": 0.4953488372093023,
         "LiveKit Turn Detector v1.1-mini": 0.5787790697674419,
         "Deepgram Flux": null,
         "ultraVAD": 0.6883720930232556,
@@ -908,10 +908,10 @@
     {
       "language": "ar",
       "model": "LiveKit Turn Detector v1.1",
-      "best_cutoff_rate_at_0_3s_latency": 0.12886597938144329,
-      "best_cutoff_rate_at_0_6s_latency": 0.054982817869415807,
-      "best_mean_latency_at_5pct_cutoff": 0.6123359580052493,
-      "best_mean_latency_at_10pct_cutoff": 0.35118110236220473,
+      "best_cutoff_rate_at_0_3s_latency": 0.13573883161512026,
+      "best_cutoff_rate_at_0_6s_latency": 0.05154639175257732,
+      "best_mean_latency_at_5pct_cutoff": 0.6023622047244094,
+      "best_mean_latency_at_10pct_cutoff": 0.3637795275590552,
       "run_dir": "ar/live_kit_turn_detector_adapter__turn_detector_v1.1",
       "metrics_dir": "ar/live_kit_turn_detector_adapter__turn_detector_v1.1/metrics",
       "n_spans": 963
@@ -1029,10 +1029,10 @@
     {
       "language": "de",
       "model": "LiveKit Turn Detector v1.1",
-      "best_cutoff_rate_at_0_3s_latency": 0.12478336221837089,
-      "best_cutoff_rate_at_0_6s_latency": 0.06239168110918544,
-      "best_mean_latency_at_5pct_cutoff": 0.6842500000000001,
-      "best_mean_latency_at_10pct_cutoff": 0.38525000000000004,
+      "best_cutoff_rate_at_0_3s_latency": 0.12131715771230503,
+      "best_cutoff_rate_at_0_6s_latency": 0.06412478336221837,
+      "best_mean_latency_at_5pct_cutoff": 0.7380000000000001,
+      "best_mean_latency_at_10pct_cutoff": 0.382,
       "run_dir": "de/live_kit_turn_detector_adapter__turn_detector_v1.1",
       "metrics_dir": "de/live_kit_turn_detector_adapter__turn_detector_v1.1/metrics",
       "n_spans": 977
@@ -1172,10 +1172,10 @@
     {
       "language": "en",
       "model": "LiveKit Turn Detector v1.1",
-      "best_cutoff_rate_at_0_3s_latency": 0.1049645390070922,
-      "best_cutoff_rate_at_0_6s_latency": 0.03971631205673759,
-      "best_mean_latency_at_5pct_cutoff": 0.49900000000000005,
-      "best_mean_latency_at_10pct_cutoff": 0.30800000000000005,
+      "best_cutoff_rate_at_0_3s_latency": 0.11347517730496454,
+      "best_cutoff_rate_at_0_6s_latency": 0.04113475177304964,
+      "best_mean_latency_at_5pct_cutoff": 0.50475,
+      "best_mean_latency_at_10pct_cutoff": 0.32600000000000007,
       "run_dir": "en/live_kit_turn_detector_adapter__turn_detector_v1.1",
       "metrics_dir": "en/live_kit_turn_detector_adapter__turn_detector_v1.1/metrics",
       "n_spans": 1105
@@ -1294,9 +1294,9 @@
       "language": "es",
       "model": "LiveKit Turn Detector v1.1",
       "best_cutoff_rate_at_0_3s_latency": 0.16422287390029325,
-      "best_cutoff_rate_at_0_6s_latency": 0.05865102639296188,
-      "best_mean_latency_at_5pct_cutoff": 0.628,
-      "best_mean_latency_at_10pct_cutoff": 0.4015000000000001,
+      "best_cutoff_rate_at_0_6s_latency": 0.060117302052785926,
+      "best_mean_latency_at_5pct_cutoff": 0.6080000000000001,
+      "best_mean_latency_at_10pct_cutoff": 0.38850000000000007,
       "run_dir": "es/live_kit_turn_detector_adapter__turn_detector_v1.1",
       "metrics_dir": "es/live_kit_turn_detector_adapter__turn_detector_v1.1/metrics",
       "n_spans": 1082
@@ -1414,10 +1414,10 @@
     {
       "language": "fr",
       "model": "LiveKit Turn Detector v1.1",
-      "best_cutoff_rate_at_0_3s_latency": 0.11827956989247312,
-      "best_cutoff_rate_at_0_6s_latency": 0.05197132616487455,
-      "best_mean_latency_at_5pct_cutoff": 0.6062500000000001,
-      "best_mean_latency_at_10pct_cutoff": 0.34300000000000014,
+      "best_cutoff_rate_at_0_3s_latency": 0.12365591397849462,
+      "best_cutoff_rate_at_0_6s_latency": 0.053763440860215055,
+      "best_mean_latency_at_5pct_cutoff": 0.6035000000000001,
+      "best_mean_latency_at_10pct_cutoff": 0.3397500000000001,
       "run_dir": "fr/live_kit_turn_detector_adapter__turn_detector_v1.1",
       "metrics_dir": "fr/live_kit_turn_detector_adapter__turn_detector_v1.1/metrics",
       "n_spans": 958
@@ -1524,10 +1524,10 @@
     {
       "language": "hi",
       "model": "LiveKit Turn Detector v1.1",
-      "best_cutoff_rate_at_0_3s_latency": 0.10869565217391304,
+      "best_cutoff_rate_at_0_3s_latency": 0.1068840579710145,
       "best_cutoff_rate_at_0_6s_latency": 0.016304347826086956,
-      "best_mean_latency_at_5pct_cutoff": 0.41600000000000004,
-      "best_mean_latency_at_10pct_cutoff": 0.32,
+      "best_mean_latency_at_5pct_cutoff": 0.41200000000000003,
+      "best_mean_latency_at_10pct_cutoff": 0.31000000000000005,
       "run_dir": "hi/live_kit_turn_detector_adapter__turn_detector_v1.1",
       "metrics_dir": "hi/live_kit_turn_detector_adapter__turn_detector_v1.1/metrics",
       "n_spans": 952
@@ -1623,10 +1623,10 @@
     {
       "language": "id",
       "model": "LiveKit Turn Detector v1.1",
-      "best_cutoff_rate_at_0_3s_latency": 0.21895861148197596,
+      "best_cutoff_rate_at_0_3s_latency": 0.22429906542056074,
       "best_cutoff_rate_at_0_6s_latency": 0.08811748998664887,
-      "best_mean_latency_at_5pct_cutoff": 0.8484848484848485,
-      "best_mean_latency_at_10pct_cutoff": 0.5373737373737374,
+      "best_mean_latency_at_5pct_cutoff": 0.8477272727272727,
+      "best_mean_latency_at_10pct_cutoff": 0.5563131313131313,
       "run_dir": "id/live_kit_turn_detector_adapter__turn_detector_v1.1",
       "metrics_dir": "id/live_kit_turn_detector_adapter__turn_detector_v1.1/metrics",
       "n_spans": 1145
@@ -1744,10 +1744,10 @@
     {
       "language": "it",
       "model": "LiveKit Turn Detector v1.1",
-      "best_cutoff_rate_at_0_3s_latency": 0.17090069284064666,
-      "best_cutoff_rate_at_0_6s_latency": 0.06466512702078522,
-      "best_mean_latency_at_5pct_cutoff": 0.74275,
-      "best_mean_latency_at_10pct_cutoff": 0.4660000000000001,
+      "best_cutoff_rate_at_0_3s_latency": 0.16859122401847576,
+      "best_cutoff_rate_at_0_6s_latency": 0.06697459584295612,
+      "best_mean_latency_at_5pct_cutoff": 0.7655,
+      "best_mean_latency_at_10pct_cutoff": 0.45,
       "run_dir": "it/live_kit_turn_detector_adapter__turn_detector_v1.1",
       "metrics_dir": "it/live_kit_turn_detector_adapter__turn_detector_v1.1/metrics",
       "n_spans": 833
@@ -1854,10 +1854,10 @@
     {
       "language": "ja",
       "model": "LiveKit Turn Detector v1.1",
-      "best_cutoff_rate_at_0_3s_latency": 0.04610951008645533,
+      "best_cutoff_rate_at_0_3s_latency": 0.04755043227665706,
       "best_cutoff_rate_at_0_6s_latency": 0.012968299711815562,
-      "best_mean_latency_at_5pct_cutoff": 0.2859550561797753,
-      "best_mean_latency_at_10pct_cutoff": 0.24044943820224718,
+      "best_mean_latency_at_5pct_cutoff": 0.2910112359550562,
+      "best_mean_latency_at_10pct_cutoff": 0.2365168539325843,
       "run_dir": "ja/live_kit_turn_detector_adapter__turn_detector_v1.1",
       "metrics_dir": "ja/live_kit_turn_detector_adapter__turn_detector_v1.1/metrics",
       "n_spans": 1050
@@ -1953,10 +1953,10 @@
     {
       "language": "ko",
       "model": "LiveKit Turn Detector v1.1",
-      "best_cutoff_rate_at_0_3s_latency": 0.06544502617801047,
+      "best_cutoff_rate_at_0_3s_latency": 0.06806282722513089,
       "best_cutoff_rate_at_0_6s_latency": 0.01832460732984293,
-      "best_mean_latency_at_5pct_cutoff": 0.37241379310344835,
-      "best_mean_latency_at_10pct_cutoff": 0.25092838196286477,
+      "best_mean_latency_at_5pct_cutoff": 0.36710875331564996,
+      "best_mean_latency_at_10pct_cutoff": 0.24456233421750664,
       "run_dir": "ko/live_kit_turn_detector_adapter__turn_detector_v1.1",
       "metrics_dir": "ko/live_kit_turn_detector_adapter__turn_detector_v1.1/metrics",
       "n_spans": 759
@@ -2063,10 +2063,10 @@
     {
       "language": "nl",
       "model": "LiveKit Turn Detector v1.1",
-      "best_cutoff_rate_at_0_3s_latency": 0.12304250559284116,
-      "best_cutoff_rate_at_0_6s_latency": 0.049217002237136466,
-      "best_mean_latency_at_5pct_cutoff": 0.588,
-      "best_mean_latency_at_10pct_cutoff": 0.3397500000000001,
+      "best_cutoff_rate_at_0_3s_latency": 0.116331096196868,
+      "best_cutoff_rate_at_0_6s_latency": 0.04697986577181208,
+      "best_mean_latency_at_5pct_cutoff": 0.57325,
+      "best_mean_latency_at_10pct_cutoff": 0.34950000000000003,
       "run_dir": "nl/live_kit_turn_detector_adapter__turn_detector_v1.1",
       "metrics_dir": "nl/live_kit_turn_detector_adapter__turn_detector_v1.1/metrics",
       "n_spans": 847
@@ -2184,10 +2184,10 @@
     {
       "language": "pt",
       "model": "LiveKit Turn Detector v1.1",
-      "best_cutoff_rate_at_0_3s_latency": 0.15765069551777433,
-      "best_cutoff_rate_at_0_6s_latency": 0.05255023183925812,
-      "best_mean_latency_at_5pct_cutoff": 0.6114999999999999,
-      "best_mean_latency_at_10pct_cutoff": 0.4040000000000001,
+      "best_cutoff_rate_at_0_3s_latency": 0.15301391035548687,
+      "best_cutoff_rate_at_0_6s_latency": 0.05100463678516229,
+      "best_mean_latency_at_5pct_cutoff": 0.618,
+      "best_mean_latency_at_10pct_cutoff": 0.41200000000000003,
       "run_dir": "pt/live_kit_turn_detector_adapter__turn_detector_v1.1",
       "metrics_dir": "pt/live_kit_turn_detector_adapter__turn_detector_v1.1/metrics",
       "n_spans": 1047
@@ -2283,10 +2283,10 @@
     {
       "language": "tr",
       "model": "LiveKit Turn Detector v1.1",
-      "best_cutoff_rate_at_0_3s_latency": 0.13774104683195593,
+      "best_cutoff_rate_at_0_3s_latency": 0.14049586776859505,
       "best_cutoff_rate_at_0_6s_latency": 0.05234159779614325,
-      "best_mean_latency_at_5pct_cutoff": 0.6409999999999999,
-      "best_mean_latency_at_10pct_cutoff": 0.38850000000000007,
+      "best_mean_latency_at_5pct_cutoff": 0.6005000000000001,
+      "best_mean_latency_at_10pct_cutoff": 0.3982500000000001,
       "run_dir": "tr/live_kit_turn_detector_adapter__turn_detector_v1.1",
       "metrics_dir": "tr/live_kit_turn_detector_adapter__turn_detector_v1.1/metrics",
       "n_spans": 763
@@ -2382,10 +2382,10 @@
     {
       "language": "zh",
       "model": "LiveKit Turn Detector v1.1",
-      "best_cutoff_rate_at_0_3s_latency": 0.1825657894736842,
+      "best_cutoff_rate_at_0_3s_latency": 0.18421052631578946,
       "best_cutoff_rate_at_0_6s_latency": 0.07730263157894737,
-      "best_mean_latency_at_5pct_cutoff": 0.7412790697674417,
-      "best_mean_latency_at_10pct_cutoff": 0.48837209302325574,
+      "best_mean_latency_at_5pct_cutoff": 0.7465116279069766,
+      "best_mean_latency_at_10pct_cutoff": 0.4953488372093023,
       "run_dir": "zh/live_kit_turn_detector_adapter__turn_detector_v1.1",
       "metrics_dir": "zh/live_kit_turn_detector_adapter__turn_detector_v1.1/metrics",
       "n_spans": 952

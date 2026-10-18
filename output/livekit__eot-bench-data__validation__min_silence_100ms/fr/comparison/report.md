@@ -11,7 +11,7 @@
 | Model | Best cutoff rate @ 0.3s latency | Best cutoff rate @ 0.6s latency |
 | --- | --- | --- |
 | Soniox | - | **3.9%** |
-| LiveKit Turn Detector v1.1 | **11.8%** | 5.2% |
+| LiveKit Turn Detector v1.1 | **12.4%** | 5.4% |
 | LiveKit Turn Detector v1.1-mini | 13.1% | 5.6% |
 | Deepgram Flux | 13.1% | 5.7% |
 | Gradium | 56.6% | 8.2% |
@@ -29,7 +29,7 @@
 | Model | Best mean latency @ 5% cutoff | Best mean latency @ 10% cutoff |
 | --- | --- | --- |
 | Soniox | **557 ms** | 463 ms |
-| LiveKit Turn Detector v1.1 | 606 ms | **343 ms** |
+| LiveKit Turn Detector v1.1 | 604 ms | **340 ms** |
 | LiveKit Turn Detector v1.1-mini | 622 ms | 374 ms |
 | Deepgram Flux | 676 ms | 353 ms |
 | Gradium | 750 ms | 563 ms |
@@ -45,7 +45,7 @@
 | Type | Budget | Model | Mean Latency | Cutoff | Detect | Threshold | Action Delay | Timeout |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Cutoff | 5.0% | Soniox | 0.557 | 4.1% | 81.2% | 0.990 | 0.200 | 1.500 |
-| Cutoff | 5.0% | LiveKit Turn Detector v1.1 | 0.606 | 4.7% | 81.2% | 0.610 | 0.400 | 1.500 |
+| Cutoff | 5.0% | LiveKit Turn Detector v1.1 | 0.604 | 4.8% | 81.5% | 0.600 | 0.400 | 1.500 |
 | Cutoff | 5.0% | LiveKit Turn Detector v1.1-mini | 0.623 | 4.8% | 67.5% | 0.630 | 0.200 | 1.500 |
 | Cutoff | 5.0% | Deepgram Flux | 0.676 | 4.8% | 78.0% | 0.730 | 0.400 | 1.500 |
 | Cutoff | 5.0% | Gradium | 0.750 | 4.8% | 94.5% | 0.370 | 0.600 | 1.500 |
@@ -55,7 +55,7 @@
 | Cutoff | 5.0% | SmartTurn v3.2 | 0.873 | 4.8% | 63.5% | 0.870 | 0.800 | 1.000 |
 | Cutoff | 5.0% | VAP (silent agent) | 0.917 | 4.7% | 47.2% | 0.130 | 0.800 | 1.000 |
 | Cutoff | 10.0% | Soniox | 0.463 | 6.5% | 80.8% | 0.990 | 0.200 | 1.000 |
-| Cutoff | 10.0% | LiveKit Turn Detector v1.1 | 0.343 | 9.7% | 89.0% | 0.510 | 0.200 | 1.500 |
+| Cutoff | 10.0% | LiveKit Turn Detector v1.1 | 0.340 | 9.9% | 89.2% | 0.510 | 0.200 | 1.500 |
 | Cutoff | 10.0% | LiveKit Turn Detector v1.1-mini | 0.374 | 9.9% | 78.2% | 0.570 | 0.200 | 1.000 |
 | Cutoff | 10.0% | Deepgram Flux | 0.353 | 9.9% | 97.2% | 0.700 | 0.200 | 1.500 |
 | Cutoff | 10.0% | Gradium | 0.563 | 9.9% | 98.5% | 0.180 | 0.400 | 1.500 |
@@ -65,7 +65,7 @@
 | Cutoff | 10.0% | SmartTurn v3.2 | 0.608 | 9.9% | 49.0% | 0.960 | 0.200 | 1.000 |
 | Cutoff | 10.0% | VAP (silent agent) | 0.715 | 9.3% | 84.0% | 0.060 | 0.600 | 1.000 |
 | Latency | 300ms | Soniox | - | - | - | - | - | - |
-| Latency | 300ms | LiveKit Turn Detector v1.1 | 0.300 | 11.8% | 87.5% | 0.540 | 0.200 | 1.000 |
+| Latency | 300ms | LiveKit Turn Detector v1.1 | 0.298 | 12.4% | 87.8% | 0.520 | 0.200 | 1.000 |
 | Latency | 300ms | LiveKit Turn Detector v1.1-mini | 0.298 | 13.1% | 92.5% | 0.310 | 0.200 | 1.500 |
 | Latency | 300ms | Deepgram Flux | 0.299 | 13.1% | 98.5% | 0.560 | 0.200 | 2.000 |
 | Latency | 300ms | Gradium | 0.300 | 56.6% | 100.0% | 0.000 | 0.300 | 1.000 |
@@ -75,7 +75,7 @@
 | Latency | 300ms | SmartTurn v3.2 | 0.298 | 38.9% | 87.8% | 0.060 | 0.200 | 1.000 |
 | Latency | 300ms | VAP (silent agent) | 0.289 | 54.5% | 100.0% | 0.020 | 0.200 | 1.500 |
 | Latency | 600ms | Soniox | 0.576 | 3.9% | 81.2% | 0.990 | 0.300 | 1.500 |
-| Latency | 600ms | LiveKit Turn Detector v1.1 | 0.582 | 5.2% | 83.5% | 0.580 | 0.400 | 1.500 |
+| Latency | 600ms | LiveKit Turn Detector v1.1 | 0.577 | 5.4% | 71.0% | 0.730 | 0.200 | 1.500 |
 | Latency | 600ms | LiveKit Turn Detector v1.1-mini | 0.597 | 5.6% | 69.5% | 0.620 | 0.200 | 1.500 |
 | Latency | 600ms | Deepgram Flux | 0.570 | 5.7% | 97.2% | 0.690 | 0.500 | 2.000 |
 | Latency | 600ms | Gradium | 0.592 | 8.2% | 98.5% | 0.200 | 0.500 | 1.500 |

@@ -11,7 +11,7 @@
 | Model | Best cutoff rate @ 0.3s latency | Best cutoff rate @ 0.6s latency |
 | --- | --- | --- |
 | LiveKit Turn Detector v1.1-mini | 13.3% | **5.9%** |
-| LiveKit Turn Detector v1.1 | **12.5%** | 6.2% |
+| LiveKit Turn Detector v1.1 | **12.1%** | 6.4% |
 | Soniox | - | 6.1% |
 | Deepgram Flux | 14.6% | 6.9% |
 | ultraVAD | 35.5% | 14.9% |
@@ -29,7 +29,7 @@
 | Model | Best mean latency @ 5% cutoff | Best mean latency @ 10% cutoff |
 | --- | --- | --- |
 | LiveKit Turn Detector v1.1-mini | **672 ms** | 392 ms |
-| LiveKit Turn Detector v1.1 | 684 ms | **385 ms** |
+| LiveKit Turn Detector v1.1 | 738 ms | **382 ms** |
 | Soniox | 768 ms | 463 ms |
 | Deepgram Flux | 826 ms | 403 ms |
 | ultraVAD | 864 ms | 703 ms |
@@ -45,7 +45,7 @@
 | Type | Budget | Model | Mean Latency | Cutoff | Detect | Threshold | Action Delay | Timeout |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Cutoff | 5.0% | LiveKit Turn Detector v1.1-mini | 0.672 | 4.9% | 83.0% | 0.540 | 0.400 | 2.000 |
-| Cutoff | 5.0% | LiveKit Turn Detector v1.1 | 0.684 | 4.9% | 62.7% | 0.780 | 0.200 | 1.500 |
+| Cutoff | 5.0% | LiveKit Turn Detector v1.1 | 0.738 | 4.5% | 63.5% | 0.770 | 0.300 | 1.500 |
 | Cutoff | 5.0% | Soniox | 0.768 | 4.3% | 77.5% | 0.990 | 0.400 | 2.000 |
 | Cutoff | 5.0% | Deepgram Flux | 0.826 | 4.9% | 98.0% | 0.500 | 0.800 | 2.000 |
 | Cutoff | 5.0% | ultraVAD | 0.864 | 4.7% | 96.2% | 0.080 | 0.800 | 2.500 |
@@ -55,7 +55,7 @@
 | Cutoff | 5.0% | OpenAI GPT Realtime 2 | 0.982 | 4.5% | 85.5% | 0.990 | 0.800 | 2.000 |
 | Cutoff | 5.0% | VAP (silent agent) | 1.068 | 4.9% | 88.2% | 0.040 | 1.000 | 1.500 |
 | Cutoff | 10.0% | LiveKit Turn Detector v1.1-mini | 0.392 | 9.9% | 85.2% | 0.500 | 0.200 | 1.500 |
-| Cutoff | 10.0% | LiveKit Turn Detector v1.1 | 0.385 | 9.9% | 85.8% | 0.510 | 0.200 | 1.500 |
+| Cutoff | 10.0% | LiveKit Turn Detector v1.1 | 0.382 | 9.9% | 86.0% | 0.510 | 0.200 | 1.500 |
 | Cutoff | 10.0% | Soniox | 0.463 | 8.8% | 77.5% | 0.990 | 0.200 | 1.000 |
 | Cutoff | 10.0% | Deepgram Flux | 0.403 | 9.9% | 96.5% | 0.680 | 0.200 | 2.000 |
 | Cutoff | 10.0% | ultraVAD | 0.703 | 9.7% | 99.8% | 0.010 | 0.700 | 2.000 |
@@ -65,7 +65,7 @@
 | Cutoff | 10.0% | OpenAI GPT Realtime 2 | 0.696 | 9.9% | 85.0% | 0.990 | 0.600 | 1.000 |
 | Cutoff | 10.0% | VAP (silent agent) | 0.795 | 9.4% | 79.0% | 0.050 | 0.700 | 1.000 |
 | Latency | 300ms | LiveKit Turn Detector v1.1-mini | 0.298 | 13.3% | 87.8% | 0.460 | 0.200 | 1.000 |
-| Latency | 300ms | LiveKit Turn Detector v1.1 | 0.298 | 12.5% | 92.5% | 0.410 | 0.200 | 1.500 |
+| Latency | 300ms | LiveKit Turn Detector v1.1 | 0.298 | 12.1% | 92.5% | 0.410 | 0.200 | 1.500 |
 | Latency | 300ms | Soniox | - | - | - | - | - | - |
 | Latency | 300ms | Deepgram Flux | 0.291 | 14.6% | 98.0% | 0.500 | 0.200 | 1.500 |
 | Latency | 300ms | ultraVAD | 0.296 | 35.5% | 88.0% | 0.170 | 0.200 | 1.000 |
@@ -75,7 +75,7 @@
 | Latency | 300ms | OpenAI GPT Realtime 2 | - | - | - | - | - | - |
 | Latency | 300ms | VAP (silent agent) | 0.300 | 53.6% | 100.0% | 0.000 | 0.300 | 1.000 |
 | Latency | 600ms | LiveKit Turn Detector v1.1-mini | 0.587 | 5.9% | 83.0% | 0.540 | 0.400 | 1.500 |
-| Latency | 600ms | LiveKit Turn Detector v1.1 | 0.590 | 6.2% | 70.0% | 0.720 | 0.200 | 1.500 |
+| Latency | 600ms | LiveKit Turn Detector v1.1 | 0.571 | 6.4% | 71.5% | 0.700 | 0.200 | 1.500 |
 | Latency | 600ms | Soniox | 0.576 | 6.1% | 77.5% | 0.990 | 0.200 | 1.500 |
 | Latency | 600ms | Deepgram Flux | 0.596 | 6.9% | 96.2% | 0.690 | 0.500 | 2.000 |
 | Latency | 600ms | ultraVAD | 0.585 | 14.9% | 83.0% | 0.220 | 0.500 | 1.000 |
