@@ -46,7 +46,7 @@ available for download and evaluation, Apache-2.0 alongside this repo.
 
 ## Results
 
-LiveKit Turn Detector v1 posts the strongest overall results of any model we
+LiveKit Turn Detector v1.1 posts the strongest overall results of any model we
 evaluated, in English and across all 14 languages. Explore the full
 **[interactive leaderboard »](https://livekit.com/benchmarks/eot-bench)**. Set a
 latency or false-cutoff budget and watch every model re-rank on the Pareto
@@ -75,13 +75,13 @@ latency budget (best first). Lower is better on every metric:
 
 | Model | False cutoffs @ 300 ms | False cutoffs @ 600 ms | Latency @ 5% cutoff | Latency @ 10% cutoff |
 | --- | ---: | ---: | ---: | ---: |
-| **LiveKit Turn Detector v1** | **9.9%** | **4.5%** | **543 ms** | **295 ms** |
+| **LiveKit Turn Detector v1.1** | **10.5%** | **4.0%** | **499 ms** | **308 ms** |
 | JoinIn AI Baton | 12.3% | 4.8% | 577 ms | 350 ms |
 | Deepgram Flux | 12.9% | 9.9% | 1151 ms | 548 ms |
+| LiveKit Turn Detector v1.1-mini | 14.6% | 6.8% | 762 ms | 416 ms |
 | ultraVAD | 27.7% | 11.9% | 899 ms | 663 ms |
-| LiveKit Turn Detector v1-mini | 27.8% | 12.1% | 1070 ms | 698 ms |
 | SmartTurn v3.2 | 35.2% | 14.8% | 1051 ms | 739 ms |
-| VAP (silent agent) | 46.9% | 14.6% | 1131 ms | 749 ms |
+| VAP (silent agent) | 47.0% | 14.6% | 1131 ms | 749 ms |
 | AssemblyAI | 49.4% | 14.6% | 1049 ms | 713 ms |
 | Gradium | 55.6% | 12.6% | 913 ms | 656 ms |
 | Soniox | – | 5.5% | 647 ms | 512 ms |
