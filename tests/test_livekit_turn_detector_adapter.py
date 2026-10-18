@@ -12,7 +12,7 @@ def test_livekit_turn_detector_adapter_defaults() -> None:
     params = inspect.signature(LiveKitTurnDetectorAdapter.__init__).parameters
 
     assert LiveKitTurnDetectorAdapter.score_point == 0.2
-    assert LiveKitTurnDetectorAdapter.display_name == "LiveKit Turn Detector v1"
+    assert LiveKitTurnDetectorAdapter.display_name == "LiveKit Turn Detector v1.1"
     assert params["model"].default == DEFAULT_AUDIO_MODEL
     assert params["chunk_ms"].default == 100
     assert params["base_url"].default is None
@@ -21,7 +21,7 @@ def test_livekit_turn_detector_adapter_defaults() -> None:
 def test_livekit_turn_detector_adapter_is_streaming() -> None:
     adapter = LiveKitTurnDetectorAdapter()
 
-    assert adapter.adapter_id == "livekit/turn-detector-v1"
+    assert adapter.adapter_id == "livekit/turn-detector-v1.1"
     assert callable(adapter.predict_turn)
     assert inspect.iscoroutinefunction(adapter.predict_turn)
 

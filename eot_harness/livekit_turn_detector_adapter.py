@@ -1,4 +1,4 @@
-"""Streaming adapter for the LiveKit Turn Detector v1 cloud end-of-turn model (`turn-detector-v1`).
+"""Streaming adapter for the LiveKit Turn Detector v1.1 cloud end-of-turn model (`turn-detector-v1` in the SDK).
 
 Speaks the agent-gateway EOT websocket protocol directly (reusing the protobuf
 messages and auth helpers from ``livekit-agents``) rather than driving the live
@@ -35,7 +35,9 @@ from .streaming_stt import (
     prepare_pcm16_audio,
 )
 
-DEFAULT_AUDIO_MODEL = "turn-detector-v1"
+# Names the run (adapter_id and run directory) only: the gateway serves one EOT
+# model and takes no model parameter.
+DEFAULT_AUDIO_MODEL = "turn-detector-v1.1"
 DEFAULT_CHUNK_MS = 100
 DEFAULT_CONCURRENCY = 4
 DEFAULT_PREDICT_TIMEOUT = 30.0
@@ -48,9 +50,9 @@ _EPS = 1e-6
 
 
 class LiveKitTurnDetectorAdapter:
-    """Stream turns through the LiveKit Turn Detector v1 cloud model (`turn-detector-v1`) and score p(eot)."""
+    """Stream turns through the LiveKit Turn Detector v1.1 cloud model and score p(eot)."""
 
-    display_name = "LiveKit Turn Detector v1"
+    display_name = "LiveKit Turn Detector v1.1"
     score_point = 0.2
 
     def __init__(
