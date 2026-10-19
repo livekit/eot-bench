@@ -1,0 +1,137 @@
+output/livekit__eot-bench-data__validation__min_silence_100ms/pt/live_kit_turn_detector_adapter__turn_detector_v1.1/summary.json
+  s_8c1b8aec8c5b7f::t_89fd5e2d028445 35-36
+output/livekit__eot-bench-data__validation__min_silence_100ms/it/live_kit_turn_detector_adapter__turn_detector_v1.1/summary.json
+  s_8c1b8aec8c5b7f::t_89fd5e2d028445 35-36
+output/livekit__eot-bench-data__validation__min_silence_100ms/pt/live_kit_turn_detector_adapter__turn_detector_v1.1/metrics/summary.json
+  s_8c1b8aec8c5b7f::t_68308d589d96e1 2-3,16,18-21,28-32,34,40-44,51
+output/livekit__eot-bench-data__validation__min_silence_100ms/ko/live_kit_turn_detector_adapter__turn_detector_v1.1/manifest.json
+  s_8c1b8aec8c5b7f::t_89fd5e2d028445 35-36
+output/livekit__eot-bench-data__validation__min_silence_100ms/language_comparison/report.md
+  s_8c1b8aec8c5b7f::t_68308d589d96e1 9-11,13-22,30-34,37,40-41,51-56,58-64,72-85
+output/livekit__eot-bench-data__validation__min_silence_100ms/ja/comparison/report.md
+  s_8c1b8aec8c5b7f::t_68308d589d96e1 13,30,45,54,63,72
+output/livekit__eot-bench-data__validation__min_silence_100ms/nl/live_kit_turn_detector_adapter__turn_detector_v1.1/manifest.json
+  s_8c1b8aec8c5b7f::t_89fd5e2d028445 35-36
+output/livekit__eot-bench-data__validation__min_silence_100ms/en/live_kit_turn_detector_adapter__turn_detector_v1.1/metrics/summary.json
+  s_8c1b8aec8c5b7f::t_68308d589d96e1 2-3,16,18-22,29-32,40,42-44,51
+output/livekit__eot-bench-data__validation__min_silence_100ms/ar/comparison/report.md
+  s_8c1b8aec8c5b7f::t_68308d589d96e1 13,29,43,51,59,67
+output/livekit__eot-bench-data__validation__min_silence_100ms/tr/live_kit_turn_detector_adapter__turn_detector_v1.1/metrics/summary.json
+  s_8c1b8aec8c5b7f::t_68308d589d96e1 2-3,16,18-21,28,30-32,42-44,51
+output/livekit__eot-bench-data__validation__min_silence_100ms/zh/comparison/report.md
+  s_8c1b8aec8c5b7f::t_68308d589d96e1 13,29,43,51,59
+output/livekit__eot-bench-data__validation__min_silence_100ms/it/live_kit_turn_detector_adapter__turn_detector_v1.1/manifest.json
+  s_8c1b8aec8c5b7f::t_89fd5e2d028445 35-36
+output/livekit__eot-bench-data__validation__min_silence_100ms/ar/live_kit_turn_detector_adapter__turn_detector_v1.1/summary.json
+  s_8c1b8aec8c5b7f::t_89fd5e2d028445 35-36
+output/livekit__eot-bench-data__validation__min_silence_100ms/it/comparison/report.md
+  s_8c1b8aec8c5b7f::t_68308d589d96e1 13,31,47,57,67,77
+output/livekit__eot-bench-data__validation__min_silence_100ms/ja/live_kit_turn_detector_adapter__turn_detector_v1.1/manifest.json
+  s_8c1b8aec8c5b7f::t_89fd5e2d028445 35-36
+output/livekit__eot-bench-data__validation__min_silence_100ms/de/live_kit_turn_detector_adapter__turn_detector_v1.1/summary.json
+  s_8c1b8aec8c5b7f::t_89fd5e2d028445 35-36
+output/livekit__eot-bench-data__validation__min_silence_100ms/nl/comparison/report.md
+  s_8c1b8aec8c5b7f::t_68308d589d96e1 13,30,45,54,63,72
+output/livekit__eot-bench-data__validation__min_silence_100ms/es/live_kit_turn_detector_adapter__turn_detector_v1.1/metrics/summary.json
+  s_8c1b8aec8c5b7f::t_68308d589d96e1 2-3,16,18-20,28,30-32,40,42-44,51
+output/livekit__eot-bench-data__validation__min_silence_100ms/zh/live_kit_turn_detector_adapter__turn_detector_v1.1/metrics/summary.json
+  s_8c1b8aec8c5b7f::t_68308d589d96e1 2-3,16,18-22,28-32,40-44,51
+output/livekit__eot-bench-data__validation__min_silence_100ms/de/live_kit_turn_detector_adapter__turn_detector_v1.1/manifest.json
+  s_8c1b8aec8c5b7f::t_89fd5e2d028445 35-36
+output/livekit__eot-bench-data__validation__min_silence_100ms/pt/comparison/report.md
+  s_8c1b8aec8c5b7f::t_68308d589d96e1 13,31,47,57,67,77
+output/livekit__eot-bench-data__validation__min_silence_100ms/nl/live_kit_turn_detector_adapter__turn_detector_v1.1/summary.json
+  s_8c1b8aec8c5b7f::t_89fd5e2d028445 35-36
+output/livekit__eot-bench-data__validation__min_silence_100ms/es/comparison/report.md
+  s_8c1b8aec8c5b7f::t_68308d589d96e1 13,31,47,57,67,77
+output/livekit__eot-bench-data__validation__min_silence_100ms/hi/live_kit_turn_detector_adapter__turn_detector_v1.1/manifest.json
+  s_8c1b8aec8c5b7f::t_89fd5e2d028445 35-36
+output/livekit__eot-bench-data__validation__min_silence_100ms/id/live_kit_turn_detector_adapter__turn_detector_v1.1/summary.json
+  s_8c1b8aec8c5b7f::t_89fd5e2d028445 35-36
+output/livekit__eot-bench-data__validation__min_silence_100ms/id/live_kit_turn_detector_adapter__turn_detector_v1.1/manifest.json
+  s_8c1b8aec8c5b7f::t_89fd5e2d028445 35-36
+output/livekit__eot-bench-data__validation__min_silence_100ms/es/live_kit_turn_detector_adapter__turn_detector_v1.1/manifest.json
+  s_8c1b8aec8c5b7f::t_89fd5e2d028445 35-36
+output/livekit__eot-bench-data__validation__min_silence_100ms/de/comparison/report.md
+  s_8c1b8aec8c5b7f::t_68308d589d96e1 14,32,48,58,68,78
+output/livekit__eot-bench-data__validation__min_silence_100ms/pt/live_kit_turn_detector_adapter__turn_detector_v1.1/manifest.json
+  s_8c1b8aec8c5b7f::t_89fd5e2d028445 35-36
+output/livekit__eot-bench-data__validation__min_silence_100ms/zh/live_kit_turn_detector_adapter__turn_detector_v1.1/summary.json
+  s_8c1b8aec8c5b7f::t_89fd5e2d028445 35-36
+output/livekit__eot-bench-data__validation__min_silence_100ms/es/live_kit_turn_detector_adapter__turn_detector_v1.1/summary.json
+  s_8c1b8aec8c5b7f::t_89fd5e2d028445 35-36
+output/livekit__eot-bench-data__validation__min_silence_100ms/zh/live_kit_turn_detector_adapter__turn_detector_v1.1/manifest.json
+  s_8c1b8aec8c5b7f::t_89fd5e2d028445 35-36
+site/src/turn-detector/data.ts
+  s_8c1b8aec8c5b7f::t_68308d589d96e1 5
+output/livekit__eot-bench-data__validation__min_silence_100ms/hi/live_kit_turn_detector_adapter__turn_detector_v1.1/metrics/summary.json
+  s_8c1b8aec8c5b7f::t_68308d589d96e1 2-3,16,18-21,28-32,40,42-44,51
+output/livekit__eot-bench-data__validation__min_silence_100ms/ja/live_kit_turn_detector_adapter__turn_detector_v1.1/metrics/summary.json
+  s_8c1b8aec8c5b7f::t_68308d589d96e1 2-3,16,18-20,29-32,40-44,46,51
+output/livekit__eot-bench-data__validation__min_silence_100ms/fr/live_kit_turn_detector_adapter__turn_detector_v1.1/summary.json
+  s_8c1b8aec8c5b7f::t_89fd5e2d028445 35-36
+output/livekit__eot-bench-data__validation__min_silence_100ms/ar/live_kit_turn_detector_adapter__turn_detector_v1.1/manifest.json
+  s_8c1b8aec8c5b7f::t_89fd5e2d028445 35-36
+output/livekit__eot-bench-data__validation__min_silence_100ms/it/live_kit_turn_detector_adapter__turn_detector_v1.1/metrics/summary.json
+  s_8c1b8aec8c5b7f::t_68308d589d96e1 2-3,16,18-20,30-32,40-44,51
+output/livekit__eot-bench-data__validation__min_silence_100ms/ar/live_kit_turn_detector_adapter__turn_detector_v1.1/metrics/summary.json
+  s_8c1b8aec8c5b7f::t_68308d589d96e1 2-3,16,18-20,28,30-32,34,40,42-44,51
+output/livekit__eot-bench-data__validation__min_silence_100ms/ko/live_kit_turn_detector_adapter__turn_detector_v1.1/summary.json
+  s_8c1b8aec8c5b7f::t_89fd5e2d028445 35-36
+output/livekit__eot-bench-data__validation__min_silence_100ms/ko/comparison/report.md
+  s_8c1b8aec8c5b7f::t_68308d589d96e1 13,29,43,51,59,67
+output/livekit__eot-bench-data__validation__min_silence_100ms/tr/comparison/report.md
+  s_8c1b8aec8c5b7f::t_68308d589d96e1 13,29,43,51,59,67
+output/livekit__eot-bench-data__validation__min_silence_100ms/hi/live_kit_turn_detector_adapter__turn_detector_v1.1/summary.json
+  s_8c1b8aec8c5b7f::t_89fd5e2d028445 35-36
+output/livekit__eot-bench-data__validation__min_silence_100ms/en/live_kit_turn_detector_adapter__turn_detector_v1.1/summary.json
+  s_8c1b8aec8c5b7f::t_89fd5e2d028445 35-36
+output/livekit__eot-bench-data__validation__min_silence_100ms/hi/comparison/report.md
+  s_8c1b8aec8c5b7f::t_68308d589d96e1 13,30,45,54,63,72
+README.md
+  s_8c1b8aec8c5b7f::t_a7a6b911cab09c 78
+output/livekit__eot-bench-data__validation__min_silence_100ms/ja/live_kit_turn_detector_adapter__turn_detector_v1.1/summary.json
+  s_8c1b8aec8c5b7f::t_89fd5e2d028445 35-36
+output/livekit__eot-bench-data__validation__min_silence_100ms/fr/live_kit_turn_detector_adapter__turn_detector_v1.1/manifest.json
+  s_8c1b8aec8c5b7f::t_89fd5e2d028445 35-36
+output/livekit__eot-bench-data__validation__min_silence_100ms/language_comparison/summary.json
+  s_8c1b8aec8c5b7f::t_68308d589d96e1 49,64,79,109,124,139,154,169,184,199,214,229,244,261,276,291,306,321,366,411,426,473,488,503,518,533,548,563,578,593,608,623,638,653,668,685,700,715,730,745,760,775,790,805,820,835,850,865,880,911-914,1032-1035,1175-1178,1297-1299,1417-1420,1527,1529-1530,1626,1628-1629,1747-1750,1857,1859-1860,1956,1958-1959,2066-2069,2187-2190,2286,2288-2289,2385,2387-2388
+output/livekit__eot-bench-data__validation__min_silence_100ms/nl/live_kit_turn_detector_adapter__turn_detector_v1.1/metrics/summary.json
+  s_8c1b8aec8c5b7f::t_68308d589d96e1 2-3,16,18-22,28,30-33,40-44,51
+output/livekit__eot-bench-data__validation__min_silence_100ms/ko/live_kit_turn_detector_adapter__turn_detector_v1.1/metrics/summary.json
+  s_8c1b8aec8c5b7f::t_68308d589d96e1 2-3,16,18-20,22,28-32,34,40-44,51
+output/livekit__eot-bench-data__validation__min_silence_100ms/de/live_kit_turn_detector_adapter__turn_detector_v1.1/metrics/summary.json
+  s_8c1b8aec8c5b7f::t_68308d589d96e1 2-3,16-17,28-33,40,42-44,51
+output/livekit__eot-bench-data__validation__min_silence_100ms/en/live_kit_turn_detector_adapter__turn_detector_v1.1/manifest.json
+  s_8c1b8aec8c5b7f::t_89fd5e2d028445 35-36
+output/livekit__eot-bench-data__validation__min_silence_100ms/id/live_kit_turn_detector_adapter__turn_detector_v1.1/metrics/summary.json
+  s_8c1b8aec8c5b7f::t_68308d589d96e1 2-3,16,18-21,28-32,34,40-45,51
+output/livekit__eot-bench-data__validation__min_silence_100ms/tr/live_kit_turn_detector_adapter__turn_detector_v1.1/manifest.json
+  s_8c1b8aec8c5b7f::t_89fd5e2d028445 35-36
+output/livekit__eot-bench-data__validation__min_silence_100ms/fr/comparison/report.md
+  s_8c1b8aec8c5b7f::t_68308d589d96e1 14,32,48,58,68,78
+output/livekit__eot-bench-data__validation__min_silence_100ms/fr/live_kit_turn_detector_adapter__turn_detector_v1.1/metrics/summary.json
+  s_8c1b8aec8c5b7f::t_68308d589d96e1 2-3,16,18-20,28-32,40-44,51
+output/livekit__eot-bench-data__validation__min_silence_100ms/tr/live_kit_turn_detector_adapter__turn_detector_v1.1/summary.json
+  s_8c1b8aec8c5b7f::t_89fd5e2d028445 35-36
+output/livekit__eot-bench-data__validation__min_silence_100ms/en/comparison/report.md
+  s_8c1b8aec8c5b7f::t_68308d589d96e1 13,33,51,63,75,87
+output/livekit__eot-bench-data__validation__min_silence_100ms/id/comparison/report.md
+  s_8c1b8aec8c5b7f::t_68308d589d96e1 13,29,43,51,59,67
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "66f07d272d1bde66e7e93752964d984c06870235",
+  "prompts": {},
+  "sessions": {
+    "s_8c1b8aec8c5b7f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "57a7bcb1-42ff-4d9e-b687-bd9d33617023",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Chenghao Mou <chenghao.mou@livekit.io>"
+    }
+  }
+}
