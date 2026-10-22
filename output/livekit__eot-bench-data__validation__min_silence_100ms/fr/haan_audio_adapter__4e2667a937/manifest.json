@@ -1,0 +1,43 @@
+{
+  "harness_version": "0.1.0",
+  "span_set_id": "026614da4b14",
+  "model_run_id": "haan_audio_adapter__4e2667a937",
+  "dataset": {
+    "path": "livekit/eot-bench-data",
+    "split": "validation",
+    "min_silence_span": 0.1,
+    "language": "fr"
+  },
+  "load_dataset": {
+    "path": "livekit/eot-bench-data",
+    "name": "all",
+    "split": "validation"
+  },
+  "model": {
+    "adapter": "eot_harness.smart_turn_adapter:HaanAudioAdapter",
+    "adapter_id": "CharanSripadi/haan-haan-telephony",
+    "inference_interval": 0.1,
+    "transcript_lag": 0.5,
+    "display_name": "haan (SmartTurn v3.2 phone-audio fine-tune)",
+    "score_point": 0.2
+  },
+  "runtime": {
+    "batch_size": 128
+  },
+  "path": "livekit/eot-bench-data",
+  "name": "all",
+  "repo_id": "livekit/eot-bench-data",
+  "subset": "all",
+  "split": "validation",
+  "language": "fr",
+  "min_silence_span": 0.1,
+  "adapter_id": "CharanSripadi/haan-haan-telephony",
+  "adapter": "eot_harness.smart_turn_adapter:HaanAudioAdapter",
+  "batch_size": 128,
+  "inference_interval": 0.1,
+  "transcript_lag": 0.5,
+  "n_rows": 9655,
+  "n_spans": 1054,
+  "display_name": "haan (SmartTurn v3.2 phone-audio fine-tune)",
+  "score_point": 0.2
+}

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import numpy as np
 
-from eot_harness.smart_turn_adapter import SmartTurnAudioAdapter
+from eot_harness.smart_turn_adapter import HaanAudioAdapter, SmartTurnAudioAdapter
 
 
 class _FakeFeatureExtractor:
@@ -58,3 +58,28 @@ def test_smart_turn_adapter_left_pads_short_audio_and_ignores_messages(monkeypat
     assert kwargs["sampling_rate"] == 16000
     assert kwargs["do_normalize"] is True
     assert fake_session.last_inputs["input_features"].shape == (1, 1, 4)
+
+
+def test_haan_adapter_loads_haan_weights_with_smart_turn_preprocessing(monkeypatch) -> None:
+    loaded = {}
+
+    def fake_load_session(**kwargs):
+        loaded.update(kwargs)
+        return _FakeSession()
+
+    monkeypatch.setattr("eot_harness.smart_turn_adapter._load_smart_turn_session", fake_load_session)
+    monkeypatch.setattr(
+        "eot_harness.smart_turn_adapter._load_smart_turn_feature_extractor",
+        lambda **_: _FakeFeatureExtractor(),
+    )
+
+    adapter = HaanAudioAdapter(chunk_length_sec=1.0)
+    assert loaded["model_id"] == "CharanSripadi/haan"
+    assert loaded["audio_model_filename"] == "haan-telephony.onnx"
+    assert adapter.adapter_id == "CharanSripadi/haan-haan-telephony"
+    assert adapter.display_name == "haan (SmartTurn v3.2 phone-audio fine-tune)"
+    assert adapter.score_point == SmartTurnAudioAdapter.score_point
+    scores = adapter.predict_batch(
+        [{"audio": {"array": np.array([1.0, 2.0], dtype=np.float32), "sampling_rate": 16000}}],
+    )
+    assert len(scores) == 1

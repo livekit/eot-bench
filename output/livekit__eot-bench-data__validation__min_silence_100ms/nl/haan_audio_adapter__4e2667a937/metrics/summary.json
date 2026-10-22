@@ -1,0 +1,91 @@
+{
+  "auc": 0.7944910514541388,
+  "ap": 0.7578783454485482,
+  "n_spans": 847,
+  "n_hold_spans": 447,
+  "n_eot_spans": 400,
+  "n_scored_spans": 847,
+  "n_scored_hold_spans": 447,
+  "n_scored_eot_spans": 400,
+  "n_missing_scores": 0,
+  "n_missing_hold_scores": 0,
+  "n_missing_eot_scores": 0,
+  "operating_points": {
+    "2pct": {
+      "cutoff_budget": 0.02,
+      "threshold": 0.94,
+      "cutoff_rate": 0.017897091722595078,
+      "mean_latency": 1.1575,
+      "timeout_rate": 0.315,
+      "detect_rate": 0.685,
+      "action_delay": 1.0,
+      "timeout": 1.5,
+      "score_point_s": 0.2,
+      "score_mode": "score_point"
+    },
+    "5pct": {
+      "cutoff_budget": 0.05,
+      "threshold": 0.94,
+      "cutoff_rate": 0.049217002237136466,
+      "mean_latency": 0.8834999999999998,
+      "timeout_rate": 0.315,
+      "detect_rate": 0.685,
+      "action_delay": 0.6,
+      "timeout": 1.5,
+      "score_point_s": 0.2,
+      "score_mode": "score_point"
+    },
+    "10pct": {
+      "cutoff_budget": 0.1,
+      "threshold": 0.75,
+      "cutoff_rate": 0.09619686800894854,
+      "mean_latency": 0.691,
+      "timeout_rate": 0.2275,
+      "detect_rate": 0.7725,
+      "action_delay": 0.6,
+      "timeout": 1.0,
+      "score_point_s": 0.2,
+      "score_mode": "score_point"
+    }
+  },
+  "mean_frontier_latency_0_10": 1.084579207920792,
+  "score_mode": "score_point",
+  "score_point_s": 0.2,
+  "min_hold_span_duration": 0.2,
+  "max_hold_span_duration": 5.0,
+  "sweep_action_delays": [
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "sweep_timeouts": [
+    1.0,
+    1.5,
+    2.0,
+    2.5,
+    3.0,
+    3.5
+  ],
+  "sweep_delay_values": [
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0,
+    1.5,
+    2.0,
+    2.5,
+    3.0,
+    3.5
+  ]
+}
