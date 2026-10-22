@@ -1,0 +1,19 @@
+uv.lock
+  s_8f837c8c996a63::t_b5a00ca412f3aa 390,392,394
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "53a22c682c937cffb4654fe5fef88d854ed18951",
+  "prompts": {},
+  "sessions": {
+    "s_8f837c8c996a63": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6e2bcd7c-c92f-40e8-a4ab-0f04dedafa82",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Chenghao Mou <chenghao.mou@livekit.io>"
+    }
+  }
+}
