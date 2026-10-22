@@ -1,0 +1,42 @@
+{
+  "harness_version": "0.1.0",
+  "span_set_id": "0d36e9e5e419",
+  "model_run_id": "live_kit_turn_detector_adapter__turn_detector_v1.1",
+  "dataset": {
+    "path": "livekit/eot-bench-data",
+    "split": "validation",
+    "min_silence_span": 0.1,
+    "language": "es"
+  },
+  "load_dataset": {
+    "path": "livekit/eot-bench-data",
+    "name": "es",
+    "split": "validation"
+  },
+  "path": "livekit/eot-bench-data",
+  "name": "es",
+  "repo_id": "livekit/eot-bench-data",
+  "subset": "es",
+  "split": "validation",
+  "language": "es",
+  "min_silence_span": 0.1,
+  "adapter_id": "livekit/turn-detector-v1.1",
+  "adapter": "eot_harness.livekit_turn_detector_adapter:LiveKitTurnDetectorAdapter",
+  "streaming": true,
+  "inference_interval": 0.1,
+  "concurrency": 3,
+  "n_dataset_rows": 400,
+  "n_scored_turns": 400,
+  "n_skipped_turns": 0,
+  "n_rows": 10475,
+  "n_spans": 1236,
+  "n_event_rows": 10475,
+  "total_audio_sec": 5177.610187500003,
+  "wall_clock_sec": 1087.631501787,
+  "audio_x_realtime": 4.760445223398815,
+  "skip_errors": false,
+  "model": "turn-detector-v1.1",
+  "chunk_ms": 100,
+  "display_name": "LiveKit Turn Detector v1.1",
+  "score_point": 0.2
+}

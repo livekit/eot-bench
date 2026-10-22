@@ -83,8 +83,8 @@ LANGUAGE_DISPLAY_LABELS = {
     "ko": "Korean",
 }
 MODEL_DISPLAY_ORDER = (
-    "LiveKit Turn Detector v1",
-    "LiveKit Turn Detector v1-mini",
+    "LiveKit Turn Detector v1.1",
+    "LiveKit Turn Detector v1.1-mini",
     "Deepgram Flux",
     "ultraVAD",
     "SmartTurn v3.2",

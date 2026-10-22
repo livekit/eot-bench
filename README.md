@@ -46,7 +46,7 @@ available for download and evaluation, Apache-2.0 alongside this repo.
 
 ## Results
 
-LiveKit Turn Detector v1 posts the strongest overall results of any model we
+LiveKit Turn Detector v1.1 posts the strongest overall results of any model we
 evaluated, in English and across all 14 languages. Explore the full
 **[interactive leaderboard »](https://livekit.com/benchmarks/eot-bench)**. Set a
 latency or false-cutoff budget and watch every model re-rank on the Pareto
@@ -75,13 +75,13 @@ latency budget (best first). Lower is better on every metric:
 
 | Model | False cutoffs @ 300 ms | False cutoffs @ 600 ms | Latency @ 5% cutoff | Latency @ 10% cutoff |
 | --- | ---: | ---: | ---: | ---: |
-| **LiveKit Turn Detector v1** | **9.9%** | **4.5%** | **543 ms** | **295 ms** |
+| **LiveKit Turn Detector v1.1** | **11.3%** | **4.1%** | **505 ms** | **326 ms** |
 | JoinIn AI Baton | 12.3% | 4.8% | 577 ms | 350 ms |
 | Deepgram Flux | 12.9% | 9.9% | 1151 ms | 548 ms |
+| LiveKit Turn Detector v1.1-mini | 14.6% | 6.8% | 762 ms | 416 ms |
 | ultraVAD | 27.7% | 11.9% | 899 ms | 663 ms |
-| LiveKit Turn Detector v1-mini | 27.8% | 12.1% | 1070 ms | 698 ms |
 | SmartTurn v3.2 | 35.2% | 14.8% | 1051 ms | 739 ms |
-| VAP (silent agent) | 46.9% | 14.6% | 1131 ms | 749 ms |
+| VAP (silent agent) | 47.0% | 14.6% | 1131 ms | 749 ms |
 | AssemblyAI | 49.4% | 14.6% | 1049 ms | 713 ms |
 | Gradium | 55.6% | 12.6% | 913 ms | 656 ms |
 | Soniox | – | 5.5% | 647 ms | 512 ms |
@@ -127,7 +127,7 @@ See [Evaluation Model](#evaluation-model) for the full methodology.
 - The public turn-level dataset [`livekit/eot-bench-data`](https://huggingface.co/datasets/livekit/eot-bench-data):
   real human-to-agent turns with audio and text context in 14 languages.
 - Batch and streaming adapter interfaces for local models and provider APIs,
-  with reference adapters for LiveKit Turn Detector v1 / v1-mini, Deepgram Flux,
+  with reference adapters for LiveKit Turn Detector v1.1 / v1.1-mini, Deepgram Flux,
   AssemblyAI, Cartesia Ink 2, Gradium, JoinIn AI Baton, Soniox, OpenAI GPT
   Realtime, SmartTurn, ultraVAD, and VAP.
 - Reproducible prediction artifacts, policy-sweep metrics, Pareto frontiers,
@@ -394,8 +394,8 @@ eot-harness predict-streaming \
   --output-dir output
 ```
 
-The LiveKit cloud audio adapter streams each turn to the LiveKit Turn Detector v1
-(`turn-detector-v1`) model over the agent-gateway EOT websocket protocol. For every scored silence-span grid
+The LiveKit cloud audio adapter streams each turn to LiveKit Turn Detector v1.1
+(the `turn-detector-v1` cloud model in the SDK) over the agent-gateway EOT websocket protocol. For every scored silence-span grid
 point it feeds audio up to that timestamp and issues an explicit inference
 request, so each `p_eot` reflects exactly the causal audio the harness exposes.
 It requires `LIVEKIT_API_KEY` and `LIVEKIT_API_SECRET`; set `LIVEKIT_INFERENCE_URL`
@@ -650,13 +650,18 @@ SmartTurn adapters. It requires `BATON_API_KEY` and targets
 `https://baton.joinin.ai` by default; set `BATON_BASE_URL` to override.
 
 `LiveKitTurnDetectorAdapter` is a streaming adapter that scores each turn
-with the LiveKit Turn Detector v1 (`turn-detector-v1`) cloud model over the
+with the LiveKit Turn Detector v1.1 cloud model (`turn-detector-v1` in the SDK) over the
 agent-gateway EOT websocket;
 run it with `predict-streaming` and `LIVEKIT_API_KEY`/`LIVEKIT_API_SECRET`.
 
 UltraVAD currently supports `--batch-size 1` only.
 
-`LiveKitTurnDetectorMiniAdapter` parallelizes calls to the public local-inference
+`LiveKitTurnDetectorMiniAdapter` scores LiveKit Turn Detector v1.1-mini
+(`turn-detector-v1-mini` in the SDK) on-device. It needs a `livekit-local-inference`
+release that bundles v1.1-mini (a 2.0 s window) and raises an error on older
+releases. For each timestamp it feeds the last 2.0 s of the turn plus the turn
+length so far as `turn_samples`, which the model uses as a duration feature.
+It parallelizes calls to the public local-inference
 interface with up to 8 worker threads by default. Set
 `LIVEKIT_TURN_DETECTOR_MINI_WORKERS=1` for single-threaded runs, or another positive
 integer to tune local throughput.
