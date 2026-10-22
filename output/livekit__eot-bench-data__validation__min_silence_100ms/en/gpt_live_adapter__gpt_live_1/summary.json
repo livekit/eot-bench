@@ -1,0 +1,58 @@
+{
+  "harness_version": "0.1.0",
+  "span_set_id": "658fbba0ab37",
+  "model_run_id": "gpt_live_adapter__gpt_live_1",
+  "dataset": {
+    "path": "livekit/eot-bench-data",
+    "split": "validation",
+    "min_silence_span": 0.1,
+    "language": "en"
+  },
+  "load_dataset": {
+    "path": "livekit/eot-bench-data",
+    "name": "all",
+    "split": "validation"
+  },
+  "path": "livekit/eot-bench-data",
+  "name": "all",
+  "repo_id": "livekit/eot-bench-data",
+  "subset": "all",
+  "split": "validation",
+  "language": "en",
+  "min_silence_span": 0.1,
+  "adapter_id": "livekit-inference/openai/gpt-live-1",
+  "adapter": "eot_harness.gpt_live_adapter:GPTLiveAdapter",
+  "streaming": true,
+  "inference_interval": 0.1,
+  "concurrency": 16,
+  "n_dataset_rows": 400,
+  "n_scored_turns": 400,
+  "n_skipped_turns": 0,
+  "n_rows": 11191,
+  "n_spans": 1250,
+  "n_event_rows": 4952,
+  "total_audio_sec": 5040.900500000001,
+  "wall_clock_sec": 513.6617388329469,
+  "audio_x_realtime": 9.81365774186931,
+  "skip_errors": true,
+  "model": "openai/gpt-live-1",
+  "chunk_ms": 100,
+  "voice": "marin",
+  "instructions": "You are a helpful voice assistant on a phone call. Listen to the caller and reply when they have finished speaking. Keep replies brief.",
+  "post_audio_silence_s": 5.0,
+  "merge_gap_s": 0.4,
+  "voiced_cap_s": 2.0,
+  "display_name": "OpenAI GPT-Live",
+  "turn_taking": {
+    "n_turns": 400,
+    "interruption_rate": 0.01,
+    "reply_rate": 0.945,
+    "reply_overlap_rate": 0.1825,
+    "reply_offset_sec": {
+      "mean": 0.546,
+      "p10": -0.354,
+      "p50": 0.605,
+      "p90": 1.312
+    }
+  }
+}
