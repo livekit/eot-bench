@@ -69,6 +69,11 @@ MODEL_CONFIG: dict[str, dict] = {
     "Gradium": {"key": "gradium", "label": "Gradium", "colorToken": "chart10"},
     "VAP (silent agent)": {"key": "vap-silent-agent", "label": "VAP (silent agent)", "colorToken": "chart11"},
     "JoinIn AI Baton": {"key": "baton", "label": "JoinIn AI Baton", "colorToken": "chart12"},
+    "DuplexJev-32B-Para v1.2": {
+        "key": "duplexjev-32b-para",
+        "label": "DuplexJev-32B-Para v1.2",
+        "colorToken": "chart13",
+    },
 }
 
 # Silence-only VAD baseline. It is not a model directory — it lives as the

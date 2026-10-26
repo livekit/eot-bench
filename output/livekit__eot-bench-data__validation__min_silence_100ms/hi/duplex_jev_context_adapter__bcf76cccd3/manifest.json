@@ -1,0 +1,44 @@
+{
+  "harness_version": "0.1.0",
+  "span_set_id": "7946b309696d",
+  "model_run_id": "duplex_jev_context_adapter__bcf76cccd3",
+  "dataset": {
+    "path": "livekit/eot-bench-data",
+    "split": "validation",
+    "min_silence_span": 0.1,
+    "language": "hi"
+  },
+  "load_dataset": {
+    "path": "livekit/eot-bench-data",
+    "name": "hi",
+    "split": "validation"
+  },
+  "model": {
+    "adapter": "eot_bench.duplexjev_ctx_adapter:DuplexJevContextAdapter",
+    "adapter_id": "duplexjev-32b-para-v1.2",
+    "inference_interval": 0.1,
+    "transcript_lag": 0.5,
+    "display_name": "DuplexJev-32B-Para v1.2",
+    "max_audio_sec": 8.0,
+    "score_point": 0.2
+  },
+  "runtime": {
+    "batch_size": 96
+  },
+  "path": "livekit/eot-bench-data",
+  "name": "hi",
+  "repo_id": "livekit/eot-bench-data",
+  "subset": "hi",
+  "split": "validation",
+  "language": "hi",
+  "min_silence_span": 0.1,
+  "adapter_id": "duplexjev-32b-para-v1.2",
+  "adapter": "eot_bench.duplexjev_ctx_adapter:DuplexJevContextAdapter",
+  "batch_size": 96,
+  "inference_interval": 0.1,
+  "transcript_lag": 0.5,
+  "n_rows": 8212,
+  "n_spans": 1074,
+  "display_name": "DuplexJev-32B-Para v1.2",
+  "score_point": 0.2
+}

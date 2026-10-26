@@ -11,7 +11,7 @@
     "best_mean_latency_at_5pct_cutoff": "Best mean latency @ 5% cutoff",
     "best_mean_latency_at_10pct_cutoff": "Best mean latency @ 10% cutoff"
   },
-  "span_set_root": "output/livekit__eot-bench-data__validation__min_silence_100ms",
+  "span_set_root": "/sessions/rcw-017yfpy8humgnswflatfzdqc/eotb/output/livekit__eot-bench-data__validation__min_silence_100ms",
   "languages": [
     "ar",
     "de",
@@ -38,7 +38,9 @@
     "Soniox",
     "OpenAI GPT Realtime 2",
     "Cartesia Ink 2",
+    "DuplexJev-32B-Para v1.2",
     "Gradium",
+    "JoinIn AI Baton",
     "VAP (silent agent)",
     "VAD baseline"
   ],
@@ -54,7 +56,9 @@
         "Soniox": null,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.3470790378006873,
         "Gradium": 0.5481099656357389,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.5463917525773195,
         "VAD baseline": 0.5481099656357389
       },
@@ -68,7 +72,9 @@
         "Soniox": null,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.21317157712305027,
         "Gradium": 0.5355285961871751,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.5355285961871751,
         "VAD baseline": 0.5355285961871751
       },
@@ -82,7 +88,9 @@
         "Soniox": null,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.2,
         "Gradium": 0.5560283687943263,
+        "JoinIn AI Baton": 0.12340425531914893,
         "VAP (silent agent)": 0.4695035460992908,
         "VAD baseline": 0.5560283687943263
       },
@@ -96,7 +104,9 @@
         "Soniox": null,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.3343108504398827,
         "Gradium": 0.5894428152492669,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.5263929618768328,
         "VAD baseline": 0.5894428152492669
       },
@@ -110,7 +120,9 @@
         "Soniox": null,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.23118279569892472,
         "Gradium": 0.5663082437275986,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.5448028673835126,
         "VAD baseline": 0.5663082437275986
       },
@@ -124,7 +136,9 @@
         "Soniox": null,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.2971014492753623,
         "Gradium": 0.4945652173913043,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.4945652173913043,
         "VAD baseline": 0.4945652173913043
       },
@@ -138,7 +152,9 @@
         "Soniox": null,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.3190921228304406,
         "Gradium": 0.595460614152203,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.5527369826435247,
         "VAD baseline": 0.595460614152203
       },
@@ -152,7 +168,9 @@
         "Soniox": null,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.2863741339491917,
         "Gradium": 0.5496535796766744,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.5034642032332564,
         "VAD baseline": 0.5496535796766744
       },
@@ -166,7 +184,9 @@
         "Soniox": null,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.14121037463976946,
         "Gradium": 0.4884726224783862,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.4884726224783862,
         "VAD baseline": 0.4884726224783862
       },
@@ -180,7 +200,9 @@
         "Soniox": null,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.23821989528795812,
         "Gradium": 0.5863874345549738,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.43455497382198954,
         "VAD baseline": 0.5863874345549738
       },
@@ -194,7 +216,9 @@
         "Soniox": null,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.25279642058165547,
         "Gradium": 0.4966442953020134,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.4228187919463087,
         "VAD baseline": 0.4966442953020134
       },
@@ -208,7 +232,9 @@
         "Soniox": null,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.32457496136012365,
         "Gradium": 0.5425038639876353,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.5533230293663061,
         "VAD baseline": 0.598145285935085
       },
@@ -222,7 +248,9 @@
         "Soniox": null,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.2975206611570248,
         "Gradium": 0.48760330578512395,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.5041322314049587,
         "VAD baseline": 0.5564738292011019
       },
@@ -236,7 +264,9 @@
         "Soniox": null,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.37664473684210525,
         "Gradium": 0.5115131578947368,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.5115131578947368,
         "VAD baseline": 0.5115131578947368
       }
@@ -252,7 +282,9 @@
         "Soniox": 0.06013745704467354,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.11512027491408934,
         "Gradium": 0.140893470790378,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.14776632302405499,
         "VAD baseline": 0.14776632302405499
       },
@@ -266,7 +298,9 @@
         "Soniox": 0.060658578856152515,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.0831889081455806,
         "Gradium": 0.12998266897746968,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.21490467937608318,
         "VAD baseline": 0.21490467937608318
       },
@@ -280,7 +314,9 @@
         "Soniox": 0.05531914893617021,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.09361702127659574,
         "Gradium": 0.12624113475177304,
+        "JoinIn AI Baton": 0.04822695035460993,
         "VAP (silent agent)": 0.14609929078014183,
         "VAD baseline": 0.2170212765957447
       },
@@ -294,7 +330,9 @@
         "Soniox": 0.11436950146627566,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.13636363636363635,
         "Gradium": 0.15249266862170088,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.187683284457478,
         "VAD baseline": 0.24486803519061584
       },
@@ -308,7 +346,9 @@
         "Soniox": 0.03942652329749104,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.0913978494623656,
         "Gradium": 0.08243727598566308,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.16666666666666666,
         "VAD baseline": 0.18458781362007168
       },
@@ -322,7 +362,9 @@
         "Soniox": 0.034420289855072464,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.05253623188405797,
         "Gradium": 0.057971014492753624,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.07427536231884058,
         "VAD baseline": 0.07427536231884058
       },
@@ -336,7 +378,9 @@
         "Soniox": 0.10146862483311081,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.14018691588785046,
         "Gradium": 0.22296395193591456,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.18691588785046728,
         "VAD baseline": 0.22296395193591456
       },
@@ -350,7 +394,9 @@
         "Soniox": 0.07621247113163972,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.10854503464203233,
         "Gradium": 0.14318706697459585,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.15473441108545036,
         "VAD baseline": 0.20554272517321015
       },
@@ -364,7 +410,9 @@
         "Soniox": 0.06628242074927954,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.037463976945244955,
         "Gradium": 0.13544668587896252,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.10230547550432277,
         "VAD baseline": 0.17579250720461095
       },
@@ -378,7 +426,9 @@
         "Soniox": null,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.0968586387434555,
         "Gradium": 0.1518324607329843,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.11780104712041885,
         "VAD baseline": 0.1518324607329843
       },
@@ -392,7 +442,9 @@
         "Soniox": 0.06040268456375839,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.10514541387024609,
         "Gradium": 0.13870246085011187,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.13646532438478748,
         "VAD baseline": 0.17002237136465326
       },
@@ -406,7 +458,9 @@
         "Soniox": 0.06027820710973725,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.10819165378670788,
         "Gradium": 0.09582689335394126,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.1777434312210201,
         "VAD baseline": 0.1777434312210201
       },
@@ -420,7 +474,9 @@
         "Soniox": 0.09090909090909091,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.1322314049586777,
         "Gradium": 0.162534435261708,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.20385674931129477,
         "VAD baseline": 0.21763085399449036
       },
@@ -434,7 +490,9 @@
         "Soniox": 0.08717105263157894,
         "OpenAI GPT Realtime 2": null,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.12171052631578948,
         "Gradium": 0.15460526315789475,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.13486842105263158,
         "VAD baseline": 0.16282894736842105
       }
@@ -450,7 +508,9 @@
         "Soniox": 0.7125984251968503,
         "OpenAI GPT Realtime 2": 0.87304019160105,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.7999999999999999,
         "Gradium": 0.8404724409448819,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.8390139501312336,
         "VAD baseline": 0.9
       },
@@ -464,7 +524,9 @@
         "Soniox": 0.7683500000000001,
         "OpenAI GPT Realtime 2": 0.9817471900000001,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.8165,
         "Gradium": 0.8808731249999999,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 1.0681795299999999,
         "VAD baseline": 1.1
       },
@@ -478,7 +540,9 @@
         "Soniox": 0.647,
         "OpenAI GPT Realtime 2": 1.1425000000000003,
         "Cartesia Ink 2": 1.0565,
+        "DuplexJev-32B-Para v1.2": 0.82075,
         "Gradium": 0.91275,
+        "JoinIn AI Baton": 0.57675,
         "VAP (silent agent)": 1.131,
         "VAD baseline": 1.6
       },
@@ -492,7 +556,9 @@
         "Soniox": 0.7997500000000001,
         "OpenAI GPT Realtime 2": 1.04425,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.8812499999999999,
         "Gradium": 0.9339973475,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 1.0665990650000001,
         "VAD baseline": 1.2
       },
@@ -506,7 +572,9 @@
         "Soniox": 0.557,
         "OpenAI GPT Realtime 2": 0.8373075,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.8055,
         "Gradium": 0.7497629699999999,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.9171590575,
         "VAD baseline": 1.0
       },
@@ -520,7 +588,9 @@
         "Soniox": 0.5529245325000001,
         "OpenAI GPT Realtime 2": 0.640646095,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.6149999999999999,
         "Gradium": 0.6181798424999999,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.6545931300000001,
         "VAD baseline": 0.7
       },
@@ -534,7 +604,9 @@
         "Soniox": 0.9515151515151514,
         "OpenAI GPT Realtime 2": 0.9824763257575759,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.8818181818181818,
         "Gradium": 1.042415563131313,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 1.009090909090909,
         "VAD baseline": 1.1
       },
@@ -548,7 +620,9 @@
         "Soniox": 0.85075,
         "OpenAI GPT Realtime 2": 1.0093360925000001,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.866,
         "Gradium": 0.9345882799999999,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 1.0117310925,
         "VAD baseline": 1.1
       },
@@ -562,7 +636,9 @@
         "Soniox": 0.7921348314606742,
         "OpenAI GPT Realtime 2": 0.7358923735955055,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.5438202247191012,
         "Gradium": 0.9029385533707863,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.7963423398876405,
         "VAD baseline": 1.2
       },
@@ -576,7 +652,9 @@
         "Soniox": 0.7864721485411139,
         "OpenAI GPT Realtime 2": 0.8235739389920422,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.7000000000000001,
         "Gradium": 0.830238726790451,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.8002194933687001,
         "VAD baseline": 0.9
       },
@@ -590,7 +668,9 @@
         "Soniox": 0.70575,
         "OpenAI GPT Realtime 2": 0.9123967225000001,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.7619999999999999,
         "Gradium": 0.91295625,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.8836904675000001,
         "VAD baseline": 1.1
       },
@@ -604,7 +684,9 @@
         "Soniox": 0.7015,
         "OpenAI GPT Realtime 2": 0.8876037500000001,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.804,
         "Gradium": 0.72770516,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.8986775025,
         "VAD baseline": 1.0
       },
@@ -618,7 +700,9 @@
         "Soniox": 0.9134999999999998,
         "OpenAI GPT Realtime 2": 1.0940367175,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.9525000000000002,
         "Gradium": 1.13714,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 1.120094525,
         "VAD baseline": 1.2
       },
@@ -632,7 +716,9 @@
         "Soniox": 0.8864645726744186,
         "OpenAI GPT Realtime 2": 0.9413650087209304,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.9526162790697674,
         "Gradium": 1.0116279069767442,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.9414989040697673,
         "VAD baseline": 1.1
       }
@@ -648,7 +734,9 @@
         "Soniox": 0.4887823175853019,
         "OpenAI GPT Realtime 2": 0.6822967585301836,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.6409448818897636,
         "Gradium": 0.6427693569553806,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.6776998031496061,
         "VAD baseline": 0.7
       },
@@ -662,7 +750,9 @@
         "Soniox": 0.46302171999999997,
         "OpenAI GPT Realtime 2": 0.6961809375,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.54,
         "Gradium": 0.679712345,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.7948159425,
         "VAD baseline": 0.8
       },
@@ -676,7 +766,9 @@
         "Soniox": 0.512,
         "OpenAI GPT Realtime 2": 0.8244999999999999,
         "Cartesia Ink 2": 0.91125,
+        "DuplexJev-32B-Para v1.2": 0.5690000000000001,
         "Gradium": 0.65625,
+        "JoinIn AI Baton": 0.34950000000000003,
         "VAP (silent agent)": 0.7490000000000001,
         "VAD baseline": 1.0
       },
@@ -690,7 +782,9 @@
         "Soniox": 0.6109095325,
         "OpenAI GPT Realtime 2": 0.7546489049999999,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.685,
         "Gradium": 0.7089318775,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.8407239099999998,
         "VAD baseline": 1.0
       },
@@ -704,7 +798,9 @@
         "Soniox": 0.46275000000000005,
         "OpenAI GPT Realtime 2": 0.6520365625,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.575,
         "Gradium": 0.5626825,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.7150759374999999,
         "VAD baseline": 0.8
       },
@@ -718,7 +814,9 @@
         "Soniox": 0.5529245325000001,
         "OpenAI GPT Realtime 2": 0.640646095,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.51,
         "Gradium": 0.529618905,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.538922345,
         "VAD baseline": 0.6
       },
@@ -732,7 +830,9 @@
         "Soniox": 0.6007575757575758,
         "OpenAI GPT Realtime 2": 0.7534870606060607,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.7121212121212122,
         "Gradium": 0.7831130050505051,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.7749646439393939,
         "VAD baseline": 0.8
       },
@@ -746,7 +846,9 @@
         "Soniox": 0.47265874999999996,
         "OpenAI GPT Realtime 2": 0.7505031249999999,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.64875,
         "Gradium": 0.6964400000000001,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.71756797,
         "VAD baseline": 0.9
       },
@@ -760,7 +862,9 @@
         "Soniox": 0.5828651685393258,
         "OpenAI GPT Realtime 2": 0.6720821573033707,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.37640449438202245,
         "Gradium": 0.6709752443820224,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.6188086292134831,
         "VAD baseline": 0.9
       },
@@ -774,7 +878,9 @@
         "Soniox": 0.6147790132625995,
         "OpenAI GPT Realtime 2": 0.6675809045092838,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.5769230769230769,
         "Gradium": 0.6854466180371352,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.6422080583554375,
         "VAD baseline": 0.7
       },
@@ -788,7 +894,9 @@
         "Soniox": 0.45108750000000003,
         "OpenAI GPT Realtime 2": 0.7425142199999999,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.62025,
         "Gradium": 0.67885875,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.6841354675,
         "VAD baseline": 0.8
       },
@@ -802,7 +910,9 @@
         "Soniox": 0.4534557825,
         "OpenAI GPT Realtime 2": 0.7494207799999998,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.634,
         "Gradium": 0.596321095,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.7306740625,
         "VAD baseline": 0.8
       },
@@ -816,7 +926,9 @@
         "Soniox": 0.58362,
         "OpenAI GPT Realtime 2": 0.8768564075,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.72925,
         "Gradium": 0.7676815649999998,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.818770315,
         "VAD baseline": 0.9
       },
@@ -830,13 +942,26 @@
         "Soniox": 0.5476491656976745,
         "OpenAI GPT Realtime 2": 0.6657623488372093,
         "Cartesia Ink 2": null,
+        "DuplexJev-32B-Para v1.2": 0.6604651162790697,
         "Gradium": 0.7475993837209303,
+        "JoinIn AI Baton": null,
         "VAP (silent agent)": 0.6887149389534883,
         "VAD baseline": 0.8
       }
     }
   },
   "rows": [
+    {
+      "language": "ar",
+      "model": "DuplexJev-32B-Para v1.2",
+      "best_cutoff_rate_at_0_3s_latency": 0.3470790378006873,
+      "best_cutoff_rate_at_0_6s_latency": 0.11512027491408934,
+      "best_mean_latency_at_5pct_cutoff": 0.7999999999999999,
+      "best_mean_latency_at_10pct_cutoff": 0.6409448818897636,
+      "run_dir": "ar/duplex_jev_context_adapter__bcf76cccd3",
+      "metrics_dir": "ar/duplex_jev_context_adapter__bcf76cccd3/metrics",
+      "n_spans": 963
+    },
     {
       "language": "ar",
       "model": "Gradium",
@@ -960,6 +1085,17 @@
     },
     {
       "language": "de",
+      "model": "DuplexJev-32B-Para v1.2",
+      "best_cutoff_rate_at_0_3s_latency": 0.21317157712305027,
+      "best_cutoff_rate_at_0_6s_latency": 0.0831889081455806,
+      "best_mean_latency_at_5pct_cutoff": 0.8165,
+      "best_mean_latency_at_10pct_cutoff": 0.54,
+      "run_dir": "de/duplex_jev_context_adapter__bcf76cccd3",
+      "metrics_dir": "de/duplex_jev_context_adapter__bcf76cccd3/metrics",
+      "n_spans": 977
+    },
+    {
+      "language": "de",
       "model": "Gradium",
       "best_cutoff_rate_at_0_3s_latency": 0.5355285961871751,
       "best_cutoff_rate_at_0_6s_latency": 0.12998266897746968,
@@ -1070,6 +1206,17 @@
     },
     {
       "language": "en",
+      "model": "JoinIn AI Baton",
+      "best_cutoff_rate_at_0_3s_latency": 0.12340425531914893,
+      "best_cutoff_rate_at_0_6s_latency": 0.04822695035460993,
+      "best_mean_latency_at_5pct_cutoff": 0.57675,
+      "best_mean_latency_at_10pct_cutoff": 0.34950000000000003,
+      "run_dir": "en/baton_adapter__baton_v1",
+      "metrics_dir": "en/baton_adapter__baton_v1/metrics",
+      "n_spans": 1105
+    },
+    {
+      "language": "en",
       "model": "Cartesia Ink 2",
       "best_cutoff_rate_at_0_3s_latency": null,
       "best_cutoff_rate_at_0_6s_latency": null,
@@ -1088,6 +1235,17 @@
       "best_mean_latency_at_10pct_cutoff": 0.54775,
       "run_dir": "en/deepgram_flux_streaming_adapter__flux_general_multi",
       "metrics_dir": "en/deepgram_flux_streaming_adapter__flux_general_multi/metrics",
+      "n_spans": 1105
+    },
+    {
+      "language": "en",
+      "model": "DuplexJev-32B-Para v1.2",
+      "best_cutoff_rate_at_0_3s_latency": 0.2,
+      "best_cutoff_rate_at_0_6s_latency": 0.09361702127659574,
+      "best_mean_latency_at_5pct_cutoff": 0.82075,
+      "best_mean_latency_at_10pct_cutoff": 0.5690000000000001,
+      "run_dir": "en/duplex_jev_context_adapter__bcf76cccd3",
+      "metrics_dir": "en/duplex_jev_context_adapter__bcf76cccd3/metrics",
       "n_spans": 1105
     },
     {
@@ -1213,6 +1371,17 @@
     },
     {
       "language": "es",
+      "model": "DuplexJev-32B-Para v1.2",
+      "best_cutoff_rate_at_0_3s_latency": 0.3343108504398827,
+      "best_cutoff_rate_at_0_6s_latency": 0.13636363636363635,
+      "best_mean_latency_at_5pct_cutoff": 0.8812499999999999,
+      "best_mean_latency_at_10pct_cutoff": 0.685,
+      "run_dir": "es/duplex_jev_context_adapter__bcf76cccd3",
+      "metrics_dir": "es/duplex_jev_context_adapter__bcf76cccd3/metrics",
+      "n_spans": 1082
+    },
+    {
+      "language": "es",
       "model": "Gradium",
       "best_cutoff_rate_at_0_3s_latency": 0.5894428152492669,
       "best_cutoff_rate_at_0_6s_latency": 0.15249266862170088,
@@ -1334,6 +1503,17 @@
     },
     {
       "language": "fr",
+      "model": "DuplexJev-32B-Para v1.2",
+      "best_cutoff_rate_at_0_3s_latency": 0.23118279569892472,
+      "best_cutoff_rate_at_0_6s_latency": 0.0913978494623656,
+      "best_mean_latency_at_5pct_cutoff": 0.8055,
+      "best_mean_latency_at_10pct_cutoff": 0.575,
+      "run_dir": "fr/duplex_jev_context_adapter__bcf76cccd3",
+      "metrics_dir": "fr/duplex_jev_context_adapter__bcf76cccd3/metrics",
+      "n_spans": 958
+    },
+    {
+      "language": "fr",
       "model": "Gradium",
       "best_cutoff_rate_at_0_3s_latency": 0.5663082437275986,
       "best_cutoff_rate_at_0_6s_latency": 0.08243727598566308,
@@ -1444,6 +1624,17 @@
     },
     {
       "language": "hi",
+      "model": "DuplexJev-32B-Para v1.2",
+      "best_cutoff_rate_at_0_3s_latency": 0.2971014492753623,
+      "best_cutoff_rate_at_0_6s_latency": 0.05253623188405797,
+      "best_mean_latency_at_5pct_cutoff": 0.6149999999999999,
+      "best_mean_latency_at_10pct_cutoff": 0.51,
+      "run_dir": "hi/duplex_jev_context_adapter__bcf76cccd3",
+      "metrics_dir": "hi/duplex_jev_context_adapter__bcf76cccd3/metrics",
+      "n_spans": 952
+    },
+    {
+      "language": "hi",
       "model": "Gradium",
       "best_cutoff_rate_at_0_3s_latency": 0.4945652173913043,
       "best_cutoff_rate_at_0_6s_latency": 0.057971014492753624,
@@ -1540,6 +1731,17 @@
       "run_dir": null,
       "metrics_dir": null,
       "n_spans": 1074
+    },
+    {
+      "language": "id",
+      "model": "DuplexJev-32B-Para v1.2",
+      "best_cutoff_rate_at_0_3s_latency": 0.3190921228304406,
+      "best_cutoff_rate_at_0_6s_latency": 0.14018691588785046,
+      "best_mean_latency_at_5pct_cutoff": 0.8818181818181818,
+      "best_mean_latency_at_10pct_cutoff": 0.7121212121212122,
+      "run_dir": "id/duplex_jev_context_adapter__bcf76cccd3",
+      "metrics_dir": "id/duplex_jev_context_adapter__bcf76cccd3/metrics",
+      "n_spans": 1145
     },
     {
       "language": "id",
@@ -1664,6 +1866,17 @@
     },
     {
       "language": "it",
+      "model": "DuplexJev-32B-Para v1.2",
+      "best_cutoff_rate_at_0_3s_latency": 0.2863741339491917,
+      "best_cutoff_rate_at_0_6s_latency": 0.10854503464203233,
+      "best_mean_latency_at_5pct_cutoff": 0.866,
+      "best_mean_latency_at_10pct_cutoff": 0.64875,
+      "run_dir": "it/duplex_jev_context_adapter__bcf76cccd3",
+      "metrics_dir": "it/duplex_jev_context_adapter__bcf76cccd3/metrics",
+      "n_spans": 833
+    },
+    {
+      "language": "it",
       "model": "Gradium",
       "best_cutoff_rate_at_0_3s_latency": 0.5496535796766744,
       "best_cutoff_rate_at_0_6s_latency": 0.14318706697459585,
@@ -1774,6 +1987,17 @@
     },
     {
       "language": "ja",
+      "model": "DuplexJev-32B-Para v1.2",
+      "best_cutoff_rate_at_0_3s_latency": 0.14121037463976946,
+      "best_cutoff_rate_at_0_6s_latency": 0.037463976945244955,
+      "best_mean_latency_at_5pct_cutoff": 0.5438202247191012,
+      "best_mean_latency_at_10pct_cutoff": 0.37640449438202245,
+      "run_dir": "ja/duplex_jev_context_adapter__bcf76cccd3",
+      "metrics_dir": "ja/duplex_jev_context_adapter__bcf76cccd3/metrics",
+      "n_spans": 1050
+    },
+    {
+      "language": "ja",
       "model": "Gradium",
       "best_cutoff_rate_at_0_3s_latency": 0.4884726224783862,
       "best_cutoff_rate_at_0_6s_latency": 0.13544668587896252,
@@ -1870,6 +2094,17 @@
       "run_dir": null,
       "metrics_dir": null,
       "n_spans": 1230
+    },
+    {
+      "language": "ko",
+      "model": "DuplexJev-32B-Para v1.2",
+      "best_cutoff_rate_at_0_3s_latency": 0.23821989528795812,
+      "best_cutoff_rate_at_0_6s_latency": 0.0968586387434555,
+      "best_mean_latency_at_5pct_cutoff": 0.7000000000000001,
+      "best_mean_latency_at_10pct_cutoff": 0.5769230769230769,
+      "run_dir": "ko/duplex_jev_context_adapter__bcf76cccd3",
+      "metrics_dir": "ko/duplex_jev_context_adapter__bcf76cccd3/metrics",
+      "n_spans": 759
     },
     {
       "language": "ko",
@@ -1979,6 +2214,17 @@
       "best_mean_latency_at_10pct_cutoff": 0.48494578000000005,
       "run_dir": "nl/deepgram_flux_streaming_adapter__flux_general_multi",
       "metrics_dir": "nl/deepgram_flux_streaming_adapter__flux_general_multi/metrics",
+      "n_spans": 847
+    },
+    {
+      "language": "nl",
+      "model": "DuplexJev-32B-Para v1.2",
+      "best_cutoff_rate_at_0_3s_latency": 0.25279642058165547,
+      "best_cutoff_rate_at_0_6s_latency": 0.10514541387024609,
+      "best_mean_latency_at_5pct_cutoff": 0.7619999999999999,
+      "best_mean_latency_at_10pct_cutoff": 0.62025,
+      "run_dir": "nl/duplex_jev_context_adapter__bcf76cccd3",
+      "metrics_dir": "nl/duplex_jev_context_adapter__bcf76cccd3/metrics",
       "n_spans": 847
     },
     {
@@ -2104,6 +2350,17 @@
     },
     {
       "language": "pt",
+      "model": "DuplexJev-32B-Para v1.2",
+      "best_cutoff_rate_at_0_3s_latency": 0.32457496136012365,
+      "best_cutoff_rate_at_0_6s_latency": 0.10819165378670788,
+      "best_mean_latency_at_5pct_cutoff": 0.804,
+      "best_mean_latency_at_10pct_cutoff": 0.634,
+      "run_dir": "pt/duplex_jev_context_adapter__bcf76cccd3",
+      "metrics_dir": "pt/duplex_jev_context_adapter__bcf76cccd3/metrics",
+      "n_spans": 1047
+    },
+    {
+      "language": "pt",
       "model": "Gradium",
       "best_cutoff_rate_at_0_3s_latency": 0.5425038639876353,
       "best_cutoff_rate_at_0_6s_latency": 0.09582689335394126,
@@ -2203,6 +2460,17 @@
     },
     {
       "language": "tr",
+      "model": "DuplexJev-32B-Para v1.2",
+      "best_cutoff_rate_at_0_3s_latency": 0.2975206611570248,
+      "best_cutoff_rate_at_0_6s_latency": 0.1322314049586777,
+      "best_mean_latency_at_5pct_cutoff": 0.9525000000000002,
+      "best_mean_latency_at_10pct_cutoff": 0.72925,
+      "run_dir": "tr/duplex_jev_context_adapter__bcf76cccd3",
+      "metrics_dir": "tr/duplex_jev_context_adapter__bcf76cccd3/metrics",
+      "n_spans": 763
+    },
+    {
+      "language": "tr",
       "model": "Gradium",
       "best_cutoff_rate_at_0_3s_latency": 0.48760330578512395,
       "best_cutoff_rate_at_0_6s_latency": 0.162534435261708,
@@ -2299,6 +2567,17 @@
       "run_dir": null,
       "metrics_dir": null,
       "n_spans": 834
+    },
+    {
+      "language": "zh",
+      "model": "DuplexJev-32B-Para v1.2",
+      "best_cutoff_rate_at_0_3s_latency": 0.37664473684210525,
+      "best_cutoff_rate_at_0_6s_latency": 0.12171052631578948,
+      "best_mean_latency_at_5pct_cutoff": 0.9526162790697674,
+      "best_mean_latency_at_10pct_cutoff": 0.6604651162790697,
+      "run_dir": "zh/duplex_jev_context_adapter__bcf76cccd3",
+      "metrics_dir": "zh/duplex_jev_context_adapter__bcf76cccd3/metrics",
+      "n_spans": 952
     },
     {
       "language": "zh",

@@ -13,6 +13,7 @@
 | LiveKit Turn Detector v1 | **15.5%** | **6.0%** |
 | Soniox | - | 11.4% |
 | Deepgram Flux | 16.4% | 8.7% |
+| DuplexJev-32B-Para v1.2 | 33.4% | 13.6% |
 | LiveKit Turn Detector v1-mini | 26.0% | 12.2% |
 | Gradium | 58.9% | 15.2% |
 | SmartTurn v3.2 | 38.7% | 17.3% |
@@ -31,6 +32,7 @@
 | LiveKit Turn Detector v1 | **642 ms** | **438 ms** |
 | Soniox | 800 ms | 611 ms |
 | Deepgram Flux | 820 ms | 536 ms |
+| DuplexJev-32B-Para v1.2 | 881 ms | 685 ms |
 | LiveKit Turn Detector v1-mini | 926 ms | 667 ms |
 | Gradium | 934 ms | 709 ms |
 | SmartTurn v3.2 | 980 ms | 769 ms |
@@ -47,6 +49,7 @@
 | Cutoff | 5.0% | LiveKit Turn Detector v1 | 0.642 | 4.8% | 90.5% | 0.610 | 0.500 | 2.000 |
 | Cutoff | 5.0% | Soniox | 0.800 | 5.0% | 75.8% | 0.990 | 0.400 | 2.000 |
 | Cutoff | 5.0% | Deepgram Flux | 0.820 | 4.8% | 98.5% | 0.660 | 0.800 | 2.000 |
+| Cutoff | 5.0% | DuplexJev-32B-Para v1.2 | 0.881 | 5.0% | 68.8% | 0.670 | 0.600 | 1.500 |
 | Cutoff | 5.0% | LiveKit Turn Detector v1-mini | 0.926 | 5.0% | 89.5% | 0.360 | 0.800 | 2.000 |
 | Cutoff | 5.0% | Gradium | 0.934 | 4.8% | 75.8% | 0.650 | 0.200 | 1.500 |
 | Cutoff | 5.0% | SmartTurn v3.2 | 0.980 | 5.0% | 85.0% | 0.770 | 0.800 | 2.000 |
@@ -57,6 +60,7 @@
 | Cutoff | 10.0% | LiveKit Turn Detector v1 | 0.439 | 10.0% | 86.8% | 0.710 | 0.200 | 2.000 |
 | Cutoff | 10.0% | Soniox | 0.611 | 7.5% | 75.8% | 0.990 | 0.200 | 1.500 |
 | Cutoff | 10.0% | Deepgram Flux | 0.536 | 9.8% | 98.5% | 0.700 | 0.500 | 1.500 |
+| Cutoff | 10.0% | DuplexJev-32B-Para v1.2 | 0.685 | 9.2% | 81.5% | 0.500 | 0.500 | 1.500 |
 | Cutoff | 10.0% | LiveKit Turn Detector v1-mini | 0.667 | 10.0% | 92.5% | 0.330 | 0.600 | 1.500 |
 | Cutoff | 10.0% | Gradium | 0.709 | 10.0% | 91.5% | 0.380 | 0.500 | 1.500 |
 | Cutoff | 10.0% | SmartTurn v3.2 | 0.769 | 9.8% | 81.2% | 0.870 | 0.600 | 1.500 |
@@ -67,6 +71,7 @@
 | Latency | 300ms | LiveKit Turn Detector v1 | 0.297 | 15.5% | 92.5% | 0.540 | 0.200 | 1.500 |
 | Latency | 300ms | Soniox | - | - | - | - | - | - |
 | Latency | 300ms | Deepgram Flux | 0.300 | 16.4% | 98.5% | 0.610 | 0.200 | 2.000 |
+| Latency | 300ms | DuplexJev-32B-Para v1.2 | 0.292 | 33.4% | 88.5% | 0.370 | 0.200 | 1.000 |
 | Latency | 300ms | LiveKit Turn Detector v1-mini | 0.297 | 26.0% | 92.5% | 0.330 | 0.200 | 1.500 |
 | Latency | 300ms | Gradium | 0.300 | 58.9% | 100.0% | 0.000 | 0.300 | 1.000 |
 | Latency | 300ms | SmartTurn v3.2 | 0.298 | 38.7% | 87.8% | 0.650 | 0.200 | 1.000 |
@@ -77,6 +82,7 @@
 | Latency | 600ms | LiveKit Turn Detector v1 | 0.588 | 6.0% | 88.2% | 0.670 | 0.400 | 2.000 |
 | Latency | 600ms | Soniox | 0.557 | 11.4% | 75.8% | 0.990 | 0.400 | 1.000 |
 | Latency | 600ms | Deepgram Flux | 0.543 | 8.7% | 98.5% | 0.700 | 0.500 | 2.000 |
+| Latency | 600ms | DuplexJev-32B-Para v1.2 | 0.598 | 13.6% | 90.2% | 0.340 | 0.500 | 1.500 |
 | Latency | 600ms | LiveKit Turn Detector v1-mini | 0.595 | 12.2% | 90.5% | 0.350 | 0.500 | 1.500 |
 | Latency | 600ms | Gradium | 0.599 | 15.2% | 93.8% | 0.250 | 0.400 | 1.000 |
 | Latency | 600ms | SmartTurn v3.2 | 0.594 | 17.3% | 81.2% | 0.870 | 0.500 | 1.000 |

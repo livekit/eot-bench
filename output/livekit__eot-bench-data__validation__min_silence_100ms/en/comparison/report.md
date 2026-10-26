@@ -13,6 +13,7 @@
 | LiveKit Turn Detector v1 | **9.9%** | **4.5%** |
 | JoinIn AI Baton | 12.3% | 4.8% |
 | Soniox | - | 5.5% |
+| DuplexJev-32B-Para v1.2 | 20.0% | 9.4% |
 | ultraVAD | 27.7% | 11.9% |
 | Gradium | 55.6% | 12.6% |
 | AssemblyAI | 49.4% | 14.6% |
@@ -33,6 +34,7 @@
 | LiveKit Turn Detector v1 | **543 ms** | **295 ms** |
 | JoinIn AI Baton | 577 ms | 350 ms |
 | Soniox | 647 ms | 512 ms |
+| DuplexJev-32B-Para v1.2 | 821 ms | 569 ms |
 | ultraVAD | 899 ms | 663 ms |
 | Gradium | 913 ms | 656 ms |
 | AssemblyAI | 1049 ms | 713 ms |
@@ -51,6 +53,7 @@
 | Cutoff | 5.0% | LiveKit Turn Detector v1 | 0.543 | 5.0% | 91.0% | 0.720 | 0.300 | 3.000 |
 | Cutoff | 5.0% | JoinIn AI Baton | 0.577 | 4.8% | 89.8% | 0.760 | 0.300 | 3.000 |
 | Cutoff | 5.0% | Soniox | 0.647 | 4.7% | 86.5% | 0.990 | 0.200 | 2.500 |
+| Cutoff | 5.0% | DuplexJev-32B-Para v1.2 | 0.821 | 5.0% | 94.8% | 0.240 | 0.700 | 3.000 |
 | Cutoff | 5.0% | ultraVAD | 0.899 | 4.7% | 95.5% | 0.140 | 0.800 | 3.000 |
 | Cutoff | 5.0% | Gradium | 0.913 | 5.0% | 90.0% | 0.560 | 0.600 | 2.000 |
 | Cutoff | 5.0% | AssemblyAI | 1.049 | 4.7% | 93.5% | 0.560 | 0.900 | 3.000 |
@@ -63,6 +66,7 @@
 | Cutoff | 10.0% | LiveKit Turn Detector v1 | 0.295 | 9.9% | 94.8% | 0.570 | 0.200 | 2.000 |
 | Cutoff | 10.0% | JoinIn AI Baton | 0.350 | 9.4% | 93.5% | 0.630 | 0.200 | 2.500 |
 | Cutoff | 10.0% | Soniox | 0.512 | 8.1% | 86.5% | 0.990 | 0.200 | 1.500 |
+| Cutoff | 10.0% | DuplexJev-32B-Para v1.2 | 0.569 | 9.8% | 93.5% | 0.260 | 0.400 | 3.000 |
 | Cutoff | 10.0% | ultraVAD | 0.663 | 9.8% | 95.5% | 0.140 | 0.600 | 2.000 |
 | Cutoff | 10.0% | Gradium | 0.656 | 9.9% | 99.5% | 0.310 | 0.400 | 2.500 |
 | Cutoff | 10.0% | AssemblyAI | 0.713 | 9.8% | 96.2% | 0.210 | 0.600 | 2.500 |
@@ -75,6 +79,7 @@
 | Latency | 300ms | LiveKit Turn Detector v1 | 0.295 | 9.9% | 94.8% | 0.570 | 0.200 | 2.000 |
 | Latency | 300ms | JoinIn AI Baton | 0.299 | 12.3% | 94.5% | 0.530 | 0.200 | 2.000 |
 | Latency | 300ms | Soniox | - | - | - | - | - | - |
+| Latency | 300ms | DuplexJev-32B-Para v1.2 | 0.295 | 20.0% | 94.8% | 0.240 | 0.200 | 2.000 |
 | Latency | 300ms | ultraVAD | 0.300 | 27.7% | 87.5% | 0.280 | 0.200 | 1.000 |
 | Latency | 300ms | Gradium | 0.300 | 55.6% | 100.0% | 0.000 | 0.300 | 1.000 |
 | Latency | 300ms | AssemblyAI | 0.296 | 49.4% | 97.5% | 0.000 | 0.200 | 1.000 |
@@ -87,6 +92,7 @@
 | Latency | 600ms | LiveKit Turn Detector v1 | 0.588 | 4.5% | 91.0% | 0.720 | 0.300 | 3.500 |
 | Latency | 600ms | JoinIn AI Baton | 0.577 | 4.8% | 89.8% | 0.760 | 0.300 | 3.000 |
 | Latency | 600ms | Soniox | 0.580 | 5.5% | 86.5% | 0.990 | 0.200 | 2.000 |
+| Latency | 600ms | DuplexJev-32B-Para v1.2 | 0.590 | 9.4% | 95.5% | 0.220 | 0.500 | 2.500 |
 | Latency | 600ms | ultraVAD | 0.590 | 11.9% | 95.5% | 0.140 | 0.500 | 2.500 |
 | Latency | 600ms | Gradium | 0.600 | 12.6% | 99.8% | 0.200 | 0.500 | 2.500 |
 | Latency | 600ms | AssemblyAI | 0.595 | 14.6% | 97.0% | 0.020 | 0.500 | 2.000 |
