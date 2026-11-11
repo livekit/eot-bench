@@ -1,0 +1,25 @@
+eot_harness/modal_runner.py
+  s_e63007a00312bf::t_1f3f3e69b62a74 35,78,97,108-133,162-166,172
+README.md
+  s_e63007a00312bf::t_9a151fc9192143 79,82,279,743-747,750-752,775-783,798
+eot_harness/p99lab_turn_adapter.py
+  s_e63007a00312bf::t_a15bf346c0ed66 6,9,11-12,21-22,31,63,83,93-95,99,106
+tests/test_p99lab_turn_adapter.py
+  s_e63007a00312bf::t_17a1645dab5db6 50,94,99-113
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "7559ad5fd7e916022e244d0d2b7ac792b7f0894f",
+  "prompts": {},
+  "sessions": {
+    "s_e63007a00312bf": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "6cbed966-f700-4a4c-996e-8220a634557c",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Chenghao Mou <chenghao.mou@livekit.io>"
+    }
+  }
+}
