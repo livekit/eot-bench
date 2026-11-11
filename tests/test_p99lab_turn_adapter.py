@@ -47,7 +47,7 @@ def _item(n, messages=None, channels=1, sample_rate=16_000):
 def test_turn1_reads_only_the_last_assistant_message(turn1) -> None:
     adapter = P99LabTurn1Adapter()
     assert adapter.display_name == "p99lab turn-1"
-    assert adapter.adapter_id == "p99lab/turn-1"
+    assert adapter.adapter_id == f"p99lab/turn-1-{p99lab_turn_adapter.DEFAULT_TURN1_REVISION}"
     assert adapter.max_audio_sec == 8.0
     assert getattr(adapter, "score_point", None) is None
 
@@ -91,16 +91,23 @@ def test_adapters_declare_english_only(turn1, turn1_mini) -> None:
         assert not adapter.supports_language("de")
 
 
-def test_other_sample_rates_are_resampled_to_16k(monkeypatch, turn1_mini) -> None:
-    seen = []
-
-    def resample(array, *, sample_rate):
-        seen.append((len(array), sample_rate))
-        return np.zeros(len(array) * 2, dtype=np.float32)
-
-    monkeypatch.setattr(p99lab_turn_adapter, "_resample_audio", resample)
+def test_other_sample_rates_are_resampled_to_16k(turn1_mini) -> None:
     adapter = P99LabTurn1MiniAdapter()
     adapter.predict_batch([_item(800, sample_rate=8_000)])
 
-    assert seen == [(800, 8_000)]
     assert turn1_mini.calls[0].shape == (1600,)
+    assert turn1_mini.calls[0].dtype == np.float32
+
+
+def test_loaders_pass_the_pinned_model_id_and_revision(monkeypatch) -> None:
+    seen = []
+    monkeypatch.setattr(p99lab_turn_adapter, "_load_turn1", lambda **kwargs: seen.append(kwargs))
+    monkeypatch.setattr(p99lab_turn_adapter, "_load_turn1_mini", lambda **kwargs: seen.append(kwargs))
+
+    P99LabTurn1Adapter()
+    P99LabTurn1MiniAdapter()
+
+    assert seen == [
+        {"model_id": "p99lab/turn-1", "revision": p99lab_turn_adapter.DEFAULT_TURN1_REVISION, "device": None},
+        {"model_id": "p99lab/turn-1-mini", "revision": p99lab_turn_adapter.DEFAULT_TURN1_MINI_REVISION, "device": None},
+    ]

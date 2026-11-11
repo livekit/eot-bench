@@ -76,10 +76,10 @@ latency budget (best first). Lower is better on every metric:
 | Model | False cutoffs @ 300 ms | False cutoffs @ 600 ms | Latency @ 5% cutoff | Latency @ 10% cutoff |
 | --- | ---: | ---: | ---: | ---: |
 | **LiveKit Turn Detector v1** | **9.9%** | **4.5%** | **543 ms** | **295 ms** |
-| p99lab turn-1 | 10.6% | 4.5% | 553 ms | 322 ms |
+| p99lab turn-1 | 10.6% | 4.5% | 553 ms | 321 ms |
 | JoinIn AI Baton | 12.3% | 4.8% | 577 ms | 350 ms |
 | Deepgram Flux | 12.9% | 9.9% | 1151 ms | 548 ms |
-| p99lab turn-1-mini | 22.6% | 9.6% | 849 ms | 581 ms |
+| p99lab turn-1-mini | 22.6% | 9.6% | 849 ms | 580 ms |
 | ultraVAD | 27.7% | 11.9% | 899 ms | 663 ms |
 | LiveKit Turn Detector v1-mini | 27.8% | 12.1% | 1070 ms | 698 ms |
 | SmartTurn v3.2 | 35.2% | 14.8% | 1051 ms | 739 ms |
@@ -276,7 +276,7 @@ python -m pip install -e ".[dev]"
 Runtime dependencies cover the core harness, Hugging Face dataset I/O, the
 Modal runner, plotting, and the Deepgram streaming client. `requirements.txt`
 mirrors those runtime dependencies for environments that prefer requirements
-files. The local LiveKit, Smart Turn, UltraVAD, and VAP model adapters import heavier
+files. The local LiveKit, Smart Turn, UltraVAD, VAP, and p99lab model adapters import heavier
 model runtimes lazily, such as `livekit-local-inference`, `transformers`,
 `onnxruntime`, `torch`, and `torchaudio`. Install those separately for local
 model runs, or use the Modal runner presets, which build images with the needed
@@ -740,11 +740,16 @@ their own repositories). It uses up to 8 seconds of recent audio
 and the last assistant message from `messages`, never the words of the turn
 under judgement. It runs in float32; use a CUDA GPU with 20 GB.
 
-Install the model packages and run English predictions:
+Both adapters pin the Hugging Face revision of the weights they load. The
+turn-1-mini pin is v1.2.3; later revisions of that repository add a v2.0.0
+model that this adapter does not score.
+
+Install the model packages at the same revisions and run English predictions:
 
 ```bash
-python -m pip install "p99turn[torch] @ https://huggingface.co/p99lab/turn-1-mini/resolve/main/dist/p99turn-1.2.3-py3-none-any.whl"
-python -m pip install "p99turn1 @ https://huggingface.co/p99lab/turn-1/resolve/main/dist/p99turn1-1.0.0-py3-none-any.whl"
+python -m pip install "p99turn[torch] @ https://huggingface.co/p99lab/turn-1-mini/resolve/22bcc75c9857d664ede4811cf3dfaa46be7c4376/dist/p99turn-1.2.3-py3-none-any.whl#sha256=4cb4802e04ae8b013f14499d858024a59ec40cc9d36db8b8c49155d623b7e273"
+python -m pip install "p99turn1 @ https://huggingface.co/p99lab/turn-1/resolve/41f0273746c893187e687ef5a3e423830afbdd59/dist/p99turn1-1.0.0-py3-none-any.whl#sha256=d46de9162affb1bc8586675c1935e182184bf97caaec480d0602ba4b315af660"
+python -m pip install transformers==4.57.6 accelerate==1.12.0
 python -m pip install --no-deps qwen-asr==0.0.6
 
 eot-harness predict \
@@ -767,9 +772,15 @@ eot-harness predict \
 ```
 
 `qwen-asr` is installed without its dependencies because only its model code is
-needed. turn-1-mini runs on a CPU in about 25 minutes. Set `P99TURN_WEIGHTS`,
-`P99TURN1_WEIGHTS`, `P99TURN1_BACKBONE` or `P99TURN1_BACKBONE_SMALL` to local
-directories to run without downloads.
+needed. turn-1-mini runs on a CPU in about 25 minutes. To run without
+downloads, pass a local directory as `model_id` in the adapter constructor, and
+set `P99TURN1_BACKBONE` and `P99TURN1_BACKBONE_SMALL` to local copies of the two
+speech encoders. The Modal `p99lab` preset builds an image with these packages:
+
+```bash
+modal run eot_harness.modal_runner::run_predict \
+  --config-json '{"path":"livekit/eot-bench-data","name":"en","split":"validation","revision":"ca9d98a9686b920a2d8c9eb984224ba9be74e4dd","adapter":"eot_harness.p99lab_turn_adapter:P99LabTurn1Adapter","batch_size":64,"modal_preset":"p99lab"}'
+```
 
 <details>
 <summary><b>Modal Batch Prediction</b></summary>
@@ -784,7 +795,7 @@ modal run eot_harness.modal_runner::run_predict \
 The Modal runner writes the same `predictions.parquet` and `manifest.json` as
 local `predict`, including the same span-set/model-run directory layout under
 `--output-dir`, which defaults to `output`. Supported presets are `default`,
-`audio`, `ultravad`, and `vap`; choose one with `--preset` or by adding
+`audio`, `ultravad`, `vap`, and `p99lab`; choose one with `--preset` or by adding
 `"modal_preset": "audio"` to the config JSON.
 
 Run VAP on an L4 GPU with its own dependency image:
