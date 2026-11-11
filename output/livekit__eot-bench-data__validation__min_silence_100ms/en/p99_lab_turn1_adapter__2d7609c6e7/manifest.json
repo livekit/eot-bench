@@ -1,0 +1,45 @@
+{
+  "harness_version": "0.1.0",
+  "span_set_id": "a960cca50a32",
+  "model_run_id": "p99_lab_turn1_adapter__2d7609c6e7",
+  "dataset": {
+    "path": "livekit/eot-bench-data",
+    "split": "validation",
+    "min_silence_span": 0.1,
+    "revision": "ca9d98a9686b920a2d8c9eb984224ba9be74e4dd",
+    "language": "en"
+  },
+  "load_dataset": {
+    "path": "livekit/eot-bench-data",
+    "name": "en",
+    "split": "validation",
+    "revision": "ca9d98a9686b920a2d8c9eb984224ba9be74e4dd"
+  },
+  "model": {
+    "adapter": "eot_harness.p99lab_turn_adapter:P99LabTurn1Adapter",
+    "adapter_id": "p99lab/turn-1-41f0273746c893187e687ef5a3e423830afbdd59",
+    "inference_interval": 0.1,
+    "transcript_lag": 0.5,
+    "display_name": "p99lab turn-1",
+    "max_audio_sec": 8.0
+  },
+  "runtime": {
+    "batch_size": 64
+  },
+  "path": "livekit/eot-bench-data",
+  "name": "en",
+  "repo_id": "livekit/eot-bench-data",
+  "subset": "en",
+  "split": "validation",
+  "language": "en",
+  "min_silence_span": 0.1,
+  "adapter_id": "p99lab/turn-1-41f0273746c893187e687ef5a3e423830afbdd59",
+  "adapter": "eot_harness.p99lab_turn_adapter:P99LabTurn1Adapter",
+  "batch_size": 64,
+  "inference_interval": 0.1,
+  "transcript_lag": 0.5,
+  "n_rows": 11191,
+  "n_spans": 1250,
+  "revision": "ca9d98a9686b920a2d8c9eb984224ba9be74e4dd",
+  "display_name": "p99lab turn-1"
+}

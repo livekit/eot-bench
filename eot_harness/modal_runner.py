@@ -32,7 +32,7 @@ COMMON_PACKAGES = (
     "numpy<2",
     "pandas>=2.2.0",
     "peft",
-    "pyarrow>=18.0.0",
+    "pyarrow>=18.0.0,<25",  # 25+ needs NumPy 2 at runtime
     "python-dotenv>=1.0.0",
     "s3prl",
     "soundfile>=0.12.1",
@@ -75,7 +75,7 @@ ULTRAVAD_IMAGE = (
         "numpy<2",
         "pandas>=2.2.0",
         "peft",
-        "pyarrow>=18.0.0",
+        "pyarrow>=18.0.0,<25",  # 25+ needs NumPy 2 at runtime
         "s3prl",
         "soundfile==0.13.1",
         "torch==2.7.0",
@@ -94,7 +94,7 @@ VAP_IMAGE = (
         "huggingface_hub>=0.30.0",
         "numpy<2",
         "pandas>=2.2.0",
-        "pyarrow>=18.0.0",
+        "pyarrow>=18.0.0,<25",  # 25+ needs NumPy 2 at runtime
         "python-dotenv>=1.0.0",
         "soundfile>=0.12.1",
         "einops==0.8.1",
@@ -102,6 +102,32 @@ VAP_IMAGE = (
         "torchaudio==2.7.0",
         "vap @ git+https://github.com/ErikEkstedt/VoiceActivityProjection.git@f39a78b23a6dccdbedd106e00b48c410b8739f5d",
     )
+    .add_local_python_source("eot_harness", ignore=_ignore_local_python_source)
+)
+
+P99TURN_WHEEL = (
+    "p99turn[torch] @ https://huggingface.co/p99lab/turn-1-mini/resolve/22bcc75c9857d664ede4811cf3dfaa46be7c4376"
+    "/dist/p99turn-1.2.3-py3-none-any.whl"
+    "#sha256=4cb4802e04ae8b013f14499d858024a59ec40cc9d36db8b8c49155d623b7e273"
+)
+P99TURN1_WHEEL = (
+    "p99turn1 @ https://huggingface.co/p99lab/turn-1/resolve/41f0273746c893187e687ef5a3e423830afbdd59"
+    "/dist/p99turn1-1.0.0-py3-none-any.whl"
+    "#sha256=d46de9162affb1bc8586675c1935e182184bf97caaec480d0602ba4b315af660"
+)
+
+P99LAB_IMAGE = (
+    modal.Image.debian_slim(python_version="3.11")
+    .pip_install(
+        *COMMON_PACKAGES,
+        "accelerate==1.12.0",
+        "torch==2.7.0",
+        "transformers==4.57.6",
+        P99TURN_WHEEL,
+        P99TURN1_WHEEL,
+    )
+    # turn-1 needs only the model code of qwen-asr, not its inference toolkit.
+    .pip_install("qwen-asr==0.0.6", extra_options="--no-deps")
     .add_local_python_source("eot_harness", ignore=_ignore_local_python_source)
 )
 
@@ -133,11 +159,17 @@ def predict_remote_vap(config: dict[str, Any]) -> dict[str, Any]:
     return _predict_remote_impl(config)
 
 
+@app.function(image=P99LAB_IMAGE, gpu="L40S", volumes=VOLUMES, timeout=4 * 60 * 60)
+def predict_remote_p99lab(config: dict[str, Any]) -> dict[str, Any]:
+    return _predict_remote_impl(config)
+
+
 REMOTE_PRESETS = {
     "default": predict_remote_default,
     "audio": predict_remote_audio,
     "ultravad": predict_remote_ultravad,
     "vap": predict_remote_vap,
+    "p99lab": predict_remote_p99lab,
 }
 
 

@@ -3,11 +3,14 @@ from __future__ import annotations
 import numpy as np
 
 from .languages import supports_language_code
+from .streaming_stt import SAMPLE_RATE, resample_audio
 
 DEFAULT_TURN1_MODEL_ID = "p99lab/turn-1"
+DEFAULT_TURN1_REVISION = "41f0273746c893187e687ef5a3e423830afbdd59"
 DEFAULT_TURN1_MINI_MODEL_ID = "p99lab/turn-1-mini"
+# v1.2.3. Later revisions of the repo add the v2.0.0 model.
+DEFAULT_TURN1_MINI_REVISION = "22bcc75c9857d664ede4811cf3dfaa46be7c4376"
 SUPPORTED_LANGUAGES = frozenset({"en"})
-SAMPLE_RATE = 16_000
 
 
 class P99LabTurn1Adapter:
@@ -15,9 +18,8 @@ class P99LabTurn1Adapter:
 
     turn-1 averages two estimates built on two open speech encoders
     (Apache-2.0), which the `p99turn1` package downloads from their own
-    repositories. It hears up to
-    8 seconds of recent audio and reads the last assistant message. It never
-    reads the words of the turn under judgement.
+    repositories. It hears up to 8 seconds of recent audio and reads the last
+    assistant message. It never reads the words of the turn under judgement.
     """
 
     display_name = "p99lab turn-1"
@@ -26,7 +28,7 @@ class P99LabTurn1Adapter:
         self,
         *,
         model_id: str = DEFAULT_TURN1_MODEL_ID,
-        revision: str | None = None,
+        revision: str | None = DEFAULT_TURN1_REVISION,
         max_audio_sec: float = 8.0,
         device: str | None = None,
     ) -> None:
@@ -58,7 +60,7 @@ class P99LabTurn1MiniAdapter:
         self,
         *,
         model_id: str = DEFAULT_TURN1_MINI_MODEL_ID,
-        revision: str | None = None,
+        revision: str | None = DEFAULT_TURN1_MINI_REVISION,
         max_audio_sec: float = 40.0,
         device: str | None = None,
     ) -> None:
@@ -78,13 +80,7 @@ class P99LabTurn1MiniAdapter:
 
 
 def _mono_16k(audio: dict) -> np.ndarray:
-    array = np.asarray(audio["array"], dtype=np.float32)
-    sample_rate = int(audio["sampling_rate"])
-    if array.ndim > 1:
-        array = array.mean(axis=-1)
-    if sample_rate != SAMPLE_RATE and array.size:
-        array = _resample_audio(array, sample_rate=sample_rate)
-    return array
+    return resample_audio(audio["array"], int(audio["sampling_rate"]), SAMPLE_RATE)
 
 
 def _last_assistant_message(messages: list[dict]) -> str:
@@ -94,35 +90,17 @@ def _last_assistant_message(messages: list[dict]) -> str:
     return ""
 
 
+# model_id is always passed to the packages, so their P99TURN1_WEIGHTS and
+# P99TURN_WEIGHTS overrides cannot swap in weights that adapter_id does not name.
+# Pass a local directory as model_id to run without downloads.
 def _load_turn1(*, model_id: str, revision: str | None, device: str | None):
     from p99turn1 import Turn1
 
-    # With the default repo id the package resolves the weights itself, so a
-    # local directory in P99TURN1_WEIGHTS can stand in for the download.
-    weights = None if model_id == DEFAULT_TURN1_MODEL_ID else model_id
-    return Turn1(weights, revision=revision, device=device)
+    return Turn1(model_id, revision=revision, device=device)
 
 
 def _load_turn1_mini(*, model_id: str, revision: str | None, device: str | None):
     import torch
     from p99turn import Turn1Mini
 
-    # As above: P99TURN_WEIGHTS can point at a local directory.
-    weights = None if model_id == DEFAULT_TURN1_MINI_MODEL_ID else model_id
-    return Turn1Mini(weights, revision=revision, device=device or ("cuda" if torch.cuda.is_available() else "cpu"))
-
-
-def _resample_audio(array: np.ndarray, *, sample_rate: int) -> np.ndarray:
-    import torch
-    import torchaudio.functional as F
-
-    return (
-        F.resample(
-            torch.from_numpy(np.asarray(array, dtype=np.float32)).unsqueeze(0),
-            orig_freq=sample_rate,
-            new_freq=SAMPLE_RATE,
-        )
-        .squeeze(0)
-        .cpu()
-        .numpy()
-    )
+    return Turn1Mini(model_id, revision=revision, device=device or ("cuda" if torch.cuda.is_available() else "cpu"))
