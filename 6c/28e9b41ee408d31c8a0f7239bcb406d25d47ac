@@ -1,0 +1,35 @@
+output/livekit__eot-bench-data__validation__min_silence_100ms/en/comparison/report.md
+  s_9aedf4314bafc3::t_23011354dc8801 14,17,36,39,56,59,70,73,84,87,98,101
+output/livekit__eot-bench-data__validation__min_silence_100ms/en/p99_lab_turn1_adapter__2d7609c6e7/manifest.json
+  s_9aedf4314bafc3::t_ed662e61cba586 1-45
+output/livekit__eot-bench-data__validation__min_silence_100ms/en/p99_lab_turn1_adapter__2d7609c6e7/metrics/summary.json
+  s_9aedf4314bafc3::t_4d1399fe06697f 1-91
+output/livekit__eot-bench-data__validation__min_silence_100ms/en/p99_lab_turn1_mini_adapter__e03ca01f20/manifest.json
+  s_9aedf4314bafc3::t_2f596dffa7fe4f 1-45
+output/livekit__eot-bench-data__validation__min_silence_100ms/en/p99_lab_turn1_mini_adapter__e03ca01f20/metrics/summary.json
+  s_9aedf4314bafc3::t_b9e362c60fe75f 1-91
+scripts/export_web_data.py
+  s_9aedf4314bafc3::t_46efd5878ce257 72-73
+site/src/index.css
+  s_9aedf4314bafc3::t_4eab0cc73a3f35 84-85,117-118,150-151,182-183
+site/src/turn-detector/data.ts
+  s_9aedf4314bafc3::t_50248299298c67 5
+site/src/turn-detector/selection.ts
+  s_9aedf4314bafc3::t_48714e7a5c5aea 29-30
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "6c28e9b41ee408d31c8a0f7239bcb406d25d47ac",
+  "prompts": {},
+  "sessions": {
+    "s_9aedf4314bafc3": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "s_9aedf4314bafc3",
+        "model": "unknown"
+      },
+      "human_author": "Chenghao Mou <chenghao.mou@livekit.io>"
+    }
+  }
+}
