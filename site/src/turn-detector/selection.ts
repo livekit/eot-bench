@@ -26,6 +26,8 @@ export type ChartColorToken =
   | 'chart10'
   | 'chart11'
   | 'chart12'
+  | 'chart13'
+  | 'chart14'
   | 'chartSuccess'
   | 'chartSerious'
   | 'chartModerate';

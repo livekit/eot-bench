@@ -69,6 +69,8 @@ MODEL_CONFIG: dict[str, dict] = {
     "Gradium": {"key": "gradium", "label": "Gradium", "colorToken": "chart10"},
     "VAP (silent agent)": {"key": "vap-silent-agent", "label": "VAP (silent agent)", "colorToken": "chart11"},
     "JoinIn AI Baton": {"key": "baton", "label": "JoinIn AI Baton", "colorToken": "chart12"},
+    "p99lab turn-1": {"key": "p99lab-turn-1", "label": "p99lab turn-1", "colorToken": "chart13"},
+    "p99lab turn-1-mini": {"key": "p99lab-turn-1-mini", "label": "p99lab turn-1-mini", "colorToken": "chart14"},
 }
 
 # Silence-only VAD baseline. It is not a model directory — it lives as the
