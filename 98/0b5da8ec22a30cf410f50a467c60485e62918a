@@ -1,0 +1,33 @@
+eot_harness/livekit_turn_detector_adapter.py
+  s_8c1b8aec8c5b7f::t_58478db73650fb 10-14,140,158,189,193,222,226-228,332-352
+  s_8c1b8aec8c5b7f::t_702d48ce3b3e11 353-354
+eot_harness/livekit_turn_detector_mini_adapter.py
+  s_8c1b8aec8c5b7f::t_b46a3a979a6918 6,17,52-53,169-175
+  s_8c1b8aec8c5b7f::t_7b56a5101c3209 158,166
+pyproject.toml
+  s_8c1b8aec8c5b7f::t_ad4708055589a2 17-18
+tests/test_livekit_turn_detector_adapter.py
+  s_8c1b8aec8c5b7f::t_378fb85017f037 3,5,7,45-143
+README.md
+  s_8c1b8aec8c5b7f::t_7b56a5101c3209 403-405,664,670-673,683-684
+tests/test_livekit_turn_detector_mini_adapter.py
+  s_8c1b8aec8c5b7f::t_b46a3a979a6918 32,45
+uv.lock
+  s_8c1b8aec8c5b7f::t_8cdc7b176b3696 887,919-920,1796,1804,1806-1810,1815,1852,1854,1914-1941,1946,1952,1954
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "980b5da8ec22a30cf410f50a467c60485e62918a",
+  "prompts": {},
+  "sessions": {
+    "s_8c1b8aec8c5b7f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "57a7bcb1-42ff-4d9e-b687-bd9d33617023",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Chenghao Mou <chenghao.mou@livekit.io>"
+    }
+  }
+}
