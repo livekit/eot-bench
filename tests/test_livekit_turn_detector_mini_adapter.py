@@ -29,6 +29,7 @@ class FakeEOT:
 def test_livekit_turn_detector_mini_adapter_defaults(monkeypatch) -> None:
     fake_model = FakeEOT()
     monkeypatch.setattr(module, "_load_local_eot_model", lambda: fake_model)
+    monkeypatch.setattr(module, "_local_inference_version", lambda: "0.3.0")
 
     adapter = LiveKitTurnDetectorMiniAdapter()
 
@@ -41,7 +42,7 @@ def test_livekit_turn_detector_mini_adapter_defaults(monkeypatch) -> None:
     assert adapter.max_audio_sec is None
     assert adapter.max_samples == 32000
     assert adapter.num_workers >= 1
-    assert adapter.adapter_id == "livekit/turn-detector-v1.1-mini-livekit-local-inference"
+    assert adapter.adapter_id == "livekit/turn-detector-v1.1-mini-livekit-local-inference-0.3.0"
     adapter.close()
 
 

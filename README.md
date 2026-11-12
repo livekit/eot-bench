@@ -400,6 +400,9 @@ The LiveKit cloud audio adapter streams each turn to LiveKit Turn Detector v1.1
 (the `turn-detector-v1` cloud model in the SDK) over the agent-gateway EOT websocket protocol. For every scored silence-span grid
 point it feeds audio up to that timestamp and issues an explicit inference
 request, so each `p_eot` reflects exactly the causal audio the harness exposes.
+As in the SDK, each request also carries the last assistant message in
+`messages` as agent context and the turn length so far as `turn_samples`. It
+never sends the words of the turn under judgement.
 It requires `LIVEKIT_API_KEY` and `LIVEKIT_API_SECRET`; set `LIVEKIT_INFERENCE_URL`
 to target a non-default gateway (e.g. `http://localhost:8080/v1` for a local
 server).
@@ -658,16 +661,16 @@ the open-weight p99lab models; see [p99lab turn-1 and turn-1-mini](#p99lab-turn-
 
 `LiveKitTurnDetectorAdapter` is a streaming adapter that scores each turn
 with the LiveKit Turn Detector v1.1 cloud model (`turn-detector-v1` in the SDK) over the
-agent-gateway EOT websocket;
+agent-gateway EOT websocket, with the prior assistant message as context;
 run it with `predict-streaming` and `LIVEKIT_API_KEY`/`LIVEKIT_API_SECRET`.
 
 UltraVAD currently supports `--batch-size 1` only.
 
 `LiveKitTurnDetectorMiniAdapter` scores LiveKit Turn Detector v1.1-mini
-(`turn-detector-v1-mini` in the SDK) on-device. It needs a `livekit-local-inference`
-release that bundles v1.1-mini (a 2.0 s window) and raises an error on older
-releases. For each timestamp it feeds the last 2.0 s of the turn plus the turn
-length so far as `turn_samples`, which the model uses as a duration feature.
+(`turn-detector-v1-mini` in the SDK) on-device with `livekit-local-inference`
+0.3.0 or later, and raises an error on older releases. For each timestamp it
+feeds the last 2.0 s of the turn and the turn length so far as `turn_samples`,
+as the SDK does.
 It parallelizes calls to the public local-inference
 interface with up to 8 worker threads by default. Set
 `LIVEKIT_TURN_DETECTOR_MINI_WORKERS=1` for single-threaded runs, or another positive
@@ -677,7 +680,8 @@ The LiveKit text adapters in `eot_harness.livekit_text_adapter` are deprecated a
 kept only for old comparisons.
 
 Text fields are model-specific requirements, not global schema requirements.
-UltraVAD consumes previous assistant text when `messages` is present. Deprecated
+UltraVAD, JoinIn AI Baton, and LiveKit Turn Detector v1.1 consume previous
+assistant text when `messages` is present. Deprecated
 LiveKit text adapters need transcript text from `words` and/or `messages`.
 
 </details>

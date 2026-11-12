@@ -3,6 +3,7 @@ from __future__ import annotations
 import os
 import threading
 from concurrent.futures import ThreadPoolExecutor
+from importlib import metadata
 from typing import Any
 
 import numpy as np
@@ -13,6 +14,7 @@ from .streaming_stt import SAMPLE_RATE, resample_audio
 LIVEKIT_TURN_DETECTOR_MINI_MODEL_ID = "turn-detector-v1.1-mini"
 LIVEKIT_TURN_DETECTOR_MINI_LOCAL_REVISION = "livekit-local-inference"
 LIVEKIT_TURN_DETECTOR_MINI_AUDIO_SEC = 2.0
+LIVEKIT_LOCAL_INFERENCE_PACKAGE = "livekit-local-inference"
 LIVEKIT_TURN_DETECTOR_MINI_WORKERS_ENV = "LIVEKIT_TURN_DETECTOR_MINI_WORKERS"
 LIVEKIT_TURN_DETECTOR_MINI_MAX_DEFAULT_WORKERS = 8
 
@@ -47,7 +49,8 @@ class LiveKitTurnDetectorMiniAdapter:
         self._models: list[Any] = []
         self._models_lock = threading.Lock()
         self._executor: ThreadPoolExecutor | None = None
-        self.adapter_id = f"livekit/{self.model_id}-{self.revision}"
+        version = _local_inference_version()
+        self.adapter_id = f"livekit/{self.model_id}-{self.revision}-{version}"
         self.model = _load_local_eot_model() if self.num_workers == 1 else None
         if self.num_workers > 1:
             self._executor = ThreadPoolExecutor(
@@ -152,8 +155,7 @@ def _load_local_eot_model():
         from livekit.local_inference import EOT, EOT_MAX_SAMPLES
     except ImportError as exc:
         raise RuntimeError(
-            "LiveKit Turn Detector mini requires `livekit-local-inference` "
-            "(installed by `livekit-agents>=1.6.0rc1`)."
+            "LiveKit Turn Detector v1.1-mini requires `livekit-local-inference>=0.3.0`."
         ) from exc
     # Older releases bundle v1-mini, whose window is 1.2 s.
     expected = int(round(SAMPLE_RATE * LIVEKIT_TURN_DETECTOR_MINI_AUDIO_SEC))
@@ -161,6 +163,13 @@ def _load_local_eot_model():
         raise RuntimeError(
             f"The installed `livekit-local-inference` has a {EOT_MAX_SAMPLES}-sample EOT window. "
             f"LiveKit Turn Detector v1.1-mini needs {expected} samples ({LIVEKIT_TURN_DETECTOR_MINI_AUDIO_SEC:g} s); "
-            "install a release that bundles v1.1-mini."
+            "install `livekit-local-inference>=0.3.0`."
         )
     return EOT()
+
+
+def _local_inference_version() -> str:
+    try:
+        return metadata.version(LIVEKIT_LOCAL_INFERENCE_PACKAGE)
+    except metadata.PackageNotFoundError:
+        return "unknown"

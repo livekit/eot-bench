@@ -7,6 +7,11 @@ streams audio up to that timestamp and issues an explicit inference request, so
 every ``p(eot)`` reflects exactly the causal audio the harness exposes — and any
 cloud error or timeout is a hard failure rather than a silent local fallback.
 
+Like the SDK's cloud transport, each request carries the last assistant message
+of ``row["messages"]`` as agent context and the turn length so far as
+``turn_samples``. The audio starts at the turn start, so the turn length is the
+audio sent so far.
+
 Run it through the streaming command, e.g.::
 
     eot-harness predict-streaming \\
@@ -132,6 +137,7 @@ class LiveKitTurnDetectorAdapter:
             "Authorization": f"Bearer {auth.create_access_token(api_key, api_secret)}",
         }
 
+        agent_text = _last_assistant_text(row.get("messages"))
         pcm_bytes, audio_sec = prepare_pcm16_audio(row, sample_rate=SAMPLE_RATE)
         total_samples = len(pcm_bytes) // 2
         query_timestamps = self._query_timestamps(row, inference_interval)
@@ -149,6 +155,7 @@ class LiveKitTurnDetectorAdapter:
                     total_samples,
                     query_timestamps,
                     chunk_size,
+                    agent_text=agent_text,
                     row_id=row["id"],
                 )
                 break
@@ -179,9 +186,11 @@ class LiveKitTurnDetectorAdapter:
         query_timestamps: list[float],
         chunk_size: int,
         *,
+        agent_text: str,
         row_id: Any,
     ) -> list[dict[str, Any]]:
         events: list[dict[str, Any]] = []
+        chat_context = _chat_context_message(proto, agent_text)
         async with aiohttp.ClientSession() as session:
             async with session.ws_connect(
                 ws_url, headers=headers, max_msg_size=0
@@ -210,10 +219,13 @@ class LiveKitTurnDetectorAdapter:
                         sent_samples = target
 
                     request_id = f"{row_id}-{index}"
+                    await self._send(ws, chat_context)
                     await self._send(
                         ws,
                         proto.ClientMessage(
-                            inference_start=proto.InferenceStart(request_id=request_id)
+                            inference_start=proto.InferenceStart(
+                                request_id=request_id, turn_samples=sent_samples
+                            )
                         ),
                     )
                     prob = await asyncio.wait_for(
@@ -315,6 +327,29 @@ class LiveKitTurnDetectorAdapter:
     @staticmethod
     async def _send(ws, msg) -> None:
         await ws.send_bytes(msg.SerializeToString())
+
+
+def _last_assistant_text(messages: list[dict[str, Any]] | None) -> str:
+    """Return the text of the last assistant message, or "" if it is missing or empty."""
+    for message in reversed(messages or []):
+        if str(message.get("role", "")).strip() == "assistant":
+            return str(message.get("content") or "").strip()
+    return ""
+
+
+def _chat_context_message(proto, agent_text: str):
+    """Build the agent context the SDK sends before each request; empty text clears it."""
+    from livekit.protocol.agent_pb import agent_session
+
+    context = proto.EotInputChatContext()
+    if agent_text:
+        context.messages.append(
+            agent_session.ChatMessage(
+                role=agent_session.ChatRole.ASSISTANT,
+                content=[agent_session.ChatMessage.ChatContent(text=agent_text)],
+            )
+        )
+    return proto.ClientMessage(eot_input_chat_context=context)
 
 
 class _EotServerError(RuntimeError):
