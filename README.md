@@ -5,7 +5,7 @@
 [![Live leaderboard](https://img.shields.io/badge/leaderboard-live-2ea44f)](https://livekit.com/benchmarks/eot-bench)
 [![Hugging Face Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-ffcc4d)](https://huggingface.co/datasets/livekit/eot-bench-data/)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
-[![Python](https://img.shields.io/badge/python-3.10%2B-3776ab)](pyproject.toml)
+[![Python](https://img.shields.io/badge/python-3.11%2B-3776ab)](pyproject.toml)
 
 Every voice agent has to answer the same question, over and over, on every
 pause: **is the user done talking?** Answer too early and the agent talks over
