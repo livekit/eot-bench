@@ -11,7 +11,8 @@
   "load_dataset": {
     "path": "livekit/eot-bench-data",
     "name": "en",
-    "split": "validation"
+    "split": "validation",
+    "revision": "ae834af9e9bddf73d1f550c190aaeb99bf31f523"
   },
   "path": "livekit/eot-bench-data",
   "name": "en",
@@ -25,19 +26,20 @@
   "streaming": true,
   "inference_interval": 0.1,
   "concurrency": 3,
-  "n_dataset_rows": 400,
-  "n_scored_turns": 400,
+  "n_dataset_rows": 2288,
+  "n_scored_turns": 2288,
   "n_skipped_turns": 0,
-  "n_rows": 11191,
-  "n_spans": 1250,
-  "n_event_rows": 68462,
-  "total_audio_sec": 5040.900500000001,
-  "wall_clock_sec": 835.6453327499985,
-  "audio_x_realtime": 6.032344467731379,
+  "n_rows": 71654,
+  "n_spans": 4049,
+  "n_event_rows": 247286,
+  "total_audio_sec": 17159.95900000004,
+  "wall_clock_sec": 2735.333250542004,
+  "audio_x_realtime": 6.273443645888415,
   "skip_errors": false,
   "model": "default",
   "chunk_ms": 80,
   "eot_threshold": 0.5,
   "url": "https://api.gradium.ai/api",
-  "display_name": "Gradium"
+  "display_name": "Gradium",
+  "revision": "ae834af9e9bddf73d1f550c190aaeb99bf31f523"
 }

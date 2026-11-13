@@ -10,6 +10,7 @@
 
 | Model | Best cutoff rate @ 0.3s latency | Best cutoff rate @ 0.6s latency |
 | --- | --- | --- |
+| Cartesia Ink 2 | - | 4.3% |
 | Soniox | - | **3.9%** |
 | LiveKit Turn Detector v1.1 | **10.2%** | 4.7% |
 | LiveKit Turn Detector v1.1-mini | 15.2% | 5.7% |
@@ -28,7 +29,8 @@
 
 | Model | Best mean latency @ 5% cutoff | Best mean latency @ 10% cutoff |
 | --- | --- | --- |
-| Soniox | **557 ms** | 463 ms |
+| Cartesia Ink 2 | **538 ms** | 471 ms |
+| Soniox | 557 ms | 463 ms |
 | LiveKit Turn Detector v1.1 | 587 ms | **314 ms** |
 | LiveKit Turn Detector v1.1-mini | 654 ms | 418 ms |
 | Deepgram Flux | 676 ms | 353 ms |
@@ -44,6 +46,7 @@
 
 | Type | Budget | Model | Mean Latency | Cutoff | Detect | Threshold | Action Delay | Timeout |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Cutoff | 5.0% | Cartesia Ink 2 | 0.538 | 4.8% | 95.5% | 0.990 | 0.300 | 2.000 |
 | Cutoff | 5.0% | Soniox | 0.557 | 4.1% | 81.2% | 0.990 | 0.200 | 1.500 |
 | Cutoff | 5.0% | LiveKit Turn Detector v1.1 | 0.587 | 4.8% | 83.0% | 0.640 | 0.400 | 1.500 |
 | Cutoff | 5.0% | LiveKit Turn Detector v1.1-mini | 0.654 | 4.8% | 70.5% | 0.450 | 0.300 | 1.500 |
@@ -54,6 +57,7 @@
 | Cutoff | 5.0% | ultraVAD | 0.846 | 4.8% | 51.2% | 0.450 | 0.700 | 1.000 |
 | Cutoff | 5.0% | SmartTurn v3.2 | 0.873 | 4.8% | 63.5% | 0.870 | 0.800 | 1.000 |
 | Cutoff | 5.0% | VAP (silent agent) | 0.917 | 4.7% | 47.2% | 0.130 | 0.800 | 1.000 |
+| Cutoff | 10.0% | Cartesia Ink 2 | 0.471 | 7.3% | 93.2% | 0.990 | 0.200 | 1.000 |
 | Cutoff | 10.0% | Soniox | 0.463 | 6.5% | 80.8% | 0.990 | 0.200 | 1.000 |
 | Cutoff | 10.0% | LiveKit Turn Detector v1.1 | 0.314 | 9.9% | 91.2% | 0.460 | 0.200 | 1.500 |
 | Cutoff | 10.0% | LiveKit Turn Detector v1.1-mini | 0.418 | 9.5% | 72.8% | 0.420 | 0.200 | 1.000 |
@@ -64,6 +68,7 @@
 | Cutoff | 10.0% | ultraVAD | 0.613 | 9.9% | 55.2% | 0.430 | 0.300 | 1.000 |
 | Cutoff | 10.0% | SmartTurn v3.2 | 0.608 | 9.9% | 49.0% | 0.960 | 0.200 | 1.000 |
 | Cutoff | 10.0% | VAP (silent agent) | 0.715 | 9.3% | 84.0% | 0.060 | 0.600 | 1.000 |
+| Latency | 300ms | Cartesia Ink 2 | - | - | - | - | - | - |
 | Latency | 300ms | Soniox | - | - | - | - | - | - |
 | Latency | 300ms | LiveKit Turn Detector v1.1 | 0.298 | 10.2% | 92.5% | 0.440 | 0.200 | 1.500 |
 | Latency | 300ms | LiveKit Turn Detector v1.1-mini | 0.294 | 15.2% | 88.2% | 0.270 | 0.200 | 1.000 |
@@ -74,6 +79,7 @@
 | Latency | 300ms | ultraVAD | 0.298 | 34.4% | 87.8% | 0.160 | 0.200 | 1.000 |
 | Latency | 300ms | SmartTurn v3.2 | 0.298 | 38.9% | 87.8% | 0.060 | 0.200 | 1.000 |
 | Latency | 300ms | VAP (silent agent) | 0.289 | 54.5% | 100.0% | 0.020 | 0.200 | 1.500 |
+| Latency | 600ms | Cartesia Ink 2 | 0.576 | 4.3% | 95.5% | 0.990 | 0.400 | 2.000 |
 | Latency | 600ms | Soniox | 0.576 | 3.9% | 81.2% | 0.990 | 0.300 | 1.500 |
 | Latency | 600ms | LiveKit Turn Detector v1.1 | 0.593 | 4.7% | 82.5% | 0.650 | 0.400 | 1.500 |
 | Latency | 600ms | LiveKit Turn Detector v1.1-mini | 0.584 | 5.7% | 70.5% | 0.450 | 0.200 | 1.500 |

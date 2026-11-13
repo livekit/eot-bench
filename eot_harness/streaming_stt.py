@@ -5,7 +5,7 @@ from typing import Any
 
 import numpy as np
 
-from .io import DEFAULT_INFERENCE_INTERVAL, DEFAULT_MIN_SILENCE, _time_grid, decode_audio
+from .io import DEFAULT_INFERENCE_INTERVAL, DEFAULT_MIN_SILENCE, _time_grid, decode_audio, span_label
 
 SAMPLE_RATE = 16000
 DEFAULT_CHUNK_MS = 100
@@ -71,7 +71,7 @@ def build_event_prediction_rows(
         end = float(span["end"])
         if end - start < DEFAULT_MIN_SILENCE - _EPS:
             continue
-        label = "eot" if span_index == len(silence_spans) - 1 else "hold"
+        label = span_label(silence_spans, span_index)
         span_events = [
             event for event in usable_events
             if start - _EPS <= event["timestamp"] <= end + _EPS

@@ -7,14 +7,14 @@
   "streaming": true,
   "inference_interval": 0.1,
   "concurrency": 8,
-  "n_dataset_rows": 400,
-  "n_scored_turns": 400,
+  "n_dataset_rows": 2288,
+  "n_scored_turns": 2288,
   "n_skipped_turns": 0,
-  "n_rows": 11191,
-  "n_event_rows": 454,
-  "total_audio_sec": 13123.101312499994,
-  "wall_clock_sec": 1857.3609610837884,
-  "audio_x_realtime": 7.065455550892238,
+  "n_rows": 71654,
+  "n_event_rows": 2517,
+  "total_audio_sec": 25242.159562500026,
+  "wall_clock_sec": 3819.264802667778,
+  "audio_x_realtime": 6.609167173972392,
   "display_name": "Soniox",
   "model": "stt-rt-preview",
   "chunk_ms": 100,
@@ -31,11 +31,13 @@
   "load_dataset": {
     "path": "livekit/eot-bench-data",
     "name": "all",
-    "split": "validation"
+    "split": "validation",
+    "revision": "ae834af9e9bddf73d1f550c190aaeb99bf31f523"
   },
   "path": "livekit/eot-bench-data",
   "name": "all",
   "language": "en",
   "min_silence_span": 0.1,
-  "n_spans": 1250
+  "n_spans": 4049,
+  "revision": "ae834af9e9bddf73d1f550c190aaeb99bf31f523"
 }

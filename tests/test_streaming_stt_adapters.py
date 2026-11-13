@@ -158,8 +158,8 @@ def test_cartesia_defaults_and_key(monkeypatch):
     assert adapter.adapter_id == "cartesia/ink-2"
     assert adapter.display_name == "Cartesia Ink 2"
     assert not hasattr(adapter, "score_point")
-    assert adapter.supports_language("en")
-    assert not adapter.supports_language("es")
+    assert all(adapter.supports_language(lang) for lang in ("en", "es", "fr", "hi", "ja"))
+    assert not adapter.supports_language("de")
     assert resolve_api_key("CARTESIA_API_KEY") == "cartesia-test-key"
     assert adapter._connection_params() == {
         "model": "ink-2",

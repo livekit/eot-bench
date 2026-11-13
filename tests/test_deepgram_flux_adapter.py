@@ -78,3 +78,35 @@ def test_deepgram_key_uses_canonical_env(monkeypatch):
     monkeypatch.setenv("DEEPGRAM_API_KEY", "dg-test-key")
 
     assert _resolve_deepgram_api_key() == "dg-test-key"
+
+
+def test_flux_close_timeout_is_retried(monkeypatch):
+    import asyncio
+
+    from eot_harness import deepgram_flux_adapter as module
+
+    monkeypatch.setenv("DEEPGRAM_API_KEY", "dg-test-key")
+
+    async def no_sleep(_seconds):
+        return None
+
+    monkeypatch.setattr(module.asyncio, "sleep", no_sleep)
+    adapter = DeepgramFluxStreamingAdapter(max_retries=2)
+    calls = []
+
+    async def replay(row, api_key, **kwargs):
+        calls.append(row["id"])
+        if len(calls) < 3:
+            raise module._FluxCloseTimeout("no close")
+        return {"id": row["id"]}
+
+    monkeypatch.setattr(adapter, "_replay_turn", replay)
+    row = {**_row(), "language": "en"}
+
+    assert asyncio.run(adapter.predict_turn(row)) == {"id": "turn-1"}
+    assert len(calls) == 3
+
+    calls.clear()
+    adapter.max_retries = 1
+    with pytest.raises(module._FluxCloseTimeout):
+        asyncio.run(adapter.predict_turn(row))

@@ -48,6 +48,10 @@ DEFAULT_CONCURRENCY = 4
 DEFAULT_PREDICT_TIMEOUT = 30.0
 DEFAULT_MAX_RETRIES = 3
 DEFAULT_RETRY_BACKOFF = 1.0
+# A 429 means the gateway rate limit is hit. It clears when the window moves, so
+# it gets its own, more patient budget with exponential backoff.
+DEFAULT_CAPACITY_RETRIES = 12
+CAPACITY_BACKOFF_CAP = 60.0
 # Server / transport conditions worth retrying the whole turn for (the session
 # is reconnected from scratch, so a retry is always safe).
 _TRANSIENT_ERROR_CODES = (408, 429, 500, 502, 503, 504)
@@ -72,6 +76,7 @@ class LiveKitTurnDetectorAdapter:
         predict_timeout: float = DEFAULT_PREDICT_TIMEOUT,
         max_retries: int = DEFAULT_MAX_RETRIES,
         retry_backoff: float = DEFAULT_RETRY_BACKOFF,
+        capacity_retries: int = DEFAULT_CAPACITY_RETRIES,
     ) -> None:
         if not model:
             raise ValueError("model must be a non-empty string")
@@ -92,6 +97,7 @@ class LiveKitTurnDetectorAdapter:
         self.predict_timeout = float(predict_timeout)
         self.max_retries = int(max_retries)
         self.retry_backoff = float(retry_backoff)
+        self.capacity_retries = int(capacity_retries)
         self._base_url = base_url
         self._api_key = api_key
         self._api_secret = api_secret
@@ -144,7 +150,8 @@ class LiveKitTurnDetectorAdapter:
         chunk_size = chunk_size_bytes(sample_rate=SAMPLE_RATE, chunk_ms=self.chunk_ms)
 
         events: list[dict[str, Any]] = []
-        for attempt in range(self.max_retries + 1):
+        attempt = capacity_attempt = 0
+        while True:
             try:
                 events = await self._score_events(
                     aiohttp,
@@ -160,9 +167,14 @@ class LiveKitTurnDetectorAdapter:
                 )
                 break
             except Exception as exc:
+                if getattr(exc, "code", None) == 429 and capacity_attempt < self.capacity_retries:
+                    await asyncio.sleep(min(CAPACITY_BACKOFF_CAP, self.retry_backoff * 2**capacity_attempt))
+                    capacity_attempt += 1
+                    continue
                 if attempt >= self.max_retries or not _is_transient_error(exc):
                     raise
                 await asyncio.sleep(self.retry_backoff * (attempt + 1))
+                attempt += 1
 
         return {
             "id": row["id"],

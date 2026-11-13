@@ -6,14 +6,14 @@
     "path": "livekit/eot-bench-data",
     "split": "validation",
     "min_silence_span": 0.1,
-    "revision": "ca9d98a9686b920a2d8c9eb984224ba9be74e4dd",
-    "language": "en"
+    "language": "en",
+    "revision": "ae834af9e9bddf73d1f550c190aaeb99bf31f523"
   },
   "load_dataset": {
     "path": "livekit/eot-bench-data",
     "name": "en",
     "split": "validation",
-    "revision": "ca9d98a9686b920a2d8c9eb984224ba9be74e4dd"
+    "revision": "ae834af9e9bddf73d1f550c190aaeb99bf31f523"
   },
   "model": {
     "adapter": "eot_harness.vap_adapter:VAPAdapter",
@@ -38,8 +38,8 @@
   "batch_size": 1,
   "inference_interval": 0.1,
   "transcript_lag": 0.5,
-  "n_rows": 11191,
-  "n_spans": 1250,
-  "revision": "ca9d98a9686b920a2d8c9eb984224ba9be74e4dd",
-  "display_name": "VAP (silent agent)"
+  "n_rows": 71654,
+  "n_spans": 4049,
+  "display_name": "VAP (silent agent)",
+  "revision": "ae834af9e9bddf73d1f550c190aaeb99bf31f523"
 }

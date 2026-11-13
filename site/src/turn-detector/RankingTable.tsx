@@ -34,13 +34,19 @@ export function RankingTable({
       <colgroup>
         <col className="w-8" />
         <col />
-        <col className="w-40" />
+        <col className="w-28" />
       </colgroup>
       <thead>
         <tr className="text-fg3 border-separator1 border-b text-left font-mono text-xs tracking-wider uppercase">
           <th className="py-2 pr-2 font-medium">#</th>
           <th className="py-2 pr-2 font-medium">Model</th>
-          <th className="py-2 pl-2 text-right font-medium">{metricHeader}</th>
+          {/* The header is wider than its column, so anchor it to the right edge and let it
+              extend left over the empty part of the model column. */}
+          <th className="relative py-2 font-medium">
+            <span className="absolute top-1/2 right-0 -translate-y-1/2 whitespace-nowrap">
+              {metricHeader}
+            </span>
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -52,7 +58,7 @@ export function RankingTable({
             <tr
               key={row.model.key}
               className={cn(
-                'border-separator1 h-12 border-b transition-colors',
+                'border-separator1 h-9 border-b transition-colors',
                 isActive && 'bg-bg2',
                 isInteractive && 'hover:bg-bg2 cursor-pointer',
               )}
@@ -70,7 +76,7 @@ export function RankingTable({
                   <span
                     title={row.model.label}
                     className={cn(
-                      'line-clamp-2 min-w-0 leading-tight',
+                      'min-w-0 truncate',
                       row.model.isLiveKit ? 'text-fg0 font-semibold' : 'text-fg1',
                     )}
                   >

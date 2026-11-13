@@ -11,7 +11,8 @@
   "load_dataset": {
     "path": "livekit/eot-bench-data",
     "name": "all",
-    "split": "validation"
+    "split": "validation",
+    "revision": "ae834af9e9bddf73d1f550c190aaeb99bf31f523"
   },
   "path": "livekit/eot-bench-data",
   "name": "all",
@@ -25,15 +26,15 @@
   "streaming": true,
   "inference_interval": 0.1,
   "concurrency": 32,
-  "n_dataset_rows": 400,
-  "n_scored_turns": 400,
+  "n_dataset_rows": 2288,
+  "n_scored_turns": 2288,
   "n_skipped_turns": 0,
-  "n_rows": 11191,
-  "n_spans": 1250,
-  "n_event_rows": 21211,
-  "total_audio_sec": 13066.801312499996,
-  "wall_clock_sec": 462.5578056249942,
-  "audio_x_realtime": 28.249012671712514,
+  "n_rows": 71654,
+  "n_spans": 4049,
+  "n_event_rows": 72339,
+  "total_audio_sec": 25185.85956250003,
+  "wall_clock_sec": 926.802967333002,
+  "audio_x_realtime": 27.17498805056232,
   "skip_errors": false,
   "model": "flux-general-multi",
   "chunk_ms": 100,
@@ -53,5 +54,6 @@
     "pt": "existing_predictions",
     "tr": "unsupported_language",
     "zh": "unsupported_language"
-  }
+  },
+  "revision": "ae834af9e9bddf73d1f550c190aaeb99bf31f523"
 }

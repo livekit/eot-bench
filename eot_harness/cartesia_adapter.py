@@ -21,7 +21,8 @@ from .streaming_stt import (
 DEFAULT_CARTESIA_MODEL = "ink-2"
 DEFAULT_CONCURRENCY = 4
 CARTESIA_API_VERSION = "2026-03-01"
-CARTESIA_SUPPORTED_LANGUAGES = {"en"}
+# Ink 2 detects the language itself; the turns endpoint takes no language parameter.
+CARTESIA_SUPPORTED_LANGUAGES = {"en", "es", "fr", "hi", "ja"}
 
 
 class CartesiaStreamingAdapter:

@@ -11,7 +11,8 @@
   "load_dataset": {
     "path": "livekit/eot-bench-data",
     "name": "en",
-    "split": "validation"
+    "split": "validation",
+    "revision": "ae834af9e9bddf73d1f550c190aaeb99bf31f523"
   },
   "path": "livekit/eot-bench-data",
   "name": "en",
@@ -25,17 +26,18 @@
   "streaming": true,
   "inference_interval": 0.1,
   "concurrency": 8,
-  "n_dataset_rows": 400,
-  "n_scored_turns": 400,
+  "n_dataset_rows": 2288,
+  "n_scored_turns": 2288,
   "n_skipped_turns": 0,
-  "n_rows": 11191,
-  "n_spans": 1250,
-  "n_event_rows": 50156,
-  "total_audio_sec": 5040.900375000001,
-  "wall_clock_sec": 2727.201650500001,
-  "audio_x_realtime": 1.8483783089804928,
+  "n_rows": 71654,
+  "n_spans": 4049,
+  "n_event_rows": 170390,
+  "total_audio_sec": 17159.958625000036,
+  "wall_clock_sec": 4209.625009458012,
+  "audio_x_realtime": 4.076362760684324,
   "skip_errors": false,
   "model": "baton-v1",
   "display_name": "JoinIn AI Baton",
-  "score_point": 0.2
+  "score_point": 0.2,
+  "revision": "ae834af9e9bddf73d1f550c190aaeb99bf31f523"
 }
