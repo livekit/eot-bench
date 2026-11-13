@@ -8,7 +8,7 @@ from urllib.parse import urlencode
 
 import numpy as np
 
-from .io import DEFAULT_INFERENCE_INTERVAL, DEFAULT_MIN_SILENCE, _time_grid, decode_audio
+from .io import DEFAULT_INFERENCE_INTERVAL, DEFAULT_MIN_SILENCE, _time_grid, decode_audio, span_label
 from .languages import normalize_language_code, supports_language_code
 
 FLUX_MULTI_SUPPORTED_LANGUAGES = {"en", "es", "fr", "de", "hi", "ru", "pt", "ja", "it", "nl"}
@@ -17,6 +17,7 @@ SAMPLE_RATE = 16000
 DEFAULT_CHUNK_MS = 100
 DEFAULT_CONCURRENCY = 4
 DEFAULT_EOT_THRESHOLD = 0.7
+DEFAULT_MAX_RETRIES = 3
 _EPS = 1e-6
 
 
@@ -32,6 +33,7 @@ class DeepgramFluxStreamingAdapter:
         eot_threshold: float = DEFAULT_EOT_THRESHOLD,
         concurrency: int = DEFAULT_CONCURRENCY,
         skip_unsupported_languages: bool = False,
+        max_retries: int = DEFAULT_MAX_RETRIES,
     ) -> None:
         if not model:
             raise ValueError("model must be a non-empty string")
@@ -47,6 +49,7 @@ class DeepgramFluxStreamingAdapter:
         self.eot_threshold = float(eot_threshold)
         self.concurrency = int(concurrency)
         self.skip_unsupported_languages = bool(skip_unsupported_languages)
+        self.max_retries = int(max_retries)
 
     @property
     def adapter_id(self) -> str:
@@ -70,12 +73,21 @@ class DeepgramFluxStreamingAdapter:
             return skip_row
 
         api_key = _resolve_deepgram_api_key()
-        return await self._replay_turn(
-            row,
-            api_key,
-            inference_interval=inference_interval,
-            language_hint=language_hint,
-        )
+        # Under load Flux sometimes does not close the stream. Each attempt opens
+        # a new connection, so it is safe to replay the turn.
+        for attempt in range(self.max_retries + 1):
+            try:
+                return await self._replay_turn(
+                    row,
+                    api_key,
+                    inference_interval=inference_interval,
+                    language_hint=language_hint,
+                )
+            except _FluxCloseTimeout:
+                if attempt >= self.max_retries:
+                    raise
+                await asyncio.sleep(float(attempt + 1))
+        raise AssertionError("unreachable")
 
     def _language_hint_or_skip(self, row: dict[str, Any]) -> tuple[str | None, dict[str, Any] | None]:
         if "language" not in row:
@@ -152,7 +164,7 @@ class DeepgramFluxStreamingAdapter:
                 await asyncio.wait_for(recv_task, timeout=15.0)
             except asyncio.TimeoutError as exc:
                 recv_task.cancel()
-                raise RuntimeError(f"Timed out waiting for Flux close on {row['id']!r}.") from exc
+                raise _FluxCloseTimeout(f"Timed out waiting for Flux close on {row['id']!r}.") from exc
 
         if not events:
             raise RuntimeError(f"No TurnInfo events received for row {row['id']!r}.")
@@ -167,6 +179,10 @@ class DeepgramFluxStreamingAdapter:
                 inference_interval=inference_interval,
             ),
         }
+
+
+class _FluxCloseTimeout(RuntimeError):
+    """Flux did not close the stream after `CloseStream`."""
 
 
 async def _recv_flux_events(ws, *, row_id: Any, events: list[dict[str, Any]]) -> None:
@@ -222,7 +238,7 @@ def build_flux_prediction_rows(
         end = float(span["end"])
         if end - start < DEFAULT_MIN_SILENCE - _EPS:
             continue
-        label = "eot" if span_index == len(silence_spans) - 1 else "hold"
+        label = span_label(silence_spans, span_index)
         for timestamp in _time_grid(start, end, inference_interval):
             while event_idx < len(usable_events) and usable_events[event_idx]["audio_window_end"] <= timestamp + _EPS:
                 current_score = usable_events[event_idx]["end_of_turn_confidence"]

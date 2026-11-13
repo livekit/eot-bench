@@ -1,0 +1,41 @@
+{
+  "harness_version": "0.1.0",
+  "span_set_id": "0d36e9e5e419",
+  "model_run_id": "cartesia_streaming_adapter__ink_2",
+  "dataset": {
+    "path": "livekit/eot-bench-data",
+    "split": "validation",
+    "min_silence_span": 0.1,
+    "language": "es"
+  },
+  "load_dataset": {
+    "path": "livekit/eot-bench-data",
+    "name": "es",
+    "split": "validation"
+  },
+  "path": "livekit/eot-bench-data",
+  "name": "es",
+  "repo_id": "livekit/eot-bench-data",
+  "subset": "es",
+  "split": "validation",
+  "language": "es",
+  "min_silence_span": 0.1,
+  "adapter_id": "cartesia/ink-2",
+  "adapter": "eot_harness.cartesia_adapter:CartesiaStreamingAdapter",
+  "streaming": true,
+  "inference_interval": 0.1,
+  "concurrency": 4,
+  "n_dataset_rows": 400,
+  "n_scored_turns": 400,
+  "n_skipped_turns": 0,
+  "n_rows": 10475,
+  "n_spans": 1236,
+  "n_event_rows": 594,
+  "total_audio_sec": 5177.610187500003,
+  "wall_clock_sec": 1433.074597208004,
+  "audio_x_realtime": 3.6129383617484483,
+  "skip_errors": false,
+  "model": "ink-2",
+  "chunk_ms": 100,
+  "display_name": "Cartesia Ink 2"
+}

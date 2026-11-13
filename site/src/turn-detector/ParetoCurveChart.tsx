@@ -19,7 +19,7 @@ const SEPARATOR2 = 'oklch(var(--lk-color-separator2))';
 const FG = 'oklch(var(--lk-color-fg1))';
 const BG = 'oklch(var(--lk-color-bg1))';
 
-const HEIGHT = 420;
+const MIN_HEIGHT = 420;
 const MARGIN = { top: 16, right: 20, bottom: 60, left: 64 } as const;
 const LATENCY_DOMAIN_MAX = 2; // focus on the production-relevant low-latency region
 
@@ -37,27 +37,33 @@ interface ParetoCurveChartProps {
 
 export function ParetoCurveChart(props: ParetoCurveChartProps) {
   return (
-    <div className="h-[420px] w-full">
-      <ParentSize>
-        {({ width }) => (width > 0 ? <Chart width={width} {...props} /> : null)}
-      </ParentSize>
+    // The chart fills its container, so it grows with the ranking beside it.
+    <div className="relative min-h-[420px] w-full flex-1">
+      <div className="absolute inset-0">
+        <ParentSize>
+          {({ width, height }) =>
+            width > 0 ? <Chart width={width} height={Math.max(MIN_HEIGHT, height)} {...props} /> : null
+          }
+        </ParentSize>
+      </div>
     </div>
   );
 }
 
 function Chart({
   width,
+  height,
   models,
   frontiers,
   budget,
   onBudgetChange,
   activeModelKey,
-}: ParetoCurveChartProps & { width: number }) {
+}: ParetoCurveChartProps & { width: number; height: number }) {
   const svgRef = useRef<SVGSVGElement>(null);
   const [dragging, setDragging] = useState(false);
 
   const innerW = Math.max(0, width - MARGIN.left - MARGIN.right);
-  const innerH = HEIGHT - MARGIN.top - MARGIN.bottom;
+  const innerH = height - MARGIN.top - MARGIN.bottom;
 
   const points = models.flatMap((m) => frontiers[m.key] ?? []);
   const minCut = points.length ? Math.min(...points.map((p) => p[1])) : 0.01;
@@ -92,7 +98,7 @@ function Chart({
     <svg
       ref={svgRef}
       width={width}
-      height={HEIGHT}
+      height={height}
       role="img"
       aria-label="Pareto frontier of false cut-off rate versus mean latency for each model"
     >

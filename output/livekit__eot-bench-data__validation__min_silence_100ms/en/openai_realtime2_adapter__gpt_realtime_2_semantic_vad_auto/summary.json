@@ -7,14 +7,14 @@
   "streaming": true,
   "inference_interval": 0.1,
   "concurrency": 16,
-  "n_dataset_rows": 400,
-  "n_scored_turns": 400,
+  "n_dataset_rows": 2288,
+  "n_scored_turns": 2288,
   "n_skipped_turns": 0,
-  "n_rows": 11191,
-  "n_event_rows": 423,
-  "total_audio_sec": 13123.101687499999,
-  "wall_clock_sec": 1348.1844840422273,
-  "audio_x_realtime": 9.733906481517527,
+  "n_rows": 71654,
+  "n_event_rows": 2015,
+  "total_audio_sec": 25242.160187500038,
+  "wall_clock_sec": 3065.4108909172355,
+  "audio_x_realtime": 8.2345111587788,
   "skip_errors": true,
   "display_name": "OpenAI GPT Realtime 2",
   "model": "gpt-realtime-2",
@@ -34,11 +34,13 @@
   "load_dataset": {
     "path": "livekit/eot-bench-data",
     "name": "all",
-    "split": "validation"
+    "split": "validation",
+    "revision": "ae834af9e9bddf73d1f550c190aaeb99bf31f523"
   },
   "path": "livekit/eot-bench-data",
   "name": "all",
   "language": "en",
   "min_silence_span": 0.1,
-  "n_spans": 1250
+  "n_spans": 4049,
+  "revision": "ae834af9e9bddf73d1f550c190aaeb99bf31f523"
 }

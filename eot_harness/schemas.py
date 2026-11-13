@@ -18,7 +18,12 @@ DATASET_REQUIRED_FIELDS = (
 DATASET_OPTIONAL_FIELDS = (
     "messages",
     "words",
+    "cohort",
 )
+
+# Optional key on each `silence_spans` entry. Its value is a prediction label.
+# Without it, the last span of a row is `eot` and every earlier span is `hold`.
+SILENCE_SPAN_LABEL_FIELD = "label"
 
 PREDICTION_REQUIRED_COLUMNS = (
     "id",

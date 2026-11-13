@@ -37,12 +37,20 @@ human-to-agent user turns**, with **aligned audio and textual context**, across
 **14 languages**: Arabic, Chinese, Dutch, English, French, German, Hindi,
 Indonesian, Italian, Japanese, Korean, Portuguese, Spanish, and Turkish.
 
-Each row is a complete user turn from a task-oriented conversation, annotated
-with every silence pause of at least 100 ms. The final pause is the true end of
-the turn; every earlier pause is a mid-turn hesitation the agent should listen
+Each row is a user turn from a task-oriented conversation, annotated with every
+silence pause of at least 100 ms. Each pause carries a label: `eot` for the true
+end of the turn, or `hold` for a mid-turn hesitation the agent should listen
 through. That structure is what lets the benchmark score a model on the *actual*
 decisions a voice agent faces, rather than on isolated clips. It's freely
 available for download and evaluation, Apache-2.0 alongside this repo.
+
+Version 1.1 adds two English cohorts to the original `general` rows. The
+`cohort` column names the cohort of each row:
+
+- `accented`: 800 turns of accented English speech.
+- `short_turns`: 1,088 short replies such as "Yes, sir." or "Okay. It's". Half
+  of them end at the end of the turn. The other half stop at a mid-turn pause,
+  so the row has no `eot` pause and its only pause is labeled `hold`.
 
 ## Results
 
@@ -75,21 +83,25 @@ latency budget (best first). Lower is better on every metric:
 
 | Model | False cutoffs @ 300 ms | False cutoffs @ 600 ms | Latency @ 5% cutoff | Latency @ 10% cutoff |
 | --- | ---: | ---: | ---: | ---: |
-| **LiveKit Turn Detector v1.1** | **7.8%** | **4.1%** | **462 ms** | **250 ms** |
-| p99lab turn-1 | 10.6% | 4.5% | 553 ms | 321 ms |
-| JoinIn AI Baton | 12.3% | 4.8% | 577 ms | 350 ms |
-| Deepgram Flux | 12.9% | 9.9% | 1151 ms | 548 ms |
-| LiveKit Turn Detector v1.1-mini | 17.7% | 8.2% | 812 ms | 504 ms |
-| p99lab turn-1-mini | 22.6% | 9.6% | 849 ms | 580 ms |
-| ultraVAD | 27.7% | 11.9% | 899 ms | 663 ms |
-| SmartTurn v3.2 | 35.2% | 14.8% | 1051 ms | 739 ms |
-| VAP (silent agent) | 47.0% | 14.6% | 1131 ms | 749 ms |
-| AssemblyAI | 49.4% | 14.6% | 1049 ms | 713 ms |
-| Gradium | 55.6% | 12.6% | 913 ms | 656 ms |
-| Soniox | – | 5.5% | 647 ms | 512 ms |
-| Cartesia Ink 2 | – | – | 1056 ms | 911 ms |
-| OpenAI GPT Realtime 2 | – | – | 1143 ms | 824 ms |
-| VAD baseline | 55.6% | 21.7% | 1600 ms | 1000 ms |
+| **LiveKit Turn Detector v1.1** | **13.4%** | **7.5%** | **810 ms** | **414 ms** |
+| p99lab turn-1 | 19.3% | 8.7% | 912 ms | 529 ms |
+| Deepgram Flux | 22.3% | 13.5% | 1409 ms | 826 ms |
+| LiveKit Turn Detector v1.1-mini | 25.6% | 12.9% | 1124 ms | 738 ms |
+| JoinIn AI Baton | 26.1% | 13.6% | 1111 ms | 749 ms |
+| p99lab turn-1-mini | 39.6% | 18.7% | 1169 ms | 862 ms |
+| ultraVAD | 39.7% | 20.8% | 1321 ms | 891 ms |
+| SmartTurn v3.2 | 46.8% | 22.9% | 1384 ms | 956 ms |
+| VAP (silent agent) | 63.5% | 29.0% | 1724 ms | 1048 ms |
+| Gradium | 79.3% | 23.2% | 1112 ms | 785 ms |
+| Cartesia Ink 2 | – | – | 1027 ms | 968 ms |
+| AssemblyAI | – | 21.7% | 1381 ms | 906 ms |
+| OpenAI GPT Realtime 2 | – | – | 2000 ms | 959 ms |
+| Soniox | – | 13.3% | 2000 ms | 789 ms |
+| VAD baseline | 79.3% | 33.4% | 1600 ms | 1130 ms |
+
+These English numbers pool the three v1.1 cohorts: `general`, `accented`, and
+`short_turns`. The [English comparison report](output/livekit__eot-bench-data__validation__min_silence_100ms/en/comparison/report.md#by-cohort)
+has one table per cohort.
 
 A `–` means no policy setting reached that latency budget. The silence-only
 **VAD baseline** runs through the identical evaluation, so every learned and
@@ -169,10 +181,12 @@ decisions, then compares the policies those scores can support.
 
 ### Span-Level Decisions
 
-Each dataset row is a complete human user turn from a task-oriented
-conversation. The row includes every silence span of at least 100 ms. The final
-silence span is the true end of the user's turn and is labeled `eot`; every
-earlier silence span is a mid-turn pause and is labeled `hold`.
+Each dataset row is a human user turn from a task-oriented conversation. The
+row includes every silence span of at least 100 ms, and each span has a label.
+A span labeled `eot` is the true end of the user's turn. A span labeled `hold`
+is a mid-turn pause. Most rows end with an `eot` span. Some short-turn rows stop
+at a mid-turn pause, so their last span is labeled `hold` and they have no
+`eot` span.
 
 The harness asks each model to score those spans causally. For a prediction at
 time `t`, the adapter receives only the audio, transcript context, and messages
@@ -181,7 +195,7 @@ usually happen at ambiguous pauses inside a real turn, not at isolated clips
 where the model can implicitly rely on future context or offline segmentation.
 
 Span-level evaluation turns each user turn into the actual decision points a
-voice system sees. A good model assigns high EoT probability to the final
+voice system sees. A good model assigns high EoT probability to each `eot`
 silence while keeping probability low through ordinary hesitations and mid-turn
 pauses.
 
@@ -238,6 +252,8 @@ Optional dataset fields:
 
 - `messages`
 - `words`
+- `cohort`
+- `label` on each `silence_spans` entry
 
 `audio` is a Hugging Face [`Audio`](https://huggingface.co/docs/datasets/about_dataset_features#audio-feature)
 feature. The harness loads it with the column cast to `Audio(decode=False)` — so
@@ -247,8 +263,14 @@ or already decoded as `{"array": ..., "sampling_rate": ...}`; the harness handle
 both.
 
 `silence_spans` is a list of spans with `start` and `end` seconds. Prediction
-generation skips spans shorter than `0.1s`. Every generated span is labeled
-`hold` unless it is the final span in `silence_spans`, which is labeled `eot`.
+generation skips spans shorter than `0.1s`. A span can carry its own `label`,
+`hold` or `eot`, and the harness uses that label. A row can therefore end in a
+`hold` span when the audio stops at a mid-turn pause. When a span has no
+`label`, it is labeled `hold` unless it is the final span in `silence_spans`,
+which is labeled `eot`.
+
+If `cohort` is present, the span set records it, and `compare-models` adds one
+operating-point table per cohort to the comparison report.
 
 If `messages` is present, it is copied into each causal adapter input. If
 `words` is present, the harness appends a current-turn user message containing
@@ -513,7 +535,10 @@ charts and tables for:
 - best mean latency at 5% and 10% false-cutoff budgets
 
 Each operating-point table includes the VAD baseline and bolds the best value in
-each metric column. The final section contains the full operating-point table.
+each metric column. The next section contains the full operating-point table.
+When `span_set.parquet` has more than one `cohort`, the report ends with a
+`By Cohort` section. That section has one operating-point table per cohort,
+computed from each model's `predictions.parquet` for the rows of that cohort.
 The Markdown report uses GitHub-renderable image references and tables.
 `compare-models` does not write parquet or JSON artifacts into `comparison/`;
 regenerating the report removes stale comparison-side parquet/JSON files from
@@ -632,8 +657,10 @@ Streaming STT adapters produce `p_eot` from the provider's native endpointing
 surface. Deepgram Flux and AssemblyAI expose confidence-style scores. Soniox,
 Cartesia Ink 2, and OpenAI Realtime semantic VAD currently map endpoint events to binary scores:
 `0.0` before the provider endpoint event has fired and `1.0` after it has fired.
-The Cartesia adapter uses definitive `turn.end` events from the English-only
-`ink-2` automatic-turn endpoint and reads `CARTESIA_API_KEY` from the environment.
+The Cartesia adapter uses definitive `turn.end` events from the `ink-2`
+automatic-turn endpoint and reads `CARTESIA_API_KEY` from the environment. Ink 2
+supports English, French, Hindi, Japanese, and Spanish, and detects the language
+itself, so the adapter sends no language parameter.
 The AssemblyAI adapter defaults to `universal-streaming-multilingual` with
 `min_turn_silence=100`, `max_turn_silence=3000`, and
 `end_of_turn_confidence_threshold=0.1` so the harness receives probability-valued
@@ -705,7 +732,7 @@ tuned threshold.
 
 The committed validation run covers all 14 languages: 125,703 prediction
 points across 5,454 turns. It uses dataset revision
-`ca9d98a9686b920a2d8c9eb984224ba9be74e4dd`; its span sets match the existing
+`ae834af9e9bddf73d1f550c190aaeb99bf31f523`; its span sets match the existing
 benchmark. See the [English comparison](output/livekit__eot-bench-data__validation__min_silence_100ms/en/comparison/report.md)
 and [language comparison](output/livekit__eot-bench-data__validation__min_silence_100ms/language_comparison/report.md).
 
@@ -719,7 +746,7 @@ eot-harness predict \
   --name en \
   --split validation \
   --adapter eot_harness.vap_adapter:VAPAdapter \
-  --revision ca9d98a9686b920a2d8c9eb984224ba9be74e4dd \
+  --revision ae834af9e9bddf73d1f550c190aaeb99bf31f523 \
   --batch-size 1 \
   --output-dir output
 ```
@@ -765,7 +792,7 @@ eot-harness predict \
   --path livekit/eot-bench-data \
   --name en \
   --split validation \
-  --revision ca9d98a9686b920a2d8c9eb984224ba9be74e4dd \
+  --revision ae834af9e9bddf73d1f550c190aaeb99bf31f523 \
   --adapter eot_harness.p99lab_turn_adapter:P99LabTurn1MiniAdapter \
   --batch-size 64 \
   --output-dir output
@@ -774,7 +801,7 @@ eot-harness predict \
   --path livekit/eot-bench-data \
   --name en \
   --split validation \
-  --revision ca9d98a9686b920a2d8c9eb984224ba9be74e4dd \
+  --revision ae834af9e9bddf73d1f550c190aaeb99bf31f523 \
   --adapter eot_harness.p99lab_turn_adapter:P99LabTurn1Adapter \
   --batch-size 64 \
   --output-dir output
@@ -788,7 +815,7 @@ speech encoders. The Modal `p99lab` preset builds an image with these packages:
 
 ```bash
 modal run eot_harness.modal_runner::run_predict \
-  --config-json '{"path":"livekit/eot-bench-data","name":"en","split":"validation","revision":"ca9d98a9686b920a2d8c9eb984224ba9be74e4dd","adapter":"eot_harness.p99lab_turn_adapter:P99LabTurn1Adapter","batch_size":64,"modal_preset":"p99lab"}'
+  --config-json '{"path":"livekit/eot-bench-data","name":"en","split":"validation","revision":"ae834af9e9bddf73d1f550c190aaeb99bf31f523","adapter":"eot_harness.p99lab_turn_adapter:P99LabTurn1Adapter","batch_size":64,"modal_preset":"p99lab"}'
 ```
 
 <details>

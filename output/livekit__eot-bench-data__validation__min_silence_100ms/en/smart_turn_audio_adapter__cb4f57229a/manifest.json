@@ -28,16 +28,18 @@
   "batch_size": 128,
   "inference_interval": 0.1,
   "transcript_lag": 0.5,
-  "n_rows": 11191,
-  "n_spans": 1250,
+  "n_rows": 71654,
+  "n_spans": 4049,
   "display_name": "SmartTurn v3.2",
   "score_point": 0.2,
   "load_dataset": {
     "path": "livekit/eot-bench-data",
     "name": "all",
-    "split": "validation"
+    "split": "validation",
+    "revision": "ae834af9e9bddf73d1f550c190aaeb99bf31f523"
   },
   "path": "livekit/eot-bench-data",
   "name": "all",
-  "language": "en"
+  "language": "en",
+  "revision": "ae834af9e9bddf73d1f550c190aaeb99bf31f523"
 }

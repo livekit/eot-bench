@@ -15,7 +15,6 @@ import {
   rankingForBudget,
 } from './selection';
 
-const tokenColor = (token: string) => `oklch(var(--lk-color-${token}))`;
 
 const LATENCY_PRESETS = [
   { label: '300 ms', seconds: 0.3 },
@@ -36,7 +35,7 @@ interface TurnDetectorChartsProps {
   /**
    * `'snapshot'` renders a static composite for the README screenshot pipeline:
    * the interactive chrome (budget controls, drag hint) is hidden and the outer
-   * margin dropped, leaving caption + legend + Pareto + ranking + heatmap.
+   * margin dropped, leaving caption + Pareto + ranking + heatmap.
    */
   variant?: 'default' | 'snapshot';
 }
@@ -166,38 +165,11 @@ export function TurnDetectorCharts({
           </p>
         )}
 
-        {/* Legend */}
-        <div className="mb-4 flex flex-wrap gap-x-4 gap-y-2">
-          {data.models.map((model) => (
-            <button
-              key={model.key}
-              type="button"
-              className={cn(
-                'flex items-center gap-1.5 rounded text-xs transition-opacity',
-                activeModelKey != null && activeModelKey !== model.key && 'opacity-40',
-              )}
-              onMouseEnter={() => setActiveModelKey(model.key)}
-              onMouseLeave={() => setActiveModelKey(null)}
-              onFocus={() => setActiveModelKey(model.key)}
-              onBlur={() => setActiveModelKey(null)}
-            >
-              <span
-                aria-hidden
-                className="inline-block h-2.5 w-2.5 rounded-full"
-                style={{ backgroundColor: tokenColor(model.colorToken) }}
-              />
-              <span className={cn('text-fg2', model.isLiveKit && 'text-fg0 font-medium')}>
-                {model.label}
-              </span>
-            </button>
-          ))}
-        </div>
-
         {/* Curve + ranking */}
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_360px]">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_400px]">
           {/* min-w-0 lets the 1fr track shrink below the chart SVG's measured width; without it
               the explicitly-sized SVG pins the track wide and ParentSize never scales back down. */}
-          <div className="min-w-0">
+          <div className="flex min-w-0 flex-col">
             <ParetoCurveChart
               models={data.models}
               frontiers={data.frontiers}

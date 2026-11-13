@@ -8,6 +8,8 @@ from typing import Any
 import numpy as np
 import soundfile as sf
 
+from .schemas import PREDICTION_LABELS
+
 DEFAULT_TRANSCRIPT_LAG = 0.5
 DEFAULT_INFERENCE_INTERVAL = 0.1
 DEFAULT_MIN_SILENCE = 0.1
@@ -26,6 +28,20 @@ def load_hf_dataset(
 
     ds = load_dataset(path, name, split=split, revision=revision, token=token)
     return ds.cast_column("audio", Audio(decode=False))
+
+
+def span_label(silence_spans: list[dict], span_index: int) -> str:
+    """Return the `hold`/`eot` label of one silence span.
+
+    A span's own `label` wins. Without one, the last span of the row is the end
+    of the turn and every earlier span is a mid-turn pause.
+    """
+    label = silence_spans[span_index].get("label")
+    if label is None:
+        return "eot" if span_index == len(silence_spans) - 1 else "hold"
+    if label not in PREDICTION_LABELS:
+        raise ValueError(f"Silence span label must be one of {PREDICTION_LABELS}, got {label!r}.")
+    return label
 
 
 def build_messages(
@@ -82,7 +98,7 @@ def iter_transformed_row(
         end = float(span["end"])
         if end - start < min_silence_span - _EPS:
             continue
-        label = "eot" if span_index == len(silence_spans) - 1 else "hold"
+        label = span_label(silence_spans, span_index)
         for timestamp in _time_grid(start, end, inference_interval):
             end_sample = int(math.floor(float(timestamp) * sample_rate + _EPS))
             start_sample = 0
@@ -181,17 +197,18 @@ def build_span_set(ds, *, min_silence_span: float = DEFAULT_MIN_SILENCE) -> list
             duration = end - start
             if duration < min_silence_span - _EPS:
                 continue
-            rows.append(
-                {
-                    "id": row_id,
-                    "language": language,
-                    "span_index": span_index,
-                    "label": "eot" if span_index == len(silence_spans) - 1 else "hold",
-                    "start": round(start, 6),
-                    "end": round(end, 6),
-                    "duration": round(duration, 6),
-                },
-            )
+            span_row = {
+                "id": row_id,
+                "language": language,
+                "span_index": span_index,
+                "label": span_label(silence_spans, span_index),
+                "start": round(start, 6),
+                "end": round(end, 6),
+                "duration": round(duration, 6),
+            }
+            if row.get("cohort") is not None:
+                span_row["cohort"] = str(row["cohort"])
+            rows.append(span_row)
 
     return rows
 

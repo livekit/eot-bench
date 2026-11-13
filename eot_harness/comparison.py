@@ -10,7 +10,7 @@ from typing import Any
 import numpy as np
 import pandas as pd
 
-from .metrics import get_pareto_operating_points, pareto_frontier
+from .metrics import compute_metrics_from_predictions, get_pareto_operating_points, pareto_frontier
 
 _CACHE_DIR = (Path(__file__).resolve().parent.parent / ".cache" / "eot_harness").resolve()
 os.environ.setdefault("XDG_CACHE_HOME", str(_CACHE_DIR))
@@ -173,8 +173,74 @@ def write_comparison_report(
         cutoff_budget_ops=cutoff_budget_ops,
         vad_table_baseline=vad_table_baseline,
         images=images,
+        cohort_sections=_cohort_sections(
+            span_set_dir,
+            ordered_models,
+            min_hold_span_duration=min_hold_span_duration,
+            max_hold_span_duration=max_hold_span_duration,
+        ),
     )
     return output_dir
+
+
+def _cohort_sections(
+    span_set_dir: Path,
+    models: list[ModelMetrics],
+    *,
+    min_hold_span_duration: float,
+    max_hold_span_duration: float,
+) -> str:
+    """Return one operating-point table per dataset cohort, or "" without cohorts."""
+    span_set_path = span_set_dir / "span_set.parquet"
+    if not span_set_path.exists():
+        return ""
+    spans = pd.read_parquet(span_set_path)
+    if "cohort" not in spans.columns or spans["cohort"].nunique() < 2:
+        return ""
+
+    predictions = {model.name: pd.read_parquet(model.run_dir / "predictions.parquet") for model in models}
+    model_order = [model.name for model in models]
+    headers = [*_latency_budget_metric_headers(), *_cutoff_budget_metric_headers()[1:]]
+    sections = []
+    for cohort, cohort_spans in spans.groupby("cohort", sort=True):
+        ids = set(cohort_spans["id"])
+        tradeoffs = []
+        for model in models:
+            rows = predictions[model.name]
+            tradeoff, _ = compute_metrics_from_predictions(
+                rows[rows["id"].isin(ids)],
+                score_point_s=model.summary.get("score_point_s"),
+                min_hold_span_duration=min_hold_span_duration,
+                max_hold_span_duration=max_hold_span_duration,
+            )
+            tradeoff["model"] = model.name
+            tradeoffs.append(tradeoff)
+        combined = pd.concat(tradeoffs, ignore_index=True)
+        vad_table_baseline = _fine_vad_baseline(
+            cohort_spans,
+            min_hold_span_duration=min_hold_span_duration,
+            max_hold_span_duration=max_hold_span_duration,
+            fallback=_vad_timeout_baseline(combined),
+        )
+        latency_rows = _latency_budget_metric_rows(
+            get_pareto_operating_points(combined, "mean_latency", sorted(LATENCY_BUDGET_COMPARISON)),
+            model_order=model_order,
+            vad_table_baseline=vad_table_baseline,
+        )
+        cutoff_rows = _cutoff_budget_metric_rows(
+            get_pareto_operating_points(combined, "cutoff_rate", sorted(CUTOFF_BUDGET_COMPARISON)),
+            model_order=model_order,
+            vad_table_baseline=vad_table_baseline,
+        )
+        rows = [latency + cutoff[1:] for latency, cutoff in zip(latency_rows, cutoff_rows, strict=True)]
+        labels = cohort_spans["label"].value_counts()
+        sections.append(
+            f"### `{cohort}`\n\n"
+            f"{cohort_spans['id'].nunique()} rows, {int(labels.get('hold', 0))} hold spans, "
+            f"{int(labels.get('eot', 0))} eot spans.\n\n"
+            f"{_markdown_metric_table(headers, rows)}",
+        )
+    return "## By Cohort\n\n" + "\n\n".join(sections) + "\n"
 
 
 def write_language_comparison_report(
@@ -665,7 +731,21 @@ def _fine_vad_baseline_from_span_set(
     required = {"label", "duration"}
     if missing := required - set(spans.columns):
         raise ValueError(f"{span_set_path} is missing required columns: {sorted(missing)}")
+    return _fine_vad_baseline(
+        spans,
+        min_hold_span_duration=min_hold_span_duration,
+        max_hold_span_duration=max_hold_span_duration,
+        fallback=fallback,
+    )
 
+
+def _fine_vad_baseline(
+    spans: pd.DataFrame,
+    *,
+    min_hold_span_duration: float,
+    max_hold_span_duration: float,
+    fallback: pd.DataFrame,
+) -> pd.DataFrame:
     hold_durations = pd.to_numeric(
         spans.loc[spans["label"] == "hold", "duration"],
         errors="coerce",
@@ -1021,6 +1101,7 @@ def _write_markdown(
     cutoff_budget_ops: pd.DataFrame,
     vad_table_baseline: pd.DataFrame,
     images: list[str],
+    cohort_sections: str = "",
 ) -> None:
     _ensure_report_images(images)
     markdown_doc = f"""# EoT Model Comparison
@@ -1045,6 +1126,8 @@ def _write_markdown(
 
 {_markdown_table(_ops_headers(), _combined_ops_rows(cutoff_budget_ops, latency_budget_ops, model_order=model_order))}
 """
+    if cohort_sections:
+        markdown_doc += f"\n{cohort_sections}"
     (output_dir / "report.md").write_text(markdown_doc, encoding="utf-8")
 
 

@@ -76,6 +76,7 @@ ULTRAVAD_IMAGE = (
         "pandas>=2.2.0",
         "peft",
         "pyarrow>=18.0.0,<25",  # 25+ needs NumPy 2 at runtime
+        "python-dotenv>=1.0.0",
         "s3prl",
         "soundfile==0.13.1",
         "torch==2.7.0",

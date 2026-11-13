@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import numpy as np
+import pytest
 from datasets import Dataset
 
 from eot_harness.io import (
@@ -155,3 +156,30 @@ def test_min_silence_span_controls_prediction_span_set():
 
     assert {entry["span_index"] for entry in rows} == {1}
     assert [(entry["id"], entry["language"], entry["span_index"]) for entry in span_set] == [("turn-1", "en", 1)]
+
+
+def test_explicit_span_labels_override_last_span_rule():
+    row = _row(
+        cohort="short_turns",
+        silence_spans=[{"start": 2.0, "end": 3.0, "label": "hold"}],
+    )
+
+    rows = transform_row(row, inference_interval=0.5, transcript_lag=0.0)
+    span_set = build_span_set(Dataset.from_list([row]))
+
+    assert {entry["label"] for entry in rows} == {"hold"}
+    assert [(entry["label"], entry["cohort"]) for entry in span_set] == [("hold", "short_turns")]
+
+
+def test_unlabeled_spans_keep_last_span_rule():
+    span_set = build_span_set(Dataset.from_list([_row()]))
+
+    assert [entry["label"] for entry in span_set] == ["hold", "eot"]
+    assert "cohort" not in span_set[0]
+
+
+def test_unknown_span_label_is_rejected():
+    row = _row(silence_spans=[{"start": 2.0, "end": 3.0, "label": "maybe"}])
+
+    with pytest.raises(ValueError, match="Silence span label"):
+        build_span_set([row])

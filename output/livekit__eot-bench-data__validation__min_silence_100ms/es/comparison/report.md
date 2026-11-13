@@ -13,6 +13,7 @@
 | LiveKit Turn Detector v1.1 | **10.4%** | **4.7%** |
 | LiveKit Turn Detector v1.1-mini | 18.2% | 8.2% |
 | Soniox | - | 11.4% |
+| Cartesia Ink 2 | - | 9.1% |
 | Deepgram Flux | 16.4% | 8.7% |
 | Gradium | 58.9% | 15.2% |
 | SmartTurn v3.2 | 38.7% | 17.3% |
@@ -31,6 +32,7 @@
 | LiveKit Turn Detector v1.1 | **528 ms** | **301 ms** |
 | LiveKit Turn Detector v1.1-mini | 722 ms | 502 ms |
 | Soniox | 800 ms | 611 ms |
+| Cartesia Ink 2 | 808 ms | 545 ms |
 | Deepgram Flux | 820 ms | 536 ms |
 | Gradium | 934 ms | 709 ms |
 | SmartTurn v3.2 | 980 ms | 769 ms |
@@ -47,6 +49,7 @@
 | Cutoff | 5.0% | LiveKit Turn Detector v1.1 | 0.528 | 5.0% | 92.0% | 0.490 | 0.400 | 2.000 |
 | Cutoff | 5.0% | LiveKit Turn Detector v1.1-mini | 0.723 | 5.0% | 91.2% | 0.400 | 0.600 | 2.000 |
 | Cutoff | 5.0% | Soniox | 0.800 | 5.0% | 75.8% | 0.990 | 0.400 | 2.000 |
+| Cutoff | 5.0% | Cartesia Ink 2 | 0.808 | 5.0% | 93.0% | 0.990 | 0.600 | 3.000 |
 | Cutoff | 5.0% | Deepgram Flux | 0.820 | 4.8% | 98.5% | 0.660 | 0.800 | 2.000 |
 | Cutoff | 5.0% | Gradium | 0.934 | 4.8% | 75.8% | 0.650 | 0.200 | 1.500 |
 | Cutoff | 5.0% | SmartTurn v3.2 | 0.980 | 5.0% | 85.0% | 0.770 | 0.800 | 2.000 |
@@ -57,6 +60,7 @@
 | Cutoff | 10.0% | LiveKit Turn Detector v1.1 | 0.301 | 9.8% | 92.2% | 0.480 | 0.200 | 1.500 |
 | Cutoff | 10.0% | LiveKit Turn Detector v1.1-mini | 0.502 | 9.8% | 76.8% | 0.530 | 0.200 | 1.500 |
 | Cutoff | 10.0% | Soniox | 0.611 | 7.5% | 75.8% | 0.990 | 0.200 | 1.500 |
+| Cutoff | 10.0% | Cartesia Ink 2 | 0.545 | 9.2% | 93.0% | 0.990 | 0.200 | 2.000 |
 | Cutoff | 10.0% | Deepgram Flux | 0.536 | 9.8% | 98.5% | 0.700 | 0.500 | 1.500 |
 | Cutoff | 10.0% | Gradium | 0.709 | 10.0% | 91.5% | 0.380 | 0.500 | 1.500 |
 | Cutoff | 10.0% | SmartTurn v3.2 | 0.769 | 9.8% | 81.2% | 0.870 | 0.600 | 1.500 |
@@ -67,6 +71,7 @@
 | Latency | 300ms | LiveKit Turn Detector v1.1 | 0.298 | 10.4% | 92.5% | 0.450 | 0.200 | 1.500 |
 | Latency | 300ms | LiveKit Turn Detector v1.1-mini | 0.294 | 18.2% | 92.8% | 0.380 | 0.200 | 1.500 |
 | Latency | 300ms | Soniox | - | - | - | - | - | - |
+| Latency | 300ms | Cartesia Ink 2 | - | - | - | - | - | - |
 | Latency | 300ms | Deepgram Flux | 0.300 | 16.4% | 98.5% | 0.610 | 0.200 | 2.000 |
 | Latency | 300ms | Gradium | 0.300 | 58.9% | 100.0% | 0.000 | 0.300 | 1.000 |
 | Latency | 300ms | SmartTurn v3.2 | 0.298 | 38.7% | 87.8% | 0.650 | 0.200 | 1.000 |
@@ -77,6 +82,7 @@
 | Latency | 600ms | LiveKit Turn Detector v1.1 | 0.580 | 4.7% | 88.8% | 0.540 | 0.400 | 2.000 |
 | Latency | 600ms | LiveKit Turn Detector v1.1-mini | 0.592 | 8.2% | 88.0% | 0.440 | 0.400 | 2.000 |
 | Latency | 600ms | Soniox | 0.557 | 11.4% | 75.8% | 0.990 | 0.400 | 1.000 |
+| Latency | 600ms | Cartesia Ink 2 | 0.567 | 9.1% | 93.0% | 0.990 | 0.300 | 2.000 |
 | Latency | 600ms | Deepgram Flux | 0.543 | 8.7% | 98.5% | 0.700 | 0.500 | 2.000 |
 | Latency | 600ms | Gradium | 0.599 | 15.2% | 93.8% | 0.250 | 0.400 | 1.000 |
 | Latency | 600ms | SmartTurn v3.2 | 0.594 | 17.3% | 81.2% | 0.870 | 0.500 | 1.000 |

@@ -141,3 +141,41 @@ def test_last_assistant_text_reads_the_last_assistant_message() -> None:
     assert module._last_assistant_text(messages) == "What is your name?"
     assert module._last_assistant_text([{"role": "user", "content": "x"}]) == ""
     assert module._last_assistant_text(None) == ""
+
+
+def test_livekit_turn_detector_adapter_waits_out_rate_limits(monkeypatch) -> None:
+    import numpy as np
+
+    adapter = LiveKitTurnDetectorAdapter(
+        api_key="key", api_secret="secret", max_retries=0, retry_backoff=0.0, capacity_retries=2
+    )
+    calls = []
+
+    async def score_events(*args, **kwargs):
+        calls.append(1)
+        if len(calls) <= 2:
+            raise module._EotServerError("quota exceeded", code=429, transient=True)
+        return [{"timestamp": 1.0, "p_eot": 0.9}]
+
+    monkeypatch.setattr(adapter, "_score_events", score_events)
+    row = {
+        "id": "turn-1",
+        "language": "en",
+        "audio": {"array": np.zeros(32000, dtype=np.float32), "sampling_rate": 16000},
+        "silence_spans": [{"start": 1.0, "end": 1.3}],
+    }
+
+    result = asyncio.run(adapter.predict_turn(row))
+
+    assert len(calls) == 3
+    assert result["prediction_rows"][0]["p_eot"] == 0.9
+
+    # A third 429 exceeds the capacity budget and falls back to `max_retries`.
+    calls.clear()
+    adapter.capacity_retries = 1
+    try:
+        asyncio.run(adapter.predict_turn(row))
+    except module._EotServerError as exc:
+        assert exc.code == 429
+    else:
+        raise AssertionError("expected the 429 to surface")

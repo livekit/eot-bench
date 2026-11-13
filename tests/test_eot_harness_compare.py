@@ -254,3 +254,53 @@ def test_compare_models_rejects_mismatched_metric_duration(tmp_path: Path) -> No
                 max_hold_span_duration=5.0,
             ),
         )
+
+
+def test_cohort_sections_report_each_cohort(tmp_path: Path) -> None:
+    from eot_harness.comparison import ModelMetrics, _cohort_sections
+
+    span_rows, prediction_rows = [], []
+    for cohort, n_turns in (("general", 6), ("short_turns", 6)):
+        for turn in range(n_turns):
+            turn_id = f"{cohort}-{turn}"
+            # Even short-turn rows end in a pause, so they have no eot span.
+            labels = ["hold"] if cohort == "short_turns" and turn % 2 == 0 else ["hold", "eot"]
+            if cohort == "short_turns" and turn % 2 == 1:
+                labels = ["eot"]
+            for span_index, label in enumerate(labels):
+                duration = 0.5 if label == "hold" else 1.5
+                span_rows.append(
+                    {"id": turn_id, "span_index": span_index, "label": label, "duration": duration, "cohort": cohort},
+                )
+                for step in range(int(round(duration / 0.1)) + 1):
+                    prediction_rows.append(
+                        {
+                            "id": turn_id,
+                            "span_index": span_index,
+                            "timestamp": round(step * 0.1, 6),
+                            "silence_dur": round(step * 0.1, 6),
+                            "p_eot": 0.9 if label == "eot" else 0.1,
+                            "label": label,
+                        },
+                    )
+    run_dir = tmp_path / "model_a"
+    run_dir.mkdir()
+    pd.DataFrame(span_rows).to_parquet(tmp_path / "span_set.parquet", index=False)
+    pd.DataFrame(prediction_rows).to_parquet(run_dir / "predictions.parquet", index=False)
+    model = ModelMetrics(
+        name="Model A",
+        run_dir=run_dir,
+        metrics_dir=run_dir,
+        manifest={},
+        summary={"score_point_s": 0.2},
+        tradeoff=pd.DataFrame(),
+    )
+
+    report = _cohort_sections(tmp_path, [model], min_hold_span_duration=0.2, max_hold_span_duration=5.0)
+
+    assert "### `general`\n\n6 rows, 6 hold spans, 6 eot spans." in report
+    assert "### `short_turns`\n\n6 rows, 3 hold spans, 3 eot spans." in report
+    assert report.count("| Model A |") == 2
+
+    pd.DataFrame(span_rows).drop(columns="cohort").to_parquet(tmp_path / "span_set.parquet", index=False)
+    assert _cohort_sections(tmp_path, [model], min_hold_span_duration=0.2, max_hold_span_duration=5.0) == ""
