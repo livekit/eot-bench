@@ -46,7 +46,7 @@ available for download and evaluation, Apache-2.0 alongside this repo.
 
 ## Results
 
-LiveKit Turn Detector v1 posts the strongest overall results of any model we
+LiveKit Turn Detector v1.1 posts the strongest overall results of any model we
 evaluated, in English and across all 14 languages. Explore the full
 **[interactive leaderboard »](https://livekit.com/benchmarks/eot-bench)**. Set a
 latency or false-cutoff budget and watch every model re-rank on the Pareto
@@ -75,15 +75,15 @@ latency budget (best first). Lower is better on every metric:
 
 | Model | False cutoffs @ 300 ms | False cutoffs @ 600 ms | Latency @ 5% cutoff | Latency @ 10% cutoff |
 | --- | ---: | ---: | ---: | ---: |
-| **LiveKit Turn Detector v1** | **9.9%** | **4.5%** | **543 ms** | **295 ms** |
+| **LiveKit Turn Detector v1.1** | **7.8%** | **4.1%** | **462 ms** | **250 ms** |
 | p99lab turn-1 | 10.6% | 4.5% | 553 ms | 321 ms |
 | JoinIn AI Baton | 12.3% | 4.8% | 577 ms | 350 ms |
 | Deepgram Flux | 12.9% | 9.9% | 1151 ms | 548 ms |
+| LiveKit Turn Detector v1.1-mini | 17.7% | 8.2% | 812 ms | 504 ms |
 | p99lab turn-1-mini | 22.6% | 9.6% | 849 ms | 580 ms |
 | ultraVAD | 27.7% | 11.9% | 899 ms | 663 ms |
-| LiveKit Turn Detector v1-mini | 27.8% | 12.1% | 1070 ms | 698 ms |
 | SmartTurn v3.2 | 35.2% | 14.8% | 1051 ms | 739 ms |
-| VAP (silent agent) | 46.9% | 14.6% | 1131 ms | 749 ms |
+| VAP (silent agent) | 47.0% | 14.6% | 1131 ms | 749 ms |
 | AssemblyAI | 49.4% | 14.6% | 1049 ms | 713 ms |
 | Gradium | 55.6% | 12.6% | 913 ms | 656 ms |
 | Soniox | – | 5.5% | 647 ms | 512 ms |
@@ -129,7 +129,7 @@ See [Evaluation Model](#evaluation-model) for the full methodology.
 - The public turn-level dataset [`livekit/eot-bench-data`](https://huggingface.co/datasets/livekit/eot-bench-data):
   real human-to-agent turns with audio and text context in 14 languages.
 - Batch and streaming adapter interfaces for local models and provider APIs,
-  with reference adapters for LiveKit Turn Detector v1 / v1-mini, Deepgram Flux,
+  with reference adapters for LiveKit Turn Detector v1.1 / v1.1-mini, Deepgram Flux,
   AssemblyAI, Cartesia Ink 2, Gradium, JoinIn AI Baton, Soniox, OpenAI GPT
   Realtime, SmartTurn, ultraVAD, and VAP.
 - Reproducible prediction artifacts, policy-sweep metrics, Pareto frontiers,
@@ -396,10 +396,13 @@ eot-harness predict-streaming \
   --output-dir output
 ```
 
-The LiveKit cloud audio adapter streams each turn to the LiveKit Turn Detector v1
-(`turn-detector-v1`) model over the agent-gateway EOT websocket protocol. For every scored silence-span grid
+The LiveKit cloud audio adapter streams each turn to LiveKit Turn Detector v1.1
+(the `turn-detector-v1` cloud model in the SDK) over the agent-gateway EOT websocket protocol. For every scored silence-span grid
 point it feeds audio up to that timestamp and issues an explicit inference
 request, so each `p_eot` reflects exactly the causal audio the harness exposes.
+As in the SDK, each request also carries the last assistant message in
+`messages` as agent context and the turn length so far as `turn_samples`. It
+never sends the words of the turn under judgement.
 It requires `LIVEKIT_API_KEY` and `LIVEKIT_API_SECRET`; set `LIVEKIT_INFERENCE_URL`
 to target a non-default gateway (e.g. `http://localhost:8080/v1` for a local
 server).
@@ -657,13 +660,18 @@ SmartTurn adapters. It requires `BATON_API_KEY` and targets
 the open-weight p99lab models; see [p99lab turn-1 and turn-1-mini](#p99lab-turn-1-and-turn-1-mini).
 
 `LiveKitTurnDetectorAdapter` is a streaming adapter that scores each turn
-with the LiveKit Turn Detector v1 (`turn-detector-v1`) cloud model over the
-agent-gateway EOT websocket;
+with the LiveKit Turn Detector v1.1 cloud model (`turn-detector-v1` in the SDK) over the
+agent-gateway EOT websocket, with the prior assistant message as context;
 run it with `predict-streaming` and `LIVEKIT_API_KEY`/`LIVEKIT_API_SECRET`.
 
 UltraVAD currently supports `--batch-size 1` only.
 
-`LiveKitTurnDetectorMiniAdapter` parallelizes calls to the public local-inference
+`LiveKitTurnDetectorMiniAdapter` scores LiveKit Turn Detector v1.1-mini
+(`turn-detector-v1-mini` in the SDK) on-device with `livekit-local-inference`
+0.3.0 or later, and raises an error on older releases. For each timestamp it
+feeds the last 2.0 s of the turn and the turn length so far as `turn_samples`,
+as the SDK does.
+It parallelizes calls to the public local-inference
 interface with up to 8 worker threads by default. Set
 `LIVEKIT_TURN_DETECTOR_MINI_WORKERS=1` for single-threaded runs, or another positive
 integer to tune local throughput.
@@ -672,7 +680,8 @@ The LiveKit text adapters in `eot_harness.livekit_text_adapter` are deprecated a
 kept only for old comparisons.
 
 Text fields are model-specific requirements, not global schema requirements.
-UltraVAD consumes previous assistant text when `messages` is present. Deprecated
+UltraVAD, JoinIn AI Baton, and LiveKit Turn Detector v1.1 consume previous
+assistant text when `messages` is present. Deprecated
 LiveKit text adapters need transcript text from `words` and/or `messages`.
 
 </details>

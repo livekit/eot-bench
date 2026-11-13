@@ -39,15 +39,15 @@ VAD_TABLE_STEP = 0.01
 
 # Display name (manifest.json `display_name`) -> stable key, label, color token.
 MODEL_CONFIG: dict[str, dict] = {
-    "LiveKit Turn Detector v1": {
+    "LiveKit Turn Detector v1.1": {
         "key": "livekit-v1",
-        "label": "LiveKit Turn Detector v1",
+        "label": "LiveKit Turn Detector v1.1",
         "colorToken": "chart1",
         "isLiveKit": True,
     },
-    "LiveKit Turn Detector v1-mini": {
+    "LiveKit Turn Detector v1.1-mini": {
         "key": "livekit-v1-mini",
-        "label": "LiveKit Turn Detector v1-mini",
+        "label": "LiveKit Turn Detector v1.1-mini",
         "colorToken": "chart6",
         "isLiveKit": True,
     },
