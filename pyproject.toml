@@ -8,7 +8,7 @@ version = "0.1.0"
 description = "Small end-of-turn evaluation harness for model adapter comparisons."
 readme = "README.md"
 license = { file = "LICENSE" }
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 dependencies = [
     "aiohttp>=3.9.0",
     "datasets>=3.2.0",
@@ -34,8 +34,8 @@ dev = [
 ]
 vap = [
     "einops==0.8.1",
-    "torch==2.7.0",
-    "torchaudio==2.7.0",
+    "torch==2.13.0",
+    "torchaudio==2.11.1",
     "vap @ git+https://github.com/ErikEkstedt/VoiceActivityProjection.git@f39a78b23a6dccdbedd106e00b48c410b8739f5d",
 ]
 
