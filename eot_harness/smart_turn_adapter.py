@@ -6,6 +6,8 @@ from .languages import supports_any_benchmark_language
 
 DEFAULT_AUDIO_MODEL_ID = "pipecat-ai/smart-turn-v3"
 DEFAULT_AUDIO_MODEL_FILENAME = "smart-turn-v3.2-gpu.onnx"
+HAAN_MODEL_ID = "CharanSripadi/haan"
+HAAN_MODEL_FILENAME = "haan-telephony.onnx"
 
 
 class SmartTurnAudioAdapter:
@@ -72,6 +74,25 @@ class SmartTurnAudioAdapter:
         inputs = np.stack(batch_features).astype(np.float32)
         probs = self.session.run(None, {"input_features": inputs})[0].reshape(-1).tolist()
         return [float(prob) for prob in probs]
+
+
+class HaanAudioAdapter(SmartTurnAudioAdapter):
+    """haan: SmartTurn v3.2 fine-tuned with telephone-channel augmentation.
+
+    Same architecture, preprocessing and ONNX interface as SmartTurn v3.2, so
+    only the weights differ. See https://github.com/Charansripadi/haan.
+    """
+
+    display_name = "haan (SmartTurn v3.2 phone-audio fine-tune)"
+
+    def __init__(
+        self,
+        *,
+        model_id: str = HAAN_MODEL_ID,
+        audio_model_filename: str = HAAN_MODEL_FILENAME,
+        **kwargs,
+    ) -> None:
+        super().__init__(model_id=model_id, audio_model_filename=audio_model_filename, **kwargs)
 
 
 def _load_smart_turn_session(*, model_id: str, audio_model_filename: str, revision: str | None):
