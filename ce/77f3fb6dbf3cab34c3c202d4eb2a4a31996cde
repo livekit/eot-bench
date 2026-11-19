@@ -1,0 +1,147 @@
+README.md
+  s_c9fa01ab24948b::t_1b21f09c1d8eeb 93,147,302,656,691-693,826-869
+eot_harness/inworld_sava_adapter.py
+  s_c9fa01ab24948b::t_55ac777edec624 1-98
+output/livekit__eot-bench-data__validation__min_silence_100ms/ar/comparison/report.md
+  s_c9fa01ab24948b::t_d480d5b28dfbd8 18,35,50,59,68,77
+output/livekit__eot-bench-data__validation__min_silence_100ms/ar/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/manifest.json
+  s_c9fa01ab24948b::t_2616816c798d94 1-42
+output/livekit__eot-bench-data__validation__min_silence_100ms/ar/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/metrics/summary.json
+  s_c9fa01ab24948b::t_bc2a7622ab888c 1-91
+output/livekit__eot-bench-data__validation__min_silence_100ms/ar/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/summary.json
+  s_c9fa01ab24948b::t_bdba5bd48ad453 1-42
+output/livekit__eot-bench-data__validation__min_silence_100ms/de/comparison/report.md
+  s_c9fa01ab24948b::t_3b38f5e634b2f4 20,39,56,67,78,89
+output/livekit__eot-bench-data__validation__min_silence_100ms/de/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/manifest.json
+  s_c9fa01ab24948b::t_d11fda29dc2bf7 1-42
+output/livekit__eot-bench-data__validation__min_silence_100ms/de/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/metrics/summary.json
+  s_c9fa01ab24948b::t_be0da2e3974717 1-91
+output/livekit__eot-bench-data__validation__min_silence_100ms/de/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/summary.json
+  s_c9fa01ab24948b::t_36ee22bab6ee37 1-42
+output/livekit__eot-bench-data__validation__min_silence_100ms/en/comparison/report.md
+  s_c9fa01ab24948b::t_168e6fa17888f0 20,43,64,79,94,109,133,156,179
+output/livekit__eot-bench-data__validation__min_silence_100ms/en/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/manifest.json
+  s_c9fa01ab24948b::t_1adce15cb2889b 1-42
+output/livekit__eot-bench-data__validation__min_silence_100ms/en/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/metrics/summary.json
+  s_c9fa01ab24948b::t_f66075087aab51 1-91
+output/livekit__eot-bench-data__validation__min_silence_100ms/en/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/summary.json
+  s_c9fa01ab24948b::t_3c6212c7589389 1-42
+output/livekit__eot-bench-data__validation__min_silence_100ms/es/comparison/report.md
+  s_c9fa01ab24948b::t_6ecfc0129dd039 19,39,57,69,81,93
+output/livekit__eot-bench-data__validation__min_silence_100ms/es/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/manifest.json
+  s_c9fa01ab24948b::t_e826adaee92925 1-42
+output/livekit__eot-bench-data__validation__min_silence_100ms/es/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/metrics/summary.json
+  s_c9fa01ab24948b::t_b60c27d43da804 1-91
+output/livekit__eot-bench-data__validation__min_silence_100ms/es/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/summary.json
+  s_c9fa01ab24948b::t_d78d9749d57109 1-42
+output/livekit__eot-bench-data__validation__min_silence_100ms/fr/comparison/report.md
+  s_c9fa01ab24948b::t_120b576651edec 19,39,57,69,81,93
+output/livekit__eot-bench-data__validation__min_silence_100ms/fr/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/manifest.json
+  s_c9fa01ab24948b::t_22ead9bd3a10ba 1-42
+output/livekit__eot-bench-data__validation__min_silence_100ms/fr/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/metrics/summary.json
+  s_c9fa01ab24948b::t_7aad108c46bcd8 1-91
+output/livekit__eot-bench-data__validation__min_silence_100ms/fr/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/summary.json
+  s_c9fa01ab24948b::t_bbd77c4b662375 1-42
+output/livekit__eot-bench-data__validation__min_silence_100ms/hi/comparison/report.md
+  s_c9fa01ab24948b::t_61556696b6974f 17,36,53,64,75,86
+output/livekit__eot-bench-data__validation__min_silence_100ms/hi/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/manifest.json
+  s_c9fa01ab24948b::t_1d6c8c4c6f5f90 1-42
+output/livekit__eot-bench-data__validation__min_silence_100ms/hi/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/metrics/summary.json
+  s_c9fa01ab24948b::t_29b7a9d9c8c815 1-91
+output/livekit__eot-bench-data__validation__min_silence_100ms/hi/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/summary.json
+  s_c9fa01ab24948b::t_2355837a4562dc 1-42
+output/livekit__eot-bench-data__validation__min_silence_100ms/id/comparison/report.md
+  s_c9fa01ab24948b::t_05c104a03fca6b 15,32,47,56,65,74
+output/livekit__eot-bench-data__validation__min_silence_100ms/id/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/manifest.json
+  s_c9fa01ab24948b::t_6f33f74cf33e57 1-42
+output/livekit__eot-bench-data__validation__min_silence_100ms/id/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/metrics/summary.json
+  s_c9fa01ab24948b::t_d0412319e9bb24 1-91
+output/livekit__eot-bench-data__validation__min_silence_100ms/id/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/summary.json
+  s_c9fa01ab24948b::t_1e4a51db6d93e6 1-42
+output/livekit__eot-bench-data__validation__min_silence_100ms/it/comparison/report.md
+  s_c9fa01ab24948b::t_007116044ccbb8 21,40,57,68,79,90
+output/livekit__eot-bench-data__validation__min_silence_100ms/it/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/manifest.json
+  s_c9fa01ab24948b::t_bd74bbb8be28bf 1-42
+output/livekit__eot-bench-data__validation__min_silence_100ms/it/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/metrics/summary.json
+  s_c9fa01ab24948b::t_945f69bace1dc3 1-91
+output/livekit__eot-bench-data__validation__min_silence_100ms/it/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/summary.json
+  s_c9fa01ab24948b::t_b83301837ffa15 1-42
+output/livekit__eot-bench-data__validation__min_silence_100ms/ja/comparison/report.md
+  s_c9fa01ab24948b::t_5e7fbab4eb4d6c 19,38,55,66,77,88
+output/livekit__eot-bench-data__validation__min_silence_100ms/ja/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/manifest.json
+  s_c9fa01ab24948b::t_98eb4d5f3780bf 1-42
+output/livekit__eot-bench-data__validation__min_silence_100ms/ja/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/metrics/summary.json
+  s_c9fa01ab24948b::t_feec9f4bbdd7ae 1-91
+output/livekit__eot-bench-data__validation__min_silence_100ms/ja/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/summary.json
+  s_c9fa01ab24948b::t_91ad6a753ee8d3 1-42
+output/livekit__eot-bench-data__validation__min_silence_100ms/ko/comparison/report.md
+  s_c9fa01ab24948b::t_08126fdce9de67 15,32,47,56,65,74
+output/livekit__eot-bench-data__validation__min_silence_100ms/ko/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/manifest.json
+  s_c9fa01ab24948b::t_634910eaef7fa6 1-42
+output/livekit__eot-bench-data__validation__min_silence_100ms/ko/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/metrics/summary.json
+  s_c9fa01ab24948b::t_fceb2f52d7bb67 1-91
+output/livekit__eot-bench-data__validation__min_silence_100ms/ko/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/summary.json
+  s_c9fa01ab24948b::t_5534218d5e7c5f 1-42
+output/livekit__eot-bench-data__validation__min_silence_100ms/language_comparison/report.md
+  s_c9fa01ab24948b::t_da36ff06b7dedc 7-22,28-43,49-64,70-85
+output/livekit__eot-bench-data__validation__min_silence_100ms/language_comparison/summary.json
+  s_c9fa01ab24948b::t_1fbc637d7e56e3 14,42,62,80,98,116,134,152,170,188,206,224,242,260,278,296,316,334,352,370,388,406,424,442,460,478,496,514,532,550,570,588,606,624,642,660,678,696,714,732,750,768,786,804,824,842,860,878,896,914,932,950,968,986,1004,1022,1040,1058,1079-1089,1211-1221,1365-1375,1530-1540,1673-1683,1805-1815,1915-1925,2047-2057,2179-2189,2289-2299,2410-2420,2542-2552,2652-2662,2762-2772
+output/livekit__eot-bench-data__validation__min_silence_100ms/nl/comparison/report.md
+  s_c9fa01ab24948b::t_2193b95475931c 17,35,51,61,71,81
+output/livekit__eot-bench-data__validation__min_silence_100ms/nl/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/manifest.json
+  s_c9fa01ab24948b::t_184a66816d1b56 1-42
+output/livekit__eot-bench-data__validation__min_silence_100ms/nl/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/metrics/summary.json
+  s_c9fa01ab24948b::t_81f41cde807cdc 1-91
+output/livekit__eot-bench-data__validation__min_silence_100ms/nl/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/summary.json
+  s_c9fa01ab24948b::t_a6825516459601 1-42
+output/livekit__eot-bench-data__validation__min_silence_100ms/pt/comparison/report.md
+  s_c9fa01ab24948b::t_506450c00466ee 21,40,57,68,79,90
+output/livekit__eot-bench-data__validation__min_silence_100ms/pt/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/manifest.json
+  s_c9fa01ab24948b::t_c2b088928d06ed 1-42
+output/livekit__eot-bench-data__validation__min_silence_100ms/pt/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/metrics/summary.json
+  s_c9fa01ab24948b::t_2c4b0659e873ce 1-91
+output/livekit__eot-bench-data__validation__min_silence_100ms/pt/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/summary.json
+  s_c9fa01ab24948b::t_d0e2eaf242f189 1-42
+output/livekit__eot-bench-data__validation__min_silence_100ms/tr/comparison/report.md
+  s_c9fa01ab24948b::t_2c6f467c30de09 16,33,48,57,66,75
+output/livekit__eot-bench-data__validation__min_silence_100ms/tr/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/manifest.json
+  s_c9fa01ab24948b::t_c77bd874d0a7e9 1-42
+output/livekit__eot-bench-data__validation__min_silence_100ms/tr/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/metrics/summary.json
+  s_c9fa01ab24948b::t_f287f29f26f9cb 1-91
+output/livekit__eot-bench-data__validation__min_silence_100ms/tr/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/summary.json
+  s_c9fa01ab24948b::t_ba00cb717afc9e 1-42
+output/livekit__eot-bench-data__validation__min_silence_100ms/zh/comparison/report.md
+  s_c9fa01ab24948b::t_9b29e828992cf3 20,37,52,61,70,79
+output/livekit__eot-bench-data__validation__min_silence_100ms/zh/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/manifest.json
+  s_c9fa01ab24948b::t_e3b6e4f9d6f293 1-42
+output/livekit__eot-bench-data__validation__min_silence_100ms/zh/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/metrics/summary.json
+  s_c9fa01ab24948b::t_ca9c92ddd4ce3d 1-91
+output/livekit__eot-bench-data__validation__min_silence_100ms/zh/inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0/summary.json
+  s_c9fa01ab24948b::t_71930254be1bf2 1-42
+scripts/export_web_data.py
+  s_c9fa01ab24948b::t_e5b99a9ff04b3a 74
+site/src/index.css
+  s_c9fa01ab24948b::t_bb4d4736056036 86,120,154-155,188
+site/src/turn-detector/data.ts
+  s_c9fa01ab24948b::t_3e27742b9035f7 5
+site/src/turn-detector/selection.ts
+  s_c9fa01ab24948b::t_983ac118bb0714 31
+tests/test_inworld_sava_adapter.py
+  s_c9fa01ab24948b::t_691987b518f3e4 1-102
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "ce77f3fb6dbf3cab34c3c202d4eb2a4a31996cde",
+  "prompts": {},
+  "sessions": {
+    "s_c9fa01ab24948b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "16d4b070-3315-410b-8e32-1f2ab17907a1",
+        "model": "unknown"
+      },
+      "human_author": "Chenghao Mou <chenghao.mou@livekit.io>"
+    }
+  }
+}
