@@ -18,6 +18,7 @@
 | SmartTurn v3.2 | 42.7% | 13.1% |
 | ultraVAD | 42.8% | 14.5% |
 | AssemblyAI | - | 13.1% |
+| Inworld SAVA | 37.1% | 12.7% |
 | OpenAI GPT Realtime 2 | - | - |
 | VAP (silent agent) | 55.3% | 17.8% |
 | VAD baseline | 59.8% | 17.8% |
@@ -36,6 +37,7 @@
 | SmartTurn v3.2 | 836 ms | 668 ms |
 | ultraVAD | 849 ms | 679 ms |
 | AssemblyAI | 858 ms | 672 ms |
+| Inworld SAVA | 860 ms | 659 ms |
 | OpenAI GPT Realtime 2 | 888 ms | 749 ms |
 | VAP (silent agent) | 899 ms | 731 ms |
 | VAD baseline | 1000 ms | 800 ms |
@@ -52,6 +54,7 @@
 | Cutoff | 5.0% | SmartTurn v3.2 | 0.836 | 4.9% | 83.0% | 0.470 | 0.700 | 1.500 |
 | Cutoff | 5.0% | ultraVAD | 0.849 | 4.9% | 50.2% | 0.440 | 0.700 | 1.000 |
 | Cutoff | 5.0% | AssemblyAI | 0.858 | 4.9% | 49.0% | 0.950 | 0.700 | 1.000 |
+| Cutoff | 5.0% | Inworld SAVA | 0.860 | 4.9% | 80.2% | 0.780 | 0.700 | 1.500 |
 | Cutoff | 5.0% | OpenAI GPT Realtime 2 | 0.888 | 4.6% | 88.8% | 0.990 | 0.800 | 1.500 |
 | Cutoff | 5.0% | VAP (silent agent) | 0.899 | 4.6% | 59.2% | 0.100 | 0.800 | 1.000 |
 | Cutoff | 10.0% | LiveKit Turn Detector v1.1 | 0.338 | 9.4% | 82.8% | 0.620 | 0.200 | 1.000 |
@@ -62,6 +65,7 @@
 | Cutoff | 10.0% | SmartTurn v3.2 | 0.668 | 9.7% | 83.0% | 0.470 | 0.600 | 1.000 |
 | Cutoff | 10.0% | ultraVAD | 0.679 | 9.7% | 80.2% | 0.240 | 0.600 | 1.000 |
 | Cutoff | 10.0% | AssemblyAI | 0.672 | 9.7% | 70.8% | 0.840 | 0.500 | 1.000 |
+| Cutoff | 10.0% | Inworld SAVA | 0.659 | 9.9% | 85.2% | 0.720 | 0.600 | 1.000 |
 | Cutoff | 10.0% | OpenAI GPT Realtime 2 | 0.749 | 9.1% | 88.8% | 0.990 | 0.600 | 1.500 |
 | Cutoff | 10.0% | VAP (silent agent) | 0.731 | 9.7% | 98.0% | 0.030 | 0.700 | 1.500 |
 | Latency | 300ms | LiveKit Turn Detector v1.1 | 0.296 | 11.9% | 88.0% | 0.500 | 0.200 | 1.000 |
@@ -72,6 +76,7 @@
 | Latency | 300ms | SmartTurn v3.2 | 0.298 | 42.7% | 87.8% | 0.220 | 0.200 | 1.000 |
 | Latency | 300ms | ultraVAD | 0.296 | 42.8% | 88.0% | 0.180 | 0.200 | 1.000 |
 | Latency | 300ms | AssemblyAI | - | - | - | - | - | - |
+| Latency | 300ms | Inworld SAVA | 0.297 | 37.1% | 88.5% | 0.670 | 0.200 | 1.000 |
 | Latency | 300ms | OpenAI GPT Realtime 2 | - | - | - | - | - | - |
 | Latency | 300ms | VAP (silent agent) | 0.266 | 55.3% | 99.0% | 0.020 | 0.200 | 1.000 |
 | Latency | 600ms | LiveKit Turn Detector v1.1 | 0.591 | 2.8% | 75.8% | 0.730 | 0.300 | 1.500 |
@@ -82,5 +87,6 @@
 | Latency | 600ms | SmartTurn v3.2 | 0.599 | 13.1% | 80.2% | 0.630 | 0.500 | 1.000 |
 | Latency | 600ms | ultraVAD | 0.599 | 14.5% | 80.2% | 0.240 | 0.500 | 1.000 |
 | Latency | 600ms | AssemblyAI | 0.596 | 13.1% | 75.8% | 0.790 | 0.400 | 1.000 |
+| Latency | 600ms | Inworld SAVA | 0.597 | 12.7% | 81.0% | 0.770 | 0.500 | 1.000 |
 | Latency | 600ms | OpenAI GPT Realtime 2 | - | - | - | - | - | - |
 | Latency | 600ms | VAP (silent agent) | 0.600 | 17.8% | 100.0% | 0.000 | 0.600 | 1.000 |

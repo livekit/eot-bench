@@ -1,0 +1,42 @@
+{
+  "harness_version": "0.1.0",
+  "span_set_id": "aed8ce7cb1b3",
+  "model_run_id": "inworld_sava_adapter__sava_1beae7c1dd0df6b0f92030644fc905eb087dc6a0",
+  "dataset": {
+    "path": "livekit/eot-bench-data",
+    "split": "validation",
+    "min_silence_span": 0.1,
+    "revision": "ae834af9e9bddf73d1f550c190aaeb99bf31f523",
+    "language": "ar"
+  },
+  "load_dataset": {
+    "path": "livekit/eot-bench-data",
+    "name": "all",
+    "split": "validation",
+    "revision": "ae834af9e9bddf73d1f550c190aaeb99bf31f523"
+  },
+  "path": "livekit/eot-bench-data",
+  "name": "all",
+  "repo_id": "livekit/eot-bench-data",
+  "subset": "all",
+  "split": "validation",
+  "language": "ar",
+  "min_silence_span": 0.1,
+  "adapter_id": "inworld/sava-1beae7c1dd0df6b0f92030644fc905eb087dc6a0",
+  "adapter": "eot_harness.inworld_sava_adapter:InworldSavaAdapter",
+  "streaming": true,
+  "inference_interval": 0.1,
+  "concurrency": 1,
+  "n_dataset_rows": 381,
+  "n_scored_turns": 381,
+  "n_skipped_turns": 0,
+  "n_rows": 8546,
+  "n_spans": 1084,
+  "n_event_rows": 112929,
+  "total_audio_sec": 4524.854999999995,
+  "wall_clock_sec": 1037.464627499925,
+  "audio_x_realtime": 4.361454723428942,
+  "skip_errors": false,
+  "revision": "ae834af9e9bddf73d1f550c190aaeb99bf31f523",
+  "display_name": "Inworld SAVA"
+}

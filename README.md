@@ -90,6 +90,7 @@ latency budget (best first). Lower is better on every metric:
 | JoinIn AI Baton | 26.1% | 13.6% | 1111 ms | 749 ms |
 | p99lab turn-1-mini | 39.6% | 18.7% | 1169 ms | 862 ms |
 | ultraVAD | 39.7% | 20.8% | 1321 ms | 891 ms |
+| Inworld SAVA | 43.0% | 20.7% | 1299 ms | 885 ms |
 | SmartTurn v3.2 | 46.8% | 22.9% | 1384 ms | 956 ms |
 | VAP (silent agent) | 63.5% | 29.0% | 1724 ms | 1048 ms |
 | Gradium | 79.3% | 23.2% | 1112 ms | 785 ms |
@@ -143,7 +144,7 @@ See [Evaluation Model](#evaluation-model) for the full methodology.
 - Batch and streaming adapter interfaces for local models and provider APIs,
   with reference adapters for LiveKit Turn Detector v1.1 / v1.1-mini, Deepgram Flux,
   AssemblyAI, Cartesia Ink 2, Gradium, JoinIn AI Baton, Soniox, OpenAI GPT
-  Realtime, SmartTurn, ultraVAD, and VAP.
+  Realtime, SmartTurn, ultraVAD, VAP, p99lab turn-1 / turn-1-mini, and Inworld SAVA.
 - Reproducible prediction artifacts, policy-sweep metrics, Pareto frontiers,
   operating-point tables, and multilingual heatmaps committed under `output/`.
 - CLI commands for running a new adapter against one language or every supported
@@ -298,7 +299,7 @@ python -m pip install -e ".[dev]"
 Runtime dependencies cover the core harness, Hugging Face dataset I/O, the
 Modal runner, plotting, and the Deepgram streaming client. `requirements.txt`
 mirrors those runtime dependencies for environments that prefer requirements
-files. The local LiveKit, Smart Turn, UltraVAD, VAP, and p99lab model adapters import heavier
+files. The local LiveKit, Smart Turn, UltraVAD, VAP, p99lab, and Inworld SAVA model adapters import heavier
 model runtimes lazily, such as `livekit-local-inference`, `transformers`,
 `onnxruntime`, `torch`, and `torchaudio`. Install those separately for local
 model runs, or use the Modal runner presets, which build images with the needed
@@ -652,6 +653,7 @@ Built-in adapter examples:
 - `eot_harness.baton_adapter:BatonAdapter`
 - `eot_harness.p99lab_turn_adapter:P99LabTurn1Adapter`
 - `eot_harness.p99lab_turn_adapter:P99LabTurn1MiniAdapter`
+- `eot_harness.inworld_sava_adapter:InworldSavaAdapter`
 
 Streaming STT adapters produce `p_eot` from the provider's native endpointing
 surface. Deepgram Flux and AssemblyAI expose confidence-style scores. Soniox,
@@ -685,6 +687,9 @@ SmartTurn adapters. It requires `BATON_API_KEY` and targets
 
 `P99LabTurn1Adapter` and `P99LabTurn1MiniAdapter` score each prediction with
 the open-weight p99lab models; see [p99lab turn-1 and turn-1-mini](#p99lab-turn-1-and-turn-1-mini).
+
+`InworldSavaAdapter` scores each turn with the open-weight Inworld SAVA
+model; see [Inworld SAVA](#inworld-sava).
 
 `LiveKitTurnDetectorAdapter` is a streaming adapter that scores each turn
 with the LiveKit Turn Detector v1.1 cloud model (`turn-detector-v1` in the SDK) over the
@@ -817,6 +822,50 @@ speech encoders. The Modal `p99lab` preset builds an image with these packages:
 modal run eot_harness.modal_runner::run_predict \
   --config-json '{"path":"livekit/eot-bench-data","name":"en","split":"validation","revision":"ae834af9e9bddf73d1f550c190aaeb99bf31f523","adapter":"eot_harness.p99lab_turn_adapter:P99LabTurn1Adapter","batch_size":64,"modal_preset":"p99lab"}'
 ```
+
+### Inworld SAVA
+
+`InworldSavaAdapter` scores with [`inworld/sava`](https://huggingface.co/inworld/sava),
+a 25.5M-parameter audio-only streaming model with open weights (Apache-2.0). It
+detects speech and end of turn in one model; see the
+[announcement](https://inworld.ai/blog/introducing-sava) and the
+[code](https://github.com/inworld-ai/sava). The harness reads only the
+end-of-turn probability. The adapter supports all 14 benchmark languages and
+ignores text history.
+
+`InworldSavaAdapter` is a streaming adapter. It resamples each turn to 16 kHz
+and makes one causal pass over it, which gives one end-of-turn probability for
+each whole 40 ms frame. The score at a prediction timestamp is the probability
+of the last frame that ends at or before it, so it uses no later audio. The
+adapter adds no silence after the audio, and a timestamp before the end of the
+first frame scores `0.0`. The model hears the turn from its start. Metrics sweep
+the full score trace; the adapter does not set a fixed `score_point`.
+
+The committed validation run covers all 14 languages: 186,166 prediction
+points across 7,342 turns, with no skipped turns. It uses dataset revision
+`ae834af9e9bddf73d1f550c190aaeb99bf31f523`; its span sets match the existing
+benchmark. See the [English comparison](output/livekit__eot-bench-data__validation__min_silence_100ms/en/comparison/report.md)
+and [language comparison](output/livekit__eot-bench-data__validation__min_silence_100ms/language_comparison/report.md).
+
+The adapter pins the Hugging Face revision of the weights it loads. Install the
+model package and run English predictions:
+
+```bash
+python -m pip install inworld-sava==1.0.0
+
+eot-harness predict-streaming \
+  --path livekit/eot-bench-data \
+  --name en \
+  --split validation \
+  --revision ae834af9e9bddf73d1f550c190aaeb99bf31f523 \
+  --adapter eot_harness.inworld_sava_adapter:InworldSavaAdapter \
+  --output-dir output
+```
+
+The first run downloads the weights (51 MB). CUDA is used when available;
+otherwise inference runs on the CPU. Use `--name all` to evaluate all benchmark
+languages. To run without downloads, pass a local weights file as `model_id`
+with `revision=None` in the adapter constructor.
 
 <details>
 <summary><b>Modal Batch Prediction</b></summary>

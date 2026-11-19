@@ -14,6 +14,7 @@
 | LiveKit Turn Detector v1.1-mini | 16.8% | 3.8% |
 | Soniox | - | 3.4% |
 | Deepgram Flux | 19.2% | 4.5% |
+| Inworld SAVA | 36.8% | 5.6% |
 | ultraVAD | 39.1% | 6.5% |
 | Gradium | 49.5% | 5.8% |
 | Cartesia Ink 2 | - | 5.1% |
@@ -32,6 +33,7 @@
 | LiveKit Turn Detector v1.1-mini | 545 ms | 412 ms |
 | Soniox | 553 ms | 553 ms |
 | Deepgram Flux | 583 ms | 459 ms |
+| Inworld SAVA | 605 ms | 502 ms |
 | ultraVAD | 616 ms | 509 ms |
 | Gradium | 618 ms | 530 ms |
 | Cartesia Ink 2 | 629 ms | 474 ms |
@@ -48,6 +50,7 @@
 | Cutoff | 5.0% | LiveKit Turn Detector v1.1-mini | 0.545 | 4.9% | 95.5% | 0.290 | 0.500 | 1.500 |
 | Cutoff | 5.0% | Soniox | 0.553 | 3.6% | 70.5% | 0.990 | 0.200 | 1.000 |
 | Cutoff | 5.0% | Deepgram Flux | 0.583 | 4.9% | 87.5% | 0.610 | 0.400 | 1.000 |
+| Cutoff | 5.0% | Inworld SAVA | 0.605 | 4.9% | 98.8% | 0.130 | 0.600 | 1.000 |
 | Cutoff | 5.0% | ultraVAD | 0.616 | 4.9% | 98.2% | 0.060 | 0.600 | 1.500 |
 | Cutoff | 5.0% | Gradium | 0.618 | 4.7% | 91.2% | 0.190 | 0.500 | 1.000 |
 | Cutoff | 5.0% | Cartesia Ink 2 | 0.629 | 4.7% | 94.5% | 0.990 | 0.500 | 1.500 |
@@ -58,6 +61,7 @@
 | Cutoff | 10.0% | LiveKit Turn Detector v1.1-mini | 0.412 | 9.6% | 73.5% | 0.480 | 0.200 | 1.000 |
 | Cutoff | 10.0% | Soniox | 0.553 | 3.6% | 70.5% | 0.990 | 0.200 | 1.000 |
 | Cutoff | 10.0% | Deepgram Flux | 0.459 | 9.6% | 92.5% | 0.470 | 0.200 | 1.000 |
+| Cutoff | 10.0% | Inworld SAVA | 0.502 | 9.4% | 99.5% | 0.090 | 0.500 | 1.000 |
 | Cutoff | 10.0% | ultraVAD | 0.509 | 9.8% | 98.2% | 0.060 | 0.500 | 1.000 |
 | Cutoff | 10.0% | Gradium | 0.530 | 9.8% | 95.5% | 0.120 | 0.400 | 1.000 |
 | Cutoff | 10.0% | Cartesia Ink 2 | 0.474 | 9.6% | 91.8% | 0.990 | 0.200 | 1.000 |
@@ -68,6 +72,7 @@
 | Latency | 300ms | LiveKit Turn Detector v1.1-mini | 0.300 | 16.8% | 87.5% | 0.390 | 0.200 | 1.000 |
 | Latency | 300ms | Soniox | - | - | - | - | - | - |
 | Latency | 300ms | Deepgram Flux | 0.294 | 19.2% | 97.8% | 0.240 | 0.200 | 1.000 |
+| Latency | 300ms | Inworld SAVA | 0.298 | 36.8% | 88.0% | 0.420 | 0.200 | 1.000 |
 | Latency | 300ms | ultraVAD | 0.298 | 39.1% | 87.8% | 0.170 | 0.200 | 1.000 |
 | Latency | 300ms | Gradium | 0.300 | 49.5% | 100.0% | 0.000 | 0.300 | 1.000 |
 | Latency | 300ms | Cartesia Ink 2 | - | - | - | - | - | - |
@@ -78,6 +83,7 @@
 | Latency | 600ms | LiveKit Turn Detector v1.1-mini | 0.576 | 3.8% | 70.8% | 0.490 | 0.400 | 1.000 |
 | Latency | 600ms | Soniox | 0.570 | 3.4% | 70.5% | 0.990 | 0.300 | 1.000 |
 | Latency | 600ms | Deepgram Flux | 0.598 | 4.5% | 89.5% | 0.550 | 0.500 | 1.000 |
+| Latency | 600ms | Inworld SAVA | 0.596 | 5.6% | 81.2% | 0.560 | 0.500 | 1.000 |
 | Latency | 600ms | ultraVAD | 0.590 | 6.5% | 91.0% | 0.130 | 0.500 | 1.500 |
 | Latency | 600ms | Gradium | 0.586 | 5.8% | 93.8% | 0.150 | 0.500 | 1.000 |
 | Latency | 600ms | Cartesia Ink 2 | 0.596 | 5.1% | 91.8% | 0.990 | 0.500 | 1.000 |

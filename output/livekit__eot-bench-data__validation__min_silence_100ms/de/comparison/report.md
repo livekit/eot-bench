@@ -17,6 +17,7 @@
 | ultraVAD | 35.5% | 14.9% |
 | Gradium | 53.6% | 13.0% |
 | AssemblyAI | 44.2% | 12.3% |
+| Inworld SAVA | 31.4% | 11.6% |
 | SmartTurn v3.2 | 35.5% | 14.2% |
 | OpenAI GPT Realtime 2 | - | - |
 | VAP (silent agent) | 53.6% | 21.5% |
@@ -35,6 +36,7 @@
 | ultraVAD | 864 ms | 703 ms |
 | Gradium | 881 ms | 680 ms |
 | AssemblyAI | 907 ms | 678 ms |
+| Inworld SAVA | 930 ms | 662 ms |
 | SmartTurn v3.2 | 963 ms | 706 ms |
 | OpenAI GPT Realtime 2 | 982 ms | 696 ms |
 | VAP (silent agent) | 1068 ms | 795 ms |
@@ -51,6 +53,7 @@
 | Cutoff | 5.0% | ultraVAD | 0.864 | 4.7% | 96.2% | 0.080 | 0.800 | 2.500 |
 | Cutoff | 5.0% | Gradium | 0.881 | 4.7% | 82.2% | 0.460 | 0.700 | 1.500 |
 | Cutoff | 5.0% | AssemblyAI | 0.907 | 4.9% | 85.0% | 0.620 | 0.800 | 1.500 |
+| Cutoff | 5.0% | Inworld SAVA | 0.930 | 4.9% | 81.8% | 0.800 | 0.800 | 1.500 |
 | Cutoff | 5.0% | SmartTurn v3.2 | 0.963 | 4.9% | 76.8% | 0.500 | 0.800 | 1.500 |
 | Cutoff | 5.0% | OpenAI GPT Realtime 2 | 0.982 | 4.5% | 85.5% | 0.990 | 0.800 | 2.000 |
 | Cutoff | 5.0% | VAP (silent agent) | 1.068 | 4.9% | 88.2% | 0.040 | 1.000 | 1.500 |
@@ -61,6 +64,7 @@
 | Cutoff | 10.0% | ultraVAD | 0.703 | 9.7% | 99.8% | 0.010 | 0.700 | 2.000 |
 | Cutoff | 10.0% | Gradium | 0.680 | 9.7% | 84.0% | 0.380 | 0.500 | 1.000 |
 | Cutoff | 10.0% | AssemblyAI | 0.678 | 9.9% | 67.9% | 0.890 | 0.500 | 1.000 |
+| Cutoff | 10.0% | Inworld SAVA | 0.662 | 9.5% | 57.2% | 0.930 | 0.400 | 1.000 |
 | Cutoff | 10.0% | SmartTurn v3.2 | 0.706 | 9.7% | 58.8% | 0.930 | 0.500 | 1.000 |
 | Cutoff | 10.0% | OpenAI GPT Realtime 2 | 0.696 | 9.9% | 85.0% | 0.990 | 0.600 | 1.000 |
 | Cutoff | 10.0% | VAP (silent agent) | 0.795 | 9.4% | 79.0% | 0.050 | 0.700 | 1.000 |
@@ -71,6 +75,7 @@
 | Latency | 300ms | ultraVAD | 0.296 | 35.5% | 88.0% | 0.170 | 0.200 | 1.000 |
 | Latency | 300ms | Gradium | 0.300 | 53.6% | 100.0% | 0.000 | 0.300 | 1.000 |
 | Latency | 300ms | AssemblyAI | 0.297 | 44.2% | 95.2% | 0.000 | 0.200 | 1.000 |
+| Latency | 300ms | Inworld SAVA | 0.297 | 31.4% | 89.2% | 0.680 | 0.200 | 1.000 |
 | Latency | 300ms | SmartTurn v3.2 | 0.296 | 35.5% | 88.0% | 0.110 | 0.200 | 1.000 |
 | Latency | 300ms | OpenAI GPT Realtime 2 | - | - | - | - | - | - |
 | Latency | 300ms | VAP (silent agent) | 0.300 | 53.6% | 100.0% | 0.000 | 0.300 | 1.000 |
@@ -81,6 +86,7 @@
 | Latency | 600ms | ultraVAD | 0.585 | 14.9% | 83.0% | 0.220 | 0.500 | 1.000 |
 | Latency | 600ms | Gradium | 0.594 | 13.0% | 91.2% | 0.200 | 0.500 | 1.000 |
 | Latency | 600ms | AssemblyAI | 0.595 | 12.3% | 73.4% | 0.820 | 0.400 | 1.000 |
+| Latency | 600ms | Inworld SAVA | 0.565 | 11.6% | 57.2% | 0.930 | 0.200 | 1.000 |
 | Latency | 600ms | SmartTurn v3.2 | 0.592 | 14.2% | 58.2% | 0.940 | 0.300 | 1.000 |
 | Latency | 600ms | OpenAI GPT Realtime 2 | - | - | - | - | - | - |
 | Latency | 600ms | VAP (silent agent) | 0.600 | 21.5% | 100.0% | 0.000 | 0.600 | 1.000 |
