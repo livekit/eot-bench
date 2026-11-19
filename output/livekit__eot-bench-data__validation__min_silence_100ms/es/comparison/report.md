@@ -16,6 +16,7 @@
 | Cartesia Ink 2 | - | 9.1% |
 | Deepgram Flux | 16.4% | 8.7% |
 | Gradium | 58.9% | 15.2% |
+| Inworld SAVA | 37.2% | 16.0% |
 | SmartTurn v3.2 | 38.7% | 17.3% |
 | ultraVAD | 41.6% | 17.6% |
 | AssemblyAI | 52.5% | 18.3% |
@@ -35,6 +36,7 @@
 | Cartesia Ink 2 | 808 ms | 545 ms |
 | Deepgram Flux | 820 ms | 536 ms |
 | Gradium | 934 ms | 709 ms |
+| Inworld SAVA | 944 ms | 725 ms |
 | SmartTurn v3.2 | 980 ms | 769 ms |
 | ultraVAD | 986 ms | 764 ms |
 | AssemblyAI | 1031 ms | 792 ms |
@@ -52,6 +54,7 @@
 | Cutoff | 5.0% | Cartesia Ink 2 | 0.808 | 5.0% | 93.0% | 0.990 | 0.600 | 3.000 |
 | Cutoff | 5.0% | Deepgram Flux | 0.820 | 4.8% | 98.5% | 0.660 | 0.800 | 2.000 |
 | Cutoff | 5.0% | Gradium | 0.934 | 4.8% | 75.8% | 0.650 | 0.200 | 1.500 |
+| Cutoff | 5.0% | Inworld SAVA | 0.944 | 5.0% | 88.0% | 0.710 | 0.800 | 2.000 |
 | Cutoff | 5.0% | SmartTurn v3.2 | 0.980 | 5.0% | 85.0% | 0.770 | 0.800 | 2.000 |
 | Cutoff | 5.0% | ultraVAD | 0.986 | 5.0% | 84.5% | 0.210 | 0.800 | 2.000 |
 | Cutoff | 5.0% | AssemblyAI | 1.031 | 5.0% | 89.2% | 0.300 | 0.900 | 2.000 |
@@ -63,6 +66,7 @@
 | Cutoff | 10.0% | Cartesia Ink 2 | 0.545 | 9.2% | 93.0% | 0.990 | 0.200 | 2.000 |
 | Cutoff | 10.0% | Deepgram Flux | 0.536 | 9.8% | 98.5% | 0.700 | 0.500 | 1.500 |
 | Cutoff | 10.0% | Gradium | 0.709 | 10.0% | 91.5% | 0.380 | 0.500 | 1.500 |
+| Cutoff | 10.0% | Inworld SAVA | 0.725 | 9.7% | 86.2% | 0.750 | 0.600 | 1.500 |
 | Cutoff | 10.0% | SmartTurn v3.2 | 0.769 | 9.8% | 81.2% | 0.870 | 0.600 | 1.500 |
 | Cutoff | 10.0% | ultraVAD | 0.764 | 10.0% | 81.8% | 0.250 | 0.600 | 1.500 |
 | Cutoff | 10.0% | AssemblyAI | 0.792 | 9.8% | 91.5% | 0.030 | 0.700 | 1.500 |
@@ -74,6 +78,7 @@
 | Latency | 300ms | Cartesia Ink 2 | - | - | - | - | - | - |
 | Latency | 300ms | Deepgram Flux | 0.300 | 16.4% | 98.5% | 0.610 | 0.200 | 2.000 |
 | Latency | 300ms | Gradium | 0.300 | 58.9% | 100.0% | 0.000 | 0.300 | 1.000 |
+| Latency | 300ms | Inworld SAVA | 0.296 | 37.2% | 88.8% | 0.700 | 0.200 | 1.000 |
 | Latency | 300ms | SmartTurn v3.2 | 0.298 | 38.7% | 87.8% | 0.650 | 0.200 | 1.000 |
 | Latency | 300ms | ultraVAD | 0.296 | 41.6% | 88.0% | 0.170 | 0.200 | 1.000 |
 | Latency | 300ms | AssemblyAI | 0.294 | 52.5% | 97.0% | 0.000 | 0.200 | 1.000 |
@@ -85,6 +90,7 @@
 | Latency | 600ms | Cartesia Ink 2 | 0.567 | 9.1% | 93.0% | 0.990 | 0.300 | 2.000 |
 | Latency | 600ms | Deepgram Flux | 0.543 | 8.7% | 98.5% | 0.700 | 0.500 | 2.000 |
 | Latency | 600ms | Gradium | 0.599 | 15.2% | 93.8% | 0.250 | 0.400 | 1.000 |
+| Latency | 600ms | Inworld SAVA | 0.592 | 16.0% | 83.0% | 0.790 | 0.400 | 1.500 |
 | Latency | 600ms | SmartTurn v3.2 | 0.594 | 17.3% | 81.2% | 0.870 | 0.500 | 1.000 |
 | Latency | 600ms | ultraVAD | 0.592 | 17.6% | 58.2% | 0.460 | 0.300 | 1.000 |
 | Latency | 600ms | AssemblyAI | 0.598 | 18.3% | 88.0% | 0.100 | 0.500 | 1.000 |

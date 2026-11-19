@@ -12,6 +12,7 @@
 | --- | --- | --- |
 | LiveKit Turn Detector v1.1 | **17.2%** | **7.6%** |
 | LiveKit Turn Detector v1.1-mini | 27.8% | 10.9% |
+| Inworld SAVA | 41.7% | 15.4% |
 | ultraVAD | 45.0% | 17.2% |
 | SmartTurn v3.2 | 46.2% | 15.9% |
 | Soniox | - | 10.1% |
@@ -28,6 +29,7 @@
 | --- | --- | --- |
 | LiveKit Turn Detector v1.1 | **755 ms** | **481 ms** |
 | LiveKit Turn Detector v1.1-mini | 873 ms | 630 ms |
+| Inworld SAVA | 934 ms | 745 ms |
 | ultraVAD | 939 ms | 741 ms |
 | SmartTurn v3.2 | 945 ms | 748 ms |
 | Soniox | 952 ms | 601 ms |
@@ -42,6 +44,7 @@
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Cutoff | 5.0% | LiveKit Turn Detector v1.1 | 0.755 | 4.8% | 62.1% | 0.730 | 0.300 | 1.500 |
 | Cutoff | 5.0% | LiveKit Turn Detector v1.1-mini | 0.873 | 4.9% | 93.9% | 0.160 | 0.800 | 2.000 |
+| Cutoff | 5.0% | Inworld SAVA | 0.934 | 4.9% | 81.1% | 0.680 | 0.800 | 1.500 |
 | Cutoff | 5.0% | ultraVAD | 0.939 | 4.9% | 96.5% | 0.030 | 0.900 | 2.000 |
 | Cutoff | 5.0% | SmartTurn v3.2 | 0.945 | 4.7% | 92.4% | 0.050 | 0.900 | 1.500 |
 | Cutoff | 5.0% | Soniox | 0.952 | 4.4% | 68.9% | 0.990 | 0.700 | 1.500 |
@@ -50,6 +53,7 @@
 | Cutoff | 5.0% | Gradium | 1.042 | 4.9% | 72.7% | 0.390 | 0.800 | 1.500 |
 | Cutoff | 10.0% | LiveKit Turn Detector v1.1 | 0.481 | 9.5% | 64.9% | 0.690 | 0.200 | 1.000 |
 | Cutoff | 10.0% | LiveKit Turn Detector v1.1-mini | 0.630 | 9.7% | 61.6% | 0.510 | 0.400 | 1.000 |
+| Cutoff | 10.0% | Inworld SAVA | 0.745 | 9.9% | 85.1% | 0.630 | 0.700 | 1.000 |
 | Cutoff | 10.0% | ultraVAD | 0.741 | 9.7% | 86.4% | 0.080 | 0.700 | 1.000 |
 | Cutoff | 10.0% | SmartTurn v3.2 | 0.748 | 9.9% | 84.1% | 0.320 | 0.700 | 1.000 |
 | Cutoff | 10.0% | Soniox | 0.601 | 9.5% | 68.7% | 0.990 | 0.400 | 1.000 |
@@ -58,6 +62,7 @@
 | Cutoff | 10.0% | Gradium | 0.783 | 9.9% | 81.6% | 0.250 | 0.700 | 1.000 |
 | Latency | 300ms | LiveKit Turn Detector v1.1 | 0.299 | 17.2% | 87.6% | 0.300 | 0.200 | 1.000 |
 | Latency | 300ms | LiveKit Turn Detector v1.1-mini | 0.299 | 27.8% | 87.6% | 0.250 | 0.200 | 1.000 |
+| Latency | 300ms | Inworld SAVA | 0.299 | 41.7% | 89.4% | 0.580 | 0.200 | 1.000 |
 | Latency | 300ms | ultraVAD | 0.285 | 45.0% | 89.4% | 0.070 | 0.200 | 1.000 |
 | Latency | 300ms | SmartTurn v3.2 | 0.295 | 46.2% | 88.1% | 0.170 | 0.200 | 1.000 |
 | Latency | 300ms | Soniox | - | - | - | - | - | - |
@@ -66,6 +71,7 @@
 | Latency | 300ms | Gradium | 0.300 | 59.5% | 100.0% | 0.000 | 0.300 | 1.000 |
 | Latency | 600ms | LiveKit Turn Detector v1.1 | 0.597 | 7.6% | 69.4% | 0.630 | 0.200 | 1.500 |
 | Latency | 600ms | LiveKit Turn Detector v1.1-mini | 0.600 | 10.9% | 80.1% | 0.340 | 0.500 | 1.000 |
+| Latency | 600ms | Inworld SAVA | 0.597 | 15.4% | 80.8% | 0.680 | 0.500 | 1.000 |
 | Latency | 600ms | ultraVAD | 0.591 | 17.2% | 81.8% | 0.100 | 0.500 | 1.000 |
 | Latency | 600ms | SmartTurn v3.2 | 0.593 | 15.9% | 81.3% | 0.520 | 0.500 | 1.000 |
 | Latency | 600ms | Soniox | 0.551 | 10.1% | 68.7% | 0.990 | 0.300 | 1.000 |

@@ -18,6 +18,7 @@
 | AssemblyAI | - | 13.9% |
 | ultraVAD | 40.4% | 15.5% |
 | OpenAI GPT Realtime 2 | - | - |
+| Inworld SAVA | 36.3% | 14.1% |
 | VAP (silent agent) | 50.3% | 15.5% |
 | Deepgram Flux | 27.3% | 12.2% |
 | VAD baseline | 55.0% | 20.6% |
@@ -36,6 +37,7 @@
 | AssemblyAI | 994 ms | 717 ms |
 | ultraVAD | 1005 ms | 729 ms |
 | OpenAI GPT Realtime 2 | 1009 ms | 751 ms |
+| Inworld SAVA | 1010 ms | 754 ms |
 | VAP (silent agent) | 1012 ms | 718 ms |
 | Deepgram Flux | 1022 ms | 672 ms |
 | VAD baseline | 1100 ms | 900 ms |
@@ -52,6 +54,7 @@
 | Cutoff | 5.0% | AssemblyAI | 0.994 | 4.8% | 91.8% | 0.020 | 0.900 | 2.000 |
 | Cutoff | 5.0% | ultraVAD | 1.005 | 4.8% | 99.5% | 0.010 | 1.000 | 2.000 |
 | Cutoff | 5.0% | OpenAI GPT Realtime 2 | 1.009 | 4.4% | 90.8% | 0.990 | 0.900 | 2.000 |
+| Cutoff | 5.0% | Inworld SAVA | 1.010 | 4.6% | 99.0% | 0.320 | 1.000 | 2.000 |
 | Cutoff | 5.0% | VAP (silent agent) | 1.012 | 4.4% | 76.2% | 0.100 | 0.800 | 1.500 |
 | Cutoff | 5.0% | Deepgram Flux | 1.022 | 4.8% | 95.8% | 0.520 | 1.000 | 1.500 |
 | Cutoff | 10.0% | LiveKit Turn Detector v1.1 | 0.408 | 9.9% | 74.0% | 0.860 | 0.200 | 1.000 |
@@ -62,6 +65,7 @@
 | Cutoff | 10.0% | AssemblyAI | 0.717 | 9.9% | 74.2% | 0.650 | 0.600 | 1.000 |
 | Cutoff | 10.0% | ultraVAD | 0.729 | 9.7% | 54.2% | 0.430 | 0.500 | 1.000 |
 | Cutoff | 10.0% | OpenAI GPT Realtime 2 | 0.751 | 9.7% | 90.8% | 0.990 | 0.600 | 1.500 |
+| Cutoff | 10.0% | Inworld SAVA | 0.754 | 9.9% | 82.0% | 0.710 | 0.700 | 1.000 |
 | Cutoff | 10.0% | VAP (silent agent) | 0.718 | 9.7% | 73.8% | 0.090 | 0.500 | 1.000 |
 | Cutoff | 10.0% | Deepgram Flux | 0.672 | 9.9% | 94.5% | 0.640 | 0.600 | 1.500 |
 | Latency | 300ms | LiveKit Turn Detector v1.1 | 0.296 | 14.3% | 88.0% | 0.620 | 0.200 | 1.000 |
@@ -72,6 +76,7 @@
 | Latency | 300ms | AssemblyAI | - | - | - | - | - | - |
 | Latency | 300ms | ultraVAD | 0.300 | 40.4% | 87.5% | 0.170 | 0.200 | 1.000 |
 | Latency | 300ms | OpenAI GPT Realtime 2 | - | - | - | - | - | - |
+| Latency | 300ms | Inworld SAVA | 0.299 | 36.3% | 88.8% | 0.630 | 0.200 | 1.000 |
 | Latency | 300ms | VAP (silent agent) | 0.260 | 50.3% | 99.0% | 0.020 | 0.200 | 1.000 |
 | Latency | 300ms | Deepgram Flux | 0.299 | 27.3% | 96.0% | 0.470 | 0.200 | 1.000 |
 | Latency | 600ms | LiveKit Turn Detector v1.1 | 0.593 | 6.0% | 82.8% | 0.760 | 0.300 | 2.000 |
@@ -82,5 +87,6 @@
 | Latency | 600ms | AssemblyAI | 0.597 | 13.9% | 86.2% | 0.220 | 0.500 | 1.000 |
 | Latency | 600ms | ultraVAD | 0.594 | 15.5% | 81.2% | 0.220 | 0.500 | 1.000 |
 | Latency | 600ms | OpenAI GPT Realtime 2 | - | - | - | - | - | - |
+| Latency | 600ms | Inworld SAVA | 0.598 | 14.1% | 80.5% | 0.750 | 0.500 | 1.000 |
 | Latency | 600ms | VAP (silent agent) | 0.595 | 15.5% | 89.5% | 0.050 | 0.500 | 1.000 |
 | Latency | 600ms | Deepgram Flux | 0.593 | 12.2% | 94.5% | 0.640 | 0.500 | 1.500 |

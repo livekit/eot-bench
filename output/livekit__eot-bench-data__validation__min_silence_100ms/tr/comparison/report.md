@@ -13,6 +13,7 @@
 | LiveKit Turn Detector v1.1 | **12.7%** | **4.7%** |
 | LiveKit Turn Detector v1.1-mini | 22.9% | 9.1% |
 | Soniox | - | 9.1% |
+| Inworld SAVA | 39.4% | 18.2% |
 | SmartTurn v3.2 | 43.3% | 17.9% |
 | ultraVAD | 44.9% | 18.5% |
 | OpenAI GPT Realtime 2 | - | - |
@@ -29,6 +30,7 @@
 | LiveKit Turn Detector v1.1 | **574 ms** | **358 ms** |
 | LiveKit Turn Detector v1.1-mini | 742 ms | 544 ms |
 | Soniox | 913 ms | 584 ms |
+| Inworld SAVA | 983 ms | 811 ms |
 | SmartTurn v3.2 | 1013 ms | 779 ms |
 | ultraVAD | 1075 ms | 798 ms |
 | OpenAI GPT Realtime 2 | 1094 ms | 877 ms |
@@ -43,6 +45,7 @@
 | Cutoff | 5.0% | LiveKit Turn Detector v1.1 | 0.574 | 5.0% | 79.2% | 0.840 | 0.200 | 2.000 |
 | Cutoff | 5.0% | LiveKit Turn Detector v1.1-mini | 0.742 | 5.0% | 84.2% | 0.450 | 0.600 | 1.500 |
 | Cutoff | 5.0% | Soniox | 0.913 | 4.1% | 78.0% | 0.990 | 0.600 | 2.000 |
+| Cutoff | 5.0% | Inworld SAVA | 0.983 | 5.0% | 92.5% | 0.410 | 0.900 | 2.000 |
 | Cutoff | 5.0% | SmartTurn v3.2 | 1.013 | 4.7% | 89.8% | 0.340 | 0.900 | 2.000 |
 | Cutoff | 5.0% | ultraVAD | 1.075 | 5.0% | 85.0% | 0.120 | 1.000 | 1.500 |
 | Cutoff | 5.0% | OpenAI GPT Realtime 2 | 1.094 | 5.0% | 90.8% | 0.990 | 1.000 | 2.000 |
@@ -51,6 +54,7 @@
 | Cutoff | 10.0% | LiveKit Turn Detector v1.1 | 0.357 | 9.6% | 91.2% | 0.560 | 0.200 | 2.000 |
 | Cutoff | 10.0% | LiveKit Turn Detector v1.1-mini | 0.544 | 9.9% | 57.0% | 0.630 | 0.200 | 1.000 |
 | Cutoff | 10.0% | Soniox | 0.584 | 9.1% | 77.8% | 0.990 | 0.200 | 1.500 |
+| Cutoff | 10.0% | Inworld SAVA | 0.811 | 9.9% | 91.5% | 0.440 | 0.700 | 2.000 |
 | Cutoff | 10.0% | SmartTurn v3.2 | 0.779 | 9.9% | 73.5% | 0.910 | 0.700 | 1.000 |
 | Cutoff | 10.0% | ultraVAD | 0.798 | 9.9% | 67.2% | 0.210 | 0.700 | 1.000 |
 | Cutoff | 10.0% | OpenAI GPT Realtime 2 | 0.877 | 9.9% | 90.8% | 0.990 | 0.800 | 1.500 |
@@ -59,6 +63,7 @@
 | Latency | 300ms | LiveKit Turn Detector v1.1 | 0.299 | 12.7% | 94.5% | 0.380 | 0.200 | 2.000 |
 | Latency | 300ms | LiveKit Turn Detector v1.1-mini | 0.292 | 22.9% | 88.5% | 0.360 | 0.200 | 1.000 |
 | Latency | 300ms | Soniox | - | - | - | - | - | - |
+| Latency | 300ms | Inworld SAVA | 0.296 | 39.4% | 89.5% | 0.490 | 0.200 | 1.000 |
 | Latency | 300ms | SmartTurn v3.2 | 0.296 | 43.3% | 88.0% | 0.460 | 0.200 | 1.000 |
 | Latency | 300ms | ultraVAD | 0.296 | 44.9% | 88.0% | 0.080 | 0.200 | 1.000 |
 | Latency | 300ms | OpenAI GPT Realtime 2 | - | - | - | - | - | - |
@@ -67,6 +72,7 @@
 | Latency | 600ms | LiveKit Turn Detector v1.1 | 0.592 | 4.7% | 78.2% | 0.860 | 0.200 | 2.000 |
 | Latency | 600ms | LiveKit Turn Detector v1.1-mini | 0.589 | 9.1% | 83.0% | 0.460 | 0.300 | 2.000 |
 | Latency | 600ms | Soniox | 0.584 | 9.1% | 77.8% | 0.990 | 0.200 | 1.500 |
+| Latency | 600ms | Inworld SAVA | 0.592 | 18.2% | 91.0% | 0.450 | 0.500 | 1.500 |
 | Latency | 600ms | SmartTurn v3.2 | 0.596 | 17.9% | 80.8% | 0.790 | 0.500 | 1.000 |
 | Latency | 600ms | ultraVAD | 0.597 | 18.5% | 67.2% | 0.210 | 0.400 | 1.000 |
 | Latency | 600ms | OpenAI GPT Realtime 2 | - | - | - | - | - | - |
