@@ -88,6 +88,7 @@ MODEL_DISPLAY_ORDER = (
     "Deepgram Flux",
     "ultraVAD",
     "SmartTurn v3.2",
+    "haan (SmartTurn v3.2 phone-audio fine-tune)",
     "AssemblyAI",
     "Soniox",
     "xAI STT",
