@@ -16,6 +16,7 @@
 | ultraVAD | 38.8% | 12.8% |
 | OpenAI GPT Realtime 2 | - | - |
 | VAP (silent agent) | 51.2% | 13.5% |
+| DuplexJev-32B-Para v1.2 | 37.7% | 12.2% |
 | SmartTurn v3.2 | 42.9% | 13.2% |
 | Inworld SAVA | 49.7% | 16.0% |
 | Gradium | 51.2% | 15.5% |
@@ -33,6 +34,7 @@
 | ultraVAD | 926 ms | 688 ms |
 | OpenAI GPT Realtime 2 | 941 ms | 666 ms |
 | VAP (silent agent) | 941 ms | 689 ms |
+| DuplexJev-32B-Para v1.2 | 953 ms | 660 ms |
 | SmartTurn v3.2 | 959 ms | 679 ms |
 | Inworld SAVA | 1001 ms | 733 ms |
 | Gradium | 1012 ms | 748 ms |
@@ -48,6 +50,7 @@
 | Cutoff | 5.0% | ultraVAD | 0.926 | 4.9% | 82.0% | 0.270 | 0.800 | 1.500 |
 | Cutoff | 5.0% | OpenAI GPT Realtime 2 | 0.941 | 4.9% | 93.9% | 0.990 | 0.900 | 1.500 |
 | Cutoff | 5.0% | VAP (silent agent) | 0.941 | 4.9% | 78.5% | 0.110 | 0.600 | 1.500 |
+| Cutoff | 5.0% | DuplexJev-32B-Para v1.2 | 0.953 | 4.9% | 78.2% | 0.950 | 0.800 | 1.500 |
 | Cutoff | 5.0% | SmartTurn v3.2 | 0.959 | 4.9% | 77.3% | 0.560 | 0.800 | 1.500 |
 | Cutoff | 5.0% | Inworld SAVA | 1.001 | 4.9% | 99.7% | 0.180 | 1.000 | 1.500 |
 | Cutoff | 5.0% | Gradium | 1.012 | 4.9% | 97.7% | 0.070 | 1.000 | 1.500 |
@@ -57,6 +60,7 @@
 | Cutoff | 10.0% | ultraVAD | 0.688 | 9.9% | 77.9% | 0.300 | 0.600 | 1.000 |
 | Cutoff | 10.0% | OpenAI GPT Realtime 2 | 0.666 | 9.7% | 93.3% | 0.990 | 0.200 | 1.000 |
 | Cutoff | 10.0% | VAP (silent agent) | 0.689 | 9.7% | 89.5% | 0.060 | 0.600 | 1.000 |
+| Cutoff | 10.0% | DuplexJev-32B-Para v1.2 | 0.660 | 9.9% | 84.9% | 0.920 | 0.600 | 1.000 |
 | Cutoff | 10.0% | SmartTurn v3.2 | 0.679 | 9.9% | 80.2% | 0.400 | 0.600 | 1.000 |
 | Cutoff | 10.0% | Inworld SAVA | 0.733 | 9.7% | 95.9% | 0.310 | 0.700 | 1.500 |
 | Cutoff | 10.0% | Gradium | 0.748 | 9.7% | 82.6% | 0.250 | 0.600 | 1.000 |
@@ -66,6 +70,7 @@
 | Latency | 300ms | ultraVAD | 0.300 | 38.8% | 87.5% | 0.210 | 0.200 | 1.000 |
 | Latency | 300ms | OpenAI GPT Realtime 2 | - | - | - | - | - | - |
 | Latency | 300ms | VAP (silent agent) | 0.300 | 51.2% | 100.0% | 0.000 | 0.300 | 1.000 |
+| Latency | 300ms | DuplexJev-32B-Para v1.2 | 0.298 | 37.7% | 87.8% | 0.890 | 0.200 | 1.000 |
 | Latency | 300ms | SmartTurn v3.2 | 0.298 | 42.9% | 87.8% | 0.140 | 0.200 | 1.000 |
 | Latency | 300ms | Inworld SAVA | 0.300 | 49.7% | 100.0% | 0.080 | 0.300 | 1.000 |
 | Latency | 300ms | Gradium | 0.300 | 51.2% | 100.0% | 0.000 | 0.300 | 1.000 |
@@ -75,6 +80,7 @@
 | Latency | 600ms | ultraVAD | 0.594 | 12.8% | 81.1% | 0.280 | 0.500 | 1.000 |
 | Latency | 600ms | OpenAI GPT Realtime 2 | - | - | - | - | - | - |
 | Latency | 600ms | VAP (silent agent) | 0.596 | 13.5% | 91.9% | 0.050 | 0.500 | 1.000 |
+| Latency | 600ms | DuplexJev-32B-Para v1.2 | 0.599 | 12.2% | 80.2% | 0.940 | 0.500 | 1.000 |
 | Latency | 600ms | SmartTurn v3.2 | 0.599 | 13.2% | 80.2% | 0.400 | 0.500 | 1.000 |
 | Latency | 600ms | Inworld SAVA | 0.597 | 16.0% | 81.1% | 0.580 | 0.500 | 1.000 |
 | Latency | 600ms | Gradium | 0.597 | 15.5% | 94.8% | 0.130 | 0.500 | 1.000 |

@@ -72,6 +72,7 @@ MODEL_CONFIG: dict[str, dict] = {
     "p99lab turn-1": {"key": "p99lab-turn-1", "label": "p99lab turn-1", "colorToken": "chart13"},
     "p99lab turn-1-mini": {"key": "p99lab-turn-1-mini", "label": "p99lab turn-1-mini", "colorToken": "chart14"},
     "Inworld SAVA": {"key": "inworld-sava", "label": "Inworld SAVA", "colorToken": "chart15"},
+    "DuplexJev-32B-Para v1.2": {"key": "duplexjev-32b-para", "label": "DuplexJev-32B-Para v1.2", "colorToken": "chart16"},
 }
 
 # Silence-only VAD baseline. It is not a model directory — it lives as the
