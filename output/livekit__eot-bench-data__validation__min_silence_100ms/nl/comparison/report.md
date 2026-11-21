@@ -12,6 +12,7 @@
 | --- | --- | --- |
 | LiveKit Turn Detector v1.1 | **9.6%** | **4.3%** |
 | Soniox | - | 6.0% |
+| DuplexJev-32B-Para v1.2 | 25.3% | 10.5% |
 | LiveKit Turn Detector v1.1-mini | 21.9% | 7.2% |
 | Deepgram Flux | 13.4% | 7.8% |
 | Inworld SAVA | 28.4% | 11.9% |
@@ -30,6 +31,7 @@
 | --- | --- | --- |
 | LiveKit Turn Detector v1.1 | **552 ms** | **294 ms** |
 | Soniox | 706 ms | 451 ms |
+| DuplexJev-32B-Para v1.2 | 762 ms | 620 ms |
 | LiveKit Turn Detector v1.1-mini | 762 ms | 496 ms |
 | Deepgram Flux | 789 ms | 485 ms |
 | Inworld SAVA | 860 ms | 657 ms |
@@ -46,6 +48,7 @@
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Cutoff | 5.0% | LiveKit Turn Detector v1.1 | 0.552 | 4.9% | 79.0% | 0.850 | 0.300 | 1.500 |
 | Cutoff | 5.0% | Soniox | 0.706 | 4.3% | 79.8% | 0.990 | 0.500 | 1.500 |
+| Cutoff | 5.0% | DuplexJev-32B-Para v1.2 | 0.762 | 4.9% | 82.0% | 0.530 | 0.600 | 1.500 |
 | Cutoff | 5.0% | LiveKit Turn Detector v1.1-mini | 0.762 | 4.9% | 92.2% | 0.260 | 0.700 | 1.500 |
 | Cutoff | 5.0% | Deepgram Flux | 0.789 | 4.7% | 96.2% | 0.700 | 0.700 | 3.000 |
 | Cutoff | 5.0% | Inworld SAVA | 0.860 | 4.9% | 91.5% | 0.760 | 0.800 | 1.500 |
@@ -56,6 +59,7 @@
 | Cutoff | 5.0% | Gradium | 0.913 | 4.9% | 85.0% | 0.230 | 0.800 | 1.500 |
 | Cutoff | 10.0% | LiveKit Turn Detector v1.1 | 0.294 | 9.6% | 92.8% | 0.580 | 0.200 | 1.500 |
 | Cutoff | 10.0% | Soniox | 0.451 | 9.6% | 79.8% | 0.990 | 0.200 | 1.000 |
+| Cutoff | 10.0% | DuplexJev-32B-Para v1.2 | 0.620 | 9.8% | 54.2% | 0.750 | 0.300 | 1.000 |
 | Cutoff | 10.0% | LiveKit Turn Detector v1.1-mini | 0.496 | 9.6% | 77.2% | 0.480 | 0.200 | 1.500 |
 | Cutoff | 10.0% | Deepgram Flux | 0.485 | 9.2% | 81.2% | 0.740 | 0.200 | 1.500 |
 | Cutoff | 10.0% | Inworld SAVA | 0.657 | 9.8% | 86.2% | 0.820 | 0.600 | 1.000 |
@@ -66,6 +70,7 @@
 | Cutoff | 10.0% | Gradium | 0.679 | 9.8% | 88.8% | 0.190 | 0.500 | 1.500 |
 | Latency | 300ms | LiveKit Turn Detector v1.1 | 0.294 | 9.6% | 92.8% | 0.580 | 0.200 | 1.500 |
 | Latency | 300ms | Soniox | - | - | - | - | - | - |
+| Latency | 300ms | DuplexJev-32B-Para v1.2 | 0.292 | 25.3% | 88.5% | 0.430 | 0.200 | 1.000 |
 | Latency | 300ms | LiveKit Turn Detector v1.1-mini | 0.300 | 21.9% | 87.5% | 0.320 | 0.200 | 1.000 |
 | Latency | 300ms | Deepgram Flux | 0.299 | 13.4% | 96.2% | 0.700 | 0.200 | 1.500 |
 | Latency | 300ms | Inworld SAVA | 0.295 | 28.4% | 89.0% | 0.790 | 0.200 | 1.000 |
@@ -76,6 +81,7 @@
 | Latency | 300ms | Gradium | 0.300 | 49.7% | 100.0% | 0.000 | 0.300 | 1.000 |
 | Latency | 600ms | LiveKit Turn Detector v1.1 | 0.577 | 4.3% | 71.0% | 0.910 | 0.200 | 1.500 |
 | Latency | 600ms | Soniox | 0.578 | 6.0% | 79.8% | 0.990 | 0.300 | 1.500 |
+| Latency | 600ms | DuplexJev-32B-Para v1.2 | 0.596 | 10.5% | 50.5% | 0.770 | 0.200 | 1.000 |
 | Latency | 600ms | LiveKit Turn Detector v1.1-mini | 0.600 | 7.2% | 69.2% | 0.560 | 0.200 | 1.500 |
 | Latency | 600ms | Deepgram Flux | 0.560 | 7.8% | 75.2% | 0.750 | 0.200 | 1.500 |
 | Latency | 600ms | Inworld SAVA | 0.575 | 11.9% | 55.0% | 0.930 | 0.200 | 1.000 |

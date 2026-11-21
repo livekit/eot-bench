@@ -88,6 +88,7 @@ latency budget (best first). Lower is better on every metric:
 | Deepgram Flux | 22.3% | 13.5% | 1409 ms | 826 ms |
 | LiveKit Turn Detector v1.1-mini | 25.6% | 12.9% | 1124 ms | 738 ms |
 | JoinIn AI Baton | 26.1% | 13.6% | 1111 ms | 749 ms |
+| DuplexJev-32B-Para v1.2 | 31.0% | 16.8% | 1242 ms | 827 ms |
 | p99lab turn-1-mini | 39.6% | 18.7% | 1169 ms | 862 ms |
 | ultraVAD | 39.7% | 20.8% | 1321 ms | 891 ms |
 | Inworld SAVA | 43.0% | 20.7% | 1299 ms | 885 ms |
@@ -144,7 +145,7 @@ See [Evaluation Model](#evaluation-model) for the full methodology.
 - Batch and streaming adapter interfaces for local models and provider APIs,
   with reference adapters for LiveKit Turn Detector v1.1 / v1.1-mini, Deepgram Flux,
   AssemblyAI, Cartesia Ink 2, Gradium, JoinIn AI Baton, Soniox, OpenAI GPT
-  Realtime, SmartTurn, ultraVAD, VAP, p99lab turn-1 / turn-1-mini, and Inworld SAVA.
+  Realtime, SmartTurn, ultraVAD, VAP, p99lab turn-1 / turn-1-mini, Inworld SAVA, and DuplexJev.
 - Reproducible prediction artifacts, policy-sweep metrics, Pareto frontiers,
   operating-point tables, and multilingual heatmaps committed under `output/`.
 - CLI commands for running a new adapter against one language or every supported
@@ -654,6 +655,7 @@ Built-in adapter examples:
 - `eot_harness.p99lab_turn_adapter:P99LabTurn1Adapter`
 - `eot_harness.p99lab_turn_adapter:P99LabTurn1MiniAdapter`
 - `eot_harness.inworld_sava_adapter:InworldSavaAdapter`
+- `eot_harness.duplexjev_adapter:DuplexJevContextAdapter`
 
 Streaming STT adapters produce `p_eot` from the provider's native endpointing
 surface. Deepgram Flux and AssemblyAI expose confidence-style scores. Soniox,
@@ -690,6 +692,9 @@ the open-weight p99lab models; see [p99lab turn-1 and turn-1-mini](#p99lab-turn-
 
 `InworldSavaAdapter` scores each turn with the open-weight Inworld SAVA
 model; see [Inworld SAVA](#inworld-sava).
+
+`DuplexJevContextAdapter` scores each turn with the open-weight DuplexJev
+model through a self-hosted gateway; see [DuplexJev](#duplexjev).
 
 `LiveKitTurnDetectorAdapter` is a streaming adapter that scores each turn
 with the LiveKit Turn Detector v1.1 cloud model (`turn-detector-v1` in the SDK) over the
@@ -866,6 +871,43 @@ The first run downloads the weights (51 MB). CUDA is used when available;
 otherwise inference runs on the CPU. Use `--name all` to evaluate all benchmark
 languages. To run without downloads, pass a local weights file as `model_id`
 with `revision=None` in the adapter constructor.
+
+### DuplexJev
+
+`DuplexJevContextAdapter` scores with
+[`adventists-ai/DuplexJev-32B-Para`](https://huggingface.co/adventists-ai/DuplexJev-32B-Para)
+(revision `v1.2`), an open-weight speech model (Apache-2.0) that answers
+multiple-choice questions about raw audio by reading one token per question.
+The adapter asks the same end-of-turn question as the `livekit-plugins-duplexjev`
+plugin: it sends the user's audio up to each prediction timestamp and only the
+last assistant message from `messages`, never `words`, and scores
+P(finished) + P(backchannel). Scores are read at the 0.2s silence point. The model
+was trained on English and Chinese; the other 12 languages use the English
+question zero-shot. None of the eot-bench audio is in its training data.
+
+The committed validation run covers all 14 languages. English uses dataset
+revision `ae834af9e9bddf73d1f550c190aaeb99bf31f523` (71,654 prediction points
+across the three v1.1 cohorts); its span set matches the existing benchmark. The
+other 13 languages were scored before v1.1 and their span sets are unchanged.
+
+Serve the model and the gateway, then run English predictions:
+
+```bash
+pip install "vllm[audio]>=0.29" duplexjev-vllm "duplexjev[server]>=0.6"
+vllm serve adventists-ai/DuplexJev-32B-Para --revision v1.2 --max-model-len 4096 --port 8000
+duplexjev gateway --vllm http://localhost:8000/v1 --port 8420 --rate 1000000
+
+DUPLEXJEV_GATEWAY=http://localhost:8420 eot-harness predict \
+  --path livekit/eot-bench-data \
+  --name en \
+  --split validation \
+  --revision ae834af9e9bddf73d1f550c190aaeb99bf31f523 \
+  --adapter eot_harness.duplexjev_adapter:DuplexJevContextAdapter \
+  --batch-size 96 \
+  --output-dir output
+```
+
+One 80 GB GPU is enough; English takes about 30 minutes on one H100.
 
 <details>
 <summary><b>Modal Batch Prediction</b></summary>
