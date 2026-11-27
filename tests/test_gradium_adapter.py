@@ -9,9 +9,12 @@ from eot_harness.gradium_adapter import GradiumStreamingAdapter, _gradium_vad_ev
 from eot_harness.streaming_stt import build_event_prediction_rows, resolve_api_key
 
 
-def _step_msg(inactivity_prob: float) -> dict:
+def _step_msg(inactivity_prob: float, *, step: int = 1) -> dict:
+    """The `step` message after `step` steps of 80ms audio; `step=0` is a warm-up step."""
     return {
         "type": "step",
+        "step_idx": step,
+        "total_duration_s": round(step * 0.08, 6),
         "vad": [
             {"inactivity_prob": 0.01},
             {"inactivity_prob": 0.02},
@@ -22,7 +25,7 @@ def _step_msg(inactivity_prob: float) -> dict:
 
 
 def test_gradium_vad_event_uses_fourth_vad_entry():
-    event = _gradium_vad_event(_step_msg(0.83), step_index=5)
+    event = _gradium_vad_event(_step_msg(0.83, step=5))
 
     assert event == {
         "event": "Step",
@@ -34,10 +37,10 @@ def test_gradium_vad_event_uses_fourth_vad_entry():
 
 
 def test_gradium_vad_event_returns_none_on_malformed_payloads():
-    assert _gradium_vad_event({"type": "step"}, step_index=1) is None
-    assert _gradium_vad_event({"type": "step", "vad": []}, step_index=1) is None
-    assert _gradium_vad_event({"type": "step", "vad": [{}, {}, {}]}, step_index=1) is None
-    assert _gradium_vad_event({"type": "step", "vad": [{}, {}, {}, {}]}, step_index=1) is None
+    assert _gradium_vad_event({"type": "step", "total_duration_s": 0.08}) is None
+    assert _gradium_vad_event({"type": "step", "total_duration_s": 0.08, "vad": []}) is None
+    assert _gradium_vad_event({"type": "step", "total_duration_s": 0.08, "vad": [{}, {}, {}]}) is None
+    assert _gradium_vad_event({"type": "step", "total_duration_s": 0.08, "vad": [{}, {}, {}, {}]}) is None
 
 
 def test_gradium_defaults_and_key(monkeypatch):
@@ -92,16 +95,22 @@ class _FakeGradiumClient:
         return _FakeSTTStream(self.messages)
 
 
-def test_gradium_collect_events_maps_steps_to_80ms_grid():
+def test_gradium_collect_events_stamps_steps_with_processed_audio_time():
+    # Behavior: a score is stamped with the audio time the server reports. The warm-up
+    # steps that open every stream describe no audio: they must not produce a score, and
+    # must not push later scores back, which would be charged as endpointing latency.
     adapter = GradiumStreamingAdapter()
     client = _FakeGradiumClient(
         [
             {"type": "ready"},
-            _step_msg(0.1),
+            _step_msg(0.5, step=0),
+            _step_msg(0.5, step=0),
+            _step_msg(0.5, step=0),
+            _step_msg(0.1, step=1),
             {"type": "text", "text": "hello"},
-            _step_msg(0.2),
-            {"type": "step", "vad": None},
-            _step_msg(0.9),
+            _step_msg(0.2, step=2),
+            {"type": "step", "step_idx": 3, "total_duration_s": 0.24, "vad": None},
+            _step_msg(0.9, step=4),
         ],
     )
 
@@ -150,7 +159,7 @@ def test_gradium_events_feed_prediction_rows():
         ],
     }
     events = [
-        _gradium_vad_event(_step_msg(prob), step_index=index + 1)
+        _gradium_vad_event(_step_msg(prob, step=index + 1))
         for index, prob in enumerate([0.05, 0.1, 0.2, 0.3, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.2, 0.4, 0.6, 0.8, 0.9])
     ]
 

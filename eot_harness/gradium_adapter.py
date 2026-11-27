@@ -18,8 +18,6 @@ DEFAULT_GRADIUM_MODEL = "default"
 DEFAULT_CONCURRENCY = 4
 DEFAULT_EOT_THRESHOLD = 0.5
 SAMPLE_RATE = 24000
-# Gradium streaming STT emits one VAD `step` message per 80ms of processed audio.
-VAD_STEP_S = 0.08
 DEFAULT_CHUNK_MS = 80
 VAD_INACTIVITY_INDEX = 3
 # Languages Gradium accepts as a hint in json_config. It rejects a session set up without
@@ -115,18 +113,22 @@ class GradiumStreamingAdapter:
             "json_config": json.dumps(config),
         }
         stream = await client.stt_stream(setup, audio_gen)
-        step_index = 0
         # iter_text only surfaces transcripts; read the raw stream for VAD steps.
         async for msg in stream._stream:
             if msg.get("type") != "step":
                 continue
-            step_index += 1
-            event = _gradium_vad_event(msg, step_index=step_index)
+            event = _gradium_vad_event(msg)
             if event is not None:
                 events.append(event)
 
 
-def _gradium_vad_event(msg: dict[str, Any], *, step_index: int) -> dict[str, Any] | None:
+def _gradium_vad_event(msg: dict[str, Any]) -> dict[str, Any] | None:
+    audio_time = float(msg.get("total_duration_s") or 0.0)
+    # Warm-up frames are injected back to back by the server as soon as the session starts.
+    # These frames produce steps with "audio_time == 0" (since they represent silence _before_ the
+    # actual audio), so they should not produce a score.
+    if audio_time <= 0.0:
+        return None
     vad = msg.get("vad")
     if not isinstance(vad, (list, tuple)) or len(vad) <= VAD_INACTIVITY_INDEX:
         return None
@@ -136,10 +138,10 @@ def _gradium_vad_event(msg: dict[str, Any], *, step_index: int) -> dict[str, Any
     inactivity_prob = float(entry["inactivity_prob"])
     return {
         "event": "Step",
-        "timestamp": round(step_index * VAD_STEP_S, 6),
+        "timestamp": round(audio_time, 6),
         "p_eot": inactivity_prob,
         "inactivity_prob": inactivity_prob,
-        "step_index": step_index,
+        "step_index": int(msg["step_idx"]),
     }
 
 
