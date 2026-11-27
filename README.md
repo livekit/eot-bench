@@ -674,8 +674,11 @@ gradium`) and records the VAD inactivity probability
 (`msg["vad"][3]["inactivity_prob"]`) from each 80ms `step` message as a
 probability-valued `p_eot` score. The recommended end-of-turn condition is
 `inactivity_prob > 0.5`, which corresponds to the `0.5` threshold operating
-point in the harness metrics. It requires `GRADIUM_API_KEY` and targets
-`https://api.gradium.ai/api` by default.
+point in the harness metrics. Gradium rejects a session set up without a
+language, so the adapter sends the row language when Gradium accepts it as a
+hint, and `any` (the server detects the language) otherwise: id, tr and zh
+among the benchmark languages. It requires
+`GRADIUM_API_KEY` and targets `https://api.gradium.ai/api` by default.
 
 `BatonAdapter` scores each turn with one stateless `POST /v1/turn` to
 JoinIn AI Baton, a hosted end-of-turn model. It sends the 16kHz PCM16 audio

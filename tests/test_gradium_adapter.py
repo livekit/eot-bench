@@ -111,14 +111,24 @@ def test_gradium_collect_events_maps_steps_to_80ms_grid():
     events: list[dict] = []
     asyncio.run(adapter._collect_events(client, audio_gen(), events))
 
-    assert client.setup == {"model_name": "default", "input_format": "pcm"}
+    assert client.setup == {
+        "model_name": "default",
+        "input_format": "pcm",
+        "json_config": json.dumps({"language": "any"}),
+    }
     assert [event["timestamp"] for event in events] == [0.08, 0.16, 0.32]
     assert [event["p_eot"] for event in events] == [0.1, 0.2, 0.9]
     assert [event["step_index"] for event in events] == [1, 2, 4]
 
 
-@pytest.mark.parametrize("language", ["en", "fr", "pt", "es", "de"])
-def test_gradium_collect_events_sets_language_json_config(language):
+@pytest.mark.parametrize(
+    ("language", "hint"),
+    [("en", "en"), ("ja", "ja"), ("it", "it"), ("id", "any"), ("tr", "any"), ("zh", "any"), (None, "any"), ("xx", "any")],
+)
+def test_gradium_collect_events_always_sends_a_language(language, hint):
+    # Behavior: Gradium rejects a session set up without a language, so every setup
+    # carries one: the row's language when Gradium accepts it as a hint, `any` otherwise.
+    # Omitting it fails the whole language instead of scoring it.
     adapter = GradiumStreamingAdapter()
     client = _FakeGradiumClient([_step_msg(0.1)])
 
@@ -128,21 +138,7 @@ def test_gradium_collect_events_sets_language_json_config(language):
     events: list[dict] = []
     asyncio.run(adapter._collect_events(client, audio_gen(), events, language=language))
 
-    assert json.loads(client.setup["json_config"]) == {"language": language}
-
-
-@pytest.mark.parametrize("language", [None, "ja", "it"])
-def test_gradium_collect_events_omits_unsupported_language(language):
-    adapter = GradiumStreamingAdapter()
-    client = _FakeGradiumClient([_step_msg(0.1)])
-
-    async def audio_gen():
-        yield b"\x00\x00"
-
-    events: list[dict] = []
-    asyncio.run(adapter._collect_events(client, audio_gen(), events, language=language))
-
-    assert "json_config" not in client.setup
+    assert json.loads(client.setup["json_config"]) == {"language": hint}
 
 
 def test_gradium_events_feed_prediction_rows():

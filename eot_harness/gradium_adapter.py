@@ -22,9 +22,12 @@ SAMPLE_RATE = 24000
 VAD_STEP_S = 0.08
 DEFAULT_CHUNK_MS = 80
 VAD_INACTIVITY_INDEX = 3
-# Languages the Gradium ASR worker accepts in json_config; other benchmark
-# languages run without a language hint rather than erroring the session.
-GRADIUM_LANGUAGES = frozenset({"en", "fr", "de", "es", "pt"})
+# Languages Gradium accepts as a hint in json_config. It rejects a session set up without
+# a language (close code 1011), so any other language is sent as `any`: the server
+# detects the language.
+GRADIUM_LANGUAGES = frozenset(
+    {"ar", "de", "en", "es", "fi", "fr", "hi", "it", "ja", "ko", "nl", "no", "pl", "pt", "sv"}
+)
 
 
 class GradiumStreamingAdapter:
@@ -105,12 +108,12 @@ class GradiumStreamingAdapter:
     async def _collect_events(
         self, client, audio_gen, events: list[dict[str, Any]], *, language: str | None = None
     ) -> None:
+        config = {"language": language if language in GRADIUM_LANGUAGES else "any"}
         setup = {
             "model_name": self.model,
             "input_format": "pcm",
+            "json_config": json.dumps(config),
         }
-        if language in GRADIUM_LANGUAGES:
-            setup["json_config"] = json.dumps({"language": language})
         stream = await client.stt_stream(setup, audio_gen)
         step_index = 0
         # iter_text only surfaces transcripts; read the raw stream for VAD steps.
